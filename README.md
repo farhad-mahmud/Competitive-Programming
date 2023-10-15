@@ -1,1 +1,1 @@
-# cp_2023
+# Competitive Programming
