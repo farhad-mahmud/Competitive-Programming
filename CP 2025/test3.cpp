@@ -13,10 +13,31 @@ const ll MOD = 1e9 + 7;
 void solve ()
 {
         
-        string s ;
-        cin >> s ;
-        
-        cout << "hello " << s <<  endl;
+         ll n ,k ;   cin >> n >> k ;
+
+          ll steps = 0 ;
+
+          while(n>0){
+
+                   if(n % 2 ==0){
+
+                          n-= k;
+                   }
+                   else {
+                        if(k>=3){
+                              n-= k-1 ;
+                        }
+                        else {
+                             n-= 2 ;
+                        }
+                   }
+
+                   cout << "n " << n << endl;
+
+                   steps++ ;
+          }
+
+          cout << steps << endl;
                    
 }
 
