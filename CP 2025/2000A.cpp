@@ -26,7 +26,7 @@ void solve ()
                     cnt++ ;
           }
  
-         cout << a << " " << r << endl;
+     //    cout << a << " " << r << endl;
 
           if(a==10 && r==1 && cnt>1){
 
@@ -53,7 +53,7 @@ int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
 
-    ll t = 1 ;
+    int  t = 1 ;
     cin >> t;
     while (t--) {
 
