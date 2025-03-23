@@ -10,28 +10,43 @@ using namespace std;
 #define no cout << "NO\n";
 
 const ll MOD = 1e9 + 7;
-int ceildiv(ll a ,ll b ){
-     
-             return (a+ b -1) / b ;
-}
+
 void solve ()
 {
             ll n , k ;  cin >>  n >> k ;
 
-              ll steps = 0 ;
-              ll E = k -1 ;
+            int h_even = k-1 ;
+            int cnt = 0;
+            int rem = 0 ;
+             if(n % 2 ==1){
 
-             if(n % k ==0){
-           
-                steps = ceildiv(n,E) ;
-
+                  n -= k ;
+                  
+                  if(n % h_even ==0){
+                      
+                      cnt = (n/h_even) + 1 ; 
+                  }
+                  else 
+                  {
+                        rem = (n % h_even) ;
+                        cnt = (n / h_even) + 2 ;
+                  }
              }
              else {
 
-                     steps = 1 +  ceildiv(n-k,E) ;
+                   if(n % h_even ==0){
+
+                        cnt = (n/h_even) ;
+                   }
+                   else {
+
+                         rem = (n % h_even) ;
+                         cnt = (n / h_even) + 1 ;
+                   }
              }
-          
-         cout << steps << endl;
+
+            
+              cout << cnt << endl; 
 }
 
 
