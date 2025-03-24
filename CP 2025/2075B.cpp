@@ -28,7 +28,7 @@ void solve() {
             return ;
     } 
        
-        sort(a.begin(),a.end() , greater<ll>()) ;
+        sort(a.begin(),a.end() , greater<ll>()) ;   // sort decsending 
 
         for(int i=0;i<=k;i++){
 
