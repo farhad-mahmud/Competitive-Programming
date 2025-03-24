@@ -18,44 +18,32 @@ void solve ()
                 string s ;
                 cin >> s ;
                
-                 string rev_s = s ;
+                string rev_s = s ;
 
                 reverse(rev_s.begin(),rev_s.end()) ; 
 
-                if(s < rev_s) {
-                       yes ;
-                       return ;
+                if(k==0){
+
+                        if(s < rev_s){
+
+                               yes ;
+                        }
+                        else{
+
+                             no ;
+                        }
+                        return ;
                 }
 
-                for(int i=0;i<n;i++){
+                if(count(s.begin(),s.end(),s[0]) == n){
 
-                          if(s[i] >= rev_s[i] && k>0){
-
-
-                         for(int j=i+1 ;j<n;j++){
-
-                                if(s[j] < s[i]){
-
-                                     swap(s[i] ,s[j]) ;
-                                     k-- ;
-                                }
-                          }
-                      }
+                            no ;
+                            return ;
                 }
 
-                rev_s =  s; 
+            
 
-                reverse (rev_s.begin(),rev_s.end()) ;
-
-                if(s<rev_s){
-
-                       yes ;
-                }
-                else{
-
-                     no ;
-                }
-
+               yes ;
 
         
 }
