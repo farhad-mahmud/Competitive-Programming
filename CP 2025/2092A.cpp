@@ -8,28 +8,35 @@ using namespace std;
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
-
+#define  all(x)  x.begin(),x.end() ;
 const ll MOD = 1e9 + 7;
+
 void solve ()
 {
         
-         
-         int a , b ;  cin >> a >> b ;
+                     int n  ; cin >> n ;
 
-         int gcd = __gcd(a,b) ;
+                     vector <int > v(n) ;
 
-         cout << gcd << endl;
+                     for(int i=0;i<n;i++){
+
+                             cin >> v[i] ;
+                     }
+
                    
+                    sort(v.begin(),v.end()) ;
+
+       
+                    cout << v[n-1] - v[0] << endl; 
 }
 
 
 
 
 int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
+  FAST_IO
 
-    int t = 1 ;
+    int  t = 1 ;
     cin >> t;
     while (t--) {
 
@@ -41,3 +48,4 @@ cin.tie(0);
 
     return 0;
 }
+  
