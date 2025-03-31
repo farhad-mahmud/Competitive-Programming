@@ -1,43 +1,24 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
+#include <numeric> // for gcd
+#include <cmath>   // for abs
 using namespace std;
 
-#define ll long long
+int computeMaxPleasure() {
+    
 
-#define FAST_IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+              int a =  1 , b =2 ;
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
+              int gc = __gcd(a,b) ;
 
-const ll MOD = 1e9 + 7;
-void solve ()
-{
-        
-         
-         int a , b ;  cin >> a >> b ;
-
-         int gcd = __gcd(a,b) ;
-
-         cout << gcd << endl;
-                   
+              cout << gc << endl; 
 }
 
-
-
-
-int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
-
-    int t = 1 ;
+int main() {
+    int t;
     cin >> t;
     while (t--) {
-
-
-            solve() ;
-
-
+       
+         computeMaxPleasure() ;
     }
-
     return 0;
 }
