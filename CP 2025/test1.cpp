@@ -13,11 +13,8 @@ const ll MOD = 1e9 + 7;
 void solve ()
 {
         
-        int a ;
-        cin >> a ;
-        
-        cout << "hello" << a <<  endl;
-                   
+     
+                    cout << "hello" << endl; 
 }
 
 
