@@ -53,10 +53,11 @@ void solve ()
                 
           //      cout << even1 <<  odd1 << endl ;
 
-                 if(even1 == 0 && odd1 == 0)   
+                 if(even1 == 0 && odd1 == 0)    
                    {
 
                         yes ;
+                        
                    }
                  else if (odd1 > even0 || even1 > odd0) 
                     { 
