@@ -6,53 +6,47 @@ using namespace std;
 
 #define FAST_IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-#define yes cout << "YES\n";
+#define yes cout << "YES\n";7064727
 #define no cout << "NO\n";
 
 const int  MOD = 1e9 + 7;
 void solve ()
 {
             
-                    int n ;  cin >> n ;
+                   string n ;  cin >> n ;
+                    
+                   int cnt = n.size() ;
 
-                    int rem = 0 ;
+                   for(int i=n.size()-1 ; i>=0 ;i--){
 
-                    int cnt = 1 ;
 
-                    vector <int > v(n) ;
+                               if(n[i] == '0'){
 
-                    if(n >= 10){
-                   
-                               while(n >= 10){
-
-                                            rem = n % 10 ;
-
-                                            n = n/10 ;
-
-                                            cnt++ ;
+                                      cnt = i ;
                                }
+                               else {
 
-                    }
+                                      break ;
+                               }
+                   }
+
+                   int c = 0 ;
+
+                
+                   for(int i = 0;i<cnt ;i++){
+
+                           if (n[i] == '0'){
+
+                                 c++ ;
+                           } 
+                   }
+         
+             
+
+                   cout << n.size()-1-c << endl; 
 
 
-
-
-                     if(cnt ==1 ){
-
-                           cout << 0 << endl;
-                     }
-                     else if(cnt % 2 ==1 ){
-
-                            
-                              cout << cnt-1 << endl;
-                     } 
-
-                     else if (cnt % 2 ==0) {
-
-
-
-                                 cout << cnt/2 << endl; 
-                     }
+                    
                       
 }
 

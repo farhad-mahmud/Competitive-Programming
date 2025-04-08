@@ -1,24 +1,45 @@
-#include<bits/stdc++.h>
-#include <numeric> // for gcd
-#include <cmath>   // for abs
+#include <bits/stdc++.h>
 using namespace std;
 
-int computeMaxPleasure() {
-    
+using ll   =  long long;
+using ull  =  unsigned long long;
+using ld   =  long double;
 
-              int a =  1 , b =2 ;
+#define endl            '\n'
+#define all(x)          (x).begin(), (x).end()
+#define rall(x)         (x).rbegin(), (x).rend()
+#define point(x)        fixed << setprecision(x)
+#define FastIo          ios_base::sync_with_stdio(false); cin.tie(nullptr)
+#define sz(x)           (int)x.size()
 
-              int gc = __gcd(a,b) ;
+const ld pi = acos(-1);
 
-              cout << gc << endl; 
+void Plz_Ac() {
+  string s; cin >> s;
+  ll cnt = 0LL;
+  ll mx = LLONG_MIN;
+
+  ll cnt2 = 0 ;
+  for (int i = 0; i < sz(s); i++) {
+    if (s[i] == '0')cnt++;
+    if (s[i] != '0') {
+          ll temp = cnt + 1;
+      mx = max(mx, temp);
+    }
+  }
+
+   
+   
+  ll ans = sz(s) - mx;
+  cout << ans << endl;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-       
-         computeMaxPleasure() ;
-    }
-    return 0;
+  FastIo;
+  int test = 1;
+  cin >> test;
+  while (test--) {
+    Plz_Ac();
+  }
+  return 0;
 }
