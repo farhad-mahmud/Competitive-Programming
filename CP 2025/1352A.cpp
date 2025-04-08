@@ -22,6 +22,7 @@ void solve ()
      int w;
 
     if ((n + k - 1) % 2 == 1){
+        
      w = 1; 
 
     } 
@@ -29,10 +30,10 @@ void solve ()
         w = 2;
     }
 
- //   if (n - w * (k - 1) <= 0) {
-     //   cout << "NO\n";
-       // return;
-   // }
+    if (n - w * (k - 1) <= 0) {
+       cout << "NO\n";
+        return;
+    }
 
     cout << "YES\n";
 
