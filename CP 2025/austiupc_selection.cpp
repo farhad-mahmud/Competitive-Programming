@@ -46,11 +46,7 @@ void solve ()
 
 
                                      p.push_back({i+1,j+1}) ;
-                               
-
-
-                                   
-                                          
+                                                                        
                                           
                                  }
                            
@@ -63,9 +59,7 @@ void solve ()
             
                               int size = p.size()/2  ;
                   
-
-                
-        
+      
                                
                                  if(p.size() == 1){
                               

@@ -13,7 +13,16 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
         
-     
+       for(int i=0;i<7;i++){
+
+                             s0[i] = s0[i] + s[1] ;   
+
+                              // summing up strings , a+5 = a5
+
+                             s1[i] = s[0] + s1[i] ;  
+                                // summing up 1+d = d1 or 1D
+                    }
+
                 
 }
 
