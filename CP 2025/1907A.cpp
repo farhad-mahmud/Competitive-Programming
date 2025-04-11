@@ -27,20 +27,20 @@ void solve ()
 
                             if(s[0] != al[i]){
 
-                               s0.push_back(string{al[i]}); ; // pushing a,b,c,d
+                               s0.push_back(string{al[i]}); ; 
                             }
 
                             if(s[1] != num[i]){
 
-                                s1.push_back(string{num[i]}); ; // pushing 1,2,3
+                                s1.push_back(string{num[i]}); ;
                             }
                     }
 
 
                 
 
-         for (auto x : s0) cout << x << s[1] << '\n'; // same row
-    for (auto y : s1) cout << s[0] << y << '\n'; // same column
+         for (auto x : s0) cout << x << s[1] << '\n'; 
+        for (auto y : s1) cout << s[0] << y << '\n'; //
                 
 }
 
