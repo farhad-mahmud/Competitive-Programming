@@ -20,14 +20,19 @@ void solve ()
                
               int ans = 0;
 
-       for (int i = 0; i < n; ) {
+       for (int i = 0; i < n;) {
+
            if (s[i] == 'B') {
+            
                ans++;
-               i += k; // jump over next k cells
+
+               i += k;
+
               }
                else {
 
               i++;
+
                }
            }
 
