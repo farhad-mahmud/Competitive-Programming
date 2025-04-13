@@ -16,9 +16,9 @@ void solve ()
     int n, m;
     cin >> n >> m;
 
-    vector<int> a(n + 5); // +2 is just safe buffer
+    vector<int> a(n + 5); 
            a[0]=-1e12;
-         // ✅ prevent garbage comparison
+         
 
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
@@ -35,7 +35,7 @@ void solve ()
             continue;
         }
 
-        if (cur < a[i] && cur >= a[i - 1]) {
+        if (cur < a[i] && cur >= a[i - 1]) {  
             a[i] = cur;
             continue;
         }
