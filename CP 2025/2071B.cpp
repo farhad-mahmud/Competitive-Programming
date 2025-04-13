@@ -45,7 +45,7 @@ void solve() {
                     break;
                 }
             }
-            if (!a) break;
+            if (!a) break;  // if a is false 
         }
         sum1 += p[i];
     }
