@@ -25,7 +25,7 @@ void solve ()
 
            int extra = n % m ;
 
-           int  kmin = (m- extra) * (min_people * (min_people - 1)/2) + extra * (( min_people + 1) * min_people/2) ;
+           int  kmin = (m- extra) * (min_people * (min_people - 1)/2) +  extra * (( min_people + 1) * min_people/2) ;
 
 
             cout << kmin << " " << kmax << endl; 
