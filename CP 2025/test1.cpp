@@ -13,27 +13,7 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
         
-                          int m ; cin >> m ;
-
-                          vector < string > c (m) ;
-
-
-                  for(int i= 0 ; i<m ; i++) {
-
-                   
-                        cin >> c[i] ;
-
-
-               }
-             
-
-               for(int i= 0 ; i<m ; i++) {
-
-                   
-                       cout << c[i].size() << endl ; 
-
-
-               }
+                    
 
 }
 
@@ -46,7 +26,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         //cin >> t ;
+         cin >> t ;
 
          while(t--){
 
