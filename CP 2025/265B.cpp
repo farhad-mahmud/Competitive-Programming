@@ -30,8 +30,6 @@ void solve ()
 
                     if(n==1){
 
-                         
-
                             cout << h[0] + 1 << endl ;
 
                             return ;
@@ -52,9 +50,10 @@ void solve ()
                             if(h[i] <= h[i+1]){
 
                                    sec +=  1 + (h[i+1] - h[i]) + 1 ;
+
                             }
 
-                            else {
+                            else { 
 
 
                                      sec += (h[i] - h[i+1]) + 2 ;
