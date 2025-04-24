@@ -15,29 +15,28 @@ void solve() {
     int n, x;
     cin >> n >> x;
 
-    vector<int> p;
+    vector<int> p ;
 
- 
-    for (int i = x - 1; i >= 0; i--) {
-        p.push_back(i);
+    for(int i =0 ;i<n;i++){
 
-        
+            if(i != x){
+
+                    p.push_back(i) ;
+
+
+            }
+    }
+
+    if(x<n){
+
+         p.push_back(x) ;
+
     }
 
     
+    for(int i=0 ;i<p.size();i++){
 
-    for (int i = n - 1; i > x; i--) {
-        p.push_back(i);
-    }
-
- 
-    if (x < n) {
-        p.push_back(x);
-    }
-
- 
-    for (int i = 0; i < n; i++) {
-        cout << p[i] << " ";
+              cout << p[i] << " " ;
     }
 
     cout << '\n';
