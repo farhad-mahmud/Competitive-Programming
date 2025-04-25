@@ -13,8 +13,9 @@ int t[N * 4] ;
 void build(int node , int begin, int end)
 {
 
-	  if(begin == end){
-
+	  if(begin == end){ 
+         
+          t[node] = a[begin] ;                // base case er sum
 	  	       return ;
 	  }
 
@@ -26,25 +27,28 @@ void build(int node , int begin, int end)
 
        build(r,mid+1 , end) ;
 
+       t[node] = t[l] + t[r] ;                   // sum of current node ;
 
 
 
-}
+
+} 
 int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
      
-              int n ; cin >> n; 
-
+               int n = 5 ;
+              
               for(int i = 1; i<=n ;i++){
 
 
-              	         cin >> a[i] ;
+              	     a[i] = i ;
               }
          
           build(1,1,n) ;
 
-             
+
+         cout << t[1] << endl;   // t[1] has the sum of total array , cause its the first node;
               
 
 return 0 ;
