@@ -29,7 +29,28 @@ void build(int node , int begin, int end)
 
        t[node] = t[l] + t[r] ;                   // sum of current node ;
 
+}
 
+int query(int node ,int begin,int end ,int i , int j){
+        
+
+        if (begin >j or end <i){     // if our segment is out of current node
+
+                return 0 ;
+        }
+        if(begin >= i and end <= j){  // if our segment is completely inside
+                                      // current node 
+
+              return t[node] ;
+        }
+
+
+          int l = 2*node , r= 2*node + 1 ;    // left node and right node ;
+
+          int mid = (begin + end) / 2 ;
+
+          query(l,begin,mid,i,j) + query(r,mid+1,end,i,j) ;   // for if our segment
+                                                // intersects the current node
 
 
 } 
