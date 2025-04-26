@@ -49,11 +49,32 @@ int query(int node ,int begin,int end ,int i , int j){
 
           int mid = (begin + end) / 2 ;
 
-          query(l,begin,mid,i,j) + query(r,mid+1,end,i,j) ;   // for if our segment
+ return  query(l,begin,mid,i,j) + query(r,mid+1,end,i,j) ;   // for if our segment
                                                 // intersects the current node
 
 
 } 
+
+void upd(int node ,int begin, int end , int i , int x){   // update the value of a node
+
+          int l = 2*node , r= 2*node + 1 ;    // left node and right node ;
+
+          int mid = (begin + end) / 2 ;
+
+          if(begin > i or end <i) return ;
+
+          if(begin == end and begin == i){
+
+               t[node] = x ;
+
+               return  ;
+          }
+        
+          upd (l,begin,mid,i ,x);
+          upd(r,mid+1 , end ,i ,x);
+          t[node] = t[l] + t[r] ;
+
+}
 int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
@@ -64,13 +85,27 @@ cin.tie(0);
 
 
               	     a[i] = i ;
+                     
               }
+
+              // a = [1,2,3,4,5] ;
          
-          build(1,1,n) ;
+          build(1,1,n) ;      // 1,1,n is firt node; 
 
 
          cout << t[1] << endl;   // t[1] has the sum of total array , cause its the first node;
               
+     
+        cout << query(1,1,n,2,4) << endl;  
+
+        upd(1,1,n ,3, 10) ;
+
+        // a = [1,2,10,4,5] ;
+
+        cout << query(1,1,n,2,4) << endl; 
 
 return 0 ;
 }
+
+
+// its brute force but works in log(n) ;
