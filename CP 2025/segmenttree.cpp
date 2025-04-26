@@ -15,7 +15,7 @@ void build(int node , int begin, int end)
 
 	  if(begin == end){ 
          
-          t[node] = a[begin] ;                // base case er sum
+          t[node] = a[begin] ;           // sum of base case 
 	  	       return ;
 	  }
 
@@ -88,6 +88,13 @@ cin.tie(0);
                      
               }
 
+
+              for(auto i : a){
+
+
+                     cout << a[i] << endl; 
+              }
+
               // a = [1,2,3,4,5] ;
          
           build(1,1,n) ;      // 1,1,n is firt node; 
@@ -96,9 +103,9 @@ cin.tie(0);
          cout << t[1] << endl;   // t[1] has the sum of total array , cause its the first node;
               
      
-        cout << query(1,1,n,2,4) << endl;  
+        cout << query(1,1,n,0,2) << endl;  
 
-        upd(1,1,n ,3, 10) ;
+          upd(1,1,n ,3, 10) ;
 
         // a = [1,2,10,4,5] ;
 
