@@ -17,10 +17,9 @@ void solve() {
     for (int i = 0; i < 10; i++) {
         int need = 9 - i;
 
-
         for (int j = i + 1; j < 10; j++) {
-            if (s[j] < s[i] && (s[j] - '0') >= need) {
-                swap(s[i], s[j]);
+            if (s[j] < s[i] && (s[j] - '0') >= need) { // by s[j] - '0' , we convert string to int 
+                swap(s[i], s[j]);                      // cause need is a int
             }
         }
     }
