@@ -11,7 +11,7 @@ using namespace std;
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
-
+#define all(x)   (x.begin(),x.end()) ;
 const int  MOD = 1e9 + 7;
 void solve ()
 {
