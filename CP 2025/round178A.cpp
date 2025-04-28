@@ -16,7 +16,37 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
         
-                    
+                       int a , b , c ; cin >> a >> b >> c ;
+
+                       int sum = a+b+c ;
+
+                       if(sum % 3 != 0){
+
+
+                               no;
+                               return ;
+                       }
+                       else {
+
+
+                                 int f = sum / 3 ;
+
+                                 int extra = c - f;
+
+                                 if(f >= b && f >= a){
+  
+                                          yes;
+                                 }
+                                 else {
+
+                                        no ;
+                                 }
+
+                           
+                               
+                       }
+
+
 
 }
 
