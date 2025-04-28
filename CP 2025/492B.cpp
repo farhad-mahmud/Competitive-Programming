@@ -30,6 +30,7 @@ void solve ()
 
                                
                                d = max(d,(a[i+1] - a[i])/2) ;
+                               
 
 
                         }
