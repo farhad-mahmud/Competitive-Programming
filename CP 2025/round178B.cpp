@@ -22,27 +22,27 @@ void solve() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
+   
+    vector <int > pref_max(n) ;
 
     vector<int> p(n);
-     for (int i = 0; i < n; i++) {
-        int ma = 0;
-        int need = n - i; 
 
-        for (int j = 0; j < need; j++) {
-            ma = max(ma, v[j]);
-        }
+    pref_max[0] = v[0] ;
+     
+     for(int i=1;i<n;i++){
 
-        if (i == 0) {
+            pref_max[i] = max(v[i],pref_max[i-1]);
 
-            p[i] = ma; 
+     }
 
-        } else {
+     for(int i=0;i<n;i++){
 
-            p[i] = ma ;
+                   p[i] = pref_max[n-i-1] ;
+            
+     }
 
-        }
-    }
 
+      
     vector <int > q(n) ;
 
     
