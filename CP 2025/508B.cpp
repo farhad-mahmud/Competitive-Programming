@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define int  long long
+#define ll  long long
 
 #define gcd(x,y)      __gcd(x,y)
 #define lcm(x,y)      ((x/gcd(x,y)) * y)
@@ -13,50 +13,33 @@ using namespace std;
 #define no cout << "NO\n";
 #define all(x)   (x.begin(),x.end()) ;
 const int  MOD = 1e9 + 7;
-void solve ()
-{
-        
-                    int n ; cin >> n ; 
+void solve() {
+    int n;
+    cin >> n;
 
-                    int rem = 0 ;
-                    vector <int > v ;
+    string s = to_string(n); 
 
-                    while(n>1){
+    int la_digit = s.back() - '0';
+    int b_ind = -1; 
 
-                          rem = n % 10  ;
+    for (int i = 0; i < s.size() - 1; i++) {
+        if ((s[i] - '0') % 2 == 0) { 
+            if (s[i] < s.back()) {
+               
+                swap(s[i], s.back());
+                cout << s << endl;
+                return;
+            }
+            b_ind = i;
+        }
+    }
 
-                          v.push_back(rem) ;
-
-                          n /= 10 ;
-                    }
-
-                     
-                     int s = 0 ;
-
-                    for(int i= 0;i<v.size();i++){
-
-                          
-                               if(v[i] % 2 == 0){
-
-                                       
-                                      swap(v[0],v[i]) ;
-
-                                      cout << "s : "<<  s << " " << v[0] << endl; 
-
-                               }
-
-                    }
-
-
-                    reverse(v.begin(),v.end()) ;
-
-
-                   for(auto i : v){
-
-                              cout << i << " " ;
-                   }
-
-                   cout << endl; 
+    if (b_ind != -1) {
+        swap(s[b_ind], s.back());
+        cout << s << endl;
+    } else {
+        cout << -1 << endl;
+    }
 }
 
 
