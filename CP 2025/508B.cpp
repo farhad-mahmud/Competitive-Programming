@@ -14,10 +14,10 @@ using namespace std;
 #define all(x)   (x.begin(),x.end()) ;
 const int  MOD = 1e9 + 7;
 void solve() {
-    int n;
-    cin >> n;
+    
 
-    string s = to_string(n); 
+     string s; cin >> s; 
+     
 
     int la_digit = s.back() - '0';
     int b_ind = -1; 
