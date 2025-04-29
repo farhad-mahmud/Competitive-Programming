@@ -41,7 +41,13 @@ void solve() {
             
      }
 
+     
+       for(auto i : p){
 
+               cout << i << " " ;
+       }
+
+       cout << endl ;
       
     vector <int > q(n) ;
 
