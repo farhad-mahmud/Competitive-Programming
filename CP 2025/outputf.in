@@ -1,3 +1,7 @@
-5 1 6 2 4 3 
-2 1 
-1 2 3 4 
+5 2 1 4 6 3 
+idx :5 idx :4
+idx :5 idx :6
+idx :2 idx :1
+idx :2 idx :3
+idx :4 idx :3
+5
