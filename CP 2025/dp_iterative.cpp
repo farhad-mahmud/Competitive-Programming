@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int N= 55 ;
+const int N= 1e5 + 9 ;
 int f[N] ;
 
 int32_t main(){
