@@ -16,52 +16,7 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
         
-                     int n ; cin >> n;
-                     
-                     vector <int > a(n) ;
 
-                     for(int i=0;i<n;i++){
-
-                           cin >> a[i] ;
-                     }
-
-
-
-                          int flag = 0 ;
-
-                           int cnt = 0 ;
-                           int cnt2 = 0 ;
-
-                     for(int i=0;i<n-1;i++){
-
-                            if(a[i] < a[i+1]){
-                                
-                                   cnt++;
-                            }
-                            
-                            if(a[i] > a[i+1]){
-
-                                   cnt2++ ;
-                            }
-
-                     }
-
-                   //  cout << cnt << cnt2 << endl;
-                      
-                     if(a[0] == 0 || a.back() == 0 ){
-
-                                   if(cnt == 0 || cnt2 == 0){
-
-
-                                                 cout << 2 << endl;
-                                   }
-
-                     }
-                     else {
-
-
-                                     cout << 0 << endl;
-                     }
 
 }
 
