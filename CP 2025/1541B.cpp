@@ -35,10 +35,12 @@ void solve ()
               for(int j=a[i]-i;j<=n;j+=a[i])
               {
 
-               // cout << "j " << endl;  
+               
 
                 if(j>0)
                 {
+                   cout << "j" << " " << j << endl;
+
                     if(i>j&&a[i]*a[j]==i+j)
                     {
                         ans++;
