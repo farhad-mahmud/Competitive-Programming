@@ -36,7 +36,6 @@ void solve ()
               {
 
                
-
                 if(j>0)
                 {
                    cout << "j" << " " << j << endl;

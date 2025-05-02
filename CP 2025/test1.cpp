@@ -15,24 +15,12 @@ using namespace std;
 const int  MOD = 1e9 + 7;
 
 
-bool is_prime(int n){
 
-       for(int i= 2 ;i*i <=n;i++){
-
-             if(n % i == 0){
-
-                  return false ;
-             }
-       }
-
-       return true ;
-
-}
 void solve ()
 {
         
 
-             cout << is_prime(1) << endl; 
+         
 
 
 
@@ -48,7 +36,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-      //   cin >> t ;
+         cin >> t ;
 
          while(t--){
 
