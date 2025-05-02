@@ -28,6 +28,7 @@ void solve ()
       sort(v.rbegin(), v.rend());
 
           vector<int> idx;
+          
     vector<bool> used(n, false);  
 
     for (int j = 0; j < n; ++j) {
