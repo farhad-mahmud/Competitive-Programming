@@ -17,7 +17,61 @@ void solve ()
 {
         
 
-                  
+                       string s ; cin >> s;
+
+                       string t ; cin >> t ;
+                       
+
+                       int s_l = s.length() ;
+                       int t_l = t.length() ;
+
+                       cout << s_l << endl; 
+
+                       bool found = false ;
+
+                       int cnt = 0 ;
+
+                       for(int i=0;i<t_l;i++){
+
+                            for(int j= 0 ;j<s_l;j++){
+
+                                 if(b[i] == a[j]){
+
+                                       found = true ;
+                                          
+
+                                 }
+                            }
+
+                             if(!found){
+
+                                  break ;
+                             }
+
+                       }
+
+
+                     for(int i=0;i<s_l ;i++){
+                             int j = 0 ;
+
+                             if(b[j] == a[i]){
+
+                                  
+
+                                   while(b[j] == a[i]){
+
+
+                                            cnt++ ;
+
+                                            j++;
+                                            i++ ;
+                                   }
+
+                             }
+                           
+                            j++;
+
+                     }
 
 
 }
@@ -31,7 +85,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+        // cin >> t ;
 
          while(t--){
 
