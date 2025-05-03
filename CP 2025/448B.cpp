@@ -22,56 +22,67 @@ void solve ()
                        string t ; cin >> t ;
                        
 
-                       int s_l = s.length() ;
-                       int t_l = t.length() ;
+                       int s_l = s.size() ;
+                       int t_l = t.size() ;
 
-                       cout << s_l << endl; 
+                   
+                       int k = 0 ;
 
-                       bool found = false ;
+                       for(int i=0 ;i<s_l && k<t_l ;i++){
 
-                       int cnt = 0 ;
+                                 if(s[i] == t[k]){
 
-                       for(int i=0;i<t_l;i++){
-
-                            for(int j= 0 ;j<s_l;j++){
-
-                                 if(b[i] == a[j]){
-
-                                       found = true ;
-                                          
-
+                                      k++;
                                  }
-                            }
+                       }  
 
-                             if(!found){
+                   
+                       if(k == t_l){
 
-                                  break ;
-                             }
-
+                            cout << "automaton" << endl;
+                            return ;
                        }
+                       
+
+                      vector<int > cnt(26) ;
+
+                      for(int i= 0;i<s_l;i++){
+
+                              cnt[s[i] - 'a']++ ; // count character in string s
+                      }
 
 
-                     for(int i=0;i<s_l ;i++){
-                             int j = 0 ;
+                      for(int i = 0;i<t_l ;i++){
 
-                             if(b[j] == a[i]){
-
-                                  
-
-                                   while(b[j] == a[i]){
+                              cnt[t[i] - 'a']-- ; // substract characters found in
+                                                  // t ;
+                      }
 
 
-                                            cnt++ ;
+                      bool ok = true ;
 
-                                            j++;
-                                            i++ ;
-                                   }
+                      for(int i=0;i<26 ;i++){
 
+                             ok &= (cnt[i] == 0);
+
+                             if(cnt[i] <0){
+
+                                   cout << "need tree" << endl;
+                                   return ;
                              }
-                           
-                            j++;
+                      }
 
+
+                     if(ok){
+
+                         cout << "array" << endl;
                      }
+                     else{
+
+                           cout << "both" <<endl;
+                     }
+
+                          
 
 
 }
