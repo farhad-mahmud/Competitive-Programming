@@ -13,17 +13,26 @@ using namespace std;
 #define all(x)   (x.begin(),x.end()) ;
 const int  MOD = 1e9 + 7;
 
-
+#define sq(x)        ((x)*(x))
 
 void solve ()
 {
         
 
          
+               int  r , x, y , xf, yf ;
+
+               cin >> r >> x >> y >> xf >> yf  ;
 
 
+               long double dis = sqrt(sq(xf-x) + sq(yf - y)) ; 
 
+               long double rotations = ceil(dis/(2.0*r)) ;
 
+              
+              cout << rotations << endl; 
+
+          
 }
 
 
@@ -35,7 +44,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+      //   cin >> t ;
 
          while(t--){
 

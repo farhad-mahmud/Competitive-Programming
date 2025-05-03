@@ -17,12 +17,15 @@ const int  MOD = 1e9 + 7;
 
 const int N = 1e5 + 9 ; 
 
+
+
 void solve ()
 {
         
           int n ; cin >> n;
             
           vector<int > a(n) ;
+          vector<int > pref_sum(n) ;
 
           for(int i=1 ;i<=n;i++){
 
@@ -32,7 +35,15 @@ void solve ()
           int q ; cin >> q; 
 
 
-         // cout << "h" << endl; 
+         // cout << "h" << endl;
+
+                  pref_sum[0] = 0 ;
+
+                for(int i=1 ;i<=n;i++){ 
+
+                   pref_sum[i] = pref_sum[i-1] + a[i] ;
+
+                 } 
           
           while(q--){
 
@@ -40,18 +51,14 @@ void solve ()
 
                    int sum = 0 ;
 
-                   for(int i=l ; i<= r ;i++){
+                   sum = pref_sum[r] - pref_sum[l-1] ;
 
-                       sum += a[i] ;
-
-                   }
 
                    cout << sum << endl; 
           }
 
          
-         // tc (q * n) ;
-          // if q = 10^5 , n = 10^5 , then tc = (q*n) = (10^5* 10^5) == mara khawa ;
+          // tc is now O(n+q) now , from before (n*q) ;
 
 }
 
