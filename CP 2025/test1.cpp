@@ -27,6 +27,16 @@ void solve ()
 }
 
 
+/* Hey you should check this out
+    * int overflow, array bounds
+    * reset global array and variable
+    * look for special cases (n=1?)
+    * do something instead of nothing and stay organized
+    * bruteforce to find pattern
+    * DON'T GET STUCK ON ONE APPROACH
+    * Think the problem backwards
+    * In practice time don't see failing test case
+*/
 
 
 int32_t main() {

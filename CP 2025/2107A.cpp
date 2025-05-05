@@ -10,7 +10,7 @@ using namespace std;
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
-#define all(x)   (x.begin(),x.end()) ;
+#define all(x)   x.begin(),x.end()  
 const int  MOD = 1e9 + 7;
 
 void solve ()
@@ -25,11 +25,43 @@ void solve ()
                              cin >> a[i] ;
                      }
 
-                     
+                     int mx = *max_element(all(a)) ;
+                      
+                     int g =  0;
 
+                     for(int i=0;i<n;i++){
+
+
+                           g = __gcd(g,a[i]) ;
+                     }
+
+                     if(g == mx){
+
+                           cout << "No" << endl;
+
+                           return ;
+                     }
+
+                     cout << "Yes" << endl;
+
+
+                     for(int i=0;i<n;i++){
+
+                           if(a[i] == mx){
+
+                                cout << "1 " ;
+                           }
+                           else {
+
+                                 cout << "2 " ;
+                           }
+                     }
+
+                  
+                   cout << endl; 
+                              
 
 }
-
 
 
 
