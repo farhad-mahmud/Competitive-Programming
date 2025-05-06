@@ -13,16 +13,47 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 const int  MOD = 1e9 + 7;
 
-
-
 void solve ()
 {
         
 
-         
+              int n , k ; cin >> n >> k ;   
+
+              vector<int > a(n);
+
+              for(int i=0;i<n;i++){
+
+                    cin >> a[i] ;
+              }
+
+          sort(all(a));
 
 
 
+          if(a.back() - a[0] > k+1 || (a.back() - a[0] > k && a[n-1] == a[n-2]))
+          {
+
+                    cout << "Jerry" << endl;
+
+                    return ;
+          }
+
+          int cnt = 0 ; int sum = 0 ;
+
+           for(int i=0;i<n;i++){
+
+                  sum += a[i];
+
+           }
+
+            if(sum & 1){
+
+                      cout << "Tom" << endl;
+            }
+            else {
+
+                        cout << "Jerry" << endl;
+            }
 
 }
 
