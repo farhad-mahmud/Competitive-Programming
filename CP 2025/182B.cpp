@@ -10,6 +10,7 @@ using namespace std;
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
+#define allr(x)  x.rbegin(),x.rend() 
 #define all(x)   x.begin(),x.end() 
 const int  MOD = 1e9 + 7;
 
@@ -32,12 +33,17 @@ void solve ()
 
                int turn = 0 ;
 
-               for(int i=1;i<=n;i++){
-           
+              
+               for(int i=1;i<n;i++){
 
+                    
                      turn += (d - (a[i-1] + 1)) + 1 ;
 
-                     cout << "dbug :" << a[i-1] << endl ;
+                   
+                   // cout << "dbug a[i-1] :" << a[i-1] << endl ;
+                    // cout << "dbug a[i] :" << a[i] << endl; 
+
+                       
                      
                }
 
