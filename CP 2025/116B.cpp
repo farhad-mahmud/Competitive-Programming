@@ -35,7 +35,7 @@ void solve ()
 
                   int cnt= 0;
 
-                  cout << "h" << endl; 
+                 // cout << "h" << endl; 
 
 
                   int dx[] = {-1 , 1 , 0 , 0} ;
@@ -48,7 +48,7 @@ void solve ()
 
                             if(grid[i][j] == 'P'){
                                 
-                              for(int d = 0;i<4 ;d++){
+                              for(int d = 0;d<4 ;d++){
 
                                     int ni = i + dx[d] ;
 
