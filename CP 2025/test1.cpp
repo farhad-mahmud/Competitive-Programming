@@ -11,6 +11,9 @@ using namespace std;
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
 #define all(x)   x.begin(),x.end() 
+#define allr(x)  x.rbegin() ,x.rend()
+#define vi       vector<int > 
+#define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
 
 
