@@ -52,12 +52,8 @@ void solve ()
            int team = min(a.size(),min(b.size(),c.size())) ;
 
            
-            if(team == 0){
-
-                 cout << 0 << endl;
-
-                 return ;
-            }
+          
+            cout << team << endl; 
 
 
            for(int i=0;i<team ;i++){
