@@ -9,6 +9,17 @@ using namespace std;
 
 #define FAST_IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
+/*
+ll flipping_bits (ll x)
+{
+    for(ll i=0; i<32; i++)
+    {
+        x ^= ( 1LL << i );
+    }
+    return x;
+}
+*/
+
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
 #define all(x)   (x.begin(),x.end()) ;
