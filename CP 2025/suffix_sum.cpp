@@ -13,7 +13,7 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
 #define vi       vector<int > 
-#define  forr    for(auto &i : x) s
+#define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
 
 
@@ -21,10 +21,28 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
          
-                int x ; cin >> x;
+               int n ;cin >> n;
 
+               vector<int > a(n+1) ;
 
-                  cout << 1 << " " <<  x-1 << endl;
+               for(int i= 1; i<=n ;i++){ 
+                  cin >>a[i] ;
+               }
+               vector<int > suffix_sum(n+2) ; 
+               suffix_sum[n+1] = 0 ;
+               for(int i = n;i>=1;i--){      // precalculated suffix_sum
+                   
+                    suffix_sum[i] = suffix_sum[i+1] + a[i] ;
+               }
+               
+               int ans = 0 ;
+               for(int i=1 ;i<=n;i++){
+                      int sum = 0;
+                     sum = a[i]* suffix_sum[i+1] ;
+                     ans += sum ;
+               }
+
+              cout << ans << endl; 
 
 }
 

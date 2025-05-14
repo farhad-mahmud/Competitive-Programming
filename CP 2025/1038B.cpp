@@ -13,7 +13,7 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
 #define vi       vector<int > 
-#define  forr    for(auto &i : x) s
+#define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
 
 
@@ -21,10 +21,11 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
          
-                int x ; cin >> x;
+                      int n ; cin >> n;
+
+                      
 
 
-                  cout << 1 << " " <<  x-1 << endl;
 
 }
 
@@ -40,7 +41,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         cin >> t ;
 
          while(t--){
 

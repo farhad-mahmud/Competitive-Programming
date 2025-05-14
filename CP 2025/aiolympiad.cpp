@@ -13,19 +13,37 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
 #define vi       vector<int > 
-#define  forr    for(auto &i : x) s
-const int  MOD = 1e9 + 7;
+#define  forr    for(auto &i : x) 
+const int  N = 1e5 + 7;
+
+int n, a[N];
 
 
 
 void solve ()
 {
          
-                int x ; cin >> x;
 
+          cin >> n;
 
-                  cout << 1 << " " <<  x-1 << endl;
+         for(int i=0;i<n;i++){
 
+               cin >> a[i] ;
+         }
+         int ans = INT_MAX;
+         for(int i = 0; i < (1<<n); i++) {
+            int sumA = 0, sumB = 0;
+            for(int j = 0; j < n; j++) {
+               if(i & (1<<j)) {
+                  sumB += a[j];
+               } else {
+                  sumA += a[j];
+               }
+            }
+            ans = min (ans, abs(sumB - sumA));
+
+         }
+        cout<<ans<<'\n';
 }
 
 
@@ -40,7 +58,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         // cin >> t ;
 
          while(t--){
 

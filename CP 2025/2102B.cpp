@@ -1,66 +1,31 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-#define int  long long
+void solve() {
+    int n;
+    cin >> n;
+    vector<long long> a(n);
+    for (int i = 0; i < n; ++i) cin >> a[i];
 
-#define gcd(x,y)      __gcd(x,y)
-#define lcm(x,y)      ((x/gcd(x,y)) * y)
+    long long m = std::llabs(a[0]);      
+    int need = (n - 1) / 2;              
+    int cntBig = 0;                     
 
+    for (int i = 1; i < n; ++i)
+        if (std::llabs(a[i]) > m) ++cntBig;
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-#define all(x)   x.begin(),x.end() 
-#define allr(x)  x.rbegin() ,x.rend()
-#define vi       vector<int > 
-#define  forr    for(auto &i : x) 
-const int  MOD = 1e9 + 7;
-
-
-
-void solve ()
-{
-         
-                int n ; cin >> n ;
-
-                vector<int > a(n+1) ;
-
-                for(int i=1;i<=n;i++){
-
-                       cin >> a[i] ;
-                }
-
-                // we have to determine the [m/2] th smallest elemnet of array b of
-                // length m ;
-
-
-                
-     
-
-
+    if (cntBig >= need)
+        cout << "YES\n";
+    else
+        cout << "NO\n";
 }
 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-
- // remember this 
-
-// optimise loop uses via implementing number theory / algorithm
-// optimise array elements calculation via number theory / algorithm
-
-int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
-
-         int t = 1 ;
-
-         cin >> t ;
-
-         while(t--){
-
-            solve() ;
-        
-        }
-
-
+    int t;
+    cin >> t;
+    while (t--) solve();
     return 0;
 }
