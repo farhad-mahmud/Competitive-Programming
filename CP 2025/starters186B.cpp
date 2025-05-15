@@ -18,13 +18,24 @@ const int  MOD = 1e9 + 7;
 
 
 
-void solve ()
-{
-         
+void solve() {
+    int n; cin >> n;
+
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i] >> b[i];
+    }
+
+    int cost = 1e9;          
+    for (int i = 0; i < n; ++i) {
+        if (a[i] >= 7) {         
+            cost = min(cost, b[i]);
+        }
+    }
+
+    cout << (cost == 1e9 ? -1 : cost) << '\n';
 
 }
-
-
  // remember this 
 
 // optimise loop uses via implementing number theory / algorithm

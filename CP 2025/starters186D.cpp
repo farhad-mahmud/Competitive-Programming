@@ -20,7 +20,32 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-         
+            int n , m , a , b ;
+            cin >> n >> m >> a >> b;
+
+            int up = m - (a*n) ;
+
+            int dw = (b-a) ;
+
+            int y = up/ dw;
+
+            int x = n - y ;
+
+            if(up % dw == 1){
+
+                    no;
+                    return ;
+            }
+
+            if(a*x + b*y == m && x + y == n && x>=0 && y >=0){
+
+                   yes ;
+            }
+
+            else {
+
+                   no ;
+            }
 
 }
 

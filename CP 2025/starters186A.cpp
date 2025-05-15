@@ -15,13 +15,22 @@ using namespace std;
 #define vi       vector<int > 
 #define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
-
-
+const int N = 1e9 + 7 ;
 
 void solve ()
 {
-         
+             int a , b ; cin >> a >> b;
+             
+             if(a > b) {
+                  
+                  cout << 0 << endl;
+                  return ;
+             }
 
+
+             cout << abs(a-b) + 1 << endl;
+              
+              
 }
 
 
@@ -36,7 +45,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 

@@ -17,16 +17,31 @@ using namespace std;
 const int  MOD = 1e9 + 7;
 
 
-
 void solve ()
 {
          
                       int n ; cin >> n;
 
-                      
+                      int sum = n*(n+1)/2 ;
 
+                      for(int i= 2 ;i<=n && i*i<= sum ;i++){
 
-
+                               if(sum % i == 0){   
+                                 cout << "Yes" << endl;
+                                  cout << 1 << " " << i <<  endl ;
+                                  cout << n-1  << " " ;
+                               
+                               for(int j =1 ;j<=n ;j++){
+                                    if(j != i){
+                                       cout << j << " " ;
+                                    }
+                                   
+                               }
+                                return ;
+                             }
+                      }
+              
+                cout << "No" << endl;
 }
 
 
@@ -41,7 +56,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+        // cin >> t ;
 
          while(t--){
 
