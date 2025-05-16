@@ -28,7 +28,7 @@ const int  MOD = 1e9 + 7;
 solve ()
 {
         
-          int n ;cin >> n ;
+          int n ; cin >> n;
            
            vector <int > a(n) ;    
                
@@ -39,21 +39,25 @@ solve ()
 
            int max_sub_sum = -1e18 ;
 
-           int  max_sub_sum_so_far_ending_at_i = -1e18;
+           int  max_sum_sum_ending_at_i = -1e18;
+
+           int cnt = 0 ;
 
 
            for(int l = 0 ;l<n;l++){
 
                    
-            max_sub_sum_so_far_ending_at_i = max(a[l],a[l] + max_sub_sum_so_far_ending_at_i);
+            max_sum_sum_ending_at_i = max(a[l],a[l] + max_sum_sum_ending_at_i);
 
-            max_sub_sum = max(max_sub_sum, max_sub_sum_so_far_ending_at_i) ;
+            max_sub_sum = max(max_sub_sum, max_sum_sum_ending_at_i) ;
 
+          
 
            }
-            
-              
-               cout << max_sub_sum << endl; 
+
+             cout<< max_sub_sum << endl;
+                      
+                    
 }
 
 
