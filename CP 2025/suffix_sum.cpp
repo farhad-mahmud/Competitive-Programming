@@ -28,8 +28,9 @@ void solve ()
                for(int i= 1; i<=n ;i++){ 
                   cin >>a[i] ;
                }
-               vector<int > suffix_sum(n+2) ; 
-               suffix_sum[n+1] = 0 ;
+               vector<int > suffix_sum(n+2) ;  
+               suffix_sum[n+1] = 0 ;    // cause 1 based index ; 
+
                for(int i = n;i>=1;i--){      // precalculated suffix_sum
                    
                     suffix_sum[i] = suffix_sum[i+1] + a[i] ;
