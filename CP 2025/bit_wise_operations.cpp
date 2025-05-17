@@ -17,20 +17,21 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-              //int a = 1 , b = 5 ;
-
-             // int x = a^b ;
-
-              //cout << x << endl;
-
                int y =3 ;
-
+             //left shift
               cout << (y << 3) << endl; 
 
               //one left shift = 3*2 = 6 
               // 2 left shift = 6*2  = 12
-              
 
+
+           // for finding 2^20 ;
+
+              int f = 1 << 20 ;
+
+              cout << f << endl; 
+               
+             //right shift 
 
               
 
