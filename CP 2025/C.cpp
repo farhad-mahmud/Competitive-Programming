@@ -19,11 +19,24 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-         
+                    int n ;cin >> n;
 
+                    vector<int > a(n);
 
+                    for(int i=0;i<n;i++){
 
+                           cin >> a[i] ;
+                    }
+                  
+                     vector<int > v(n+1)
 
+                    for(int i =1;i<=n;i++){
+
+                              v[0]++;
+
+                              if(v[i-1] > v[i] && v[i-1] >)
+
+                    }
 
 
 }

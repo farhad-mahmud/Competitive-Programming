@@ -20,10 +20,37 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
          
+       int n , m  ; cin >> n >> m ;
+
+       vector<int > h(n) ;
+
+       for(int i=0;i<n;i++){
+
+              cin >> h[i] ;
+       }
+
+          
+          int left = 0 ;
+          int sum = 0 ;
+
+          int cnt = 0 ;
+
+       for(int i=0;i<n;i++){ 
+
+            left = (m - sum) ;
+
+             sum+= h[i] ;
+
+              if(left >= h[i]){
 
 
+                   cnt++ ;
+              }
+
+       }
 
 
+      cout << cnt << endl; 
 
 
 }
@@ -40,7 +67,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 
