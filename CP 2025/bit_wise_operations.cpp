@@ -33,7 +33,16 @@ void solve ()
                
              //right shift 
 
-              
+              cout << (10 >> 1) << endl;
+
+             // one right shift = 10/2 (floor value);
+              //20 , 2 right shift = 20/2 , 10/2  = 5 , 
+
+           // 1LL is for typecast;
+
+              // bit on/off 
+
+            
 
 }
 
