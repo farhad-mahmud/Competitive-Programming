@@ -18,12 +18,8 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-          
-  
 
-
-
-
+         
 }
 
 
@@ -38,7 +34,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+       //  cin >> t ;
 
          while(t--){
 

@@ -7,8 +7,6 @@ int main()
      cin >> n;
      int k ;
 
-     for(int i=0;i<n;i++)
-     {
-
-     }
+    
+      cout << "h" << endl; 
 }

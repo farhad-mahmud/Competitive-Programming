@@ -35,6 +35,8 @@ void solve ()
             for(int i=1;i<=n;i++){
 
                    ans += 2* n * a[i] ;  // boom O(logn) ;
+
+                 //  ans *= pow(a[i], 2*n)   , for product of all pair product
             }
 
               cout << ans << endl;
