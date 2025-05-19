@@ -16,14 +16,25 @@ using namespace std;
 const int  MOD = 1e9 + 7;
 
 
-void solve ()
+
+void solve (int k)
 {
-          
-  
+                
+                double r ; cin >> r ;
+
+                double pi = 2* acos(0.0) ;
+
+                double s = (r+r) ;
 
 
 
+                double sq = (s*s) ;
 
+                double ans = abs((pi*(r*r)) -sq) ;
+
+            
+
+               cout << "Case " << k << ": " << fixed << setprecision(2) << ans << endl;
 }
 
 
@@ -39,10 +50,13 @@ cin.tie(0);
          int t = 1 ;
 
          cin >> t ;
-
+         
+         int k = 0;
          while(t--){
 
-            solve() ;
+                 k++ ;
+             
+              solve(k) ;
         
         }
 
