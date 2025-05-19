@@ -14,6 +14,46 @@ using namespace std;
 #define vi       vector<int > 
 #define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
+int check_kth_bit(int x ,int k) {
+
+       return(x >> k) & 1 ;
+}
+
+int print_on_bits(int x){
+
+      for(int k=0;k<32 ;k++){ 
+
+             if(check_kth_bit(x,k)){
+
+                  cout << k << ' ' ;  // print setbit/onbit ;
+             }
+
+       }
+}
+
+int print_off_bits(int x){
+
+      for(int k=0;k<32 ;k++){ 
+
+             if(!check_kth_bit(x,k)){
+
+                  cout << k << ' ' ;  // print setbit/onbit ;
+             }
+
+       }
+}
+
+bool is_even(int x){
+
+      if(x & 1){  // just check if last bit is on/off
+           
+            return false ;
+      }
+      else {
+
+            return true ;
+      }
+}
 
 void solve ()
 {
@@ -38,11 +78,29 @@ void solve ()
              // one right shift = 10/2 (floor value);
               //20 , 2 right shift = 20/2 , 10/2  = 5 , 
 
-           // 1LL is for typecast;
+           // 1LL is for typecast;  
 
-              // bit on/off 
+              // bit on/off  
+              // check if 3rd bit of a number is on or off
+           
+         cout << check_kth_bit(11,2) << endl;
 
-            
+         // print the set bits of a number ;
+         // out of 32 bits 
+
+         print_on_bits(11) ; 
+
+         // print offbits 
+         
+         cout << endl; 
+
+         print_off_bits(11) ;
+
+         cout << endl; 
+
+         // even /odd
+         
+         cout << is_even(10) << endl;
 
 }
 
