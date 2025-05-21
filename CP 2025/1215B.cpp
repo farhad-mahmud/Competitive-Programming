@@ -34,8 +34,8 @@ void solve ()
 
                     int pref_neg = 0 ;
 
-                    int even = 1;
-                    int odd = 0 ;
+                    int cnt_even = 1;
+                    int cnt_odd = 0 ;
 
                     for(int i=1;i<=n;i++){
 
@@ -44,33 +44,26 @@ void solve ()
                           }
 
                           if(pref_neg % 2 == 0){
-                             //even numbers of negatives so far - positive prefix 
+                           
 
-                                 total_pos += even ;
-                                 total_neg += odd ;
-
-                                 even++ ;
+                                 total_pos += cnt_even ; 
+                                 total_neg += cnt_odd ;   
+ 
+                                 cnt_even++ ;
                           }
                           else {
-                                // odd numbers of negatives so far- negative prefix 
-                                total_pos += odd ;
-                                total_neg += even ;
-
-                                odd++ ;
+                               
+                                total_pos += cnt_odd ;
+                                total_neg += cnt_even ; 
+                                cnt_odd++ ;
 
                           }
                     }
-
-
                     cout << total_neg <<  ' ' << total_pos << endl; 
 
 }
 
 
- // remember this 
-
-// optimise loop uses via implementing number theory / algorithm
-// optimise array elements calculation via number theory / algorithm
 
 int32_t main() {
 ios_base:: sync_with_stdio(0);
