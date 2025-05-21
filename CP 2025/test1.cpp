@@ -23,11 +23,6 @@ void solve ()
 }
 
 
- // remember this 
-
-// optimise loop uses via implementing number theory / algorithm
-// optimise array elements calculation via number theory / algorithm
-
 int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
