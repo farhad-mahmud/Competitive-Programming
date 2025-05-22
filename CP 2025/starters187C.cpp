@@ -21,14 +21,7 @@ void solve ()
 
                     int x , y , k ; cin >> x >> y >> k ;
 
-                    int total_stone = x+y ;
-
-                    //for alices first turn ;
-
-                    int nxt_need = 0 ;
-
-
-
+                   
                      int mx = max(x,y ) ;
 
                      int need = 0;
