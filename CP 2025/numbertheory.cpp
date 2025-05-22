@@ -16,33 +16,28 @@ using namespace std;
 const int  MOD = 1e9 + 7;
 
 
-void solve ()
-{
-             int n ; cin >> n;
+void solve (int k )
+{      
 
-             int digit_sum = 0;
+            int n , d ; cin >> n >> d ;
 
-             for(int i=1 ;i<=n ;i++){
+              int cur = 0 ,len = 0 ;
 
-                  int x ; cin >> x ;
+             while(1){
 
-                  while(x){
+   // so first assume d = 3 , then in this while loop we are just adding 33 , then 333 , then 
+               // 3333 , and seeing if any number is divisible by n , if it is , we break ;
+             
+                 cur = (cur * 10 + d ) % n ;
+                  len++ ;
+                 if(cur == 0) {
 
-                         digit_sum += x % 10 ;   // extracting digit and summing them 
+                         break ;
+                 }
 
-                         x /= 10 ;
-                  }
              }
 
-             if(digit_sum % 3 == 0){
-
-                    cout << "Yes" << endl;
-             }
-             else {
-
-                      cout << "No" << endl; 
-             }
-            
+             cout << "case " << k << ": " << len <<  endl ;
 }
 
 
@@ -54,9 +49,13 @@ cin.tie(0);
 
          cin >> t ;
 
+         int k = 0 ;
+
          while(t--){
 
-            solve() ;
+            k++ ;
+
+            solve(k) ;
         
         }
 
