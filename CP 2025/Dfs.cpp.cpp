@@ -20,7 +20,10 @@ const int  MOD = 1e9 + 7;
 const int N = 105 ;
 
 int g[N][N] ;
-// storing graph 
+// storing graph adjecency list ;
+
+vector<int > g[N] ;
+
 void solve ()
 {
                 int n , m ; cin >> n >> m ;  // n node , m edge ;
@@ -30,19 +33,22 @@ void solve ()
 
                 	   int u, v ; cin >> u >> v ;
 
-                	   g[u][v] = 1 ;      // cause undirected graph [u][v] = [v][u] ;
-                	   g[v][u] = 1 ;
+                	   g[u].push_back(v) ;
+                	   g[v].push_back(u) ;
+
+                	  // g[u][v] = 1 ;      // cause undirected graph [u][v] = [v][u] ;
+                	  // g[v][u] = 1 ;
 
                 }
 
  
-              if(g[4][2]){      // checing the edges between vertexes ;
+             // if(g[4][2]){      // checing the edges between vertexes ;
 
-              	     yes ;
-              }
-              else {
-              	    no ;
-              }
+              //	     yes ;
+           //   }
+            //  else {
+            //  	    no ;
+            //  }
             
 }
 

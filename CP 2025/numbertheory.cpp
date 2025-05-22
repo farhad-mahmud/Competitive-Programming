@@ -37,7 +37,7 @@ void solve (int k )
 
              }
 
-             cout << "case " << k << ": " << len <<  endl ;
+             cout << "Case " << k << ": " << len <<  endl ;
 }
 
 
