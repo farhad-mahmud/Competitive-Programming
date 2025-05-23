@@ -13,7 +13,7 @@ using namespace std;
 #define allr(x)  x.rbegin() ,x.rend()
 #define vi       vector<int > 
 #define  forr    for(auto &i : x) 
-const int  MOD = 1e9 + 7;
+const int  MOD = 1e9 + 7; 
 
 // to reverse palindrome ;
 void solve ()
