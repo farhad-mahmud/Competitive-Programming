@@ -18,7 +18,68 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
+                 int n ; cin >> n ;
+
+                 vector<int > a(n) ;
+
+                 int c = 0;
+
+                 for(int i=0;i<n;i++){
+
+                        cin >> a[i] ;
+
+                        if(a[i] < 0){
+
+                              c++ ;
+                        }
+                 }
+       
+
+               vector<int > u = a ;
+
+               sort(u.begin(),u.end()) ;
+
+               if(a == u){
+
+                     yes ;
+                     return ;
+               }
+ 
+                   
+
+                   int cnt = 0 ;
+
+               for(int i=0 ;i<n;i++){
+
+                      if(a[i] < 0 && c-1 <i){
+ 
+                            a[i] = a[i]*(-1) ;
+                      }
+
+                      if(a[i] > 0 && c-1 >=i){
+
+                              a[i] = a[i]*(-1) ;
+                      }
+               }
+
+
+               vector<int > h = a ;
+
+
+               sort(h.begin(),h.end()) ;
+
+               if(h == a){
+
+                     yes ;
+               }
+               else {
+                     no ;
+               }
+
             
+
+
+
 }
 
 

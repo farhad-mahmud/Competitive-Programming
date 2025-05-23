@@ -51,7 +51,8 @@ void solve ()
 
                             if(pol >= 1){
 
-                                  pol-- ;
+                                  pol-- ; // if even 1 police officer is available
+                                          // we cant increment any crime++ ;
                             }
                             else if(pol == 0){
 
