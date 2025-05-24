@@ -16,7 +16,7 @@ const int  N = 1e6 + 1;
 
 void solve() {
            
-          
+             cout <<"h" << endl; 
 
 }
 

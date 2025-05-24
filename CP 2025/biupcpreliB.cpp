@@ -18,15 +18,29 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
                   
-                  int n =  10 ;
+    int n;
 
-               
-                 for(int i=1 ;i<=n;i= i*2){
+    cin >> n;
+    vector<ll> A(n);
+    for (int i = 0; i < n; ++i)
+        cin >> A[i];
 
-                     
-                       cout << i << endl; 
+    vector<ll> dp(n + 1, INF);
 
-                 }
+    dp[1] = A[0];
+
+    for (int i = 1; i <= n; i++) {
+
+        for (int jump = 1; i + jump <= n; jump *= 2) {
+         
+            dp[i + jump] = min(dp[i + jump], dp[i] + A[i + jump - 1]);
+        }
+    }
+
+    cout << dp[n] << '\n';
+
+
+
 
 
 }
