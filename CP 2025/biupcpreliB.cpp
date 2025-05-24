@@ -17,8 +17,18 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-   
-         cout << "h" << endl ;
+                  
+                  int n =  10 ;
+
+               
+                 for(int i=1 ;i<=n;i= i*2){
+
+                     
+                       cout << i << endl; 
+
+                 }
+
+
 }
 
 
@@ -28,7 +38,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         //cin >> t ;
 
          while(t--){
 

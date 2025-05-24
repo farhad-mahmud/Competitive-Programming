@@ -12,14 +12,14 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
 
-const int  MOD = 1e9 + 7;
+const int  N = 1e6 + 1;
 
+void solve() {
+           
+          
 
-void solve ()
-{
-   
-         cout << "h" << endl ;
 }
+
 
 
 int32_t main() {
@@ -28,7 +28,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+       //  cin >> t ;
 
          while(t--){
 

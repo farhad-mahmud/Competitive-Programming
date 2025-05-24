@@ -18,17 +18,29 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 { 
-                int a , b ,c  ; cin >> a >> b >> c;
                
+              int x, y , k ; cin >> x >> y >> k;
 
-                if(a+b > c && b +c > a && a + c > b){
+               
+               
+               int ini_dif = abs(x-y) ;
 
-                        yes ;
-                }
-                else {
+               int need_dif = abs(ini_dif - k) ;
 
-                     no ;
-                }
+
+             //  cout << need_dif << endl; 
+              
+               int ans = 0; 
+               
+               if( need_dif % 2 == 1){
+
+                     cout << -1 << endl; 
+               }
+               else {
+
+                      cout << need_dif/2 << endl; 
+               }
+
 
 }
 
@@ -39,7 +51,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         //cin >> t ;
+         cin >> t ;
 
          while(t--){
 
