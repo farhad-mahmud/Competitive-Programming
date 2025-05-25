@@ -32,7 +32,6 @@ bool is_prime(int n){
 
 }
 void solve ()
-{
 
                   int n ; cin >> n ;
 

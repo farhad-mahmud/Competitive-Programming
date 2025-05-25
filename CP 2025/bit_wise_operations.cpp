@@ -55,6 +55,15 @@ bool is_even(int x){
       }
 }
 
+int set_kth_bit(int x ,int k){
+
+      return x | (1 <<k) ;
+}
+
+int unset_kth_bit(int x ,int k){
+
+      return x & (~(1<<k)) ;
+}
 void solve ()
 {
                int y =3 ;
@@ -101,6 +110,12 @@ void solve ()
          // even /odd
          
          cout << is_even(10) << endl;
+         
+         cout << set_kth_bit(11 ,2) << endl ;
+
+         cout << unset_kth_bit(15,2) << endl; 
+
+         
 
 }
 

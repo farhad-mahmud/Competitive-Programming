@@ -17,28 +17,12 @@ const int  MOD = 1e9 + 7;
 
 // in graph nodes and edges will be given ;
 
-const int N = 1e5 + 9 ;
+const int N = 105 ;
 
 //int g[N][N] ;
 // storing graph adjecency list ;
 
 vector<int > g[N] ;
-
-bool vis[N] ;
-
-void dfs(int u){
-
-      vis[u] = true ;
-
-      for(auto v : g[u]){
-
-          if(!vis[v]){
-
-             dfs(v) ; 
-          }
-      }
-
-}
 
 void solve ()
 {
@@ -46,31 +30,28 @@ void solve ()
 
 
                     while(m--){  // loop through number of edges ;
-
+                     
 
                 	   int u, v ; cin >> u >> v ;
 
                 	   g[u].push_back(v) ;
                 	   g[v].push_back(u) ;
 
-                 
+                	  // g[u][v] = 1 ;      // cause undirected graph [u][v] = [v][u] ;
+                	  // g[v][u] = 1 ;      // to check if theres a edge between node v and 
+                                          // node u ;
 
                 }
-            
-            dfs(1) ;
 
-            for(int i=1 ;i<=n;i++){
+ 
+              // degrees are the sizes of vectors 
 
-                 if(!vis[i]){    // if any edges was not visited ; if vis[i] is false ;
+                for(int i=1 ; i<=n;i++){
+
+                     cout << g[i].size() << ' ' ;
+                }
 
 
-                      cout << "Disconnected Graph" << endl; 
-                      return ; 
-                 }
-            }
-
-            cout << "Connected Graph" << endl; 
-             
 }
 
 
