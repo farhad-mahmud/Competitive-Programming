@@ -24,6 +24,8 @@ const int N = 1e5 + 9 ;
 
 vector<int > g[N] ;
 
+// time complexity big O(V+E) ;
+
 bool vis[N] ;
 
 void dfs(int u){
