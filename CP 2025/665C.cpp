@@ -17,27 +17,28 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-                   string s ; cin >> s; 
-                    
-                   int len = s.size() ;
+                   string s ; cin >> s ;
+                  
+                   int n = s.size() ;
 
-                   for(int i=1 ;i<len;i++){
+                   for(int i=1 ;i<n;i++){
 
-                         if(s[i] == s[i-1]){
+                        if(s[i] == s[i-1]){
 
-                               char c = 'a';
-                         
+                              char c = 'a' ;
 
-                         while(c == s[i-1] or (i +1 <len and c== s[i+1])){
+                              while(c == s[i-1] || ( i + 1 < n  && c == s[i+1] )){
+                                      
+                                      c++ ;
+                              }
 
-                             ++c ;
-                         }
+                              s[i] == c; 
+                        }
 
-                         s[i] = c ;
-                     }
                    }
+         
+            cout << s << endl; 
 
-                   cout << s << endl; 
 
 }
 

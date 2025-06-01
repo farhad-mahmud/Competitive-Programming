@@ -33,22 +33,8 @@ void solve ()
 
                         int mi = *min_element(a.begin(),a.end()) ;
 
-
                      int sum = 0 ;
                      sum = mx + mi ;
-
-                      //cout << "The array " << endl; 
-
-                   //  for(auto i : a){
-
-                     //      cout << i << " " ;
-                    // }
-
-                    // cout << endl; 
-
-                     //cout << mx << " " << mi << endl; 
-
-                    
 
                      if(sum % 2 ==0){
 
@@ -56,8 +42,6 @@ void solve ()
                            return ;
                      }
                    
-                   
-
                       int cnt = 0 ;
                     
                      for(int i=0;i<n;i++){
@@ -71,12 +55,10 @@ void solve ()
                                    cnt++ ;
                              }
                      }
-
-                    
+                   
                       int cnt2 = 0 ;
 
                      for(int i= n-1 ; i>=0 ;i--){
-
 
                         if((a[i] + mi) % 2 ==0){
 
@@ -87,11 +69,6 @@ void solve ()
                                    cnt2++ ;
                              }
                      }
-
-                    // cout << cnt2 << endl ;
-
-
-
 
                   cout << min(cnt , cnt2) << endl; 
 }

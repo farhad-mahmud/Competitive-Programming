@@ -39,7 +39,7 @@ solve ()
 
            int max_sub_sum = -1e18 ;
 
-           int  max_sum_sum_ending_at_i = -1e18;
+           int  max_sub_sum_ending_at_i = -1e18;
 
            int cnt = 0 ;
 
@@ -47,9 +47,9 @@ solve ()
            for(int l = 0 ;l<n;l++){
 
                    
-            max_sum_sum_ending_at_i = max(a[l],a[l] + max_sum_sum_ending_at_i);
+            max_sub_sum_ending_at_i = max(a[l],a[l] + max_sub_sum_ending_at_i);
 
-            max_sub_sum = max(max_sub_sum, max_sum_sum_ending_at_i) ;
+            max_sub_sum = max(max_sub_sum, max_sub_sum_ending_at_i) ;
 
           
 

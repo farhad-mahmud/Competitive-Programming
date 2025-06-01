@@ -59,19 +59,32 @@ void solve ()
 
                 }
             
-            dfs(1) ;
+           // dfs(1) ;
 
-            for(int i=1 ;i<=n;i++){
+           // for(int i=1 ;i<=n;i++){
 
-                 if(!vis[i]){    // if any edges was not visited ; if vis[i] is false ;
+               //  if(!vis[i]){    // if any edges was not visited ; if vis[i] is false ;
 
 
-                      cout << "Disconnected Graph" << endl; 
-                      return ; 
-                 }
-            }
+                    //  cout << "Disconnected Graph" << endl; 
+                     // return ; 
+                // }
+           // }
 
-            cout << "Connected Graph" << endl; 
+          //  cout << "Connected Graph" << endl; 
+
+
+        for(int i=1 ;i<=n ;i++){
+
+               if(!vis[i]){
+
+                  dfs(i) ;
+                  ++ans ;
+               }
+        }
+
+        cout << "connected graph = " << ans << endl;  
+
              
 }
 
