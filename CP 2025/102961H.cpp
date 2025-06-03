@@ -50,7 +50,7 @@ solve ()
             max_sub_sum_ending_at_i = max(a[l],a[l] + max_sub_sum_ending_at_i);
 
             max_sub_sum = max(max_sub_sum, max_sub_sum_ending_at_i) ;
-
+s
           
 
            }

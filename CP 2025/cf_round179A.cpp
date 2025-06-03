@@ -19,7 +19,26 @@ const int  MOD = 1e9 + 7;
 void solve ()
 {
    
-             cout << "h" << nl; 
+    int x;
+    cin >> x;
+
+    vector<int> a = {0, 0, 0};
+
+    int ans = 0;
+
+    while (a[0] != x || a[1] != x || a[2] != x) {
+
+        sort(a.begin(), a.end());
+
+        int t_val = min(x, 2 * a[1] + 1);
+
+        a[0] = t_val;
+
+        ans++;
+    }
+
+    cout << ans << nl; 
+
 }
 
 
@@ -29,7 +48,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         cin >> t ;
 
          while(t--){
 
