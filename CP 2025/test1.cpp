@@ -1,25 +1,23 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 #define int  long long
 
-#define gcd(x,y)      __gcd(x,y)
-#define lcm(x,y)      ((x/gcd(x,y)) * y)
 #define nl       "\n" 
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
+
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
-
-const int  MOD = 1e9 + 7;
-
+// Constants
+const int N = 1e5 + 9;
+const int MOD = 1e9 + 7;
 
 void solve ()
 {
-   
-             cout << "h" << nl; 
+     
+              
 }
 
 

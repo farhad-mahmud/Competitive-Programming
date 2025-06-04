@@ -18,29 +18,44 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-                int n ; cin >> n;
+                int n ,s ; cin >> n >> s;
+
 
                 vector<int > a(n) ;
+
+               
 
                 for(int i=0;i<n;i++){
                    cin >> a[i] ;
                 }
 
-                for(int mask = 0 ;mask <(1<<n) ;mask++){
-
+                for(int mask = 0 ;mask <(1<<n) ;mask++){   // loop through every mask 
+                       
+                        int sum = 0 ; 
                       for(int i=0;i<n;i++){
 
                          if((mask >> i) & 1) {   // if ith bit is on in mask ; 
 
-                              cout << a[i] << ' ' ;
+                              cout << a[i] << ' ' ; 
+
+                              sum += a[i] ;
                          }
+                      }
+ 
+                      if(sum == s){
+
+                            yes ;
+                            return ;
                       }
 
                       cout << '\n' ; 
                 }
+
+              
+              no  ;
 }
 
-
+// O(n * 2^n) ; tc ;
 int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);

@@ -1,62 +1,177 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define ull unsigned long long
-#define ld long double
-#define pii pair<int,int>
-#define vi vector<int>
-#define vll vector<ll>
-#define vc vector<char>
-#define vs vector<string>
-#define vpii vector<pair<int,int>>
-#define vpll vector<pair<ll,ll>>
-#define sei set<int>
-#define usei unordered_set<int>
-#define ses set<string>
-#define sepii set<pair<int,int>>
-#define di deque<int>
-#define li list<int>
-#define sti stack<int>
-#define qi queue<int>
-#define pqi priority_queue<int>
-#define mii map<int,int>
-#define mll map<ll,ll>
-#define umii unordered_map<int,int>
-#define vit vector<int>::iterator
-#define mit map<int,int>::iterator
-#define sit set<int>:: iterator
+// Type Definitions
+#define int long long
+#define nl '\n'
 
-#define fr(i,a,b) for(int i=a;i<b;i++)
-#define rfr(i,a,b) for(int i=b-1;i>=a;i--)
-#define eqfr(i,a,b) for(int i=a;i<=b;i++)
-#define reqfr(i,a,b) for(int i=b;i>=a;i--)
-#define printa(a,L,R) fr(i,L,R)cout<<a[i]<<(i==R-1?'\n':' ')
-#define printv(a) printa(a,0,a.size())
-#define pb push_back
-#define pf push_front
-#define popb pop_front
-#define popf pop_front
-#define mp make_pair
-#define F first
-#define S second
-#define fill(a,x) memset(a,x,sizeof(a))
-#define fill2d(a,x,n,m) memset(a,x,n*m*sizeof(a[0][0]))
-#define inf 0x3f3f3f3f
-#define mod 1e9+7
-#define mxn 100100
-#define nl "\n"
-#define lg(r,n) (int)(log2(n)/log2(r))
+// Macros
+#define all(x) (x).begin(), (x).end()
+#define allr(x) (x).rbegin(), (x).rend()
+#define yes cout << "YES\n"
+#define no cout << "NO\n" 
 
-#define all(v) v.begin(),v.end()
-#define rev(v) reverse(v.begin(),v.end())
-#define srt(v) sort(v.begin(),v.end())
-#define grtsrt(v) sort(v.begin(),v.end(),greater<int>())
-#define mnv(v) *min_element(v.begin(),v.end())
-#define mxv(v) *max_element(v.begin(),v.end())
-#define countv(v,a) cout(v.begin(),v.end(),a)
-#define len(s) s.length()
-#define strtoint(a) atoi(a.c_str())
-string inttostr(int n){stringstream rr;rr<<n;return rr.str();}
+// Constants
+const int N = 1e5 + 9;
+const int MOD = 1e9 + 7;
 
-#define fast ios_base::sync_with_stdio(false)
+
+void fastio() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+}
+
+// ========== Number Theory Utilities ==========
+
+int lcm(int a, int b) { return (a / gcd(a, b)) * b; }
+
+int power(int a, int b) {
+    int res = 1;
+    while (b) {
+        if (b & 1) res *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return res;
+}
+
+
+bool isPrime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; ++i)
+        if (n % i == 0) return false;
+    return true;
+}
+
+// ========== Segment Tree (Optional Use) ==========
+
+int a[N], t[4 * N];
+
+void build(int node, int begin, int end) {
+    if (begin == end) {
+        t[node] = a[begin];
+        return;
+    }
+    int mid = (begin + end) / 2;
+    build(2 * node, begin, mid);
+    build(2 * node + 1, mid + 1, end);
+    t[node] = t[2 * node] + t[2 * node + 1];
+}
+
+int query(int node, int begin, int end, int i, int j) {
+    if (begin > j || end < i) return 0;
+    if (begin >= i && end <= j) return t[node];
+    int mid = (begin + end) / 2;
+    return query(2 * node, begin, mid, i, j)
+         + query(2 * node + 1, mid + 1, end, i, j);
+}
+
+void update(int node, int begin, int end, int i, int x) {
+    if (begin > i || end < i) return;
+    if (begin == end) {
+        t[node] = x;
+        return;
+    }
+    int mid = (begin + end) / 2;
+    update(2 * node, begin, mid, i, x);
+    update(2 * node + 1, mid + 1, end, i, x);
+    t[node] = t[2 * node] + t[2 * node + 1];
+}
+
+// ========== Binary Search Template ==========
+
+int binary_search_example(vector<int>& v, int target) {
+    int l = 0, r = v.size() - 1, ans = -1;
+    while (l <= r) {
+        int mid = (l + r) / 2;
+        if (v[mid] == target) return mid; // or store answer & continue
+        if (v[mid] < target) l = mid + 1;
+        else r = mid - 1;
+    }
+    return ans;
+}
+
+// ========== DFS & BFS Module ==========
+
+vector<int> g[N];
+bool vis[N];
+int dis[N], par[N];
+
+   // DFS 
+
+void dfs(int u) {
+    vis[u] = true;
+    for (auto v : g[u]) {
+        if (!vis[v])
+        {
+            dfs(v);
+        } 
+    }
+}
+
+// Connected Components Counter
+
+int count_connected_components(int n) {
+    int ans = 0;
+    fill(vis, vis + n + 1, false);
+    for (int i = 1; i <= n; i++) {
+        if (!vis[i]) {
+            dfs(i);
+            ++ans;
+        }
+    }
+    return ans;
+}
+
+        // BFS 
+
+void bfs(int source) {
+    queue<int> q;
+    fill(vis, vis + N, false);
+    fill(dis, dis + N, 0);
+    fill(par, par + N, -1);
+    q.push(source);
+    vis[source] = true;
+    dis[source] = 0;
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for (auto v : g[u]) {
+            if (!vis[v]) {
+                q.push(v);
+                par[v] = u;
+                dis[v] = dis[u] + 1;
+                vis[v] = true;
+            }
+        }
+    }
+}
+
+// Path Reconstruction (BFS)
+vector<int> get_path(int dest) {
+    vector<int> path;
+    while (dest != -1) {
+        path.push_back(dest);
+        dest = par[dest];
+    }
+    reverse(all(path));
+    return path;
+}
+
+// ========== Problem Solver Function ==========
+void solve() {
+    
+    
+
+
+
+}
+
+// ========== Main Function ==========
+int32_t main() {
+    fastio();
+    int t = 1;
+    // cin >> t;
+    while (t--) solve();
+    return 0;
+}
