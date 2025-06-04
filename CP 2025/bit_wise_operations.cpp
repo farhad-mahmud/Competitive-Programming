@@ -14,6 +14,8 @@ using namespace std;
 #define vi       vector<int > 
 #define  forr    for(auto &i : x) 
 const int  MOD = 1e9 + 7;
+
+
 int check_kth_bit(int x ,int k) {
 
        return(x >> k) & 1 ;

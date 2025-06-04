@@ -18,7 +18,26 @@ const int  MOD = 1e9 + 7;
 
 void solve ()
 {
-          
+                int n ; cin >> n;
+
+                vector<int > a(n) ;
+
+                for(int i=0;i<n;i++){
+                   cin >> a[i] ;
+                }
+
+                for(int mask = 0 ;mask <(1<<n) ;mask++){
+
+                      for(int i=0;i<n;i++){
+
+                         if((mask >> i) & 1) {   // if ith bit is on in mask ; 
+
+                              cout << a[i] << ' ' ;
+                         }
+                      }
+
+                      cout << '\n' ; 
+                }
 }
 
 
