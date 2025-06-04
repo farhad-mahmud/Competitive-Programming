@@ -1,50 +1,91 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 #define int long long
 
+#define gcd(x,y)      __gcd(x,y)
+#define lcm(x,y)      ((x/gcd(x,y)) * y)
+#define nl       "\n" 
+
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+#define all(x)   x.begin(),x.end() 
+#define allr(x)  x.rbegin() ,x.rend()
+
+const int  MOD = 1e9 + 7;
+
 void solve() {
-    int n;
-    cin >> n;
-    vector<int> a(n+1);
-    map<int, vector<int>> p;
+                 
 
-    for (int i = 1; i <= n; i++) {
-        cin >> a[i];
-        p[a[i]].push_back(i);
-    }
+             int n ; cin >> n ;
 
-    if (p.size() == 1) {
-        cout << 0 << '\n';
-        return;
-    }
+             vector<int > a(n+1) ;
 
-    int ans = LLONG_MAX;
+             for(int i=1;i<=n;i++){
 
-    for (auto [val, pos_list] : p) {
-      
-        for (int pos : pos_list) {
+                   cin >> a[i];
+             }
 
-            int l_cost = (pos-1) * val;
+             vector<int > pref(n+1) ;
+             vector<int > suff(n+1) ;
 
-            int r_cost = (n-pos) * val;
+             for(int i=1;i<=n;i++){
 
-            int total_cost = l_cost + r_cost;
+                  pref[i] = 1LL*(i-1)*a[i] ;
+             }
 
-            ans = min(ans, total_cost);
-        }
-    }
+             for(int i=2;i<=n;i++){
 
-    cout << ans << '\n';
+                  if(a[i] == a[i-1]){
+
+                      pref[i] = pref[i-1] ;
+                  }
+             }
+
+             for(int i=n;i>=1;i--){
+
+                 suff[i] = 1LL*(n-i)*a[i] ;
+             }
+
+
+             for(int i=n-1;i>=1;i--){
+
+                    if(a[i] == a[i+1]){
+
+                          suff[i] = suff[i+1] ;
+                    }
+             }
+
+
+             int ans = (long long)1e18 ;
+
+             for(int i=1;i<=n;i++){
+
+                   ans = min(ans, suff[i] + pref[i]) ;
+             }
+            
+
+
+              cout << ans << endl; 
+
 }
 
-int32_t main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
 
-    int t;
-    cin >> t;
-    while(t--) {
-        solve();
-    }
+int32_t main() {
+ios_base:: sync_with_stdio(0);
+cin.tie(0);
+
+         int t = 1 ;
+
+         cin >> t ;
+
+         while(t--){
+
+            solve() ;
+        
+        }
+
+
+    return 0;
 }
