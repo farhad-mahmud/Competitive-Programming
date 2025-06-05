@@ -31,13 +31,14 @@ void solve ()
 
                 for(int i=1 ;i<=n;i++){
 
-                       itn u , k ; cin >> u >> k ; // k is degrees ;
+                       int u , k ; cin >> u >> k ; // k is degrees ;
 
                        while(k--){   // taking k degrees input ;
 
-                           int v ; cin >> u >> v ; // v'is are the ids of vertices adjacent to u 
+                           int v ; cin >> v ; // v'is are the ids of vertices adjacent to u 
 
                            g[u][v] = 1 ; // a edge between u and v ;  
+                           
                        }
                 }
              
@@ -48,7 +49,7 @@ void solve ()
 
                    if(j != 1) cout << ' ' ;
 
-                   cout << g[i][j] << ' ' ;
+                   cout << g[i][j]  ;
               }
 
               cout << endl ;
