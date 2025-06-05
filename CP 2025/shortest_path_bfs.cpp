@@ -48,6 +48,7 @@ void solve ()
                                   if(!vis[v]){
 
                                      q.push(v) ;
+                                     par[v] = u ;
                                      dis[v] = dis[u] + 1 ;
                                      // v is the new layer ;
                                      // u is the prev layer 
@@ -62,9 +63,22 @@ void solve ()
                        //printing distance ;
                         for(int i=1 ;i<=n;i++){
 
-                               cout << "distance of " << i << ": "<< dis[i] << nl; 
-                        }
+                            cout << dis[i] << ' ' ;
+                        } 
 
+
+                        cout << '\n' ;
+                 
+                 int v = 4 ;  // shortest past from 1 to 4 ;
+
+                 while(v != 1){
+
+                     cout << v << ' ' ;
+  
+                      v= par[v] ;
+                 }
+
+                 cout << 1 << '\n' ;   
 
 
 }
