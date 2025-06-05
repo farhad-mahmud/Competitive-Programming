@@ -19,7 +19,8 @@ vector<int> g[N];
 bool vis[N];
 int dis[N], par[N];
 
-// we go layer by layer in bfs ;
+// shortest distance from source ;
+// everyones distance from source can be found by bfs ;;
 
 void solve ()
 {
@@ -35,21 +36,36 @@ void solve ()
 
                         queue<int > q ;
 
-                        q.push(1) ;
-  
-                        while(!q.empty()){
+                        q.push(1) ; vis[1] = true ; dis[1] = 0 ;
+
+   
+                        while(!q.empty()){  
 
                              int u =   q.front() ;
-                             q.pop() ;
+                             q.pop() ; 
                              for(auto v : g[u]){
 
                                   if(!vis[v]){
 
                                      q.push(v) ;
+                                     dis[v] = dis[u] + 1 ;
+                                     // v is the new layer ;
+                                     // u is the prev layer 
+                                     // dis[u] + 1 , is the distance from prev to new
+                                     // layer ;
+
                                      vis[v] = true ;
                                   }
                              }
                         }
+
+                       //printing distance ;
+                        for(int i=1 ;i<=n;i++){
+
+                               cout << "distance of " << i << ": "<< dis[i] << nl; 
+                        }
+
+
 
 }
 
