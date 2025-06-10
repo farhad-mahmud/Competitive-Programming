@@ -14,10 +14,46 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int w[150] ;
+int l[150] ;
+int h[150] ;
+
+int fibo(int n ){
+
+      if(n==1 ){
+
+           return 1 ;
+      }
+      else if(n==2){
+
+           return 2 ;
+      }
+      else {
+
+
+            return f(n-1) + f(n-2) ; 
+      }
+
+
+}
 void solve ()
 {
       
-          
+              int n , m ; cin >> n >> m ;
+
+              //int side of the cube is fibo(i)
+
+              for(int i=1;i<=m ;i++){
+
+                    cin >> w[i] >> l[i] >> h[i] ;
+                    
+
+               }
+  
+
+
+
+
 }
 
 
