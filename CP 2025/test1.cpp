@@ -14,14 +14,6 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-void solve ()
-{
-      
-
-       
-}
-
-
 int32_t main() {
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
@@ -32,9 +24,9 @@ cin.tie(0);
 
          while(t--){
 
-            solve() ;
+          
         
-        }
+         }
 
 
     return 0;

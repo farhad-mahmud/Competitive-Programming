@@ -176,20 +176,15 @@ vector<int> get_path(int dest) {
     return path;
 }
 
-// ========== Problem Solver Function ==========
-void solve() {
-    
-    
-
-
-
-}
 
 // ========== Main Function ==========
 int32_t main() {
     fastio();
     int t = 1;
     // cin >> t;
-    while (t--) solve();
+    while (t--) 
+    {
+           
+    }
     return 0;
 }
