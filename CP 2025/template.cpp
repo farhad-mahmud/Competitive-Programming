@@ -35,6 +35,24 @@ int power(int a, int b) {
     return res;
 }
 
+// -----------------sieve ---------------------// 
+
+bitset<N> is_prime; // N is a constant, e.g., N = 1000000
+void sieve() {
+  is_prime[1] = false; // 1 is not prime
+  for (int i = 2; i < N; i++) {
+    is_prime[i] = true; // Initially assume all numbers from 2 to N-1 are prime
+  }
+  for (int i = 2; i * i < N; i++) { // Iterate from 2 up to sqrt(N)
+    if (is_prime[i]) { // If i is currently marked as prime
+      for (int j = i * i; j < N; j += i) { // Mark all multiples of i (starting from i*i) as not prime
+        is_prime[j] = false;
+      }
+    }
+  }
+}
+
+//----------------is_prime---------------------// 
 
 bool isPrime(int n) {
     if (n < 2) return false;
