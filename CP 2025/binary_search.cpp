@@ -22,7 +22,6 @@ bool search (int l, int r){
 
       int mid = (l+r) / 2;
 
-
       if(a[mid] == x){
 
            return true ;
