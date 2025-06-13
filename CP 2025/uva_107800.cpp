@@ -111,7 +111,8 @@ cin.tie(0);
                 } 
        }
 
-
+ // time complexity nlog^2 ; 
+       
 
     return 0;
 }
