@@ -16,31 +16,24 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 { 
+                      
+              int n ; cin >> n ;
 
-            int n ; cin >> n ;
-        
-            vector<tuple<int, int, int>> tp;
+              cout << (n << 1 ) - 1 << nl; 
 
-   for (int i = 2; i <= n; i++) {
+               
 
-    if (i == 2) tp.push_back(make_tuple(i, 1, n));
-    else if (i % 2 == 1) {
-        tp.push_back(make_tuple(i, 1, i));
-        tp.push_back(make_tuple(i, 2, n));
-    } else {
-        tp.push_back(make_tuple(i, n - 1, n));
-        tp.push_back(make_tuple(i, 1, 2));
-    }
-}
+              for(int i =1 ;i<n;i++){
 
-    cout << tp.size() << nl;
-    for (size_t j = 0; j < tp.size(); ++j) {
-        int i, l, r;
-        tie(i, l, r) = tp[j];
-        cout << i << " " << l << " " << r << nl;
-    }
+                cout << i << " "<< 1 << " " << i << nl; 
 
-         
+                cout << i << " " <<i+1 << " " << n << nl; 
+
+               }
+
+
+               cout << n << " " << 1 << " " << n << nl ; 
+
 }
 
 
