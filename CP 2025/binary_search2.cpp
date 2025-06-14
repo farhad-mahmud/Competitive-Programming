@@ -31,7 +31,7 @@ int search(int l , int r){
                   r = mid - 1;  // we go left ;
 
           }
-          else {
+          else {   // if a[i] = 0 ;
 
                 l = mid+1 ;    // we go right 
           }
