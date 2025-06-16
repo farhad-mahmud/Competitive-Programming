@@ -46,18 +46,8 @@ cin.tie(0);
 
                else {
                       
-                        int mn = box[1] , pos =1 ; // we find , least ball in boxes ;
-
-
-                        for(int j =2 ;j<=n;j++){
-                             
-                               if(box[j] < mn){
-
-                                   mn = box[j] ;
-
-                                   pos = j ;
-                             } 
-                        }
+                        
+                     int pos = min_element(box.begin()+ 1 , box.begin() + n+ 1) - box.begin() ;
                     
                        box[pos]++ ;
 
