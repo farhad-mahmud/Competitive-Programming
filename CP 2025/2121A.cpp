@@ -24,8 +24,7 @@ void solve ()
                    for(int i=0;i<n;i++){
 
                          cin >> a[i] ;
-                   }
-                  
+                   }                 
 
                     int mn = *min_element(a.begin() , a.end()) ;
 
