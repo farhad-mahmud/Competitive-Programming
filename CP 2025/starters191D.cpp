@@ -37,7 +37,7 @@ void solve ()
 
                       if(y ==0){
 
-                           if(z >=x -1){
+                           if(z >=x-1){
 
                                 yes ;
                            }
