@@ -19,9 +19,8 @@ int n , k ,min_op ;
 int a[N] ;
 
 
-bool f(int x){  
+bool f(int x){    // is answer( median) >= x ? 
        
-
         int min_op = 0 ;
 
        for(int i= (n+1)/2 ;i<=n;i++){
