@@ -20,10 +20,6 @@ bool f (int x){
 
       return (x - x/n) >= k ;
 
-      // (x- x/n) finds count of numbers that are not divisible by n , from 1 to x ;
-
-      // if that number is < k , we cant find it ; 
-
 }
 
 void solve ()
@@ -43,9 +39,8 @@ void solve ()
                      ans = mid ;
 
                      r = mid -1 ;
-                     
-                     //we are wanting the smalles ;
 
+   
                }
                else {
 
