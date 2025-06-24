@@ -25,14 +25,7 @@ void solve ()
                   cin >> s ; 
 
                   map<char,int > mp ;
-
-                  map<char,bool> cnt ;
-
-                  for(int i=1 ; i< n-1 ;i++){
-
-                         cnt[s[i]] = true ;
-                  }
-
+                  
                   for(int i= 0 ;i<n;i++){
 
                         mp[s[i]]++ ;
