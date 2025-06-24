@@ -18,9 +18,12 @@ int n ,k ;
 
 int  ff(int lim , vector<int >& b){
     
+ // count how many elements in b which are <= lim 
+ // b is sorted ;
+
     int l = 1 , r = n , ans = 0 ;
 
-    while(l<=r){
+   /* while(l<=r){
 
          int mid = (l + r) / 2 ;
 
@@ -33,9 +36,11 @@ int  ff(int lim , vector<int >& b){
 
               r = mid - 1;
          }
-    }
+    } */
 
-    return ans  ;
+      
+      return upper_bound(b.begin() +1 , b.begin() + n+1 , lim) - (b.begin() + 1) ;
+
 }
 bool f (int x, vector<int >&a , vector<int >& b){ // is the answer (kth smallest sum) <=x ;
    
@@ -71,7 +76,7 @@ void solve ()
                  
                  sort(a.begin() , a.end()) ;
                   sort(b.begin() , b.end()) ;
-                  
+
                 int l = 0 , r = 2e9 , ans = 0 ;
 
 
