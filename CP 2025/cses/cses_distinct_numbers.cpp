@@ -14,37 +14,27 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-double f(double x){
 
-     return x*x + sqrt(x) ;
-}
 void solve ()
 {
-           double c ; cin >> c ;
-        
-            double  l = 0 , r = 1e5 , ans = 0 ;
+                int n ; cin >> n ;
 
-            
-           while(r-l >= 1e-6){
+                vector<int > a(n+1) ;
 
-               double mid = (l+r) / 2 ;
+                for(int i=1 ;i<=n;i++){
 
-               if(f(mid) >=c){
-                       
-                    ans = mid ;
+                     cin >> a[i] ;
+                }
+       
+           map<int ,int > mp ;
 
-                    r = mid ;
-               }
-               else {
+           for(int i = 1;i<=n;i++){
 
-                    l = mid ;
-               }
+                 mp[a[i]]++;
            }
 
-      
-         cout << fixed << setprecision(10) <<  ans << nl;  
- 
 
+           cout << mp.size() << nl; 
 }
 
 int32_t main() {
