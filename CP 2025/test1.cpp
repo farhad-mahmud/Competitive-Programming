@@ -14,8 +14,6 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-
-
 void solve ()
 {
 
