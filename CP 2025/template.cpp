@@ -25,13 +25,18 @@ void fastio() {
 
 int lcm(int a, int b) { return (a / gcd(a, b)) * b; }
 
-int power(int a, int b) {
-    int res = 1;
-    while (b) {
-        if (b & 1) res *= a;
-        a *= a;
-        b >>= 1;
-    }
+
+// recursive devide and conquer 
+
+int power(int a, int b, int mod) {
+    if (b == 0) return 1;  // base case
+
+    int res = power(a, b / 2, mod);
+    res = 1LL * res * res % mod;
+
+    if (b % 2 == 1)
+        res = 1LL * res * a % mod;
+
     return res;
 }
 
