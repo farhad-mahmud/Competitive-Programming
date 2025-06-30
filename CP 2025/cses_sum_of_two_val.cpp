@@ -19,9 +19,9 @@ void solve ()
 {
                  int n , x ; cin >> n >> x ;
 
-                 vector<int > a(n) ;
+                 vector<int > a(n + 1) ;
 
-                 for(int i= 0; i<n ;i++){
+                 for(int i= 1; i<=n ;i++){
 
                         cin >> a[i] ;
                  }
@@ -29,29 +29,21 @@ void solve ()
           
               map <int ,int > mp  ;
 
-              for(int i=0 ;i<n; i++) {
+              for(int i=1 ;i<=n; i++) {
 
-                     mp[a[i]] = i ;
-
+                    
                      if(mp.find(x-a[i]) != mp.end()){
 
-                             cout << mp[x-a[i]]+1 << ' ' << i+1 << nl; 
-
-                             // a[i] + a[j] = x ;
-                             // a[j] = x - a[i] ;
-
-                             //mp[x-a[i]] is the index of  x-a[i] or a[j] ;
-
-                               // here i+1 is the index of element a[i] , 
-
+                             cout << mp[x-a[i]] << ' ' << i << nl; 
                              return ;
                      }
 
-                  
+                   mp[a[i]] = i ;
+
               }
 
 
-                  cout << "IMPOSSIBLE" << nl; 
+                  cout << -1  << nl; 
 }
 
 int32_t main() {
