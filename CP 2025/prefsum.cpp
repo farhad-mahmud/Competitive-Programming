@@ -44,7 +44,7 @@ void solve ()
                    pref_sum[i] = pref_sum[i-1] + a[i] ;
 
                  } 
-           
+            
 
            // sum of a segment elements ;
           while(q--){
