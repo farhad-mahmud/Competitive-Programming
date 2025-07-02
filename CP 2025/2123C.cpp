@@ -22,7 +22,7 @@ void solve ()
                   vector<int > pref_min(n+2) ;
                   vector<int > a(n+1) ;
 
-                  vector<int > suf_max(n+2) ;
+                  vector<int > suf_max(n+2) ; 
 
                   for(int i= 1 ;i<=n;i++){
 
