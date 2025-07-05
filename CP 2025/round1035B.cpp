@@ -15,38 +15,11 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 double dis(int x1, int y1, int x2, int y2) {
-
-     int dx = x1 - x2;
+int dx = x1 - x2;
     int dy = y1 - y2;
     return sqrt((double)(dx * dx + dy * dy));
-
 }
 
-bool can_reach(vector<int >& a , double d, int n){
-
-
-                 double t = 0 ;
-
-                 for(int i=1 ;i<=n ;i++){
-
-                      t+= a[i] ;
-                 }
-
-                 if(d > t ){
-                     return false ;
-                 }
-                 
-
-               double dif = (t - d) ;
-
-               if((int)dif % 2 !=0){
-
-                      return false ;
-               }
-
-               return true ;
-
-}
 void solve ()
 {
                  
@@ -56,32 +29,62 @@ void solve ()
 
                   vector<int > a(n+1) ;
                   map <int,int > mp ;
+                  int sum = 0;
 
                   for(int i=1 ;i<=n;i++){
 
                          cin >> a[i] ;
-                         mp[a[i]]++;
+                         sum += a[i] ;
+                         
                   }
 
                   double d = dis(px , py ,qx ,qy) ;
-                  bool flag = true ;
 
-                  //cout << d << nl; 
+                  int mx = *max_element(a.begin()+ 1, a.begin()+n+1) ;
 
-               
+                  int rest = sum - mx ;
 
-                   if(can_reach(a,d,n)) {
+                  cerr << d << nl; 
 
-                         yes ;
-                   }
-                   else {
+                  if(d == 0){
 
-                         no ;
-                   }
+                       if(mx <= rest){
+                           yes ;
+                           return ;
+                       }  
+                       else {
+                           no ;
+                           return ;
+                       }
+                  }
+              
+                  if(d != 0){
 
-             
+                        if(sum >= d){
 
+                             if(mx > d){
 
+                                 double gap = mx -d ;
+
+                                 if(rest >= gap){
+                                        yes ;
+                                 }
+                                 else {
+                                        no  ;
+                                 }
+    
+                             }
+                             else {
+
+                                 yes ;
+                             }
+                        }
+                        else {
+
+                             no  ;
+                        }
+                  }
+                 
 }
 
 int32_t main() {
