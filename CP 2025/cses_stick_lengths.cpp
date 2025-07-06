@@ -21,7 +21,6 @@ void solve ()
 
           vector<int > p(n+1) ;
 
-          // most occuring freq ;
 
           for(int i=1 ;i<=n;i++){
 
