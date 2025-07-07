@@ -43,18 +43,26 @@ int power(int a, int b, int mod) {
 // -----------------sieve ---------------------// 
 
 bitset<N> is_prime; // N is a constant, e.g., N = 1000000
+
 void sieve() {
-  is_prime[1] = false; // 1 is not prime
-  for (int i = 2; i < N; i++) {
-    is_prime[i] = true; // Initially assume all numbers from 2 to N-1 are prime
+  for(int i = 2; i < N; i++) {
+    spf[i] = i;
   }
-  for (int i = 2; i * i < N; i++) { // Iterate from 2 up to sqrt(N)
-    if (is_prime[i]) { // If i is currently marked as prime
-      for (int j = i * i; j < N; j += i) { // Mark all multiples of i (starting from i*i) as not prime
-        is_prime[j] = false;
+  for(int i = 2; i < N; i++) {
+    if (spf[i] == i) {
+      for (int j = i; j < N; j += i) {
+        spf[j] = min(spf[j], i);
       }
     }
   }
+}
+bool ok(int n) { // checking if possible
+  for (int i = 2; i < n; i++) {
+    if (spf[i] == i and spf[n - i] == n - i) {
+      return true;
+    }
+  }
+  return false;
 }
 
 //----------------is_prime---------------------// 
