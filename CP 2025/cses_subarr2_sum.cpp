@@ -34,16 +34,22 @@ void solve ()
                     for(int i=1;i<=n;i++){
 
                         pref_sum[i] = pref_sum[i-1] + a[i] ;
-                       
+                        
+                     
 
                     }
 
-                    mp[0]++ ;
+               
+
+                    mp[0] = 1 ;
                     int cnt = 0 ;
 
                     for(int j=1;j<=n;j++){
 
                          cnt += mp[pref_sum[j] - x ] ;
+
+                        // cerr << pref_sum[j] - x  << ' ' ;
+
 
                          mp[pref_sum[j]]++ ;
 
