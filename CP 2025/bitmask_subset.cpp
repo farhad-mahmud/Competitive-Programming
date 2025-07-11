@@ -23,7 +23,7 @@ void solve ()
 
                 vector<int > a(n) ;
 
-               
+               // subset generation using bitmask ,but n should be smaller < 16 ;
 
                 for(int i=0;i<n;i++){
                    cin >> a[i] ;
