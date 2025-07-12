@@ -19,12 +19,50 @@ void solve ()
               int n ; cin >> n ;
               vector<int > a(n+1) ;
 
+
               for(int i=1;i<=n;i++){
                     cin>> a[i] ;
               }
+              
+
+             for(int i=1;i<=n-1;i++){
+
+                    if(abs(a[i] - a[i+1]) <=1){
+
+                           cout << 0 << nl;
+                           return ;
+                    }               
+             }
+
+             if(n==2){
+                 cout << -1 << nl;
+                 return ;
+             }
+
+
+             vector<int > f = a ;
+
+             sort(f.begin(),f.end()) ;
+
+             if(a == f){
+
+                 cout << -1 << nl;
+                 return ;
+             }
+
+
+             for(int i=2;i<=n-1;i++){
+
+                   if(a[i-1] < a[i] && a[i] > a[i+1] || a[i-1] > a[i] && a[i] < a[i+1]){
+
+                              cout << 1 << nl;
+
+                              return ;
+                   }
+             }
 
               
-       
+          cout << -1 << nl; 
 }
 
 int32_t main() {
