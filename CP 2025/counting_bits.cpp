@@ -28,6 +28,7 @@ int count_on_bits(int n){
 
         cnt += max(0LL, rem - (1LL << i));
     }
+    
     return cnt;
 }
 void solve ()
