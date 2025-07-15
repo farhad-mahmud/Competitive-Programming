@@ -1,30 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve() {
-    int n;
-    cin >> n;
+#define int  long long
 
-    vector<int> p(n);
-    int cur = n;
+#define nl       "\n" 
 
-    // fill 2,4,6,... positions (1-based, so 1,3,5,... in 0-based)
-    for (int i = 1; i < n; i += 2) {
-        p[i] = cur--;
-    }
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
 
-    // fill remaining positions
-    for (int i = 0; i < n; i += 2) {
-        p[i] = cur--;
-    }
+#define all(x)   x.begin(),x.end() 
+#define allr(x)  x.rbegin() ,x.rend()
+// Constants
+const int N = 1e5 + 9;
+const int MOD = 1e9 + 7;
 
-    for (int x : p) cout << x << " ";
-    cout << "\n";
+void solve ()
+{
+        
+          int n ; cin >> n ;     
+
+          for(int i = 2;i<=n;i++){
+
+                cout << i  << ' ' ;
+          }
+
+         cout << 1  << nl; 
+
 }
 
-int main() {
-    int t;
-    cin >> t;
-    while (t--) solve();
+int32_t main() {
+ios_base:: sync_with_stdio(0);
+cin.tie(0);
+
+         int t = 1 ;
+
+         cin >> t ;
+
+         while(t--){
+
+            solve() ;
+        
+        }
+
+
     return 0;
 }
