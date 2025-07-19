@@ -16,49 +16,31 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                int n ; cin >> n ;
+                     int n ; cin >> n;
 
-                vector<int> a(n+1) ;
+                     vector<int >a(n+1) ;
 
-               vector<pair<int,int >> v ;
+                     map<int,int> mp ;
 
-                //sort(a.begin(),a.end()) ;
-            
-                for(int i=1;i<=n;i++){
+                     for(int i=1;i<=n;i++){
 
-                    cin >> a[i] ;
+                          cin >> a[i] ;
 
-                }
+                          mp[a[i]] = i;
+                     }
+                  
+                     int cnt =0 ;
+                     
 
-                for(int i=1;i<=n;i++){
-                      
-                      v.push_back({a[i], i}) ;
+                     for(int i=1;i<=n;i++){
 
-                }
+                          if(mp[i]> mp[i+1]){
 
-               
-               sort(v.begin(),v.end(),[] (pair<int,int> x , pair<int ,int > y){
-
-                     return x.first < y.first ;
-               }) ;
-
-
-                  int cnt = 0 ;
-
-
-
-                for(int i=0;i<n;i++){
-
-                 //  cerr << v[i].first << ' ' << v[i].second << nl; 
-
-                      if(v[i].second > v[i+1].second){
-                           cnt++ ;
-                      }
-                }
+                               cnt++ ;
+                          }
+                     }
           
-                  cout << cnt << nl; 
-
-   
+                cout << cnt << nl;
 }
 
 int32_t main() {
@@ -67,7 +49,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         //cin >> t ;
+        // cin >> t ;
 
          while(t--){
 

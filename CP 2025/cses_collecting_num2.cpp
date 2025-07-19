@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int  long long
+#define ll  long long
 
 #define nl       "\n" 
 
@@ -11,26 +11,84 @@ using namespace std;
 #define all(x)   x.begin(),x.end() 
 #define allr(x)  x.rbegin() ,x.rend()
 // Constants
-const int N = 1e5 + 9;
+const int N = 2e5 + 5;
 const int MOD = 1e9 + 7;
+
+int pos[N] ;
+
+int bad(int x,int n){
+
+      if(x<1 || x>=n) return 0 ;
+
+      return pos[x] > pos[x+1] ;
+}
 
 void solve ()
 {
                int n , m ; cin >> n >> m ;
 
-               vector<int > v(n+1) ;
+               vector<int > a(n+1) ;
 
                for(int i=1;i<=n;i++){
 
-                      cin >> v[i] ;
+                      cin >> a[i] ;
+                      pos[a[i]] = i ;
                }
 
-               vector<int > a(n+1) ,b(n+1) ;
 
-               for(int i=1;i<=n;i++){
+               int cnt =1 ;
 
-                   cin >> a[i] >> b[i] ;
+               for(int i=1;i<n;i++){
+
+                    if(pos[i]>pos[i+1]) cnt++ ;
                }
+
+
+               while(m--){
+
+                   int x , y ;
+                   cin >> x >> y ;
+
+                   int u = a[x] ;
+                   int v = a[y] ;
+
+                  set<int > st ;
+
+                  for(int i =-1;i<=1;i++){
+
+                        int j = u+i ;
+                      if(j >=1 && j <n){
+                          st.insert(j) ;
+                      }
+
+                        j = v+ i ;
+
+                        if(j>=1 && j<n){
+                            st.insert(j);
+                        }
+
+                  }
+
+                  for(auto i : st){
+
+                      cnt -= bad(i, n);
+                  }
+             
+
+                swap(a[x],a[y]) ;
+                swap(pos[u],pos[v]) ;
+
+                for(auto i : st){
+
+                      cnt += bad(i,n) ;
+                }
+              
+                cout << cnt << nl; 
+
+               }
+            
+
+
 
 
 
@@ -43,7 +101,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 
