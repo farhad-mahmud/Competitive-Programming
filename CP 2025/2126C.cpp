@@ -23,27 +23,63 @@ void solve ()
                   for(int i=0;i<n;i++){
                       cin >> a[i] ;
                   }
- 
-                  
-                  sort(a.begin(),a.end()) ;
+               
+                 set<int > st ;
 
-                  int t = 0, water = 1 ;
+                 for(int i=0;i<n;i++){
 
-                  for(int i=0;i<n-1;i++){
-                        
-                       t+= i + abs(a[i] - a[i+1]) ;
-                       water++ ;
-                  }
+                     if(a[i] >= a[k-1]){
+
+                           st.insert(a[i]) ;
+                     }
+                 }
+
+                 vector<int > v ;
 
 
-                  cerr << n  << ' ' << t << nl;
+                 for(auto i : st)  v.push_back(i) ;
 
-                  if(n > t){
-                       no ;
-                  }
-                  else {
-                      yes;
-                  }
+
+                int water =0  ;
+
+               for(auto i : v){
+                    cerr << i << nl; 
+               }
+
+                int f = 1;
+                
+                int cur = a[k-1] ;
+                int j =0 ;
+               
+                while(j< v.size()- 1){
+
+                      int cur = v[j];
+                      int nxt = v[j+1];
+
+                      int t_need = nxt - cur ;
+                      int t_left = cur - water ;
+
+                      if(t_need <= t_left){
+
+                           water += t_need;
+                           j++ ;
+                      }
+
+                      else {
+                           f = 0 ;
+                           break ;
+                      }
+
+                }
+
+
+               if(f){
+                   yes ;
+               }
+               else {
+                    no ;
+               }
+                
                
 }
 
