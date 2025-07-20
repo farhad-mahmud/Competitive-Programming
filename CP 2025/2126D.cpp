@@ -29,16 +29,16 @@ void solve ()
 
 
               sort(v.begin(), v.end(), [](auto &a, auto &b) {
-           return get<1>(a) < get<1>(b); 
-          });
+               return get<2>(a) < get<2>(b); 
+            });
             
               
 
 
-             //for(auto &t : v){
+             for(auto &t : v){
 
-                 //cerr << get<0>(t) <<' ' << get<1>(t) << ' '<< get<2>(t)  << nl;
-            // }
+                 cerr << get<0>(t) <<' ' << get<1>(t) << ' '<< get<2>(t)  << nl;
+             }
 
              int ans = -1 ;
 
