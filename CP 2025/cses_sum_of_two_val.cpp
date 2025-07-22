@@ -35,6 +35,7 @@ void solve ()
                      if(mp.find(x-a[i]) != mp.end()){
 
                              cout << mp[x-a[i]] << ' ' << i << nl; 
+                             
                              return ;
                      }
 

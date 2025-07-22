@@ -16,11 +16,33 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-
 void solve ()
 {
-          
-   
+                string s ; cin >> s ;
+
+                int len = s.length();
+              
+                
+                int ans =1 ;
+                int cnt =1 ;
+
+            
+                for(int i=1;i<len;i++){
+
+                      if(s[i] == s[i-1]){
+
+                            cnt++ ;
+                      }
+                      else {
+                             cnt=1 ;
+                          
+                      }
+
+                      ans = max(cnt ,ans) ;
+                }
+
+              
+                   cout << ans << nl;
 }
 
 int32_t main() {
@@ -29,7 +51,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 
