@@ -59,7 +59,7 @@ void solve ()
                   }
               }
 
-              cout <<"IMPOSSIBLE" << nl; 
+              cout << -1  << nl; 
 }
 
 int32_t main() {
