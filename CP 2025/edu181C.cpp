@@ -19,9 +19,7 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                    int l , r ; cin >> l >> r ;
                     
-   
 }
 
 int32_t main() {

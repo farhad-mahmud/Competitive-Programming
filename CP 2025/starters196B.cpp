@@ -23,43 +23,51 @@ void solve ()
 
           vector<int >a (n+1) ;
 
-          for(int i=1;i<=n;i++) cin >> a[i] ;
+          int sum = 0 ;
 
-          int f = 0 ;
+          for(int i=1;i<=n;i++) 
+            {
+               cin >> a[i] ;
+               sum += a[i] ;
+            }
+         
+          //int need =0  ;
+          int ans =0 ;
 
-         //int need = 0 ;
+          int k= c ;
 
-         int ans = 1e18 ;
-         int k = c ;
- 
-         sort(a.begin(),a.end()) ;
-
-         int nd = 0 ;
-
-         for(int i=1;i<=n;i++){
-
-              if(a[i] == c){
- 
-                   nd++;
-                   c++ ;
-              }
-         }
+          sort(a.begin(),a.end()) ;
 
           for(int i=1;i<=n;i++){
-               int need =0 ;
 
-                if(a[i] >= c ){
+              bool eq = false ;
+              bool less = false ;
 
-                     need = (a[i] - c) + 1 ;
-                      c+= need ;
-                     cerr << need << nl;
-                     ans = min(ans , need) ;
-                }     
+               if(a[i] == c){
+
+                    eq = true ;
+               }
+
+               if(a[i] < c){
+
+                    less = true ;
+               }
+
+               if()
+
+
           }
-            
-         cout << c - k << nl;
+
     
+
+          cerr << c << nl;
+
+          cout << c - k << nl ; 
+
 }
+
+
+
 
 int32_t main() {
 ios_base:: sync_with_stdio(0);

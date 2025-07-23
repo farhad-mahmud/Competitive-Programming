@@ -53,7 +53,7 @@ void solve ()
 
                                  ans += taste[j] ;
 
-                                 cerr << ans <<nl;
+                                 //cerr << ans <<nl;
                             }
                         }
                  }

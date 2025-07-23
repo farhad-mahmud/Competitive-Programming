@@ -22,47 +22,18 @@ void solve ()
 {
               int a , b , k ; cin >> a >> b >> k ;
 
-  
-               vector<int > divs ;
-
                 int g = __gcd(a,b) ;
 
-                bool f = false ;
+                int dx = a/ g ;
+                int dy = b / g ;
 
-               for(int i=1;i*i <=g;i++){
+                if(dx <=k && dy <=k){
 
-                  if(g % i == 0){
-                        
-                       int dx1 = a/i , dy1 = b/ i;
-
-                       if(dx1 <=k && dy1 <=k){
-                          f= true ;
-                          break ;
-                       }
-
-                       int j = g/ i ;
-
-                       if(i != j){
-
-                          int dx2 = a/j , dy2 = b/ j ;
-
-                          if(dx2 <=k && dy2 <=k){
-
-                                f = true ;
-                                break ;
-                          }
-                       }
-                    }
-                  }
-    
-             if(f){
-                  cout << 1 << nl;
-             }
-             else {
-
-                 cout << 2 << nl;
-             }
-                  
+                     cout << 1 << nl;
+                } 
+                else {
+                    cout << 2 <<nl;
+                }
 
 
            
