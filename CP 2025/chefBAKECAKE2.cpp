@@ -24,8 +24,31 @@ void solve ()
 
              vector<int > a(n+1) ,b(n+1) ;
 
-             
+                   
+            int cnt = 0 ;
 
+            for(int i=1;i<=n;i++) {
+               cin >> a[i] ;
+            }
+
+            for(int i=1;i<=n;i++) cin >> b[i] ;
+
+           // output(a) ;
+            //output(b) ;
+
+            for(int i=1;i<=n;i++){
+
+                   if(a[i] > b[i]){
+
+                        cnt += a[i] - b[i] ;
+
+                        //dbug(cnt) ;
+                   }
+
+            }
+
+
+            cout << cnt << nl;
              
 }
 
