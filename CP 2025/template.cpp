@@ -23,7 +23,7 @@ void fastio() {
 
 // ========== Number Theory Utilities ==========
 
-int lcm(int a, int b) { return (a / gcd(a, b)) * b; }
+int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 
 
 // recursive devide and conquer 
