@@ -26,7 +26,7 @@ void fastio() {
 int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 
 
-// recursive devide and conquer 
+// recursive divide and conquer 
 
 int binpow(int a, int b ) {
      int res = 1;
@@ -192,6 +192,25 @@ vector<int> get_path(int dest) {
     reverse(all(path));
     return path;
 }
+
+//-------------MEX------------// 
+int get_mex(const vector<int>& a) {
+    int n = a.size();
+    vector<bool> present(n + 5, false); // +5 for safety margin
+
+    for (int x : a) {
+        if (x < n + 5) {
+            present[x] = true;
+        }
+    }
+
+    for (int i = 0; i < n + 5; ++i) {
+        if (!present[i]) return i;
+    }
+
+    return n + 5; // fallback (should never happen)
+}
+
 
 
 void solve ()
