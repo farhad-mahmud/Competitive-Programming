@@ -19,14 +19,29 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-          
-              int n ; cin >> n;
+                 int a , b ; cin >> a >> b ;
 
-              vector<int > a(n+1);
 
-              for(int i=1;i<=n;i++) cin >> a[i] ;
+                 int total = a+b ;
 
-              
+                 if(total % 3 !=0){
+                    no ;
+                    return ;
+                 }
+
+               
+                if(min(a,b)*2 <max(a,b)){
+
+                     no ;
+                     return ;
+                }
+
+
+
+          yes;
+
+
+
 }
 
 int32_t main() {

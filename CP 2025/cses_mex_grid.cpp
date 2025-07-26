@@ -20,13 +20,10 @@ const int MOD = 1e9 + 7;
 void solve ()
 {
           
-              int n ; cin >> n;
+           int c ; cin >> n;
 
-              vector<int > a(n+1);
 
-              for(int i=1;i<=n;i++) cin >> a[i] ;
-
-              
+           for(int i=0;i<n;)
 }
 
 int32_t main() {
