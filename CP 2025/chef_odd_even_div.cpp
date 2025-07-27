@@ -19,8 +19,22 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-          
-          
+                 int a , b ; cin >> a >> b ;
+
+               
+                
+                 if(a!=0 && b % a ==0){
+
+                    yes ;
+                 }
+                 else {
+
+                    no ;
+                 }
+
+
+
+              
 }
 
 int32_t main() {
