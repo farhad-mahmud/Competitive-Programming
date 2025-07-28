@@ -19,24 +19,39 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-             int n ; cin >> n ; 
-             
-             string s ; cin >> s ;
+                int n , l , r ; cin >> n >> l >> r ;
 
-             int cnt = 0 ;
 
-             for(int i=0;i<n/2;i++){
 
-                 if(s[i]!= s[n-i-1]){
+                int cnt2 = 0 ;
 
-                     cnt++;
-                 }
-             }
-                  
-              //cerr << cnt << nl;
 
-             cout << (cnt+1)/2 << nl;
-          
+
+                for(int i = l;i<=r ;i++){
+
+                        int cnt = 0 ;
+
+                       int sq = sqrt(i) ;
+
+                      for(int j=1;j<=j*j;j++){
+
+                             if(i % j == 0) {
+
+                                cnt++ ;
+
+                                if(j!= i/j) cnt++ ;
+                             }
+                      }
+
+                      if(cnt == n){
+
+                            cnt2++ ;
+                      }
+
+                }
+
+
+                cout << cnt2 << nl; 
 }
 
 int32_t main() {
