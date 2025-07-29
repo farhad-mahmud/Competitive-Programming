@@ -32,7 +32,7 @@ void solve ()
 
                 // fix size of window k ;
 
-               auto mid = st.begin() ;
+                multiset<int >::iterator mid ;
 
                for(int i=1;i<=n;i++){
 
@@ -41,25 +41,27 @@ void solve ()
                		if(st.size()== 1){
                			 mid = st.begin() ;
                		}
-               		else if(a[i]< *mid){
+               		else if(a[i]< *mid){  // inserted left of the mid,and found it
 
                			 if(st.size() % 2 ==0){
-               			 	 mid-- ; // we go left 
+               			 	 mid-- ;   // if size is even median shifts left ;
                			 }
-               		}
+               		}     // inserted right of the mid , and found it
                		else {
 
-               			  if(st.size() % 2 ==1){
-               			  	    mid++ ;
+               			  if(st.size() % 2 ==1){ 
+               			  	    mid++ ;  // if size is odd median shifts right
                			  }
                		}
 
 
-               		// remove oldest element if st > k ;
+               		
 
                		if(st.size() > k){
 
-               			 int out = a[i-k] ;
+               			 int out = a[i-k] ;    // remove leftmost element if st > k ;
+
+                         // adjust mid
 
                			 if(out <= *mid){
 
@@ -82,7 +84,6 @@ void solve ()
                			  cout << *mid << ' ' ;
                		}
 
-               		cout << nl; 
                }
 
 
