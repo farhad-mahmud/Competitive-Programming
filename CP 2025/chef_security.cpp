@@ -23,35 +23,18 @@ void solve ()
 
                   vector<int > a(n+1) ;
 
-                  for(int i=1;i<=n;i++) cin >> a[i] ;
+                  for(int i=0;i<n;i++) cin >> a[i] ;
 
 
-                  int cur = a[1] ;
+                  int mn = a[0] ;
 
-                int sec = 0 ;
+               for(int i=1;i<n;i++){
 
-               int pos = 1 ;
-
-               while(true){
-
-                      for(int i=1 ;i<=n;i++){
-                          if(a[i] >0) a[i]-- ;
-                      }
-
-                      sec++ ;
-
-                     if(a[pos] == 0){
-                          cout << sec <<nl ;
-                          return ;
-                     }
-
-                     if (pos < n && a[pos] > a[pos + 1] + 1) {
-                        pos++;
-                      }
+                     mn = min(mn , max(a[i]+1 , i)) ;
                }
 
 
-               cout << sec << nl; 
+               cout << mn << nl; 
 }
 
 int32_t main() {
