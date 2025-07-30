@@ -25,6 +25,14 @@ void solve ()
 
                  bool f = true ;
 
+                 if(n >=5){
+
+                  no ;
+                  return ;
+               }
+
+           
+
                  for(int i=0 ;i<n;i++){
 
                      string tmp = "" ;
@@ -33,9 +41,9 @@ void solve ()
                          
                           tmp = s.substr(i,j) ; 
 
-                          cerr << tmp << nl;
+                         // cerr << tmp << nl;
 
-                          if(stoi(tmp) % tmp.size()==1){
+                          if(stoi(tmp) % tmp.size() != 0){
 
                                 f= false ;                           
                                 break ;
@@ -50,6 +58,8 @@ void solve ()
                else {
                    no ;
                }
+
+            
 }
 
 int32_t main() {
