@@ -207,8 +207,6 @@ int get_mex(const vector<int>& a) {
     for (int i = 0; i < n + 5; ++i) {
         if (!present[i]) return i;
     }
-
-    return n + 5; // fallback (should never happen)
 }
 
 

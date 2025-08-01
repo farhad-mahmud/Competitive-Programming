@@ -30,6 +30,10 @@ void solve ()
 
                  string s[0] = "" ;
 
+
+
+
+
                  pref[0] = 0 ;
 
                  for(int i=1;i<=n;i++){
