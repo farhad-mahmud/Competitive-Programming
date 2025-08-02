@@ -16,10 +16,20 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 
 void solve ()
 {
-            cout << "h" << nl ;
+             int a , b ; cin >> a >> b ;
+
+              
+              int x = a ;
+
+              int cnt =0 ;
+
+   
+
+           cout << cnt << nl;
 }
 
 int32_t main() {

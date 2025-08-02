@@ -47,26 +47,23 @@ int binpow(int a, int b ) {
 // -----------------sieve ---------------------// 
 
 bitset<N> is_prime; // N is a constant, e.g., N = 1000000
+//========== prime generation(sieve)=======// 
 
-void sieve() {
-  for(int i = 2; i < N; i++) {
-    spf[i] = i;
-  }
-  for(int i = 2; i < N; i++) {
-    if (spf[i] == i) {
-      for (int j = i; j < N; j += i) {
-        spf[j] = min(spf[j], i);
-      }
-    }
-  }
+bool p[N] ;    
+
+vector<int> prime ;
+
+void sieve(){
+
+for(int i = 2; i * i < N; i++) {
+    if(p[i]) continue;
+    for(int j = i * i; j < N; j += i)
+        p[j] = true;
 }
-bool ok(int n) { // checking if possible
-  for (int i = 2; i < n; i++) {
-    if (spf[i] == i and spf[n - i] == n - i) {
-      return true;
-    }
-  }
-  return false;
+
+for(int i = 2; i < N; i++)
+    if(!p[i]) prime.push_back(i);
+
 }
 
 //----------------is_prime---------------------// 
@@ -78,6 +75,54 @@ bool isPrime(int n) {
     return true;
 }
 
+
+// ============ bitwise operations ==============//
+
+int check_kth_bit(int x ,int k) {
+
+       return(x >> k) & 1 ;
+}
+int print_on_bits(int x){
+
+      for(int k=0;k<32 ;k++){ 
+
+             if(check_kth_bit(x,k)){
+
+                  cout << k << ' ' ;  // print setbit/onbit ;
+             }
+
+       }
+}
+int print_off_bits(int x){
+
+      for(int k=0;k<32 ;k++){ 
+
+             if(!check_kth_bit(x,k)){
+
+                  cout << k << ' ' ;  // print setbit/onbit ;
+             }
+
+       }
+}
+bool is_even(int x){
+
+      if(x & 1){  // just check if last bit is on/off
+           
+            return false ;
+      }
+      else {
+
+            return true ;
+      }
+}
+int set_kth_bit(int x ,int k){
+
+      return x | (1 <<k) ;
+}
+int unset_kth_bit(int x ,int k){
+
+      return x & (~(1<<k)) ;
+}
 // ========== Segment Tree (Optional Use) ==========
 
 int a[N], t[4 * N];
