@@ -19,7 +19,24 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-         
+              int n ; cin >> n ;
+
+              vector<int > a(n+1);
+
+              for(int i=1;i<=n;i++) cin >> a[i] ;
+
+              int gc = 0 ;
+
+              for(int i=1;i<=n;i++){
+
+                  gc = __gcd(gc,a[i]) ;
+              }
+
+
+              cout << gc * n << nl ;
+              
+
+
 }
 
 int32_t main() {
