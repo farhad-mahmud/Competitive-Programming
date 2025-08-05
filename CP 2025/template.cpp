@@ -47,22 +47,23 @@ int binpow(int a, int b ) {
 
 //========== prime generation(sieve)=======// 
 
-bool p[N] ;    
-
+bool vis[N] ;    
 vector<int> prime ;
 
 void sieve(){
-
+    
 for(int i = 2; i * i < N; i++) {
-    if(p[i]) continue;
-    for(int j = i * i; j < N; j += i)
-        p[j] = true;
+    if(vis[i]) continue;
+
+    for(int j = i * i; j < N; j += i){
+        vis[j] = true;
+    }
 }
 
-for(int i = 2; i < N; i++)
-    if(!p[i]) prime.push_back(i);
-
+for(int i = 2; i < N; i++){
+    if(!vis[i]) prime.push_back(i);
 }
+
 
 //----------------is_prime---------------------// 
 

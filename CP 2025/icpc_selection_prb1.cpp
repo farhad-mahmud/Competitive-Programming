@@ -13,37 +13,36 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
-const int N = 1e6 + 9;
-int spf[N];     
+const int N = 1e6 + 9;  
 
-bool p[N] ;    
-
+bool vis[N] ;    
 vector<int> prime ;
 
 void sieve(){
 
 for(int i = 2; i * i < N; i++) {
-    if(p[i]) continue;
+    if(vis[i]) continue;
 
     for(int j = i * i; j < N; j += i){
-        p[j] = true;
+        vis[j] = true;
     }
 }
 
 for(int i = 2; i < N; i++){
-    if(!p[i]) prime.push_back(i);
+    if(!vis[i]) prime.push_back(i);
 }
 
 }
-
 
 void solve ()
 {
+
+
+              //output(prime) ;
+
               int a , b ; cin >> a >> b ;
 
               map<int ,bool > x ;
-
-              int org_a = a ;
 
               for(auto i : prime){               
 
@@ -55,7 +54,7 @@ void solve ()
                         a/= i ;
                   }
 
-                   if(i*i > org_a) break ;
+                   if(i*i > a) break ;
                                  
               }
 
@@ -90,7 +89,8 @@ cin.tie(0);
          int t = 1 ;
 
          cin >> t ;
-
+         
+         sieve() ;
          while(t--){
 
             solve() ;
