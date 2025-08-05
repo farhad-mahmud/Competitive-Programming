@@ -44,9 +44,7 @@ int binpow(int a, int b ) {
      }
      return res ;
 }
-// -----------------sieve ---------------------// 
 
-bitset<N> is_prime; // N is a constant, e.g., N = 1000000
 //========== prime generation(sieve)=======// 
 
 bool p[N] ;    
