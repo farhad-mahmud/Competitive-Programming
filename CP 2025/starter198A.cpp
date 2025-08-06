@@ -19,36 +19,21 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-            int n ; cin >> n ;
-            vector<int > a(n) ;
-            
-
-            for(int i=0;i<n;i++) {
-               cin >> a[i] ;
-              // sum += a[i] ;
-            }
+              string s ; cin >> s; 
 
 
-            sort(all(a)) ;
+              int len =s.length() ;
 
-            int mx = a[n-1] ;
+              for(int i= 0 ;i<len ;i++){
 
-            int sum = 0 ;
-               
-            for(int i=0 ;i<n-1;i++){
-                 sum+= a[i] ;
-            }
+                  if(s[i] != 'c' && s[i] != 'a' && s[i] != 't'){
 
-            //cerr << sum << nl;
+                        no ;
+                        return ;
+                  }
+              }
 
-            if(mx <= sum){
-                 cout << mx + sum << nl;
-            }
-            else {
-
-                 cout << 2* mx << nl; 
-            }
-
+              yes ;
 }
 
 int32_t main() {
@@ -57,7 +42,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         //cin >> t ;
 
          while(t--){
 

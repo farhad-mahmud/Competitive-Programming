@@ -19,34 +19,20 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-            int n ; cin >> n ;
-            vector<int > a(n) ;
+            int a1, b1 , a2 , b2 ; cin >> a1 >> b1 >> a2 >> b2 ;
+
             
+            int t1 = 5*a1 + b1 ;
 
-            for(int i=0;i<n;i++) {
-               cin >> a[i] ;
-              // sum += a[i] ;
-            }
+            int t2 = 5*a2 + b2 ;
 
+            if(t1 >= t2 && (t1 - t2) % 6 == 0){
 
-            sort(all(a)) ;
-
-            int mx = a[n-1] ;
-
-            int sum = 0 ;
-               
-            for(int i=0 ;i<n-1;i++){
-                 sum+= a[i] ;
-            }
-
-            //cerr << sum << nl;
-
-            if(mx <= sum){
-                 cout << mx + sum << nl;
+                 yes;
             }
             else {
 
-                 cout << 2* mx << nl; 
+                 no ;
             }
 
 }
@@ -57,7 +43,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-        // cin >> t ;
+         cin >> t ;
 
          while(t--){
 
