@@ -30,38 +30,27 @@ void solve ()
 {
             int n , m ; cin >> n >> m ;
 
+            
+            int l = n , r = m ;
 
-            int l= 1 , r = m ;
+            int mx = 0 ;
 
-            if(is_prime(m)){
+            
 
-            	  m-- ;
-                for(int i=1;i<=m;i++){
+            for(int i=l ;i<=m ;i++){
 
-                	  int gc = 0 ;
-                	  gc = __gcd(i, m); ;
+                 for(int j=l ;j<=m ;j+=i){
 
-                	  if(gc >= n){
+                       mx = max(mx , j) ;
+                 }
 
-                	  	  cout << i << ' ' << m << nl;
-                	  	  break ;
-                	  }
-                }
-            }
-            else {
+                 if(__gcd(i,mx)>=n){
 
-            	  for(int i=1;i<=m;i++){
-      
-            	  		int gc = 0 ;
-            	  		gc = __gcd(i,m) ;
+                      cout << i << ' ' << mx << nl; 
+                      break ; 
+                 }
 
-            	  	    if(gc >= n){
-
-                	  	  cout << i << ' ' << m << nl;
-                	  	  break ;
-                	  }
-            	  }
-            }
+            }     
 }
 
 int32_t main() {
