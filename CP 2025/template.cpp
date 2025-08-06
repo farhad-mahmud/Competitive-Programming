@@ -85,14 +85,25 @@ for(int i = 2; i < N; i++){
 
 //----------------is_prime---------------------// 
 
-bool isPrime(int n) {
+bool is_prime(int n) {
     if (n < 2) return false;
     for (int i = 2; i * i <= n; ++i)
         if (n % i == 0) return false;
     return true;
 }
 
+//============= kadans algo=======================//
+           int ans = -1e18 ;
+           int  max_sub_sum = -1e18;
 
+           for(int l = 0 ;l<n;l++){
+                  
+            max_sub_sum = max(a[l],a[l] + max_sub_sum);
+
+            ans = max(ans, max_sub_sum) ;
+
+           }
+      
 // ============ bitwise operations ==============//
 
 int check_kth_bit(int x ,int k) {
