@@ -17,6 +17,8 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 
+int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
+
 void solve ()
 {
           int n ; cin >> n ;
@@ -29,52 +31,52 @@ void solve ()
            
           vector<int > pref(n) , suf(n) ;
 
+          vector<int > v(n) ;
 
+         
 
-          if(n==1){
+          for(int i=0;i<n;i++){
 
-               if(p[0] != s[0]){
-                    no ;
-                    return ;
-               }
-               else {
-                   yes;
-                   return ;
-               }
-          }
+               v[i] = lcm(p[i] , s[i]) ;
+           }
 
+         
+          bool f = true ;
 
+          int tmp = 0 ;
 
-          pref[0] = p[0] ;
-
-          for(int i=1;i<n;i++){
-
-               pref[i] = __gcd(pref[i-1] , p[i]) ;
-          }
-
-          suf[n-1] = s[n-1] ;
-
-          for(int i=n-2;i>=0 ;i--){
-               suf[i] = __gcd(suf[i+1] , s[i]) ;
-          }
-
-
-          vector<int > v ; 
-          
           for(int i=0 ;i<n;i++){
-               int gc = 0 ;
 
-               if(i==0) gc =s[i+1] ;
-               else if(i==n-1) gc = p[i-1] ;
-               else gc = __gcd(p[i-1],s[i+1]) ;
+                tmp = __gcd(tmp,v[i]) ;
 
-               v.push_back(gc) ;
+                if(tmp != p[i]){
+
+                    f = false ;
+                    break ;
+                }
           }
-             
 
-            output(v) ;
+          tmp = 0 ;
 
+          for(int i= n-1 ;i>=0 ;i--){
+
+                tmp =__gcd(tmp,v[i]) ;
+
+                if(tmp != s[i]){
+
+                      f = false ;
+                      break ;
+                }
+          }
           
+
+          if(f){
+              yes;
+          }
+          else {
+
+              no ;
+          }
 
  }
 
