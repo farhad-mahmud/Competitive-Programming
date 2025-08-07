@@ -13,13 +13,35 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 // Constants
-const int N = 1e5 + 9;
+const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
 
 
+bool is_prime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i<= sqrt(n); i++)  // till sqrt of n ;
+        if (n % i == 0) return false;
+    return true;
+}
+
 void solve ()
 {
-       
+
+               int m , n ; cin >> m >> n ;
+
+               for(int i= m ;i<=n;i++){
+
+                      if(i==1) continue ;
+
+                      if(is_prime(i)){
+
+                           cout << i << nl ;
+                      }
+               }
+
+
+                cout << nl ;
+
 }
 
 int32_t main() {

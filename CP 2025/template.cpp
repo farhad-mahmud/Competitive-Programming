@@ -2,7 +2,7 @@
 using namespace std;
 
 // Type Definitions
-#define int long long
+#define ll long long
 #define nl '\n'
 
 // Macros
@@ -59,6 +59,12 @@ for(int i = 2; i * i < N; i++) {
         vis[j] = true;
     }
 }
+
+for(int i = 2; i < N; i++){
+    if(!vis[i]) prime.push_back(i);
+}
+}
+
 //=========== spf ==================// 
 
 // for prime expo info / factorize many number quickly 
@@ -77,9 +83,6 @@ void sieve(){
     }
   }   
 
-}
-for(int i = 2; i < N; i++){
-    if(!vis[i]) prime.push_back(i);
 }
 
 
