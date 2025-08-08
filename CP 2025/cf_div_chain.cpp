@@ -20,51 +20,45 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-           int k ; cin >> n ;
-
-           vector<int > a(n) ;
-
-           for(int i=0;i<n;i++) cin >> a[i] ;
-
-           
+           int n ; cin >> n ;
+         
            vector<int > ans ;
 
           int f = 0 ;
 
           for(int k = 30 ;k>=0 ;k--){
 
-                if((n >> k)& 1) // if the kth bit of n is 1;
+                if((n >> k)& 1) 
                 {                
-                      f = k ;  // f is the indx of most significant bit of n ;
+                      f = k ; 
                       break ;
                 } 
           }
          
          for(int i=0;i<=f;i++){
 
-              ans.push_back(1<< i ) ;  // adds powers of 2: 1,2,4, 8
+              ans.push_back(1<< i ) ;  
          }
 
-         int x = 1<< f ; // highest power of 2 <=n ;
-
+         int x = 1<< f ; 
          for(int i=f-1;i>=0;i--){
 
-                if((n>>i) & 1){   // if the ith bit of n is 1 ;
+                if((n>>i) & 1){  
 
-                     x+= 1 << i ; // x + = 2^i ;
+                     x += 1 << i ;
 
                      ans.push_back(x) ;
                 }
          }
 
-           
+                         
          reverse(ans.begin() , ans.end()) ;
 
          cout << ans.size() << nl ;
 
          for(auto i :ans ){
 
-               cout << i << nl ;
+               cout << i << ' ' ;
          }
 
       cout << nl ;
