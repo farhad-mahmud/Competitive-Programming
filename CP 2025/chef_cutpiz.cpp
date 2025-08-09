@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int  long long
+#define ll  long long
 
 #define nl       "\n" 
 
@@ -19,32 +19,13 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                  
-               int n , m ; cin >> n >> m ;
+                 int n ; cin >> n ;
 
+                 vector<int > a(n+1) ;
 
+                 for(int i=1;i<=n;i++) cin >> a[i] ;
 
-
-                  for(int i=1;i<=n;i++){
-
-                     for(int j=1;j<=m;j++){
-
-                         if((i+j) % 2 ==0){
-
-                              cout << 2 << ' ' ;
-                         }
-                         else {
-                             cout << 3 << ' ' ;
-                         }
-                     }
-
-                     cout << nl ;
-                  }
-
-                  
-
-         
-              
+                
 }
 
 int32_t main() {
