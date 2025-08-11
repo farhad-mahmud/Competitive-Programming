@@ -25,7 +25,30 @@ void solve ()
 
                  for(int i=1;i<=n;i++) cin >> a[i] ;
 
-                
+                 int gc = 0 ;
+
+                 int sum = 0 ;
+
+                 for(int i=1;i<=n-1;i++){
+
+                      int df =0 ;
+                      df=  abs(a[i]- a[i+1]) ;
+
+                      sum+= df ;
+
+                      gc = __gcd(df, gc) ;
+
+                      //cerr << gc << nl;
+
+                 }
+
+                int rest = 360 - sum ;
+
+                int gc2 = __gcd(rest , gc) ;
+
+                int mx = 360 / gc2 ;
+
+               cout << mx - n  << nl ;
 }
 
 int32_t main() {

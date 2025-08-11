@@ -19,7 +19,9 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-    
+              int a, b ; cin >> a >> b ;
+
+             cout << __gcd(a,b) << nl ;
 }
 
 int32_t main() {
@@ -28,7 +30,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 

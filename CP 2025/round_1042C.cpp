@@ -19,33 +19,9 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 { 
-          int n , k ; cin >> n >> k ;
+         
 
-          vector<int > s(n+1) , t(n+1) ;
-
-          for(int i=1;i<=n;i++) cin >> s[i] ;
-
-
-          for(int i=1;i<=n;i++) cin >> t[i] ;
-
-           
-          multiset<int > dif_k ;
-
-          for(auto : s){
-
-                dif_k.insert(abs(a-k)) ;
-          }
-
-          bool ok = true ;
-
-          for(auto b : t){
-
-                bool m = false ;
-
-                
-          }
-
-
+   
 }
 
 int32_t main() {
