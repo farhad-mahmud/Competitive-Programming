@@ -21,6 +21,31 @@ void fastio() {
     cin.tie(0);
 }
 
+
+//=============geometry=====================//
+bool intersect(Point a, Point b, Point c, Point d) {
+    auto cross = [](Point p1, Point p2, Point p3) {
+        return (p2.x - p1.x)*(p3.y - p1.y) - 
+               (p2.y - p1.y)*(p3.x - p1.x);
+    };
+    
+    long long c1 = cross(a, b, c);
+    long long c2 = cross(a, b, d);
+    long long c3 = cross(c, d, a);
+    long long c4 = cross(c, d, b);
+    
+    if (c1 == 0 && c2 == 0 && c3 == 0 && c4 == 0) {
+        // check projection overlap
+        auto between = [](long long a, long long b, long long c) {
+            return min(a, b) <= c && c <= max(a, b);
+        };
+        return between(a.x, b.x, c.x) || between(a.x, b.x, d.x) ||
+               between(c.x, d.x, a.x) || between(c.x, d.x, b.x);
+    }
+    
+    return (c1 * c2 <= 0) && (c3 * c4 <= 0);
+}
+
 // ========== Number Theory Utilities ==========
 
 int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }

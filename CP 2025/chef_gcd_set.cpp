@@ -19,34 +19,25 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                 int n ; cin >> n ;
+           
+             ll l , r , g ; cin >> l >> r >> g  ;
 
-                 vector<int > a(n+1) ;
 
-                 for(int i=1;i<=n;i++) cin >> a[i] ;
+             ll cnt = 0 ;
 
-                 int gc = 0 ;
 
-                 int sum = 0 ;
+             if(g == 1){
 
-                 for(int i=1;i<=n-1;i++){
+                 cout << (r-l)+1 << nl ;
+             }
 
-                      int df =0 ;
-                      df=  abs(a[i]- a[i+1]) ;
+                
+            ll ans = (r/g) - ((l-1) / g) ;
 
-                      sum+= df ;
 
-                      gc = __gcd(df, gc) ;
+            cout << ans << nl;
 
-                 }
 
-                int rest = 360 - sum ;
-
-                int gc2 = __gcd(rest , gc) ;
-
-                int mx = 360 / gc2 ;
-
-               cout << mx - n  << nl ;
 }
 
 int32_t main() {
