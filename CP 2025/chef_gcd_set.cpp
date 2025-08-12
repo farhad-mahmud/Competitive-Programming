@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include<cmath> 
 using namespace std;
 
 #define ll  long long
@@ -22,21 +23,38 @@ void solve ()
            
              ll l , r , g ; cin >> l >> r >> g  ;
 
+             if(g > r ){
 
-             ll cnt = 0 ;
-
-
-             if(g == 1){
-
-                 cout << (r-l)+1 << nl ;
+                  cout << 0 << nl ;
+                  return ;
              }
 
-                
-            ll ans = (r/g) - ((l-1) / g) ;
 
+             ll x = (l-1)/ g ;  //ceil 
+             ll y = (r/g) ;
 
-            cout << ans << nl;
+             //cerr << x << ' ' << y << nl; 
 
+              int cnt = y - x ; 
+              
+             if(cnt >=2){
+
+                 cout << cnt << nl;
+             }
+             else if(cnt == 1){
+
+                   if(x==1){
+                     cout << 1 << nl;
+                   }
+                   else {
+
+                     cout << 0 << nl;
+                   }
+             }
+             else {
+
+                  cout << 0 << nl ;
+             }
 
 }
 
