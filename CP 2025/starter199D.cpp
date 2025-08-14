@@ -19,7 +19,23 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-           
+              int n ; cin >> n ; 
+
+              if(n ==1) {cout << 0 << nl ; return ;}
+
+              for(int i=1;i<=n;i++){
+
+                  int k = 0 ;
+
+                 for(int j=1;j<=n;j++){
+
+                     k = (i+j -3 + n ) % n ;
+
+                     cout << k << ' ' ;
+                 }
+
+                 cout << nl ;
+              }
 }
 
 int32_t main() {

@@ -30,13 +30,13 @@ void solve ()
              }
 
 
-             ll x = (l-1)/ g ;  //ceil 
-             ll y = (r/g) ;
+             ll x = (l + g - 1)/ g ; // num of multiples of g from 1 to l ...
+             ll y = (r/g) ;          // num of multiples of g from 1 to r ...
 
              //cerr << x << ' ' << y << nl; 
 
-              int cnt = y - x ; 
-              
+             ll cnt = y - x + 1;
+
              if(cnt >=2){
 
                  cout << cnt << nl;

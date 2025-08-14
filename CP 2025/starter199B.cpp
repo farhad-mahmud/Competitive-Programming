@@ -19,7 +19,28 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-           
+               int n ; cin >> n ;
+
+               vector<int > a(n+1) ;
+
+               for(int i=1;i<=n;i++) cin >> a[i] ;
+
+               //int x = a ;
+
+               //sort(x.begin(),x.end()) ;
+
+               int mx = *max_element(a.begin(),a.end()) ;
+
+               //cerr << mx << nl;
+                 
+              for(int i=1;i<=n;i++){
+
+                  if(a[i] == mx){
+
+                      cout << i << nl; 
+                      break ;
+                  }
+              }
 }
 
 int32_t main() {
