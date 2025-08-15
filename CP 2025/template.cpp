@@ -229,9 +229,10 @@ int binary_search_example(vector<int>& v, int target) {
 
 // ========== DFS & BFS Module ==========
 
+
 vector<int> g[N];
 bool vis[N];
-int dis[N], par[N];
+int dis[N], par[N], sub[N] ; // sub = subtree ..
 
    // DFS 
 

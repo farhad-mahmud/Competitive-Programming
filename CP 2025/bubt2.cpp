@@ -23,88 +23,98 @@ void solve ()
 
                    int l ; cin >> l ;// bulbs that are initially lit ;
 
-                   vector<int > lit(l+1) ;
-
-
-                   set<int > st ;
+                   set<ll > st ;
  
                    for(int i=1;i<=l;i++) {
                         
-                           cin >> lit[i] ;
+                          ll x ; cin >> x ;
 
-                           st.insert(lit[i]) ;
+                           st.insert(x) ;
                    }
 
-                   output(st) ;
+                
+                 vector<vector<ll>> at_lit ;
 
 
-                   int cnt = 0;
-            
+                 for(int i=0;i<n;i++){
 
-                  while(n--){
+                     int k ; cin >> k ;
 
-                        int k ; cin >> k ;
+                     vector<ll > elm(k) ;
 
-                        vector<int > lit_at(k+1) ;
+                     for(int j=0;j<k;j++){
 
-                        for(int i=1;i<=k;i++){
+                           cin >> elm[j] ;
+                     }
 
-                           cin  >> lit_at[i] ;
-
-                        }
-
-                        for(int i=1;i<=k;i++){
-
-                              auto it = st.find(lit_at[i]) ;
-
-                             if(it == st.end()){
-
-                                  st.insert(lit_at[i]) ;
-                             }
-                             else{
-
-                                 st.erase(lit_at[i]) ;
-                             }
-
-                        }
-
-                          if(st.empty()){
-
-                              cout << cnt << nl ;
-                             return ;
-                             
-                           }
-                                  
-
-                        for(int i=1;i<=k;i++){
-
-                              auto it = st.find(lit_at[i]) ;
-
-                             if(it == st.end()){
-
-                                  st.insert(lit_at[i]) ;
-                             }
-                             else{
-
-                                 st.erase(lit_at[i]) ;
-                             }
-
-                        }
-                      
-                          cnt++ ;
-
-                        if(st.empty()){
-
-                              cout << cnt << nl ;
-                             return ;
-                        }
+                     at_lit.push_back(elm) ;
+                 }
 
 
-                  }
-              
+                 int cnt = 0 ;
 
-               cout << -1 << nl; 
 
+                for(auto &i : at_lit){
+
+                     for(int v : i){
+
+                         auto it = st.find(v) ;
+
+                         if(it == st.end()){ // if not found
+
+                              st.insert(v) ;
+                         }
+                         else {
+
+                              st.erase(v) ;
+                         }
+                           
+                     }
+
+
+                     if(st.empty()){
+
+                           cout << cnt + 1 << nl;
+                           return ;
+                     }
+
+                     cnt++ ;   
+
+                }
+
+                 for(auto &i : at_lit){
+
+                     for(int v : i){
+
+                         auto it = st.find(v) ;
+
+                         if(it == st.end()){ // if not found
+
+                              st.insert(v) ;
+                         }
+                         else {
+
+                              st.erase(v) ;
+                         }
+                           
+                     }
+
+                  
+
+                     if(st.empty()){
+
+                           cout << cnt + 1 << nl;
+                           return ;
+                     }
+
+                     cnt++ ;   
+
+                }
+
+          
+
+          
+           cout << -1 << nl; 
 
 }
 
