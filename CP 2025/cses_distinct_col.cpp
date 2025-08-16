@@ -19,7 +19,25 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-              
+               int n ; cin >> n ;
+
+               vector<int > c(n) ;
+
+               for(int i=0;i<n;i++) cin >> c[i] ;
+
+               int m = n-1 ;
+
+              while(m--){
+
+                   int u , v ; cin >> u >> v ;
+
+                   g[u].push_back(v) ;
+
+                   g[v].push_back(u) ;
+                   
+              }
+
+
 }
 
 int32_t main() {

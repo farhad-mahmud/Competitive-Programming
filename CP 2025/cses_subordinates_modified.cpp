@@ -18,12 +18,14 @@ const int MOD = 1e9 + 7;
 
 vector<int> g[N];
 bool vis[N];
-int dis[N], par[N], sub[N] ;
+int dis[N], par[N] ;
+
+vector<int > sub[N] ;
 
 
 void dfs(int u,int p) {
 
-      sub[u] = 0 ; // subtree.
+     sub[u].clear() ; // reset in case of multiples calls 
 
       for(auto v : g[u]){
 
@@ -31,7 +33,13 @@ void dfs(int u,int p) {
 
            dfs(v,u) ; // u is the parent of child v 
 
-           sub[u] += 1 + sub[v] ;// 1 for direct child + all of its childs childrens ..
+           sub[u].push_back(v) ; 
+
+           for(auto x : sub[v]){ // go through all childs of v ...
+
+                sub[u].push_back(x) ;
+           }
+
       }
 }
 
@@ -54,7 +62,14 @@ void solve ()
  
              for(int i=1;i<=n;i++){
 
-                 cout << sub[i] << ' ' ;
+                 cout <<"Subtree of " << i << ": " ;
+
+                 for(auto x : sub[i]){
+
+                     cout << x << ' ' ;
+                 }
+
+                 cout << nl; 
              }
 
 }
