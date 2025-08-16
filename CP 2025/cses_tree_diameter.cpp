@@ -52,9 +52,9 @@ void solve ()
             }
 
            
-            auto a = dfs(1,-1,0) ; // farthest node from 1 ;
+            auto a = dfs(1,-1,0) ; // first dfs farthest node from 1 ;
 
-            auto b = dfs(a.second,-1,0) ;
+            auto b = dfs(a.second,-1,0) ; // 2nd dfs 
 
 
             cout << b.first << nl; 
