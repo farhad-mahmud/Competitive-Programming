@@ -13,7 +13,7 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 // Constants
-const int N = 1e5 + 9;
+const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
 
 

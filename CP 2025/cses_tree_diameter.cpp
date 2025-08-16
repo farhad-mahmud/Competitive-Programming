@@ -13,35 +13,27 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 // Constants
-const int N = 1e5 + 9;
+const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
 
 vector<int> g[N];
 bool vis[N];
 int dis[N], par[N], sub[N] ; // sub = subtree ..
-
+int depth[N] ;
    // DFS 
 
-void dfs(int u,int p) {
+pair<int ,int > dfs(int u , int p , int dis){
 
-    dis[u] = 0 ;
-    sub[u].clear() ;
+      pair<int ,int > best = {dis,u}; // dist,node
 
-    for (auto v : g[u]) {
-           
+      for(auto v : g[u]){
+
           if(v== p) continue ;
 
-          dfs(v,u) ;  // u is the parent of v node .. 
+          best = max(best, dfs(v,u,dis+1)) ;
+      }
 
-          sub[u].push_back(v) ; // v is a child of u ..
-
-          dis[u]++ ;  // 
-
-          for(auto i : ){
-
-               dis[u]++ ;
-          }
-    }
+      return best ;
 }
 
 
@@ -59,16 +51,13 @@ void solve ()
                   g[v].push_back(u) ;
             }
 
-            dfs(1,1) ;
+           
+            auto a = dfs(1,-1,0) ; // farthest node from 1 ;
+
+            auto b = dfs(a.second,-1,0) ;
 
 
-            for(int i=1;i<=n;i++){
-
-                 cout << dis[i] << ' ' ;
-            }
-
-            cout << nl ;
-
+            cout << b.first << nl; 
 }
 
 int32_t main() {
@@ -77,7 +66,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+        // cin >> t ;
 
          while(t--){
 
