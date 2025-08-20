@@ -262,26 +262,26 @@ int count_connected_components(int n) {
 
         // BFS 
 
-void bfs(int source) {
-    queue<int> q;
-    fill(vis, vis + N, false);
-    fill(dis, dis + N, 0);
-    fill(par, par + N, -1);
-    q.push(source);
-    vis[source] = true;
-    dis[source] = 0;
-    while (!q.empty()) {
-        int u = q.front();
-        q.pop();
-        for (auto v : g[u]) {
-            if (!vis[v]) {
-                q.push(v);
-                par[v] = u;
-                dis[v] = dis[u] + 1;
-                vis[v] = true;
-            }
-        }
-    }
+void bfs(int start){
+     
+      queue<int > q ;
+      q.push(start) ;
+      vis[start] = true ;
+
+      while(!q.empty()){
+           int u = q.front() ;
+           q.pop() ;
+
+           for(auto v : g[u]){
+
+                 if(!vis[v]){
+
+                     q.push(v) ; // push child at last of the queue ;
+                     
+                     vis[v] = true ;
+                 }
+           }
+      }
 }
 
 // Path Reconstruction (BFS)

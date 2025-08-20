@@ -21,17 +21,30 @@ void solve ()
 {
                int n , q ; cin >> n >> q ;
 
-               vector<int > a(n+1) ;
+               vector<int > a(n) ;
 
-               for(int i=1;i<=n;i++) cin >> a[i] ;
+               for(int i=0;i<n;i++){
 
-              while(q--){ 
+                cin >> a[i] ;
 
-                      int x ; cin >> x ;
+             }
 
-                       
+             sort(a.begin(),a.end()) ;
 
-               }
+
+              
+            
+            while(q--){
+
+                 int x ; cin >> x ;
+
+                 auto it = upper_bound(x) ;
+
+
+
+          }
+
+
 }
 
 int32_t main() {
