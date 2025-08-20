@@ -21,55 +21,38 @@ void solve ()
 {
                      int n , k ; cin >> n >> k ;
 
-                     vector<int > s(n+1) ;
-                     for(int i=1;i<=n;i++) cin >> s[i] ;
+                     vector<int > a(n+1) ;
+                     for(int i=1;i<=n;i++) cin >> a[i] ;
 
-                     vector<int > t(n+1) ;
-                    for(int i=1;i<=n;i++) cin >> t[i] ;
+                     vector<int > b(n+1) ;
+                    for(int i=1;i<=n;i++) cin >> b[i] ;
 
                    
-                   map<int ,int > mp  ;
+                    for(int i=1;i<=n;i++){
 
-                  for(int i=1;i<=n;i++){
+                        a[i] %= k ;
 
-                       int x= 0 , y =0 ;
+                        a[i] = min(a[i] , k - a[i]) ; // min(r,k-r) ;
+                    }
 
-                       x = (s[i] % k +k) % k ;                   
+                    for(int i=1;i<=n;i++){
 
-                       y = ((k - s[i]) + k) % k ;
-
-                       mp[x]++ ;
-                       mp[y]++ ;
-                  }
-
-
-                  bool f = true ;
-
-                 for(int i=1;i<=n;i++){
-
-                     int tmp = (t[i] % k + k ) % k ;
-
-                      if(mp[tmp] > 0){
-
-                          mp[tmp]-- ;
-                      }
-                      else {
-
-                          f = false ;
-                          break ;
-                      }
-                 }
+                        b[i] %= k ;
+                        b[i] = min(b[i] , k- b[i]) ;
+                    }
 
 
-                  if(f){
+                    sort(all(a)) ;
+                    sort(all(b)) ;
 
-                      yes ;
-                  }
-                  else {
 
-                       no ;
-                  }
+                    if(a==b){
+                        yes;
+                    }
+                    else {
 
+                        no ;
+                    }
 
 
 }
