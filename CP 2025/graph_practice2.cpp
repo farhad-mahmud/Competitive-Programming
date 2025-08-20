@@ -27,14 +27,13 @@ int cnt = 0 ;
 int k ;
 bool found = false ;
 
-void dfs(int u, int p ,int dist) {
+void dfs(int u,int dist) {
 
-      if(found) return ;
+      vis[u] = true ;
 
       if(u == k){
-
+         
           cout << dist << nl;
-          found = true ;
           return ;
 
       } 
@@ -44,11 +43,13 @@ void dfs(int u, int p ,int dist) {
           int v = i.first ;
           int w = i.second ;
 
-         if(v == p) continue ;
-
-         dfs(v,u, dist+w ) ;
+          if(!vis[v]){
+               
+              dfs(v , dist + w) ;
+          }
+           
      }
-     
+
 
 }
 
@@ -66,7 +67,7 @@ void solve ()
                 }
 
 
-                dfs(1,1,0)  ;
+                dfs(1,0)  ;
 
 
 }
