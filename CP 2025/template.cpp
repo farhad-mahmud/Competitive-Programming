@@ -54,6 +54,7 @@ int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 // recursive divide and conquer 
 
 int binpow(int a, int b ) {
+    
      int res = 1;
      while(b >0){
           if(b & 1){
