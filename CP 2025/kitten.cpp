@@ -71,7 +71,7 @@ char  f(char a, int k , int h){
 
                      return 'p' ;
                  }
-                 if(k == 1&& h == 1){
+                 if(k == 1 && h == 1){
 
                      return  'b' ;
                  }
@@ -154,7 +154,6 @@ void solve ()
 
 
                     if(rev == 1){
-
 
                         reverse(s.begin(), s.end()) ;
 

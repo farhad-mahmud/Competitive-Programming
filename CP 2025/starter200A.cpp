@@ -20,10 +20,30 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                 
+               int n , x , y ; cin >> n >> x >> y ;
+
+
+
+               int k = y/ x ;
+
+               int ans = 0 ;
+
+               if(n % k == 0){
+
+                    ans = n/ k ;
+               }
+               else {
+
+                    ans = n/k + 1 ;
+
+               }
+
+
+               cout << ans << nl; 
+
 }
 
-int32_t main() {
+int32_t main() {  
 ios_base:: sync_with_stdio(0);
 cin.tie(0);
 
