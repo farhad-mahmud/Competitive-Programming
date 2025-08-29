@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll  long long
+#define int  long long
 
 #define nl       "\n" 
 
@@ -20,7 +20,100 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                 
+                 int n ; cin >> n ;
+
+                 vector<int > a(n) ;
+
+                 for(int i=0;i<n;i++) cin >> a[i] ;
+
+
+                  vector<int > v ;
+
+
+                if(n % 2== 1){
+
+                       int ans = 0 ;
+
+                       int mn = 0 ;
+                       int k = 0 ;
+
+                       sort(a.rbegin(),a.rend()) ;
+
+                       for(int i=0;i<n-1;i+=2){
+
+                             mn = min(a[i] , a[i+1]) ;
+
+                             ans += max(a[i],a[i+1]) ;
+
+                             a[i] = a[i] - mn ;
+
+                             a[i+1] = a[i+1] - mn ;
+
+                             k = min(a[i] , a[i+1]);
+
+                            // cerr << k << nl;
+
+                             v.push_back(k) ;
+
+                       }
+
+                       // cerr << ans << nl; 
+
+                        for(int i=0;i<v.size()-1;i++){
+
+                             ans += min(v[i] ,v[i+1]) ;
+
+                           
+                        }
+
+
+                        ans += a[n-1] ;
+
+                        cout << ans << nl; 
+
+                }
+
+                else {
+
+                         int ans = 0 ;
+
+                       int mn = 0 ;
+                       int k = 0 ;
+
+                       sort(a.rbegin(),a.rend()) ;
+
+                       for(int i=0;i<n-1;i+=2){
+
+                             mn = min(a[i] , a[i+1]) ;
+
+                             ans += max(a[i],a[i+1]) ;
+
+                             a[i] = a[i] - mn ;
+
+                             a[i+1] = a[i+1] - mn ;
+
+                             k = min(a[i] , a[i+1]);
+
+                             v.push_back(k) ;
+
+                       }
+
+
+                        for(int i=0;i<v.size()-1;i++){
+
+                             ans += min(v[i] ,v[i+1]) ;
+                        }
+
+
+                        //ans += a[n] ;
+
+                        cout << ans << nl; 
+
+
+                }
+
+
+
 }
 
 int32_t main() {
@@ -29,7 +122,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         //cin >> t ;
+         cin >> t ;
 
          while(t--){
 
