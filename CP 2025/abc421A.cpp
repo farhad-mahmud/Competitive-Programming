@@ -21,6 +21,40 @@ const int MOD = 1e9 + 7;
 void solve ()
 {
                  
+               int n ; cin >>n ;
+
+              vector<pair<int , string>> v ;
+
+              vector<string > s(n) ;
+
+              for(int i=0;i<n;i++){
+
+                  cin >> s[i] ;
+
+                  v.push_back({i+1 , s[i]}) ;
+              }   
+
+
+              int x ; cin >> x ;
+
+              string y ; cin >> y ;
+
+
+
+              for(auto i : v){
+
+                  if(i.first == x && i.second == y){
+
+                         cout << "Yes" << nl;
+                         return ;
+                  }
+
+              }
+
+
+              cout << "No" << nl ;
+
+
 
 
 }
@@ -31,7 +65,7 @@ cin.tie(0);
 
          int t = 1 ;
 
-         cin >> t ;
+         //cin >> t ;
 
          while(t--){
 
