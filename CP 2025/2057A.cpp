@@ -1,5 +1,6 @@
+
 //------------------------------//
-//        Author: Farhad       //
+//         Author: Farhad       //
 //------------------------------//
 
 #include <bits/stdc++.h>
@@ -17,8 +18,7 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
-// constrains 
-
+// constants
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
@@ -26,8 +26,13 @@ const int MOD = 1e9 + 7;
 void solve ()
 {
                  
+               int n , m ; cin >> n >> m ;
 
 
+              int ans = max(n,m) + 1 ;
+
+
+              cout << ans << nl; 
 }
 
 int32_t main() {
