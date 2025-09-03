@@ -29,15 +29,18 @@ void solve ()
 
                         a[i].second = i+1 ;
 
+                        cerr << a[i].first << nl ;
+
                  }
 
-
-
-     
+    
               sort(a.begin(),a.end()) ;
 
 
+
+         
               for(int i=0;i<n;i++){
+
                 for(int j=i+1;j<n;j++){
 
                   int t = x- a[i].first - a[j].first ;
@@ -51,7 +54,7 @@ void solve ()
 
                       if(sum == t){
 
-                          cout << a[i].second << ' '<<a[j].second<< ' '<< a[l].second << ' ' << a[r].second  << nl;;
+                          cout << a[i].second << ' '<< a[l].second << ' ' << a[r].second << ' ' <<a[j].second << nl;;
                           return ;
                       }
                       else if(sum< t){
@@ -62,8 +65,9 @@ void solve ()
                          r-- ;
                       }
 
-                    }
+                   
                   }
+                }
               }
 
               
