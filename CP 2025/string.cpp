@@ -25,41 +25,42 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+                 int n ; cin >> n ;
+
+                 string  s ; cin >> s ;
+                 int mid=0;;
+
+                 if(n&1)
+                 {
+                  mid=(n)/2;
+                 }else
+                 {
+                  mid=(n)/2 -1;
+                 }
+
+                 int cnt = 0 ;
+
+                 for(int i=mid ;i<n;i++){
+                     //cout<<s[i]<<endl;
+                        if(s[mid] == s[i]){
+
+                              cnt++ ;
+                        }else break;
+
+                 }
+
+                 for(int i=mid-1; i>=0;i--){
+
+                        if(s[mid] == s[i]){ 
+
+                             cnt++ ;
+
+                        }else break;
+                 }
+
+
+                 cout << cnt << nl ;
                  
-                  int n ; cin >> n ;
-
-                  string s ; cin >> s ;
-
-                  int cnt = 0 ;
-                  
-                  for(int i=0;i<n;i++){
-
-                      string tmp = " " ;
-
-                      string tmp2 = " " ;
-
-                      string tmp3 = " " ;
-
-                       tmp = s ;
-
-                       tmp3 = tmp.erase(i,1) ;
-
-                       //cerr << tmp3 << nl; 
-
-                       tmp2 = tmp ;
-
-                      reverse(tmp.begin() ,tmp.end()) ;
-
-
-                       if(tmp == tmp2){
-
-                            cnt++ ;
-                       }
-
-                  }
-
-
-                  cout << cnt << nl ;
 }
 
 int32_t main() {

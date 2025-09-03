@@ -37,6 +37,7 @@ void solve ()
                      }
                      vector<int>res(n+1,0);
                      stack<int>s;
+                     
                      for(int i=1;i<=n;i++)
                      {
                         while(!s.empty() && a[s.top()]>=a[i])

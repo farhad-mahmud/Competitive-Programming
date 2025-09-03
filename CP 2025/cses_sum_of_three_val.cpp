@@ -31,8 +31,6 @@ void solve ()
 
                  }
 
-
-
      
               sort(a.begin(),a.end()) ;
 
