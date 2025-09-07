@@ -22,11 +22,42 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int n ;
 
+bool f(int k) {
+
+   int sum =  (k * (k + 1)) / 2 ;
+
+   return sum >= n ;
+
+}
 void solve ()
 {
+   cin >> n ;
 
-   cout << "h" << nl;
+   int ans = 0 ;
+
+   int l = 0 , r = 1e10 ;
+
+   while (l <= r) {
+
+      int mid  = (l + r) / 2;
+
+      cerr << mid << nl;
+
+      if (f(mid))
+      {
+         ans = mid ;
+         r = mid - 1 ;
+      }
+      else {
+
+         l = mid + 1 ;
+      }
+   }
+
+
+   cout << ans << nl ;
 }
 
 int32_t main() {
@@ -35,7 +66,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

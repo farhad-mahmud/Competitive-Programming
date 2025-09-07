@@ -1,26 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// Type Definitions
-#define ll long long
-#define nl '\n'
-
-// Macros
-#define all(x) (x).begin(), (x).end()
-#define allr(x) (x).rbegin(), (x).rend()
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
-
-// Constants
-const int N = 1e5 + 9;
-const int MOD = 1e9 + 7;
-
-
-void fastio() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-}
-
 
 //=============geometry=====================//
 bool intersect(Point a, Point b, Point c, Point d) {
@@ -139,39 +116,7 @@ int check_kth_bit(int x , int k) {
 
     return (x >> k) & 1 ;
 }
-int print_on_bits(int x) {
 
-    for (int k = 0; k < 32 ; k++) {
-
-        if (check_kth_bit(x, k)) {
-
-            cout << k << ' ' ;  // print setbit/onbit ;
-        }
-
-    }
-}
-int print_off_bits(int x) {
-
-    for (int k = 0; k < 32 ; k++) {
-
-        if (!check_kth_bit(x, k)) {
-
-            cout << k << ' ' ;  // print setbit/onbit ;
-        }
-
-    }
-}
-bool is_even(int x) {
-
-    if (x & 1) { // just check if last bit is on/off
-
-        return false ;
-    }
-    else {
-
-        return true ;
-    }
-}
 int set_kth_bit(int x , int k) {
 
     return x | (1 << k) ;
@@ -215,18 +160,6 @@ void update(int node, int begin, int end, int i, int x) {
     t[node] = t[2 * node] + t[2 * node + 1];
 }
 
-// ========== Binary Search Template ==========
-
-int binary_search_example(vector<int>& v, int target) {
-    int l = 0, r = v.size() - 1, ans = -1;
-    while (l <= r) {
-        int mid = (l + r) / 2;
-        if (v[mid] == target) return mid; // or store answer & continue
-        if (v[mid] < target) l = mid + 1;
-        else r = mid - 1;
-    }
-    return ans;
-}
 
 // ========== DFS & BFS Module ==========
 
@@ -245,20 +178,6 @@ void dfs(int u) {
             dfs(v);
         }
     }
-}
-
-// Connected Components Counter
-
-int count_connected_components(int n) {
-    int ans = 0;
-    fill(vis, vis + n + 1, false);
-    for (int i = 1; i <= n; i++) {
-        if (!vis[i]) {
-            dfs(i);
-            ++ans;
-        }
-    }
-    return ans;
 }
 
 // BFS
@@ -310,30 +229,4 @@ int get_mex(const vector<int>& a) {
     for (int i = 0; i < n + 5; ++i) {
         if (!present[i]) return i;
     }
-}
-
-
-
-void solve ()
-{
-
-
-}
-
-int32_t main() {
-    ios_base:: sync_with_stdio(0);
-    cin.tie(0);
-
-    int t = 1 ;
-
-    cin >> t ;
-
-    while (t--) {
-
-        solve() ;
-
-    }
-
-
-    return 0;
 }

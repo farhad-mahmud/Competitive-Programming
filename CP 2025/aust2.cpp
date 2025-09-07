@@ -26,7 +26,9 @@ const int MOD = 1e9 + 7;
 void solve ()
 {
 
-   cout << "h" << nl;
+   int n , m , p , q , k ; cin >> n >> m >> p >> q >> k ;
+
+
 }
 
 int32_t main() {
