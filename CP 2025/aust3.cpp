@@ -53,6 +53,7 @@ void solve ()
       else {
 
          l = mid + 1 ;
+
       }
    }
 
