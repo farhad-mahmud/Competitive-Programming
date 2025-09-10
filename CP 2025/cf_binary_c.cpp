@@ -26,6 +26,38 @@ const int MOD = 1e9 + 7;
 void solve ()
 {
 
+   int n, k ;  cin >> n >> k ;
+
+   vector<int > a(n) ;
+
+   for (int i = 0; i < n; i++) cin >> a[i] ;
+
+   // output(a) ;
+
+
+   while (k--) {
+
+      int x ; cin >> x ;
+
+      int l = 0, r = n ;
+
+      while (l < r) {
+
+         int mid = (l + r) / 2 ;
+
+         if (a[mid] < x) {
+
+            l = mid + 1 ;
+         }
+         else {
+
+            r = mid ;
+         }
+      }
+
+      cout << l + 1  << nl;
+   }
+
 
 }
 

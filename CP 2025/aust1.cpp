@@ -123,7 +123,6 @@ void solve ()
       }
    }
 
-
    cout << cnt + 1 << nl;
 }
 

@@ -43,8 +43,6 @@ void solve ()
 
       int mid  = (l + r) / 2;
 
-      cerr << mid << nl;
-
       if (f(mid))
       {
          ans = mid ;
