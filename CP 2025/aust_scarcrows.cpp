@@ -30,7 +30,6 @@ bool vis1[N] ;
 bool vis2[N] ;
 int cnt = 0 ;
 
-
 int a, b , c ;
 
 int ab , bc , ac ;
@@ -119,9 +118,6 @@ void solve ()
 
    int x = (2 * d) ;
 
-   cerr << ab << nl;
-   cerr << bc << nl;
-   cerr << ac << nl;
 
    if (ab <= x && bc <= x && ac <= x) {
 
