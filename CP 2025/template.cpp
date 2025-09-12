@@ -296,6 +296,32 @@ vector<int> get_path(int dest) {
     return path;
 }
 
+// Dijkstra's algorithm
+vector<ll> dijkstra(int src, vector<vector<pii>>& graph) {
+    int n = sz(graph);
+    vector<ll> dist(n, INF);
+    priority_queue<pll, vector<pll>, greater<pll>> pq;
+
+    dist[src] = 0;
+    pq.push({0, src});
+
+    while (!pq.empty()) {
+        auto [d, u] = pq.top();
+        pq.pop();
+
+        if (d > dist[u]) continue;
+
+        for (auto [v, w] : graph[u]) {
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    return dist;
+}
+
+
 //-------------MEX------------//
 int get_mex(const vector<int>& a) {
     int n = a.size();
