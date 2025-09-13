@@ -22,33 +22,34 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-int n ;
-int h[N] , a , b ;
+int n , a, b ;
+int h[N] ;
 
-bool f (int x) {
+bool f(int x) {
 
-   int mx = h[n - 1] ;
+   int t = 0 ;
 
-   int rem = mx - b * x ;
+   for (int i = 0; i < n; i++) {
+      int rem = 0 , op = 0 ;
 
-   int ext = (rem + (a - b - 1)) / (a - b) ;
+      rem = max(0LL, h[i] - x * b);
 
+      op = (rem + (a - b - 1)) / (a - b) ;
 
-   return ext <= x  ;
+      t += op ;
+   }
 
+   return t <= x ;
 }
-
 void solve ()
 {
+
    cin >> n >> a >> b ;
 
    for (int i = 0; i < n; i++) cin >> h[i] ;
 
-   sort(h , h + n) ;
 
-
-   int l = 0 , r = 1e9 , ans = 1e18 ;
-
+   int l = 0 , r = 1e9 , ans = 0 ;
 
    while (l <= r) {
 
@@ -58,13 +59,14 @@ void solve ()
 
          ans = mid ;
          r = mid - 1 ;
+
       }
       else {
 
-         l = mid + 1;
+         l = mid + 1 ;
       }
-
    }
+
 
    cout << ans << nl;
 }
@@ -75,7 +77,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
