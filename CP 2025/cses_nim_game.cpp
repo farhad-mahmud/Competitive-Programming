@@ -25,7 +25,22 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+   int n ; cin >> n ;
 
+   vector<int > x(n) ;  for (int i = 0; i < n; i++) cin >> x[i] ;
+
+   int ans = 0 ;
+
+   for (int i = 0; i < n; i++) {
+
+      ans ^= x[i] ;
+
+   }
+
+
+   if (ans == 0) { cout << "second" << nl; }
+
+   else { cout << "first" << nl; }
 
 }
 
@@ -35,7 +50,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   cin >> t ;
 
    while (t--) {
 
