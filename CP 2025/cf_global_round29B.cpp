@@ -59,65 +59,98 @@ void solve ()
       int l2 = (x / 2) + 1 , r2 = x ;
 
       int k2 = n - 2 ;
+      cerr << k2 << nl;
 
       while (l2 <= r2) {
 
          if (l2 == r2) {
 
             v[l2] = n ;
+            break  ;
          }
 
          v[l2] = k2 ;
-         v[l2 + (k2 - 1)] = k2 ;
+         v[l2 + k2 ] = k2 ;
 
          k2 -= 2 ;
          l2++ ;
          r2-- ;
       }
    }
-   else {
+   else {  // n even
 
       int l = 1 , r = (x / 2) + 1 ;
 
       int k = n ;
 
+      int mid = 0 ;
       while (l <= r) {
 
          if (l == r) {
 
-            v[l] = n - 1 ; // max odd ..
-            cerr << "h" << nl;
-            cerr << n - 1 << nl;
+            v[l] = n - 1 ;
+
+            mid = l ;
+            break ;
+
          }
+         else {
 
-         v[l] = k ;
-         v[r] = k ;
+            v[l] = k ;
+            v[r] = k ;
 
-         k -= 2 ;
+            k -= 2 ;
+
+         }
 
          l++ ;
          r-- ;
       }
 
-      int l2 = x / 2 + 1; // start second half
-      int odd = 1;      // smallest odd
+      int l2 = (x / 2) + 2 , r2 = x ;
 
-      while (l2 <= x) {
-         if (v[l2] == 0) {
-            v[l2] = odd;
-            odd += 2;
-         }
-         l2++;
+      int k2 = 0 ;
+      if (n == 2) {
+         k2 = n - 1;
+      }
+      else {
+         k2 = n - 3 ;
       }
 
+      while (l2 <= r2) {
 
+         if (l2 == mid + (n - 1)) {
+
+            v[l2] = n - 1 ;
+
+         }
+         else if (k2 != 1) {
+
+            v[l2] = k2 ;
+            v[l2 + k2 ] = k2 ;
+
+            k2 -= 2 ;
+         }
+
+         l2++ ;
+         r2-- ;
+
+      }
 
    }
 
    for (int i = 1; i <= x; i++) {
 
-      cout << v[i] << ' ' ;
+      if (v[i] == 0) {
+         cout << 1 << ' ' ;
+      }
+      else {
+
+         cout << v[i] << ' ' ;
+      }
    }
+
+   cout << nl ;
 }
 
 int32_t main() {
@@ -126,7 +159,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   cin >> t ;
 
    while (t--) {
 
