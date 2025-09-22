@@ -91,6 +91,18 @@ void sieve() {
     }
 }
 
+//----legendre formula-------//
+
+int legendre(int n , int p) {
+    int ans = 0 ;
+    while (n) {
+        ans += n / p ; // first n/p , then n/p^2 , then n/p^3
+
+        n /= p ;
+    }
+    return ans ;
+}
+
 //=========== spf ==================//
 
 // for prime expo info / factorize many number quickly
@@ -110,6 +122,22 @@ void sieve() {
     }
 
 }
+
+vector<pair<int, int>> getFactorization(int x) {
+    vector<pair<int, int>> res;
+    while (x > 1) {
+        int p = spf[x];
+        int cnt = 0;
+        while (x % p == 0) {
+            x /= p;
+            cnt++;
+        }
+        res.push_back({p, cnt});
+    }
+    return res;
+}
+
+
 
 
 //----------------is_prime---------------------//
