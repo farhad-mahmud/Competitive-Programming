@@ -21,63 +21,40 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
+const int MAX = 2e14 ;
 
-
-int pow(int n , int p) {
-   int cnt = 0 ;
-   while (n % p == 0) {
-      n /= p ;
-      cnt++;
-   }
-   return cnt ;
-}
 void solve ()
 {
    int n ; cin >> n ;
+   int a[n] ;
+   for (int i = 0; i < n; i++) cin >> a[i] ;
 
-   vector<int > a(n) ;
+   sort(a, a + n) ;
+   int ans = MAX ;
+   for (int c = 1; ; c++) {
+      int ops = 0 ;
+      vector<__int128> pw(n);
+      pw[0] = 1 ;
 
-   int sum = 0 ;
-
-   for (int i = 0; i < n; i++) {
-      cin >> a[i] ;
-      sum += a[i] ;
-   }
-
-   //dbug(sum) ;
-   sort(all(a)) ;
-
-   map<int, int > exp ;
-   int ans = 0 ;
-
-   for (int i = 0; i < n; i++) {
-
-      int p = a[i] ;
-      if (p > 1) {
-         ans = pow(sum , p) ;
-
-         exp[p] += ans ;
+      for (int i = 1; i < n; i++) {
+         pw[i] = (pw[i - 1] * c);
       }
-   }
 
-   int prime = 0 ;
-   int cnt = 0 ;
+      if (pw[n - 1] > MAX) break ;
 
-   for (auto [p, e] : exp) {
+      for (int i = 0; i < n; i++) {
 
-      cerr << p << ' ' << e << nl;
+         ops += abs(a[i] - (long long)pw[i]) ;
 
-      if (e > cnt) {
-         prime = p ;
-         cnt = e ;
+         if (ops > MAX) break ;
       }
+
+      ans = min(ans , ops) ;
    }
 
-
-   cout << prime << nl;
-   cout << cnt << nl;
+   cout << ans << nl;
 }
 
 int32_t main() {
