@@ -230,7 +230,7 @@ int binary_search_example(vector<int>& v, int target) {
 
 // ========== DFS & BFS Module ==========
 
-
+vector<pair<int, int >> g[N] ;
 vector<int> g[N];
 bool vis[N];
 int dis[N], par[N], sub[N] ; // sub = subtree ..
@@ -297,30 +297,71 @@ vector<int> get_path(int dest) {
 }
 
 // Dijkstra's algorithm
-vector<ll> dijkstra(int src, vector<vector<pii>>& graph) {
-    int n = sz(graph);
-    vector<ll> dist(n, INF);
-    priority_queue<pll, vector<pll>, greater<pll>> pq;
 
-    dist[src] = 0;
-    pq.push({0, src});
+void dijkstra(int start, int n) {
+    // initialize distance with infinity
+    const int INF = 1e9;
+    for (int i = 1; i <= n; i++) {
+        dis[i] = INF;
+        par[i] = -1;
+        vis[i] = false;
+    }
+
+    dis[start] = 0;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, start}); // {distance, node}
 
     while (!pq.empty()) {
-        auto [d, u] = pq.top();
+        int u = pq.top().second;
         pq.pop();
 
-        if (d > dist[u]) continue;
+        if (vis[u]) continue;
+        vis[u] = true;
 
-        for (auto [v, w] : graph[u]) {
-            if (dist[u] + w < dist[v]) {
-                dist[v] = dist[u] + w;
-                pq.push({dist[v], v});
+        for (auto [v, w] : g[u]) {
+            if (dis[u] + w < dis[v]) {
+                dis[v] = dis[u] + w;
+                par[v] = u;
+                pq.push({dis[v], v});
             }
         }
     }
-    return dist;
 }
 
+//Bellman - ford ...
+struct Edge {
+    int u, v, w;
+};
+
+vector<Edge> edges;
+int dis[N], par[N];
+
+bool bellman_ford(int start, int n, int m) {
+    const int INF = 1e9;
+    for (int i = 1; i <= n; i++) {
+        dis[i] = INF;
+        par[i] = -1;
+    }
+    dis[start] = 0;
+
+    // Relax all edges (n - 1) times
+    for (int i = 1; i <= n - 1; i++) {
+        for (auto e : edges) {
+            if (dis[e.u] != INF && dis[e.u] + e.w < dis[e.v]) {
+                dis[e.v] = dis[e.u] + e.w;
+                par[e.v] = e.u;
+            }
+        }
+    }
+
+    // Detect negative cycle
+    for (auto e : edges) {
+        if (dis[e.u] != INF && dis[e.u] + e.w < dis[e.v]) {
+            return false; // negative cycle found
+        }
+    }
+    return true;
+}
 
 //-------------MEX------------//
 int get_mex(const vector<int>& a) {
