@@ -322,7 +322,7 @@ void dijkstra(int start, int n) {
             if (dis[u] + w < dis[v]) {
                 dis[v] = dis[u] + w;
                 par[v] = u;
-                pq.push({dis[v], v});
+                pq.push({dis[v], v}); // pushing child and its distance ;
             }
         }
     }

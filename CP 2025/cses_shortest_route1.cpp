@@ -21,19 +21,52 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
 
 vector<pair<int, int >> g[N];
 bool vis[N];
 int dis[N], par[N], sub[N] ; // sub = subtree ..
 
-// BFS
+int n ;
+
+void dijkstra(int start) {
+
+   const int INF = 1e14 ;
+   for (int i = 1; i <= n; i++) {
+      dis[i] = INF ;
+      vis[i] = false ;
+      par[i] = -1 ;
+   }
+
+   dis[start] = 0 ;
+   priority_queue<pair<int, int >, vector<pair<int, int>>, greater<pair<int, int>> > pq ;
+   pq.push({0, start}) ;// distance , node ;
+
+   while (!pq.empty()) {
+      int u = pq.top().second ;
+      pq.pop() ;
+
+      if (vis[u]) continue ;
+
+      vis[u] = true ;
+
+      for (auto [v, w] : g[u]) {
+
+         if (dis[u] + w < dis[v]) {
+            dis[v] = dis[u] + w ;
+            par[v] = u ;
+            pq.push({dis[v], v}) ;
+         }
+      }
+   }
+
+}
 
 
 void solve ()
 {
-   int n , m ; cin >> n >> m ;
+   int m ;  cin >> n >> m ;
 
    while (m--) {
 
@@ -41,19 +74,14 @@ void solve ()
 
       g[u].push_back({v, w}) ;
 
-      g[v].push_back({u, w}) ;
-
-
    }
 
-   for (int u = 1; u <= n; u++) {
-      for (auto [v, w] : g[u]) {
+   dijkstra(1) ;
 
-         cout << u << ' ' << v << ' ' << w  << nl;
-      }
+   for (int u = 1 ; u <= n; u++) {
 
+      cout << dis[u] << ' ' ;
    }
-
 
 }
 
