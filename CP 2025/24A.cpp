@@ -30,17 +30,20 @@ int dis[N], par[N], sub[N] ; // sub = subtree ..
 
 // DFS
 
+int cost ;
 
-void dfs(int u, int p) {
+void dfs(int u , int p = 0) {
    vis[u] = true;
-   par[u] = p ;
-   for (auto v : g[u]) {
+
+   for (auto [v, w] : g[u]) {
+
       if (!vis[v])
       {
+         cost += w ;
          dfs(v, u);
       }
-      else {
-
+      else if (v == 1 && p != 1) {
+         cost += w ;
       }
    }
 }
@@ -53,26 +56,24 @@ void solve ()
    int n ; cin >> n ;
 
    int m = n ;
-
+   int sum = 0 ;
    while (m--) {
       int u, v, w ; cin >> u >> v >> w ;
 
-      g[u].push_back({v, w}) ;
+      g[u].push_back({v, 0}) ;
+      g[v].push_back({u, w}) ;
 
+      sum += w ;
    }
 
+   dfs(1) ;
 
-   dfs(1, -1) ;
+   int cost2 = sum - cost ;
 
-   for (int u = 1; u <= n; u++) {
+   cerr << cost << nl;
+   cerr << sum << nl;
 
-      for (auto [v, w] : g[u]) {
-
-         cout << u << ' ' << v <<  nl;
-
-      }
-   }
-
+   cout << min(cost , cost2) << nl;
 
 }
 
