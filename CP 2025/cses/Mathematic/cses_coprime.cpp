@@ -3,12 +3,12 @@ using namespace std;
 
 #define ll  long long
 
-#define nl       "\n" 
+#define nl       "\n"
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
 
-#define all(x)   x.begin(),x.end() 
+#define all(x)   x.begin(),x.end()
 #define allr(x)  x.rbegin() ,x.rend()
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
@@ -65,35 +65,35 @@ ll countCoprimePairs(const vector<int>& a) {
     return ans;
 }
 
-void solve(){
+void solve() {
 
-               int n ; cin >> n ;
+    int n ; cin >> n ;
 
-               vector<int > a(n) ;
+    vector<int > a(n) ;
 
-               for(int i=0;i<n;i++) cin >> a[i] ;
+    for (int i = 0; i < n; i++) cin >> a[i] ;
 
 
-              int ans = countCoprimePairs(a) ;
+    int ans = countCoprimePairs(a) ;
 
-             cout << ans << nl;
+    cout << ans << nl;
 
 }
 
 
 int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
+    ios_base:: sync_with_stdio(0);
+    cin.tie(0);
 
-         int t = 1 ;
+    int t = 1 ;
 
-         //cin >> t ;
+    //cin >> t ;
 
-         while(t--){
+    while (t--) {
 
-            solve() ;
-        
-        }
+        solve() ;
+
+    }
 
 
     return 0;

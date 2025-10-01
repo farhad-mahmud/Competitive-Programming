@@ -46,6 +46,15 @@ bool intersect(Point a, Point b, Point c, Point d) {
     return (c1 * c2 <= 0) && (c3 * c4 <= 0);
 }
 
+//---------polygon-area-----------//
+for (int i = 0; i < n; i++) {
+
+    int j = (i + 1) % n ;
+
+    area += ((x[i] * y[j]) - (x[j] * y[i]))  ;
+
+}
+
 // ========== Number Theory Utilities ==========
 
 int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
