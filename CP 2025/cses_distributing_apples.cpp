@@ -21,10 +21,10 @@ using namespace std;
 
 // constrains
 
-const int N = 1e6 + 9 ;
+const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
 
-vector<int > fact(N + 1) , invfact(N + 1) ;
+int fact[N + 1] , inv[N + 1] ;
 
 int binpow(int a, int b) {
    int res = 1;
@@ -35,34 +35,30 @@ int binpow(int a, int b) {
    }
    return res;
 }
+void pre() {
+   fact[0] = 1 , inv[0] = 1 ;
 
-void pre() {  // prefix and suffix multi..
-
-   fact[0] = 1 ;
-
-   for (int i = 1; i <= N ; i++) {  //prefix..
+   for (int i = 1; i <= N; i++) {
       fact[i] = fact[i - 1] * i % MOD ;
-   }
-
-   invfact[N] = binpow(fact[N], MOD - 2) ;
-
-   for (int i = N ; i >= 1; i--) { // suffix ..
-      invfact[i - 1] = invfact[i] *  i % MOD ;
+      inv[i] = binpow(fact[i] , MOD - 2) ;
    }
 
 }
 
 int nCr(int n, int r) {
-   if (r < 0 || r > n) return 0;
-   return fact[n] * invfact[r] % MOD * invfact[n - r] % MOD;
+   return fact[n] * inv[r] % MOD * inv[n - r] % MOD ;
 }
-
 void solve ()
 {
+   int n , m ; cin >> n >> m  ;
 
-   int a , b ; cin >> a >> b ;
+   int a = (m + n - 1) ;
 
-   cout << nCr(a, b) << nl;
+   int b = m ;
+
+   cout << nCr(a, b) << nl ;
+
+
 
 }
 
@@ -71,8 +67,8 @@ int32_t main() {
    cin.tie(0);
 
    int t = 1 ;
-   cin >> t ;
    pre() ;
+   // cin >> t ;
 
    while (t--) {
 
