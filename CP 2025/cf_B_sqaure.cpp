@@ -27,7 +27,18 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-   cout << "h" << nl;
+   int t ; cin >> t ;
+
+
+   for (int i = 0; i < t; i++) {
+
+      int n ; cin >> n ;
+
+      cout << (n * 4) + 1 << nl;
+
+   }
+
+
 }
 
 int32_t main() {
