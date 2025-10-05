@@ -27,35 +27,27 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-   int t ; cin >> t ;
+   string s ; cin >> s ;
 
+   sort(s.begin(), s.end()) ;
 
-   while (t--) {
+   set <string > st ;
 
-      int n ; cin >> n;
-      int ans = 0 ;
+   do {
 
-      if (n & 1) {
-
-         int k = n + 1;
-
-         if (k % 4 == 0) {
-
-            ans = k ;
-         }
-         else {
-
-            ans = (n * 2) + 1 ;
-         }
-      }
-      else {
-
-         ans = (n * 4) + 1 ;
-      }
-
-      cout << ans << nl ;
-
+      st.insert(s) ;
    }
+   while (next_permutation(s.begin(), s.end())) ;
+
+
+   cout << st.size() << nl ;
+
+   for (auto i : st) {
+
+      cout << i << nl ;
+   }
+
+
 
 }
 

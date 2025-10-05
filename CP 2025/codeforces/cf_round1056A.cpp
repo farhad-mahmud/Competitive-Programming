@@ -1,3 +1,4 @@
+
 //---  Bismillahir Rahmanir Rahim ---//
 
 //------------------------------//
@@ -27,35 +28,9 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-   int t ; cin >> t ;
+        int n ; cin >> n ;
 
-
-   while (t--) {
-
-      int n ; cin >> n;
-      int ans = 0 ;
-
-      if (n & 1) {
-
-         int k = n + 1;
-
-         if (k % 4 == 0) {
-
-            ans = k ;
-         }
-         else {
-
-            ans = (n * 2) + 1 ;
-         }
-      }
-      else {
-
-         ans = (n * 4) + 1 ;
-      }
-
-      cout << ans << nl ;
-
-   }
+        cout <<( 2*(n-1)) << nl ;
 
 }
 
