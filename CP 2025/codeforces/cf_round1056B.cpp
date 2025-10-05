@@ -29,67 +29,95 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-        int n , k ; cin >> n >> k ;
+    int n , k ; cin >> n >> k ;
 
-        // 4(n-1) escaping cells ..
+    // 4(n-1) escaping cells ..
 
-        int h = (n*n)- k ;
+    int h = (n * n) - k ;
 
-        if(h >=2 || h == 0){
+    if (h == 1) {
 
-              no ;
-              return ;
+        no ;
+    }
+    else {
+        yes ;
+        char grid[n + 1][n + 1] ;
+
+        int cnt = 0 ;
+        int x = 0 , y = 0 ;
+
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+
+                grid[i][j] = 'U' ;
+                cnt++ ;
+                if (cnt == k) {
+                    x = i ;
+                    y = j ;
+                    break ;
+                }
+            }
         }
-        else{
 
-           if((n*n) == k){
-                int m = n ;
-             while(m--){
-               for(int i=1;i<=n;i++){
-                   cout << "U" ;
-               }
-               cout << nl;
-             }
-           }
-           else {
+        int py = n - y ;
+        int px = n - x ;
+        if (px > 0) {
 
-               int c = (n*n) - k ;
+            int z = y + py ;
+            for (int i = y + 1; i <= z; i++) {
+                grid[x][i] = 'D' ;
+            }
 
-               // we have to create c cycles and rest U grid ;
+            int w = x + px ;
+            for (int i = x + 1; i <= w; i++) {
+                for (int j = 1; j <= n; j++) {
 
-               int grid[n][n] ;
-               int m1= c / 2 ;
-               int n1 = 2 ;
-               // c cycles gird
-
-               for(int i= n1;i<=)
-               for(int i=)
-
-               // the rest grid ;;
-               for(int i=0;i<n;i++){
-                  for(int j=0;j<n;j++){
-
-                  }
-               }
-
-           }
+                    if (j == 1) {
+                        grid[i][j] = 'R' ;
+                    }
+                    else {
+                        grid[i][j] = 'L' ;
+                    }
+                }
+            }
         }
+        else if (px == 0) {
+
+            int z = y + py ;
+            grid[x][y + 1] = 'R' ;
+
+            for (int i = y + 2 ; i <= z; i++) {
+
+                grid[x][i] = 'L' ;
+            }
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                cout << grid[i][j] ;
+            }
+            cout << nl ;
+        }
+
+
+    }
 }
 
 int32_t main() {
-   ios_base:: sync_with_stdio(0);
-   cin.tie(0);
+    ios_base:: sync_with_stdio(0);
+    cin.tie(0);
 
-   int t = 1 ;
+    int t = 1 ;
 
-   cin >> t ;
+    cin >> t ;
 
-   while (t--) {
+    while (t--) {
 
-      solve() ;
+        solve() ;
 
-   }
+    }
 
 
-   return 0;
+    return 0;
 }
