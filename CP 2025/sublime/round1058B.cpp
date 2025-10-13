@@ -37,6 +37,7 @@ void solve() {
       nw-- ;
     }
     else {
+
       int v = pref[t] ;
       a.push_back(v) ;
       pref[k] = v ;

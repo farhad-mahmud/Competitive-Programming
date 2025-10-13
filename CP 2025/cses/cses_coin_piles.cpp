@@ -3,12 +3,12 @@ using namespace std;
 
 #define int  long long
 
-#define nl       "\n" 
+#define nl       "\n"
 
 #define yes cout << "YES\n";
 #define no cout << "NO\n";
 
-#define all(x)   x.begin(),x.end() 
+#define all(x)   x.begin(),x.end()
 #define allr(x)  x.rbegin() ,x.rend()
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
@@ -19,45 +19,43 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-                 int a , b ; cin >> a >> b ;
+   int a , b ; cin >> a >> b ;
 
 
-                 int total = a+b ;
+   int total = a + b ;
 
-                 if(total % 3 !=0){
-                    no ;
-                    return ;
-                 }
-
-               
-                if(min(a,b)*2 <max(a,b)){
-
-                     no ;
-                     return ;
-                }
+   if (total % 3 != 0) {
+      no ;
+      return ;
+   }
 
 
+   if (min(a, b) >= max(a, b) / 2) {
 
-          yes;
+      yes;
+   }
+   else {
+      no ;
+   }
 
 
 
 }
 
 int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
+   ios_base:: sync_with_stdio(0);
+   cin.tie(0);
 
-         int t = 1 ;
+   int t = 1 ;
 
-         cin >> t ;
+   cin >> t ;
 
-         while(t--){
+   while (t--) {
 
-            solve() ;
-        
-        }
+      solve() ;
+
+   }
 
 
-    return 0;
+   return 0;
 }
