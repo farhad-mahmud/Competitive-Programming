@@ -29,9 +29,45 @@ void solve ()
 {
    int n ; cin >> n ;
 
-   int x = __builtin_popcount(n) ;
+   if (n == 0) {
+      yes ;
+      return ;
+   }
 
-   if (x % 2 == 0) {
+   // construct a , b ;
+
+   bool f = false ;
+
+   for (int i = 0; i < 63 ; i++) {
+      int a = 0, b = 0 ;
+      for (int j = 0; j <= i ; j++) {
+
+         if (!((n >> j) & 1)) { // if jth bit of n is 0
+
+            a |= (1LL << j) ;  // 1
+            a |= (1LL << (i - j)); // 1
+            b |= (1LL << j);  // setted to 1
+            b |= (1LL << (i - j)) ; // setted to 1
+
+            // this block ensures xoring a^b == 0 .
+         }
+         else {
+
+            a |= (1LL << j); // 1
+            b |= (1LL << (i - j)); // 1
+            b = (b & (~(1LL << (j)))); // 0
+            a = (a & (~(1LL << (i - j)))); // 0
+
+         }
+      }
+      if ((a ^ b) == n) {
+         f = true ;
+         break ;
+      }
+
+   }
+
+   if (f) {
       yes ;
    }
    else {
