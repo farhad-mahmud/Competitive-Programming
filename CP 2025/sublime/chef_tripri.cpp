@@ -21,12 +21,15 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
 
 
+// goldbachs conjecure problem ..
 void solve ()
 {
+
+
 
 }
 
@@ -37,6 +40,8 @@ int32_t main() {
    int t = 1 ;
 
    cin >> t ;
+
+   sieve() ;
 
    while (t--) {
 
