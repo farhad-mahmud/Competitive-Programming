@@ -34,19 +34,15 @@ void solve ()
 
    sort(a.rbegin(), a.rend()) ;
 
-   //output(a) ;
+   int x = a[0] ;
+   int y = a[n - 1] ;
 
-   int mx1 = a[0] ;
-   int mx2 = a[1] ;
-   //cerr << mx1 << ' ' <<  mx2 << nl;
+   if (x - 1 == y) {
+      cout << x - 2  << nl ;
+   }
+   else {
 
-   for (int i = mx1 ; i >= 1 ; i--) {
-
-      if (mx1 % i != 0 && mx2 % i != 0) {
-
-         cout << i << nl ;
-         return ;
-      }
+      cout << x - 1 << nl ;
    }
 
 
