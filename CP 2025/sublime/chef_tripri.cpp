@@ -48,8 +48,8 @@ void solve ()
       return ;
    }
 
-
    vector<int > primes ;
+
    for (int i = 1; i < N; i++) {
       if (is_prime[i]) {
          primes.push_back(i) ;
