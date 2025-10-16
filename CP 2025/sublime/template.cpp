@@ -120,11 +120,28 @@ vector<pair<int, int>> getFactorization(int x) {
     return res;
 }
 //----------------is_prime---------------------//
+// normal version
 bool is_prime(int n) {
     if (n < 2) return false;
     for (int i = 2; i * i <= n; ++i)
         if (n % i == 0) return false;
     return true;
+}
+// sieve() version ..
+const int N = 1e7 + 9;
+bitset<N> is_prime;
+void sieve() {
+    is_prime[1] = false;
+    for (int i = 2; i < N; i++) {
+        is_prime[i] = true;
+    }
+    for (int i = 2; i * i < N; i++) {
+        if (is_prime[i]) {
+            for (int j = i * i; j < N; j += i) {
+                is_prime[j] = false;
+            }
+        }
+    }
 }
 //============= kadans algo=======================//
 int ans = -1e18 ;
