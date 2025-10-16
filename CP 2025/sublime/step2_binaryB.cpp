@@ -51,7 +51,7 @@ void solve ()
 
    cerr << r << nl ;
 
-   //int ans = 0 ;
+   double ans = 0 ;
 
    while (r - l > 1e-6) {
       double mid = (l + r) / 2 ;
@@ -59,13 +59,14 @@ void solve ()
       if (f(mid)) {
 
          l = mid  ;
+         ans = mid ;
       }
       else {
          r = mid  ;
       }
    }
 
-   cout << fixed << setprecision(6) << l << nl ;
+   cout << fixed << setprecision(6) << ans << nl ;
 
 }
 

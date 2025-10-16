@@ -129,7 +129,7 @@ bool is_prime(int n) {
 }
 // sieve() version ..
 const int N = 1e7 + 9;
-//bitset<N> is_prime;
+bitset<N> is_prime;
 void sieve() {
     is_prime[1] = false;
     for (int i = 2; i < N; i++) {

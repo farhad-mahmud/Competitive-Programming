@@ -24,10 +24,31 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+bitset<N> is_prime;
+void sieve() {
+   is_prime[1] = false;
+   for (int i = 2; i < N; i++) {
+      is_prime[i] = true;
+   }
+   for (int i = 2; i * i < N; i++) {
+      if (is_prime[i]) {
+         for (int j = i * i; j < N; j += i) {
+            is_prime[j] = false;
+         }
+      }
+   }
+}
 
 void solve ()
 {
 
+   for (int i = 34 ; i <= 43; i++) {
+
+      if (is_prime[i]) {
+
+         cerr << i << " prime" << nl ;
+      }
+   }
 }
 
 int32_t main() {
@@ -36,7 +57,8 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
+   sieve() ;
 
    while (t--) {
 
