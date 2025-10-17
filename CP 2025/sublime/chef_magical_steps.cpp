@@ -25,6 +25,7 @@ const int N = 1e7 + 9;
 const int MOD = 1e9 + 7;
 
 bitset<N> is_prime;
+int pre_prime[N] ;
 void sieve() {
    is_prime[1] = false;
    for (int i = 2; i < N; i++) {
@@ -37,28 +38,31 @@ void sieve() {
          }
       }
    }
+
+   for (int i = 1; i < N; i++) {
+
+      pre_prime[i] = pre_prime[i - 1] + is_prime[i] ;
+   }
+
 }
+
 void solve ()
 {
    int x, y ; cin >> x >> y ;
 
+   // nmbr of prime between x and y .. ;
 
-   int cnt = 0 ;
+   //int l = x + 1 , r = y ;
 
-   while (x != y) { // if x==y , it will break ..
+   int dis = y - x ;
 
-      if (is_prime[x + 2] && x + 1 != y) {
-         x = x + 2 ;
-      }
-      else {
-         x = x + 1;
-      }
+   int pcnt = pre_prime[y] - pre_prime[x + 1] ;
+   // gives prime cnt  between x+2 to y ..
 
-      //cerr << x << nl;
-      cnt++ ;
-   }
 
-   cout << cnt << nl;
+   cout << dis - (pcnt) << nl ;
+
+
 
 }
 
