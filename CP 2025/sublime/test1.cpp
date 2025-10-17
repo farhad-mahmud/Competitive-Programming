@@ -1,5 +1,4 @@
 //---  Bismillahir Rahmanir Rahim ---//
-
 //------------------------------//
 //        Author: Farhad       //
 //------------------------------//
@@ -7,45 +6,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int  long long
+#define int long long
+#define nl "\n"
 
-#define nl       "\n"
+void solve() {
+   int a, b;
+   cin >> a >> b;
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
+   if (a == b) {
+      cout << 0 << nl;
+      return;
+   }
 
-#define all(x)   x.begin(),x.end()
-#define allr(x)  x.rbegin() ,x.rend()
-#define dbug(x) cerr << (#x) << " is " << (x) << nl;
-#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
+   int x = a ^ b;
 
-// constrains
+   // 1-step solution if possible
+   if (x <= a) {
+      cout << 1 << nl;
+      cout << x << nl;
+      return;
+   }
 
-const int N = 1e5 + 9;
-const int MOD = 1e9 + 7;
+   // 2-step solution: pick subset of bits of x
+   int x1 = 0;
+   for (int i = 0; i < 64; i++) { // try low bits first
+      if ((x >> i) & 1) {
+         int candidate = x1 | (1LL << i);
+         int a1 = a ^ candidate;
+         int x2 = x ^ candidate;
+         if (candidate <= a && x2 <= a1) {
+            x1 = candidate;
+         }
+      }
+   }
 
+   int a1 = a ^ x1;
+   int x2 = x ^ x1;
 
-void solve ()
-{
+   if (x1 == 0 || x2 == 0 || x1 > a || x2 > a1) {
+      cout << -1 << nl;
+      return;
+   }
 
-
+   cout << 2 << nl;
+   cout << x1 << ' ' << x2 << nl;
 }
 
 int32_t main() {
-   ios_base:: sync_with_stdio(0);
+   ios_base::sync_with_stdio(false);
    cin.tie(0);
 
-   int t = 1 ;
-
-   //cin >> t ;
-   sieve() ;
-
-   while (t--) {
-
-      solve() ;
-
-   }
-
-
-   return 0;
+   int t;
+   cin >> t;
+   while (t--) solve();
 }
