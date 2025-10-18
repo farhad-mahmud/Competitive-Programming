@@ -24,11 +24,23 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-void solve ()
+void solve (int k)
 {
+   int n ; cin >> n ;
+   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i] ;
 
-   yes ;
 
+   int ans = 0 ;
+
+   for (int i = 0; i < n - 1; i++) {
+
+      int dif = abs(a[i] - a[i + 1]) ;
+
+      ans = max(ans , dif) ;
+   }
+
+
+   cout << "Case " << "#" << k << ": " << ans << nl ;
 }
 
 int32_t main() {
@@ -39,9 +51,12 @@ int32_t main() {
 
    cin >> t ;
 
+   int k = 1;
+
    while (t--) {
 
-      solve() ;
+      solve(k) ;
+      k++ ;
 
    }
 

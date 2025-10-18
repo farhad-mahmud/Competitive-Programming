@@ -26,8 +26,9 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+   int n , s ; cin >> n >> s ;
 
-   yes ;
+   vecto<int > a(n) ; for (int i = 0; i < n; i++) cin >> a[i] ;
 
 }
 

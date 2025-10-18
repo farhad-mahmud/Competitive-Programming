@@ -151,6 +151,9 @@ for (int l = 0 ; l < n; l++) {
     ans = max(ans, max_sub_sum) ;
 }
 // ============ bitwise operations ==============//
+int aa = 32 - __builtin_clz(a) ;
+// number of binary bits in integer a , without leading zeros ..
+
 int check_kth_bit(int x , int k) {
     return (x >> k) & 1 ;
 }
