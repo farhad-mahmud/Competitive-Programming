@@ -20,14 +20,17 @@ using namespace std;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
 // constrains
-
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+//int n ; cin >> n ;
+//vector<int > a(n) ; for (int i = 0; i < n; i++) cin >> a[i] ;
+
+
 void solve ()
 {
-
-   yes ;
+   int n ; cin >> n ;
+   vector<int > a(n) ; for (int i = 0; i < n; i++) cin >> a[i] ;
 
 }
 

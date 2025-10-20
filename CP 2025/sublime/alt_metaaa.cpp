@@ -1,4 +1,5 @@
 //---  Bismillahir Rahmanir Rahim ---//
+
 //------------------------------//
 //        Author: Farhad       //
 //------------------------------//
@@ -7,47 +8,85 @@
 using namespace std;
 
 #define int  long long
-#define nl "\n"
 
-void solve(int k) {
-   int n; cin >> n;
-   vector<int> a(n);
-   for (int i = 0; i < n; i++) cin >> a[i];
+#define nl       "\n"
+
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+
+#define all(x)   x.begin(),x.end()
+#define allr(x)  x.rbegin() ,x.rend()
+#define dbug(x) cerr << (#x) << " is " << (x) << nl;
+#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
+
+// constrains
+
+const int N = 1e5 + 9;
+const int MOD = 1e9 + 7;
+
+int n ;
+int a[N] ;
+
+bool f(int x) {
+
+   int st = -1 ;
+
+   for (int i = 0; i < n; i++) {
+
+      if (a[i] <= x) {
+         st = i ;
+         break ;
+      }
+   }
+
+   if (st == -1) {
+      return false ;
+   }
+
+
+   int r = st ;
+
+   while (r + 1 < n && abs(a[r + 1] - a[r]) <= x)
+   {
+      r++ ;
+   }
+
+   int l = st ;
+   while (l - 1 >= 0 && abs(a[l - 1] - a[l]) <= x) {
+      l-- ;
+   }
+
+   if (l == 0 && r == n - 1) {
+      return true ;
+   }
+   else {
+      return false ;
+   }
+
+}
+void solve (int k )
+{
+   cin >> n ;
+
+   for (int i = 0; i < n; i++)cin >> a[i] ;
 
    if (n == 1) {
       cout << "Case #" << k << ": " << a[0] << nl;
-      return;
+      return ;
    }
 
-   int l = 0, r = 1e9, ans = r;
-
-   auto canVisitAll = [&](int h) -> bool {
-      // Find the leftmost platform reachable from ground
-      int left = -1, right = -1;
-      for (int i = 0; i < n; i++) {
-         if (a[i] <= h) { // first reachable from ground
-            left = i;
-            right = i;
-            break;
-         }
-      }
-      if (left == -1) return false;
-
-      // Expand right
-      while (right + 1 < n && abs(a[right + 1] - a[right]) <= h) right++;
-      // Expand left
-      while (left - 1 >= 0 && abs(a[left] - a[left - 1]) <= h) left--;
-
-      return (left == 0 && right == n - 1);
-   };
+   //output(a) ;
+   int l = 0, r = 1e9 , ans = r ;
 
    while (l <= r) {
-      int mid = (l + r) / 2;
-      if (canVisitAll(mid)) {
-         ans = mid;
-         r = mid - 1;
-      } else {
-         l = mid + 1;
+      int mid = (l + r) / 2 ;
+
+      if (f(mid)) {
+         ans = mid ;
+         r = mid - 1 ;
+      }
+      else {
+         l = mid + 1 ;
       }
    }
 
@@ -55,9 +94,20 @@ void solve(int k) {
 }
 
 int32_t main() {
-   ios_base::sync_with_stdio(0);
+   ios_base:: sync_with_stdio(0);
    cin.tie(0);
 
-   int t; cin >> t;
-   for (int k = 1; k <= t; k++) solve(k);
+   int t = 1 ;
+
+   cin >> t ;
+
+   int k = 1 ;
+   while (t--) {
+
+      solve(k) ;
+      k++ ;
+   }
+
+
+   return 0;
 }

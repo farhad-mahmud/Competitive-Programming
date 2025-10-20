@@ -58,6 +58,8 @@ void solve (int k ) {
       }
    }
 
+   output(pw) ;
+
    vector<int > ans(2 * n, 1) ;
 
    int sz = pw.size();
@@ -74,6 +76,8 @@ void solve (int k ) {
          }
       }
    }
+
+   output(ans) ;
 
    int i = n ;
    for (auto v : pw) {
