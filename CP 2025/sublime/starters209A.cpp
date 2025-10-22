@@ -29,7 +29,14 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+   int n ; cin >> n ;
 
+   if (n <= 4) {
+      yes ;
+   }
+   else {
+      no ;
+   }
 
 }
 
@@ -39,7 +46,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
