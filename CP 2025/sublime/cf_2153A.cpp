@@ -29,9 +29,20 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+   int n ; cin >> n ;
+   vector<int > b(n); for (int i = 0; i < n; i++)cin >> b[i] ;
 
 
+   sort(b.begin(), b.end()) ;
 
+   set<int > st ;
+
+   for (int i = 0; i < n; i++) {
+      st.insert(b[i]) ;
+   }
+
+
+   cout << st.size() << nl ;
 
 
 }

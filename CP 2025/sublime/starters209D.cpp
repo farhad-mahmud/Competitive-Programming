@@ -27,52 +27,46 @@ const int MOD = 1e9 + 7;
 //vector<int > a(n) ; for (int i = 0; i < n; i++) cin >> a[i] ;
 
 
-void solve() {
-   int n;
-   cin >> n;
-   string s;
-   cin >> s;
+void solve ()
+{
+   int n ; cin >> n ;
+   string s ; cin >> s ;
 
-   int f1 = -1;
+   int cnt0 = count(all(s) , '0') ;
+   int cnt1 = count(all(s) , '1') ;
+   //cerr << cnt0 << nl;
+
+   if (cnt0 == n) {
+      yes ;
+      return ;
+   }
+
+   int c1 = 0 ;
+   int mx_c1 = 0 ;
    for (int i = 0; i < n; i++) {
+
       if (s[i] == '1') {
-         f1 = i;
-         break;
+
+         c1++ ;
+         mx_c1 = max(mx_c1 , c1) ;
+      }
+      else {
+         c1 = 0 ;
+
       }
    }
 
-   if (f1 == -1) {
-      yes ;
-      return;
-   }
+   if ((mx_c1 == 2  && cnt1 == mx_c1) || (mx_c1 == 3 && cnt1 == mx_c1)) {
 
-   int l1 = -1;
-   for (int i = n - 1; i >= 0; i--) {
-      if (s[i] == '1') {
-         l1 = i;
-         break;
-      }
-   }
-
-   if (f1 == l1) {
-      yes ;
-      return;
-   }
-
-   bool f = false;
-   for (int i = f1 + 1; i < l1; i++) {
-      if (s[i] == '0') {
-         f = true;
-         break;
-      }
-   }
-
-   if (f) {
-      yes;
-   } else {
       no ;
    }
+   else {
+      yes ;
+   }
+
+
 }
+
 int32_t main() {
    ios_base:: sync_with_stdio(0);
    cin.tie(0);

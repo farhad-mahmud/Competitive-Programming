@@ -29,11 +29,33 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
+   int x, y, z ; cin >> x >> y >> z ;
 
+   int a = 0, b = 0 , c = 0 ;
 
+   for (int i = 0; i < 30; i++) {
 
+      if ((x >> i) & 1) {
 
+         a |= (1LL << i) ;
+         b |= (1LL << i);
+      }
+      if ((y >> i) & 1) {
+         b |= (1LL << i) ;
+         c |= (1LL << i) ;
+      }
+      if ((z >> i) & 1) {
+         a |= (1LL << i) ;
+         c |= (1LL << i) ;
+      }
+   }
 
+   if ((a & b) == x && (b & c) == y && (a & c) == z) {
+      yes;
+   }
+   else {
+      no ;
+   }
 }
 
 int32_t main() {
