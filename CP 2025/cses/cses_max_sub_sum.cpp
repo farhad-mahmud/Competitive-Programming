@@ -16,52 +16,52 @@ const int  MOD = 1e9 + 7;
 
 solve ()
 {
-        
-          int n ;cin >> n ;
-           
-           vector <int > a(n) ;    
-               
-           for(int i=0;i<n;i++){
 
-                   cin >> a[i] ;
-           }
+   int n ; cin >> n ;
 
-           int max_sub_sum = -1e18 ;
+   vector <int > a(n) ;
 
-           int  max_sub_sum_so_far_ending_at_i = -1e18;
+   for (int i = 0; i < n; i++) {
 
+      cin >> a[i] ;
+   }
 
-           for(int l = 0 ;l<n;l++){
+   int max_sub_sum = -1e18 ;
 
-                   
-            max_sub_sum_so_far_ending_at_i = max(a[l],a[l] + max_sub_sum_so_far_ending_at_i);
-
-            max_sub_sum = max(max_sub_sum, max_sub_sum_so_far_ending_at_i) ;
+   int  max_sub_sum_so_far_ending_at_i = -1e18;
 
 
-           }
-            
-              
-               cout << max_sub_sum << endl; 
+   for (int l = 0 ; l < n; l++) {
+
+
+      max_sub_sum_so_far_ending_at_i = max(a[l], a[l] + max_sub_sum_so_far_ending_at_i);
+
+      max_sub_sum = max(max_sub_sum, max_sub_sum_so_far_ending_at_i) ;
+
+
+   }
+
+
+   cout << max_sub_sum << endl;
 }
 
 
 
 
 int32_t main() {
-ios_base:: sync_with_stdio(0);
-cin.tie(0);
+   ios_base:: sync_with_stdio(0);
+   cin.tie(0);
 
-         int t = 1 ;
+   int t = 1 ;
 
-      //   cin >> t ;
+   //   cin >> t ;
 
-         while(t--){
+   while (t--) {
 
-            solve() ;
-        
-        }
+      solve() ;
+
+   }
 
 
-    return 0;
+   return 0;
 }

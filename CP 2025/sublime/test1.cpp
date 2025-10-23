@@ -23,15 +23,24 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-//int n ; cin >> n ;
-//vector<int > a(n) ; for (int i = 0; i < n; i++) cin >> a[i] ;
+int a[N] ;
 
 
 void solve ()
 {
+   int n , s ; cin >> n >> s ;
+
+   for (int i = 0; i < n; i++)cin >> a[i] ;
+
+
+   int l = 1 ; r = n ;
+
+   while (l <= r ) {
+      int mid = (l + r) / 2 ;
 
 
 
+   }
 
 
 }
