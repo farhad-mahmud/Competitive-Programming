@@ -53,6 +53,7 @@ void solve ()
 
           cout << a[i].second << ' ' << a[j].second << ' ' << a[l].second << ' ' << a[r].second  << nl;;
           cnt++ ;
+          break;
 
         }
         else if (sum < t) {
@@ -67,7 +68,7 @@ void solve ()
     }
   }
 
-
+  cout << cnt << nl;
 
   cout << "IMPOSSIBLE" << nl;
 

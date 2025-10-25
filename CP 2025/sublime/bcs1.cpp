@@ -28,7 +28,22 @@ int a[N] ;
 
 void solve ()
 {
-   yes ;
+
+   int c, g ; cin >> c >> g ;
+
+   if (c == 0) {
+
+      if (g == 1) {
+         cout << "vivo" << nl ;
+      }
+      else {
+         cout << "morto" << nl;
+      }
+   }
+   else {
+
+      cout << "vivo e morto" << nl ;
+   }
 
 }
 
@@ -38,7 +53,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   // cin >> t ;
 
    while (t--) {
 

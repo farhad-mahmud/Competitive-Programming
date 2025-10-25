@@ -1,3 +1,9 @@
+//---  Bismillahir Rahmanir Rahim ---//
+
+//------------------------------//
+//        Author: Farhad       //
+//------------------------------//
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,47 +18,34 @@ using namespace std;
 #define allr(x)  x.rbegin() ,x.rend()
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
-// Constants
+
+// constrains
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
+
+int a[N] ;
 
 
 void solve ()
 {
-    int n ; cin >> n ;
 
-    string s ; cin >> s ;
-
-    int cnt = 0 ;
-
-    for (int i = 0; i < n / 2; i++) {
-
-        if (s[i] != s[n - i - 1]) {
-
-            cnt++;
-        }
-    }
-
-    //cerr << cnt << nl;
-
-    cout << (cnt + 1) / 2 << nl;
 
 }
 
 int32_t main() {
-    ios_base:: sync_with_stdio(0);
-    cin.tie(0);
+   ios_base:: sync_with_stdio(0);
+   cin.tie(0);
 
-    int t = 1 ;
+   int t = 1 ;
 
-    // cin >> t ;
+   cin >> t ;
 
-    while (t--) {
+   while (t--) {
 
-        solve() ;
+      solve() ;
 
-    }
+   }
 
 
-    return 0;
+   return 0;
 }

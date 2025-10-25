@@ -24,115 +24,61 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 int a[N] ;
-int n , s ;
+int n, s ;
+int v[N] ;
 
-int ans = 0 ;
-
-int ans2 = 0 ;
-
-int c1 = -1;
+int fsum = 0 ;
 bool f(int x) {
 
-   int cst = 0 ;
-   int p = 0 ;
+   //cerr << "x" << ' ' << x << nl ;
    for (int i = 0; i < n; i++) {
-      cst += a[i] + ((i + 1) * x) ;
-      //cerr << cst << nl ;
-      if (cst <= s) {
-         p++ ;
-         cerr << "x " << x << " p " << p << nl ;
-      }
-      else {
+      int cst = a[i] + 1LL * ((i + 1) * x) ;
+      v[i] = cst;
+
+   }
+
+   sort(v, v + n) ;
+   int sum = 0 ;
+   for (int i = 0; i < x; i++) {
+      sum += v[i] ;
+      if (sum > s) {
          break ;
       }
-
    }
-   if (x == p) {
-      c1 = p ;
-   }
-   return p <= n ;
 
+   //cerr << x << ' ' <<  sum << nl;
+
+   if (sum <= s) {
+      fsum = sum ;
+      return true ;
+   }
+   return false ;
 }
-int c2 = -1 ;
-bool f2(int x) {
-
-   int cst = 0 ;
-   int p = 0 ;
-   for (int i = 0; i < n; i++) {
-      cst += a[i] + ((i + 1) * x) ;
-      //cerr << cst << nl ;
-      if (cst <= s) {
-         p++ ;
-         cerr << "x " << x << " p " << p << nl ;
-      }
-      else {
-         break ;
-      }
-
-   }
-   if (x == p) {
-      c2 = p ;
-   }
-   return p <= n ;
-
-}
-
 void solve ()
 {
-
-   cin >> n >> s ;
-
+   cin >> n >> s  ;
    for (int i = 0; i < n; i++)cin >> a[i] ;
+   int l = 0, r = n ;
 
-   sort(a, a + n) ;
+   int ans = 0 ;
 
-   //output(a) ;
-   int l = 1 , r = n ;
+   //sort(a, a + n) ;
 
-   while (l <= r ) {
+   while (l <= r) {
       int mid = (l + r) / 2 ;
 
       if (f(mid)) {
+         //yes;
 
-         r = mid - 1 ;
-      }
-      else {
          l = mid + 1 ;
-      }
-
-   }
-
-   int l2 = 1, r2 = n ;
-
-   while (l2 <= r2) {
-      int mid = (l2 + r2) / 2 ;
-
-      if (f2(mid)) {
-         l = mid + 1 ;
-
+         ans = mid ;
       }
       else {
          r = mid - 1 ;
       }
-
    }
 
-
-   int p = 0 ;
-   if (c1 == -1) {
-      p = c2 ;
-   }
-   else {
-      p = c1 ;
-   }
-
-   int cst = 0 ;
-
-   for (int i = 0; i < p; i++) {
-      cst += a[i] + ((i + 1) * p) ;
-   }
-
-   cout << p << ' ' << cst << nl ;
+   cout << ans << ' ' << fsum << nl ;
 
 }
 

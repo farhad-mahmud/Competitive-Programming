@@ -25,10 +25,19 @@ const int MOD = 1e9 + 7;
 
 int a[N] ;
 
+auto bny(int x) {
 
+   bitset<10>bs(x) ;
+
+   auto s = bs.to_string() ;
+   return s ;
+}
 void solve ()
 {
-   yes ;
+
+   int x ; cin >> x;
+
+   cout << bny(x) << nl ;
 
 }
 
@@ -38,7 +47,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
