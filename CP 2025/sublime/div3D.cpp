@@ -32,9 +32,10 @@ int f (vector<pair<int, int >> &g , int n, int px, int py) {
    int mx_x = 0, mn_x = 1e18, mx_y = 0, mn_y = 1e18 ;
    for (auto [x, y] : g) {
 
-      if ( x == px && y == py) {
+      if (x == px && y == py) {
          continue ;
       }
+
       mn_x = min(x, mn_x) ;
       mx_x = max(x, mx_x) ;
 
@@ -133,8 +134,6 @@ void solve ()
    int ans = abs(mx_x - mn_x + 1 ) * abs(mx_y - mn_y + 1 ) ;
 
    for (auto [x, y] : k) {
-
-
 
       ans = min(ans , f(g , n , x, y)) ;
    }
