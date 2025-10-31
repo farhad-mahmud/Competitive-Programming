@@ -28,33 +28,29 @@ int a[N] ;
 
 void solve ()
 {
+   int n , x, y ; cin >> n >> x >> y ;
 
-   int n ; cin >> n ;
    vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i] ;
 
-   int total_subarr = n * (n + 1) / 2 ;
 
-   int cnt = 1 ;
+   map<pair<int, int >, int > mp ;
 
-   int beauty = 0 ;
 
-   for (int i = 1; i < n; i++) {
+   int cnt = 0 ;
+   for (int i = 0; i < n; i++) {
 
-      if (a[i] == a[i - 1]) {
-         cnt++ ;
-      }
-      else {
-         //cerr << cnt << nl ;
-         beauty += cnt * (cnt + 1) / 2 ;
-         cnt = 1 ;
+      int rx = (a[i] + x) % x ;
+      int ry = (a[i] + y) % y ;
 
-      }
+      int t1 = (x - rx ) % x ;
+      int t2 = ry ;
+
+      cnt += mp[ {t1, t2}] ;
+
+      mp[ {rx, ry}]++ ;
    }
 
-   beauty += cnt * (cnt + 1) / 2 ;
-   //cerr << beauty << nl ;
-
-   cout << total_subarr - beauty << nl ;
+   cout << cnt << nl ;
 
 }
 
@@ -64,7 +60,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

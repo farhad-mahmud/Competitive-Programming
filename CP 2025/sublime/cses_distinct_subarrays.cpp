@@ -23,38 +23,31 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-int a[N] ;
-
-
 void solve ()
 {
 
    int n ; cin >> n ;
-   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i] ;
+   vector<int > a(n); for (int i = 0; i < n; i++)cin >> a[i] ;
 
-   int total_subarr = n * (n + 1) / 2 ;
+   unordered_map<int, int > cnt ;
 
-   int cnt = 1 ;
+   int ans = 0 ;
+   int l = 0 ;
 
-   int beauty = 0 ;
+   for (int r = 0; r < n; r++) {
 
-   for (int i = 1; i < n; i++) {
+      cnt[a[r]]++ ;
 
-      if (a[i] == a[i - 1]) {
-         cnt++ ;
+      while (cnt[a[r]] > 1) {
+         cnt[a[l]]-- ;
+         l++ ;
       }
-      else {
-         //cerr << cnt << nl ;
-         beauty += cnt * (cnt + 1) / 2 ;
-         cnt = 1 ;
 
-      }
+      ans += (r - l + 1) ;
+      cerr << ans << nl ;
    }
 
-   beauty += cnt * (cnt + 1) / 2 ;
-   //cerr << beauty << nl ;
-
-   cout << total_subarr - beauty << nl ;
+   cout << ans  << nl ;
 
 }
 
@@ -64,7 +57,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
