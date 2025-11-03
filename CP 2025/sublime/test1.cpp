@@ -29,7 +29,6 @@ int a[N] ;
 void solve ()
 {
    yes ;
-
 }
 
 int32_t main() {

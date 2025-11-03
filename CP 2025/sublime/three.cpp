@@ -23,26 +23,42 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+vector<vector<int>>subsets;
+void generateSubsets(vector<int>& arr, vector<vector<int>>& subsets) {
+   int n = arr.size();
+   for (int i = 0; i < (1 << n); ++i) {
+      vector<int> subset ;
+      for (int j = 0; j < n; ++j) {
+         if (i & (1 << j)) {
+            subset.push_back(arr[j]);
+         }
+      }
+      cerr << subset.size() << nl ;
+      if (subset.size() == 3) {
+         subsets.push_back(subset);
+      }
+   }
+}
 
 void solve ()
 {
-   int n , k ; cin >> n >> k;
 
-   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i];
+   int n ; cin >> n ;
+   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i] ;
 
-   if (k > 3) {
-      if (k % 2 == 0) {
-         k = 2 ;
+   generateSubsets(a, subsets) ;
+
+   for (int i = 0; i < 4 ; i++) {
+
+      for (auto j : subsets[i]) {
+         cout << j  << ' ' ;
       }
-      else {
-         k = 3 ;
-      }
+
+
+      cout << nl ;
    }
 
-   sort(all(a)) ;
-
-   for (int )
-   }
+}
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);

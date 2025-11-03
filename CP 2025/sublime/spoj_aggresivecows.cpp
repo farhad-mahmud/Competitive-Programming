@@ -72,12 +72,9 @@ void solve ()
    int ans = 0 ;
    while (l <= r) {
       int mid = (l + r) / 2 ;
-      //cerr << mid << nl ;
       if (f(mid)) {
          ans = mid ;
          l = mid + 1 ;
-
-         // cerr << mid << nl ;
       }
       else {
          r = mid - 1 ;

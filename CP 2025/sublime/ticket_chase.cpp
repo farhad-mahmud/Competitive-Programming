@@ -23,26 +23,41 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int a[N] ;
+
+bool is_prime(int n) {
+   if (n < 2) return false;
+   for (int i = 2; i * i <= n; i++)
+      if (n % i == 0) return false;
+   return true;
+}
 
 void solve ()
 {
-   int n , k ; cin >> n >> k;
+   int n , t ; cin >> n >> t ;
 
-   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i];
+   int limit = (t + n) ;
+   int cnt = 0 ;
 
-   if (k > 3) {
-      if (k % 2 == 0) {
-         k = 2 ;
+   bool f = false ;
+   for (int i = t + 1 ; i < limit ; i++) {
+
+      if (is_prime(i)) {
+         f = true ;
+         break ;
       }
-      else {
-         k = 3 ;
-      }
+
+      cnt++ ;
    }
 
-   sort(all(a)) ;
-
-   for (int )
+   if (f) {
+      cout << cnt << nl ;
    }
+   else {
+      cout << -1 << nl ;
+   }
+
+}
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);

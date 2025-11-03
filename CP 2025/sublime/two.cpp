@@ -23,26 +23,35 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-
 void solve ()
 {
-   int n , k ; cin >> n >> k;
 
-   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i];
+   int ans = 1 ;
+   vector<int > v ;
+   for (int i = 1; i < 1e5 ; i ++) {
 
-   if (k > 3) {
-      if (k % 2 == 0) {
-         k = 2 ;
-      }
-      else {
-         k = 3 ;
-      }
+      ans += 2 ;
+
+      v.push_back(ans) ;
    }
 
-   sort(all(a)) ;
+   int k = 1e7 - 1 ;
+   vector<int > x ;
 
-   for (int )
-   }
+   cerr << k << nl;
+   int dif = (1e8 - k) ;
+
+   cerr << dif << nl ;
+   // for (int i = k; i < dif ; i += 2) {
+
+   //  x.push_back(i) ;
+
+   //  cout << i << nl ;
+
+//  }
+
+
+}
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);
@@ -51,7 +60,6 @@ int32_t main() {
    int t = 1 ;
 
    //cin >> t ;
-
    while (t--) {
 
       solve() ;

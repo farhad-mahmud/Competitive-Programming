@@ -26,23 +26,46 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {
-   int n , k ; cin >> n >> k;
+   int n ; cin >> n ;
 
-   vector<int > a(n) ; for (int i = 0; i < n; i++)cin >> a[i];
+   vector<pair<int, int >> a(n) ;
 
-   if (k > 3) {
-      if (k % 2 == 0) {
-         k = 2 ;
-      }
-      else {
-         k = 3 ;
-      }
+   for (int i = 0; i < n ; i++) {
+
+      cin >> a[i].first;
+
+      a[i].second = i + 1 ;
+
    }
 
-   sort(all(a)) ;
+   sort(a.begin(), a.end()) ;
 
-   for (int )
+   for (int i = 0; i < n - 2; i++) {
+
+      int t = x - a[i].first ;
+      //  dbug(t);
+      int l = i + 1 , r = n - 1;
+
+      while (l < r) {
+
+         int g = __gcd(a[l].first, a[r].first) ;
+         //  dbug(sum) ;
+
+         if (__gcd(t , g) == 1) {
+
+            cout << a[i].second << ' ' << a[l].second << ' ' << a[r].second << nl;
+            return ;
+         }
+         else if (sum < t) {
+
+            l++;
+         }
+         else {
+            r-- ;
+         }
+      }
    }
+}
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);
@@ -50,7 +73,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 
