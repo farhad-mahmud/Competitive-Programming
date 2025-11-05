@@ -76,8 +76,6 @@ void solve ()
    while (k < n) {
       ans += i ;
       k = ans - i ;
-      // 16-7 + 1 =10..
-      // cerr << "ans " << ans << nl ;
       int j = i / 2 ;
       k += 1 ;
       cst += ((k - prev - 2) * 2) + 6 ;
@@ -86,9 +84,7 @@ void solve ()
       prev = k ;
       i += 2 ;
 
-      //cerr << k << ' ' << cst << ' ' << j << nl ;
    }
-
 
 
    int sz = p.size() ;
@@ -107,24 +103,25 @@ void solve ()
       }
       else if (n > k1 && n < k2) {
 
-         //cerr << n << nl;
-         //cerr << k1 << ' ' << k2 << nl ;
+
          int cc = cst1 + 2 ;
-         //cerr << cc << nl ;
-         for (int j = k1 + 2; j < k2 ; j++) {
+
+         for (int j = k1 + 1; j < k2 ; j++) {
 
             if (n == j) {
                cout << cc << nl;
                return ;
             }
-            // cerr << cc << nl;
+
             if (j == (k1 + 1 + (j1 - 2))) {
                cc += 3 ;
 
-               // cerr << j << ' ' << cc << nl ;
+
+            }
+            else {
+               cc += 2 ;
             }
 
-            cc += 2 ;
          }
 
       }

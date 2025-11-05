@@ -36,7 +36,8 @@ void solve ()
 {
    int n , t ; cin >> n >> t ;
 
-   int limit = (t + n) ;
+   int limit = (t + n)  ;
+
    int cnt = 0 ;
 
    bool f = false ;

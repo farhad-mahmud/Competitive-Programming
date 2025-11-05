@@ -25,9 +25,37 @@ const int MOD = 1e9 + 7;
 
 int a[N] ;
 
+int n ;
+bool f(int x) {
+
+   int odd = (x - 1) / 2 ;
+   int four = max(0LL , x - 4) / 4 ;
+
+   int sum = odd + four ;
+   return sum >= n ;
+}
 void solve ()
 {
-   yes ;
+   cin >> n ;
+
+   int l = 1 , r = 2e9 , ans = 0 ;
+
+   while (l <= r) {
+      int mid = (l + r) / 2 ;
+
+      if (mid > r) {
+         break ;
+      }
+      if (f(mid)) {
+         ans = mid ;
+         r = mid - 1 ;
+      }
+      else {
+         l = mid + 1 ;
+      }
+   }
+
+   cout << ans << nl ;
 }
 
 int32_t main() {
@@ -36,7 +64,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 

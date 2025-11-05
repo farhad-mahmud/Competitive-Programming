@@ -35,6 +35,7 @@ bool f(int d) {
 
    int cnt = 1 ;
    int prev = a[0] ;
+   cerr << "d " << d << nl ;
    while (!st.empty()) {
       int k = prev + d ;
       auto it = st.lower_bound(k)  ;
@@ -47,9 +48,11 @@ bool f(int d) {
          break ;
       }
 
+      cerr << "cnt " << cnt << nl ;
       if (cnt >= c) {
          return true ;
       }
+
    }
 
    return false ;
@@ -90,7 +93,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 

@@ -25,9 +25,24 @@ const int MOD = 1e9 + 7;
 
 int a[N] ;
 
+int phi(int n) {
+   int result = n;  // start with n
+   for (int p = 2; p * p <= n; ++p) {
+      if (n % p == 0) {
+         while (n % p == 0)
+            n /= p;
+         result -= result / p;
+      }
+   }
+   if (n > 1)
+      result -= result / n;
+   return result;
+}
 void solve ()
 {
-   yes ;
+   int n ; cin >> n ;
+
+   cout << phi(n) << nl ;
 }
 
 int32_t main() {
