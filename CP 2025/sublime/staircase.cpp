@@ -28,8 +28,37 @@ int a[N] ;
 void solve ()
 {
    int n ; cin >> n ;
+   vector<int > a(n);
+   for (int i = 0; i < n; i++)cin >> a[i] ;
 
-   vector<int > a(n); for (int i = 0; i < n; i++)cin >> a[i] ;
+   vector<int > vis(n + 1, 0) , dis(n + 1, 0) ;
+   queue<int> q ;
+   q.push(0);
+   dis[0] = 0 ;
+   vis[0] = 1 ;
+
+   while (!q.empty()) {
+      int u = q.front();
+      q.pop();
+      int v = u + 1 ;
+      if (v >= 0 && v <= n && !vis[v]) {
+         vis[v] = 1 ;
+         dis[v] = dis[u] + 1 ;
+         q.push(v);
+
+      }
+      v = u + a[u] ;
+      if (v >= 0 && v <= n && !vis[v]) {
+
+         vis[v] = 1 ;
+         dis[v] = dis[u] + 1 ;
+         q.push(v) ;
+      }
+   }
+
+   cout << dis[n] << nl;
+
+
 
 
 }

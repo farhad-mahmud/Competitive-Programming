@@ -22,13 +22,12 @@ using namespace std;
 // constrains
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
-
 int a[N] ;
 
-void solve ()
-{
-   yes ;
+void solve() {
+
 }
+
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);
@@ -36,7 +35,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   // cin >> t ;
 
    while (t--) {
 
