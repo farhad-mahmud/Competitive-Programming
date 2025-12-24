@@ -26,7 +26,9 @@ const int MOD = 1e9 + 7;
 
 
 void solve ()
-{
+{  
+
+     cout << "p" ;
 
 }
 
