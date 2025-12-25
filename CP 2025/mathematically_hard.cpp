@@ -7,8 +7,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int  long long
-
 #define nl       "\n"
 
 #define yes cout << "YES\n";
@@ -21,62 +19,52 @@ using namespace std;
 
 // constrains
 
-const int N = 1e6 + 9;
+const int N = 5e6 + 9;
 const int MOD = 1e9 + 7;
-int phi(int n) {
-      int result = n;
-    for (int p = 2; p * p <=n; p++){
-        if (n % p == 0) {
-           
-            while (n % p == 0)
-                n /= p;
-            result -= result / p;
-        }
-    }
-
-    if (n > 1)
-        result -= result / n;
-
-
-    return result;
-}
-
-vector<int > pref ;
-
-void pre() {
-    pref.resize(N + 1);
-    pref[0] = 0;
-
-    for (int i = 1; i <= N; i++) {
-        int val = phi(i);
-        pref[i] = pref[i - 1] + val * val;
-    }
-}
-
-void solve (int k )
-{
-         int a , b ; cin >> a >> b ;
-
-         int ans = pref[b] - pref[a-1] ;
-
-         cout << "Case " << k << ": " <<   ans << nl; 
-}
+int spf[N] ;
+unsigned long long  pref[N] ;
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);
    cin.tie(0);
 
-   int t = 1 ;
+    for (int i = 2; i < N; i++) {
+        spf[i] = i;
+    }
+    for (int i = 2; i < N; i++) {
+        if (spf[i] == i) {
+            for (int j = i; j < N; j += i) {
+                spf[j] = min(spf[j], i);
+            }
+        }
+    }
 
-    cin >> t ;
-    int k = 1 ;
-    pre() ;
-   while (t--) {
+    for(int i=1;i <N;i++){
+        int phi_of_i = 1  ;
+        int x = i ;
+        while(x > 1){
+            int p = spf[x] , pw = 1, ex = 0 ;
 
-      solve(k) ;
-      k++ ;
-   }
+            while(x % p ==0){
+               ex++ ;
+               pw *= p ;
+               x = x/p ;
+            }
+            // pw^e = pw ..  
+            phi_of_i *=  (pw/p)* (p-1) ; 
+        }
+         pref[i] = pref[i-1] + 1LL * phi_of_i * phi_of_i ;
+    }
+  
 
+    //cerr << pref[N-1] << nl; 
+    int q ; cin >> q ; 
+    int t = 0 ;
+    while(q--){
+        int a , b ; cin >> a >> b ;
+
+        cout <<  "Case " << ++t << ": " <<  pref[b] - pref[a-1] << nl ;
+    }
 
    return 0;
 }
