@@ -1,8 +1,5 @@
 //---  Bismillahir Rahmanir Rahim ---//
 
-//------------------------------//
-//        Author: Farhad       //
-//------------------------------//
 
 #include <bits/stdc++.h>
 using namespace std;
