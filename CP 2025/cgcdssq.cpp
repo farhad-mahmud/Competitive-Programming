@@ -24,7 +24,6 @@ unordered_map<int, int> cnt;
 unordered_map<int, long long> pairs;
 
 void mobius(){
- // compute pairs divisible by d ..
 
          for (auto &p : cnt) {
          int d = p.first;
@@ -46,7 +45,6 @@ void mobius(){
             }
         }
     }
-
 
 }
 
@@ -89,9 +87,13 @@ void solve ()
                 mp[a[i]]++ ;
            }
 
+           for(auto [b,i] : cnt){
+               cout << b << ' ' << i << nl ;
+           }
+
            mobius() ;
 
-           cout << pairs[1] + mp[x] << nl; 
+          // cout << pairs[1]+mp[x] << nl; 
 
       }
 }
