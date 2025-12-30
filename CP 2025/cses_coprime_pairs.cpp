@@ -18,7 +18,7 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
 
 int cnt[N+1];
@@ -28,16 +28,13 @@ void mobius(){
 
          vector<int > div ;
         for(int d = 1;d <=N;d++){
-            if(cnt[d] > 2){
+           pairs[d] = 0 ;
+            if(cnt[d] >= 2){
                 pairs[d] = cnt[d]*(cnt[d]- 1) / 2 ;
             
             div.push_back(d) ;
            }
         }
-
-         // for(auto i : cnt){
-         //        div.push_back(i.first) ;
-         // }
       sort(div.rbegin() , div.rend());
 
       for (int d : div) {
