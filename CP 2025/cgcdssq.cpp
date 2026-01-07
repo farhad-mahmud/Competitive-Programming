@@ -87,13 +87,13 @@ void solve ()
                 mp[a[i]]++ ;
            }
 
-           for(auto [b,i] : cnt){
-               cout << b << ' ' << i << nl ;
-           }
+           // for(auto [b,i] : cnt){
+           //     cout << b << ' ' << i << nl ;
+           // }
 
            mobius() ;
 
-          // cout << pairs[1]+mp[x] << nl; 
+           cout << pairs[1]+mp[x] << nl; 
 
       }
 }
