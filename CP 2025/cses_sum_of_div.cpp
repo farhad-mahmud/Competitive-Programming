@@ -24,35 +24,27 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-            
-         int n ; cin >> n ;
-         int total = 1 ;
+         ll  n ; cin >> n ;
 
-         for(int i=2;i*i <=n;i++){
+      ll total = 0 ;
+      ll i = 1 ;
+      while(i <=n){
+         ll q = n /i ;
+         ll nxt_i = n/q + 1 ; //  when , q = 1 , nxti  is , n + 1 
+         ll count = (nxt_i - i) ;// , so nxt_i - i , means , 3,4,5 , 
+                        // will contribute 1 always ,, to sum ,, by .. 
 
-              if(n % i == 0){
-                   int exp = 0 ;
-                   while(n % i == 0){
-                        exp++ ;
-                        n=n/i ;
-                   }
+         ll sum_i = (((i+ nxt_i - 1 ) % MOD)* (count % MOD )) % MOD ;// this is 3+4+5 ..
+         sum_i = (sum_i * ((MOD + 1)/2)) % MOD ;
+         total = (total + (q  % MOD )* sum_i) % MOD ;
+         i = nxt_i ;
 
-                   ll sum =0 , pw = 1 ;
+      }
 
-                   for(int k=1;k<=exp;k++){
-                        pw *= i ;
-                        sum += pw ;
-                   }
-                   total *= sum ;
-              }
-              
-         }
 
-         if(n > 1){
-               total *= (1 + n) ;
-         }
+      cout << total << nl ;
+      
 
-         cout<< total << nl; 
 }
 
 int32_t main() {
