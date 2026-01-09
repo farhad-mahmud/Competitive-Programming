@@ -21,7 +21,7 @@ void solve ()
 {
                     int n ; cin >> n ;  
                      
-                   vector<int > div(N,0) ;
+                    int div[N+1] ;
                    
                    for(int i=0;i<n;i++){
 
@@ -44,13 +44,11 @@ void solve ()
                    }
 
                 
-                for(int i = N-1 ;i>=1 ;i--){
+                for(int i = N+1 ;i>=1 ;i--){
 
                      if(div[i] >=2 ){
 
                           cout << i << nl;
-
-                          cerr << div[i] << nl;
                           break ;
                      }
                 }

@@ -18,36 +18,31 @@ using namespace std;
 
 // constrains
 
+const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-const int N = 1e7 + 9;
+bool is_prime(long long  n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (long long i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    }
+    return true;
+}
 
-bitset<N> is_prime; 
-void sieve() {
-is_prime[1] = false;
-for (int i = 2; i < N; i++) { 
-    is_prime[i] = true;
-}
-for (int i = 2; i * i < N; i++) { 
-    if (is_prime[i]) {
-for (int j = i * i; j < N; j += i) { 
-    is_prime[j] = false;
-}
-}
-}
-}
 void solve ()
 {  
-        int n ; cin >> n ;
-         
-        for(int i=n+1 ;i<= n + 1000 ;i++){
-               if(is_prime(i)){
+          int n ; cin >> n ;
 
-                    cout << i << nl ;
-                    break ;
-               }
-        }        
-
+          int l = n + 540 ;
+          for(int i= n+1;i<=l;i++){
+                if(is_prime(i)){
+                     cout << i << nl ;
+                     break ;
+                }
+          }    
 }
 
 int32_t main() {
@@ -57,8 +52,7 @@ int32_t main() {
    int t = 1 ;
 
     cin >> t ;
-
-    sieve() ;
+  
    while (t--) {
 
       solve() ;

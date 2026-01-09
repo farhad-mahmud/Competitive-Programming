@@ -24,8 +24,27 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
+         int n ; cin >> n ;
 
-     cout << "p" ;
+         int arr[n] ;
+         for(int i=0;i<n;i++)cin >> arr[i] ;
+
+         int temp ;
+         for(int i=0;i<n;i++){
+               for(int j=0;j<n-1;j++){
+               if(arr[j] > arr[j+1]){
+                    temp = arr[j] ;
+                    arr[j] = arr[j+1] ;
+                    arr[j+1] = temp; 
+               }
+
+            }
+         }
+
+
+         for(int i=0;i<n;i++){
+              cout << arr[i] << ' ' ;
+         }
 
 }
 

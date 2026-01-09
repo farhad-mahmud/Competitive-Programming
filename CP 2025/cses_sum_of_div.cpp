@@ -24,7 +24,7 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-         ll  n ; cin >> n ;
+         ll n ; cin >> n ;
 
       ll total = 0 ;
       ll i = 1 ;
