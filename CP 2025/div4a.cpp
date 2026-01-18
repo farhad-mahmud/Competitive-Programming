@@ -22,13 +22,16 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 
+
 void solve ()
-{  
-         int a = 10 ;
-         int *p = &a ;
+{        
+         int n ;cin >> n ;
+         
+         for(int i=1;i<=n;i++){
+              cout << i << ' ' ;
+         }
 
-         cout << *p << nl  ;
-
+         cout << nl ;
 }
 
 int32_t main() {
@@ -37,7 +40,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+    cin >> t ;
 
    while (t--) {
 

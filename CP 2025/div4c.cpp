@@ -23,12 +23,26 @@ const int MOD = 1e9 + 7;
 
 
 void solve ()
-{  
-         int a = 10 ;
-         int *p = &a ;
+{           
+         int n ;cin >> n ;
+         vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-         cout << *p << nl  ;
+         set<int > st ;
+         for(int i=0;i<n;i++){
+              st.insert(a[i]) ;
+         } 
 
+        sort(a.begin(), a.end());
+       a.erase(unique(a.begin(), a.end()), a.end());
+
+       int mex = 0 ;
+       for (auto v : a) {
+             if (v < mex) continue;
+             if (v == mex) mex++;
+            else break;
+      }
+
+      cout << mex << nl ;
 }
 
 int32_t main() {
@@ -37,7 +51,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+    cin >> t ;
 
    while (t--) {
 
