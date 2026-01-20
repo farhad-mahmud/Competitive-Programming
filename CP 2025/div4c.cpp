@@ -31,18 +31,7 @@ void solve ()
          for(int i=0;i<n;i++){
               st.insert(a[i]) ;
          } 
-
-        sort(a.begin(), a.end());
-       a.erase(unique(a.begin(), a.end()), a.end());
-
-       int mex = 0 ;
-       for (auto v : a) {
-             if (v < mex) continue;
-             if (v == mex) mex++;
-            else break;
-      }
-
-      cout << mex << nl ;
+         
 }
 
 int32_t main() {
