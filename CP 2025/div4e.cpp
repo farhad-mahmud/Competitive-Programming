@@ -36,14 +36,14 @@ void solve ()
          for(int i=0;i<n;i++){
 
            auto it = lower_bound(spike.begin(), spike.end(), robot[i]);
-
-         // left spike
+        
           if (it != spike.begin()) {
           int left = robot[i] - *(it - 1);
           mp[-left].push_back(i) ;
+          
          }
 
-         // right spike
+       
          if (it != spike.end()) {
          int right = *it - robot[i];
          mp[right].push_back(i) ;

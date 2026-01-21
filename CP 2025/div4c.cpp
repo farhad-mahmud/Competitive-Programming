@@ -26,12 +26,40 @@ void solve ()
 {           
          int n ;cin >> n ;
          vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
+         sort(a.begin(),a.end());
+         a.erase(unique(a.begin(),a.end()),a.end());
 
-         set<int > st ;
-         for(int i=0;i<n;i++){
-              st.insert(a[i]) ;
-         } 
-         
+         int prev = a[0] ;
+         int cnt = 1 ;
+         //output(a);
+        // cerr << prev << nl ;
+         int sz = size(a);
+         if(sz == 1){
+              cout << 1 << nl ;
+              return ;
+         }
+         else if(sz == 2){
+              if(a[0]+1 == a[1]){
+                  cout << 2 << nl ;
+                  return ;
+              }
+         }
+         int mx = 1 ;
+         for(int i=1;i<sz;i++){
+             //cerr << "a[i] " << a[i] << ' ' << prev+1 << nl ;
+               if(a[i] != prev+1){ 
+                     cnt = 1 ;
+                     prev= a[i] ;
+               }
+               else {
+                     cnt++;
+                     prev+= 1;
+               }
+               //cerr << "h" << nl ;
+               mx = max(mx ,cnt) ;
+         }
+
+         cout << mx << nl ;
 }
 
 int32_t main() {
