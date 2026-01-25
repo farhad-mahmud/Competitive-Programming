@@ -22,12 +22,15 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 void solve ()
-{       
-        int x ; cin >> x ;
+{        
+      //int n ; cin >> n ; 
+      int k = 5 ;
 
-        int hv = x - 100 ;
+      for(int i=4;i>=1;i--){
+           cout << (k^i) << nl ;
+      }
 
-        cout << hv/50 << nl ;
+      cerr << ( ) ; 
 }
 
 int32_t main() {
