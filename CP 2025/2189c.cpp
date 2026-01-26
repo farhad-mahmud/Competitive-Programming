@@ -29,40 +29,47 @@ void solve ()
        perm[n] = 1;
 
       vector<bool > vis(n+1 ,false );
-       vis[1] = true ;
+       //vis[1] = true ;
+      vis[1] = true ;
       vector<bool > ind(n+1 ,false);
        ind[n] = true ;
 
-       // int pj =perm[n] ;
-       // for(int i=n-1;i>=1;i--){
-       //    for(int )
-       //      int pi = pj ^ i ;
-       //      cerr << pi << nl ;
-       //      perm[i]= pi ;
+       vector<int > pj ;
+       pj.push_back(1) ;
 
-       //     pj  = perm[i] ;
+       for(int i=n-1;i>=1;i--){
+         int sz = pj.size();
 
-       // }
+         //cerr << i << nl; 
+          for(int j=0;j<sz;j++){
+               int x = pj[j] ;
 
-      for(int pj= n;pj>=1;pj--){
-           
-            for(int i=n;i>=1;i--){
-                if(pj == i)continue ;
-                if(ind[i]){
+               if(ind[i]){
                    break ;
-                }
-                 int pi = (pj^i);
-                 cerr << "pj " << pj << " i " << i << " pi " << pi << nl; 
-                 if(pi >= 1 && pi <= n && !vis[pi]){
-                  //cerr << "pj " << pj << " i " << i << " pi " << pi <<  nl ; 
-                     if(!ind[i]){
-                          perm[i] = pi ;
-                          ind[i] = true ;
-                          vis[pi] = true ;
-                     }
-                 }
+               }
+               int pi = x ^ i ;
+               // cerr << pi << ' ' << x << ' ' << i << nl; 
+               if(pi <1 || pi > n){
+                   continue ;
+               }
+
+               if(!vis[pi]){
+                    perm[i] = pi;
+                    vis[pi] = true ;
+                    ind[i] = true ;
+                    pj.push_back(pi) ;
+               }
+          }
+       }
+      
+       for(int i=1;i<=n;i++){
+            if(!vis[i]){
+                 perm[1] = i ;
+                 break ;
             }
-      }
+       }
+
+     
 
       for(int i=1;i<=n;i++){
             cout << perm[i] << ' ' ;

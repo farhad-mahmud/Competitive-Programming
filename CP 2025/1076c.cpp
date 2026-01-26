@@ -41,11 +41,14 @@ void solve() {
     pref_sum[0] = c[0];
     for(int i=1;i<n;i++) pref_sum[i] = pref_sum[i-1] + c[i];
 
+
     while(q--) {
         int l, r; cin >> l >> r;
-        l--; r--; 
+        int ans = 0 ;
+        l--,r--;
+       // cerr << l << ' ' << r << nl ;
+         ans = pref_sum[r] - (l > 0 ? pref_sum[l-1] : 0) ;
 
-        int ans = pref_sum[r] - (l > 0 ? pref_sum[l-1] : 0);
         cout << ans << ' ' ;
     }
 

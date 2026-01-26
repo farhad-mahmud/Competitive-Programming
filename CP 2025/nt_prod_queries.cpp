@@ -71,7 +71,7 @@ void testCase() {
     cout << '\n';
 }
 
-signed main() {
+int32_t main() {
     Fast_IO
     sieve();
     int t;
