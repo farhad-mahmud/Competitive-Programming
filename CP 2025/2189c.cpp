@@ -26,30 +26,23 @@ void solve ()
       int n ; cin >> n ;
       int perm[n+1];
 
-       perm[2] = 1 ;
-       perm[3] = 3 ;
-       if(n== 3){
-          perm[1] = 2 ;
-       }
-       else {
-          perm[1] = n ;
-          perm[n] = n/2 ;
-       }
-       
+       perm[n] = 1;
 
       vector<bool > vis(n+1 ,false );
-       vis[n] = true ;
        vis[1] = true ;
-       if(n ==3){
-           vis[2] = true ;
-       }
-       vis[3] = true ;
-       vis[n/2] = true ;
       vector<bool > ind(n+1 ,false);
-       ind[1] = true ;
-       ind[2] = true ;
-       ind[3] = true ;
        ind[n] = true ;
+
+       // int pj =perm[n] ;
+       // for(int i=n-1;i>=1;i--){
+       //    for(int )
+       //      int pi = pj ^ i ;
+       //      cerr << pi << nl ;
+       //      perm[i]= pi ;
+
+       //     pj  = perm[i] ;
+
+       // }
 
       for(int pj= n;pj>=1;pj--){
            
