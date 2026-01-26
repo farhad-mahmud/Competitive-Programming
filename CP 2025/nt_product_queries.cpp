@@ -1,120 +1,106 @@
-//---  Bismillahir Rahmanir Rahim ---//
-
+// NOT OPTIMIZED CODE ...
 
 #include <bits/stdc++.h>
+// #include "debug.hpp"
 using namespace std;
 
-#define int  long long
+#define de(...) cout << "[" << #__VA_ARGS__ << "]-> ", dbg(__VA_ARGS__)
+#define Fast_IO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#ifndef ONLINE_JUDGE
+#define File_IO freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout);
+#else
+#define File_IO
+#endif
+#define int int64_t
+#define nl '\n'
+#define all(x) (x).begin(), (x).end()
+#define yes cout << "YES" << '\n'
+#define no cout << "NO" << '\n'
+//const long double pi = acos(-1);
 
-#define nl       "\n"
+const int N = 3e5 ;
+vector<vector<int>> divs(N + 1);
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-
-#define all(x)   x.begin(),x.end()
-#define allr(x)  x.rbegin() ,x.rend()
-#define dbug(x) cerr << (#x) << " is " << (x) << nl;
-#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
-
-// constrains
-
-const int N = 1e5 + 9;
-const int MOD = 1e9 + 7;
-// int spf[N];
-// void sieve(){
-//       for(int i=2;i<N;i++){
-//             spf[i] = i ;
-//       }
-
-//       for(int i=2;i<N;i++){
-//             if(spf[i] == i){
-//         for(int j=i;j<N;j+=i){
-//               spf[j] = min(spf[j],i) ;
-//         }
-//             }
-//       }
-
-// }
-// vector<vector<pair<int,int>>> v(N + 1);
-
-// void all_fact() {
-//     for (int i = 1; i <N; i++) {
-//         int x = i;
-//         while (x > 1) {
-//             int p = spf[x], cnt = 0;
-//             while (x % p == 0) {
-//                 x /= p;
-//                 cnt++;
-//             }
-//             v[i].push_back({p, cnt});
-//         }
-//     }
-//     v[1].push_back({1,1});
-// }
-
-
-void solve ()
-{        
-
-      //cerr << spf[2] << nl ;
-      int n ;cin >> n ;
-      vector<int > a(n+1); for(int i=1;i<=n;i++)cin >>a[i];
-
-      int mx = *max_element(a.begin(),a.end());
-
-      vector<bool > mark(mx+1,false);
-      for(int i=0;i<n;i++){
-           mark[a[i]] = true ;
-      }  
-
-      // vector<int > hash(n+1,0);
-      // for(int i=1;i<=n;i++){
-      //      hash[a[i]]++ ;
-      // }
-
-
-     vector<vector<int>> div(n + 1);
-
-      for(int i = 1; i <= n; i++){
-      for(int j = 1; j * j <= i; j++){
-        if(i % j == 0){
-         cerr << i << ' ' << j << nl ;
-            if(j!= 1)div[i].push_back(j);
-            if(i / j !=j){
-                div[i].push_back(i / j);
-            }
+void div() {
+    for(int i = 2; i <= N; i++) {
+        for(int j = i; j <= N; j += i) {
+            divs[j].push_back(i);
         }
-          }
-      }
+    }
+    for(int i = 1; i <= N; i++) {
+        sort(divs[i].rbegin(), divs[i].rend());
+    }
+}
 
-      for(int i=1;i<=n;i++){
-            sort(div[i].rbegin(), div[i].rend()) ;
-      }
-      for(int i=1;i<=n;i++){
-           for(auto x : div[i]){
-                  cout << x << ' ' ;
-           }
-           cout << nl ;
-      }
+void testCase(){
+    int n; cin >> n;
+    vector<int> vi(n+1);
+    for(int i = 1; i <= n; i++) cin >> vi[i];
 
+    vector<int> hash(n+1, 0);
+    for(int i = 1; i <= n; i++) {
+        hash[vi[i]]++;
+    }
+    //de(hash);
+
+
+    for(int i = 1; i <= n; i++) {
+        //vector<int> div = divs[i];
+        int cnt = 0;
+        int num = i;
+        //de(div);
+        //cout << "num : " << num << nl ;
+         if(num == 1 ) {
+            if(hash[num] > 0){
+                cout << 1 <<' ';
+                
+            }
+            else {
+                cout << -1 << ' ';
+            }
+             continue;
+
+         }
+         else{
+              if(hash[num]>0){
+                  cout << 1 << ' ' ;
+                    continue ;
+              }
+            
+         }
+
+         bool done = false ;
+         //cerr << i  << nl; 
+        for(int x : divs[i]) {
+    
+            if(hash[x] > 0) {
+                while(num % x == 0){
+                      num =num/ x ;
+                      cnt++ ;
+                }
+            }
+
+            if(num == 1){
+                  cout << cnt  << ' ' ;
+                  done = true ;
+                  break ;
+            }          
+        }
+        if(!done) cout << -1 << ' ';
+
+        //cout << nl ;
+    
+    }
+    cout << nl;
 
 }
 
-int32_t main() {
-   ios_base:: sync_with_stdio(0);
-   cin.tie(0);
-
-   int t = 1 ;
-   // sieve() ;
-   // all_fact();
-   cin >> t ;
-
-   while (t--) {
-
-      solve() ;
-
-   }
-
-
-   return 0;
+signed main(){
+    Fast_IO //File_IO
+    int t=1;
+    div();
+    cin>>t;
+    while(t--) testCase();
+    return 0;
 }
+
