@@ -43,21 +43,35 @@ void solve ()
            int p , e ; cin >> p >> e ;
 
            fact.push_back({p,e});
-           divisors = divisors * (e+1);
+           divisors = divisors* (e+1) % MOD ;
       }
 
-      cout << divisors << nl ;
+      //cout << divisors << nl ;
 
       int sum = 1 ;
       for(auto [p,e] : fact){
-         cerr << p << ' ' << e << nl; 
-            int up = binpow(p,e+1) - 1 ;
-            int down = p - 1 ;
-            int f = up/down ;
-            sum = (sum * f) % MOD ;
+         //cerr << p << ' ' << e << nl; 
+            int up = (binpow(p,e+1) - 1 + MOD) % MOD ;
+            int down = binpow(p - 1, MOD-2) % MOD ;
+             sum = sum * (up * down % MOD ) % MOD ;
       }
 
-      cout << sum << nl; 
+      int prd =  1;
+      int div_cnt = 1 ; // prev div_cnts..
+       
+      for(auto [p,e] : fact){
+           prd = binpow(prd, e+1);
+
+           // mul by .. p^{ e*(e+1)/2 * div_cnt2}
+           int cur = binpow(p,(e*(e+1)/2)% (MOD-1));
+           prd = prd * binpow(cur , div_cnt) % MOD ;
+
+
+           div_cnt = div_cnt * (e+1) % (MOD-1);
+
+      }
+
+      cout << divisors % MOD  << ' '<<sum % MOD  << ' ' << prd % MOD << nl ;
 }
 
 int32_t main() {
