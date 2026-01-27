@@ -30,14 +30,14 @@ void solve ()
       vector<int > a(n);
       for(int i=0;i<n;i++){
       cin >> a[i];
-       hash[a[i]] =1  ;
+       hash[a[i]]=1  ;
      }
 
       for(int i=1;i<=n;i++){
            int mn = MAX ;
            if(hash[i] == 1)continue ;
            int k = sqrt(i);
-           for(int j= k ;j>1;j--){
+           for(int j= k ;j>1;j--){     
                if(hash[j] == -1)continue ;
 
                int y = i / j ;

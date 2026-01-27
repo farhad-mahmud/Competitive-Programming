@@ -18,7 +18,7 @@ int bx = 0;
 int bcnt = 0;
 
 void solve() {
-    cin >> n;
+    cin >> n;f
     vector<int > a(n);
     for(int i = 0; i < n; i++) cin >> a[i];
 

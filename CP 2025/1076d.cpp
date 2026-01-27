@@ -18,8 +18,9 @@ int bx = 0;
 int bcnt = 0;
 
 bool f(int x) {
-        int usable = n- lower_bound(a.begin(),a.end(),x)- a.begin() ;
-        
+
+    int usable = n- lower_bound(a.begin(),a.end(),x)- a.begin() ;
+    
 }
 
 void solve() {
