@@ -13,18 +13,13 @@ const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
 
 int n;
-vector<int> a;  
+// vector<int> a;  
 int bx = 0;
 int bcnt = 0;
 
-bool f(int x) {
-        int usable = n- lower_bound(a.begin(),a.end(),x)- a.begin() ;
-        
-}
-
 void solve() {
     cin >> n;
-    a.resize(n);  
+    vector<int > a(n);
     for(int i = 0; i < n; i++) cin >> a[i];
 
     vector<int> b(n);
@@ -36,17 +31,26 @@ void solve() {
 
     sort(a.begin(),a.end());
 
+    vector<int > pref_sum(n);
 
-    int l = *min_element(a.begin(), a.end());
-    int r = *max_element(a.begin(), a.end());
-
-    while(l <= r) {
-        int mid = (l + r) / 2;
-        if(f(mid)) l = mid + 1;
-        else r = mid - 1;
+    pref_sum[0] = b[0];
+    for(int i=1;i<n;i++){
+         pref_sum[i] = pref_sum[i-1] + b[i];
     }
 
-    
+    int mx =0 ;
+    for(int i=0;i<n;i++){
+         int x = n - (lower_bound(a.begin(),a.end(),a[i])- a.begin());
+
+         int lev = upper_bound(pref_sum.begin(), pref_sum.end(),x) - pref_sum.begin();
+
+         int ans = a[i]*lev ;
+        // cerr << x << ' ' << lev << nl; 
+         mx = max(mx , ans) ;
+    }
+
+
+    cout << mx << nl ;
 
 }
 
