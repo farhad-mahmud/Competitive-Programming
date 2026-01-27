@@ -20,11 +20,44 @@ using namespace std;
 
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
-
+const int MAX = 1e9 ; 
 
 void solve ()
 {           
-      
+      int n ; cin >> n ;
+
+       vector<int > hash(n+1 , -1);
+      vector<int > a(n);
+      for(int i=0;i<n;i++){
+      cin >> a[i];
+       hash[a[i]] =1  ;
+     }
+
+      for(int i=1;i<=n;i++){
+           int mn = MAX ;
+           if(hash[i] == 1)continue ;
+           int k = sqrt(i);
+           for(int j= k ;j>1;j--){
+               if(hash[j] == -1)continue ;
+
+               int y = i / j ;
+               if(hash[y] == -1)continue ;
+
+               if(i == y*j){
+                    mn = min(mn ,hash[y]+ hash[j]);
+               }
+           }   
+
+           if(mn != MAX){
+                hash[i] = mn ;
+           }
+      }
+
+      for(int i=1;i<=n;i++){
+           cout << hash[i] << ' ' ;
+      }
+
+      cout << nl ;
 }
 
 int32_t main() {

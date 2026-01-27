@@ -24,7 +24,7 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-        cout << (1^5) << nl ;
+      cout << "h" << nl ;
 }
 
 int32_t main() {
