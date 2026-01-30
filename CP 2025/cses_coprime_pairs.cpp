@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
+#define int long long
 
 #define nl       "\n"
 
@@ -21,53 +21,63 @@ using namespace std;
 const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
 
-int cnt[N+1];
-ll pairs[N+1];
+int freq[N], ans[N] ;
+void solve ()
+{  
+    int n ; cin >> n ;
+    vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-void mobius(){
+    //vector<int > ans(N+2,0), freq(N+2,0);
 
-         vector<int > div ;
-        for(int d = 1;d <=N;d++){
-           pairs[d] = 0 ;
-            if(cnt[d] >= 2){
-                pairs[d] = cnt[d]*(cnt[d]- 1) / 2 ;
-            
-            div.push_back(d) ;
-           }
-        }
-      sort(div.rbegin() , div.rend());
+    for(auto x : a){
+         freq[x]++ ;
+         //cerr << freq[x] << nl; 
+    }   
 
-      for (int d : div) {
-         for(int m = 2*d ;m <= N;m+=d){
-              pairs[d] -= pairs[m] ;
+
+    // got the multiples of 1,2,3,4...till 1e6 if multiple of them 
+    // exists in the array elements..
+    for(int i=1;i<N;i++){
+       for(int j=i;j<N;j+=i){
+           ans[i] += freq[j];
+       }
+    }
+
+    //now.. ans[1] has elements multiple of 1 , in the array .. 
+    // so for a specific ,, number .. how many pairs it can be form..
+    // its n*n-1/2 ;
+
+    for(int i=1;i<N;i++){
+          ans[i] = (ans[i]*(ans[i]-1))/2;
+    }
+
+    // for test print..
+    // for(auto x : ans){
+    //       cout << x << nl ;
+    // }
+
+    //now.. we will go , from highest numbers to lowest..
+    // assume for a number 10 we found.. ans[5] = 6...
+    // so inside that count..we have ..the count of 1 . also , cause
+    // at first we found the multiples of 1.. so 5 was counted in..
+    // also assume if i found ans[8] = 3 .. so in this count of 8 , there
+    //also exists the count of number 4 .. so we are gonna do
+    // ans[4]-= ans[8] .. so the ans[8] will become.. 0..
+    // then also ans[2]-= ans[4].. ans[4] would be 0 , then ans[1]-= ans[2]
+    // that ..way, in ans[1] = will be number of pairs of integers that 
+    // are coprime..why?think...
+    // 
+
+    for(int i= N-1;i>=1;i--){
+        for(int j=i+i ;j<N;j+=i){
+              ans[i] -= ans[j] ;
          }
     }
 
-}
-void solve ()
-{  
-         int n ; cin >> n ;
-         vector<int > a(n);for(int i=0;i<n;i++)cin >> a[i];
 
-       for(int j=0;j<n;j++){ 
-         for(int i = 1;i*i <=a[j];i++){
+    cout << ans[1] << nl; 
+}   
 
-                if(a[j] % i == 0){
-                    cnt[i]++ ;
-
-                    if(i != a[j]/i){
-                       cnt[a[j]/i]++ ;
-
-                    }
-                }
-         }
-      }
-
-           mobius();
-
-           cout << pairs[1] << nl ;
-
-}
 
 int32_t main() {
    ios_base:: sync_with_stdio(0);
