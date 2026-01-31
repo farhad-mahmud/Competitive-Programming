@@ -22,11 +22,46 @@ const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 
-void solve ()
+void solve (int k)
 {  
       int p ,l ; cin >> p >> l ;
 
-      
+      // c*q = p-l..
+      //cout << "h" << nl;
+
+      if((p-l)<= l){
+          cout << "Case " << k << ": " << "impossible" << nl;
+          return ;
+      }
+
+      int total_ate = (p-l) ;
+
+      vector<int > v ;
+
+      for(int c=1;c*c<=total_ate;c++){
+
+           if((p-l) % c == 0){
+               int q = (p-l)/c ;
+               if(c > l){
+               v.push_back(c) ;
+                }
+               if((p-l)/c != c && (p-l)/c > l){
+                  v.push_back((p-l)/c) ;
+               }
+
+
+           } 
+
+      }
+
+      sort(all(v));
+       cout << "Case " << k << ": " ;
+      for(auto x : v){
+           cout << x << ' ' ;
+      }
+
+      cout << nl;
+     
 }
 
 int32_t main() {
@@ -35,12 +70,12 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
-
+    cin >> t ;
+   int k = 1 ;
    while (t--) {
 
-      solve() ;
-
+      solve(k) ;
+      k++ ;
    }
 
 
