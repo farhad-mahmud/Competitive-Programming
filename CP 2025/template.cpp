@@ -72,6 +72,25 @@ int binpow(int a, int b) {
     }
     return res;
 }
+
+// ================phi======================//
+int phi(int n) {
+    int result = n;
+
+    for (int p = 2; p * p <= n; p++) {
+        if (n % p == 0) {
+            while (n % p == 0)
+                n /= p;
+            result -= result / p;
+        }
+    }
+
+    if (n > 1)  
+        result -= result / n;
+
+    return result;
+}
+
 //========== prime generation(sieve)=======//
 
 bool vis[N] ;
@@ -143,10 +162,14 @@ void all_fact() {
 
 //----------------is_prime---------------------//
 
-bool is_prime(int n) {
-    if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i)
-        if (n % i == 0) return false;
+bool is_prime(long long  n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (long long i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    }
     return true;
 }
 

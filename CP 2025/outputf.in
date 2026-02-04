@@ -1,4 +1,11 @@
-Case 1: 1 2 5 10 
-Case 2: 11 
-Case 3: 101 202 
-Case 4: impossible
+pairs with gcd 1: 12
+pairs with gcd 2: 8
+pairs with gcd 3: 6
+pairs with gcd 4: 5
+pairs with gcd 5: 0
+pairs with gcd 6: 1
+pairs with gcd 7: 0
+pairs with gcd 8: 1
+pairs with gcd 9: 3
+pairs with gcd 10: 0
+26

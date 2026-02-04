@@ -48,8 +48,6 @@ void solve (int k)
                if((p-l)/c != c && (p-l)/c > l){
                   v.push_back((p-l)/c) ;
                }
-
-
            } 
 
       }
