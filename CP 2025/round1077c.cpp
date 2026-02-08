@@ -24,7 +24,26 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-    
+      int n ; cin >> n ;
+      vector<int > a(n);for(int i=0;i<n;i++)cin >> a[i] ;
+
+      vector<int > c = a ;
+      sort(c.begin(),c.end());
+      if(a== c){
+           cout << -1 << nl;
+           return ;
+      }
+
+      int mx = 0 ;
+      for(int i=0;i<n;i++){
+          int dif = abs(a[i] - c[i]);
+
+          mx = max(dif , mx);
+      }
+
+      cout << mx << nl; 
+
+
 }
 
 int32_t main() {
@@ -33,7 +52,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+    cin >> t ;
 
    while (t--) {
 
