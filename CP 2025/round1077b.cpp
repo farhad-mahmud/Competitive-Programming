@@ -27,100 +27,58 @@ void solve ()
       int n ; cin >> n ;
       string s ; cin >> s ;
 
-      if(n== 1){
-           if(s[0] == '1'){
-              cout << 0 << nl;
+      // for all 0..
+      int cntzero = count(all(s),'0');
+      int cntone  = count(all(s) , '1');
+
+      if(cntzero == n){
+
+           if(n % 3 == 0){
+                cout << n/3 << nl;
            }
            else {
-              cout << 1 << nl;
+                cout << (n/3)+1 << nl;
            }
+
            return ;
+
       }
-     vector<bool> hash(n+2,false) ;
 
-     for(int i = 0; i < n; i++){
-         if(s[i] == '1'){
-             hash[i] = true ;
-         }
-     }
-   
+      int cnt = 0 ;
+      int ok = 1 ;
 
-     int cnt = 0 ;
-     int cnt1  = 0 ;
-     for(int i=0;i<n;i++){
+      //first 00, and last 00
+
+      int extra = 0 ;
+      // if(s[0]== '0' && s[1] == '0' && s[2] == '1' && s[n-3]== '1' && s[n-2]== '0' && s[n-1] == '0'){
+      //        extra+=2 ;
+      // }
+      // else if(s[0]== '0' && s[1] == '0' && s[2] == '1' || s[n-3]== '1' && s[n-2]== '0' && s[n-1] == '0'){
+      //      extra++ ;
+      // }
+      for(int i=0;i<n;i++){
+
             if(s[i] == '1'){
-                 cnt1++ ;
+                 ok= 0 ;
             }
-     }
+            else {
+                 ok++ ;
+            }
 
-     if(n % 2 == 0){  // if n is even .. 
-      // we will try to fill odd indexes..
-     for(int i=0;i<n;i++){
-         if(s[i] == '0'){
-            if(i==0){
-                 if(!hash[i+1]){
-                  //cerr << "h" << nl;
-                   cnt++ ;
-                   hash[i] = true ;
-                   s[i] = '1' ;
-                 }
+            if(ok==3){
+                 ok = 0 ;
+                 cnt++ ;
             }
-            else if(i==n-1){
-                 if(!hash[i-1]){
-                   cnt++ ;
-                   hash[i] = true ;
-                   s[i] = '1' ;
-                 }
-            }
-            else{
-                 if(!hash[i+1] && !hash[i-1]){
-                  //cerr << i << nl;
-                    cnt++ ;
-                    hash[i] = true ;
-                    s[i] = '1' ;
-                 }
-            }
-         }
-       }
       }
-     else {
-      //cerr << "odd" << nl;
-      // if n is odd we will try to fill even indexes..
-          for(int i=1;i<n;i+=2){
-         if(s[i] == '0'){
-            if(i==0){
-                 if(!hash[i+1]){
-                  //cerr << "h" << nl;
-                   cnt++ ;
-                   hash[i] = true ;
-                   s[i] = '1' ;
-                 }
-            }
-            else if(i==n-1){
-                 if(!hash[i-1]){
-                   cnt++ ;
-                   hash[i] = true ;
-                   s[i] = '1' ;
-                 }
-            }
-            else{
-                 if(!hash[i+1] && !hash[i-1]){
-                  //cerr << i << nl;
-                    cnt++ ;
-                    hash[i] = true ;
-                    s[i] = '1' ;
-                 }
-            }
-         }
-     }
-     }
-   
 
-    // cerr << cnt << nl;
+      cerr << ok << nl;
+      if(ok == 2){
+           extra++ ;
+      }
 
-     cout << cnt + cnt1 << nl ;
+      cout << cnt + cntone+ extra << nl;
 
-
+      
 }
 
 int32_t main() {
