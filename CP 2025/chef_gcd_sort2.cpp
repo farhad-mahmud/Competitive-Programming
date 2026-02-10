@@ -27,32 +27,36 @@ void solve ()
     int n; cin >> n;
     vector<int> a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-    vector<int > gcd(N+2,0), freq(N+2,0) ;
+    int prev = a[0] ;
 
-    for(auto x : a){
-        freq[x]++ ;
+    bool f = true ;
+    for(int i=1;i<n;i++){
+         int gc = __gcd(prev,a[i]);
+
+         if(prev > a[i]){
+             if(prev > gc){
+                  f = false ;
+                  break ;
+             }
+             else{
+                 a[i] = gc ;
+                 // prev = gc ;
+             }
+         }
+         else {
+             if(gc < a[i] && gc >= prev){
+                  a[i] = gc ;
+             }
+         }
+         cerr << prev << nl;
+        prev = a[i] ;
     }
 
-    for(int i=1;i<N;i++){
-       for(int j=i;j<N;j+=i){
-           gcd[i] += freq[j] ;
-       }
+    if(f){
+         yes ;
     }
-
-    for(int i=1;i<N;i++){
-        gcd[i] = (gcd[i]*(gcd[i]-1))/ 2;
-    }
-
-    for(int i=N-1;i>=1;i--){
-        for(int j=i+i;j<N;j+=i){
-            gcd[i] -= gcd[j] ;
-        }
-    }
-
-    int i = 0 ;
-    for(auto x : gcd){
-         cout << "pairs with gcd " << i << ' ' << x << nl;
-        i++ ; 
+    else {
+         no ;
     }
 
 }
