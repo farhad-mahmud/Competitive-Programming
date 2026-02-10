@@ -21,27 +21,61 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int n ;
+vector<int > a ;
+vector<int > c ;
+bool f(int k){
+
+      // int dif = 0 ;
+
+      int mn = *min_element(all(a));
+      int mx = *max_element(all(a)) ;
+
+      for(int i=0;i<n;i++){
+           if(a[i]!= c[i]){
+             if((a[i] - mn)<k && mx-a[i] <k){
+                  return false ;
+             }
+           }
+      }
+
+      return true ;
+}
 
 void solve ()
 {  
-      int n ; cin >> n ;
-      vector<int > a(n);for(int i=0;i<n;i++)cin >> a[i] ;
+      cin >> n ;
+      a.resize(n) ;
+      for(int i=0;i<n;i++)cin >> a[i] ;
 
-      vector<int > c = a ;
+      c.resize(n) ;
+      // output(a);
+      c= a ;
+      // output(c);
       sort(c.begin(),c.end());
       if(a== c){
            cout << -1 << nl;
            return ;
       }
 
-      int mx = 0 ;
-      for(int i=0;i<n;i++){
-          int dif = abs(a[i] - c[i]);
+     int l = 1 ;
+     int r = *max_element(all(a)) - *min_element(all(a));
 
-          mx = max(dif , mx);
-      }
+     int ans = 0 ;
+     while(l<=r){
+        int mid = (l+r)/2 ;
 
-      cout << mx << nl; 
+        if(f(mid)){
+            l = mid+1 ;
+            ans = mid ;
+        }
+        else {
+            r = mid -1 ;
+        }
+     }
+
+
+     cout << ans << nl;
 
 
 }
