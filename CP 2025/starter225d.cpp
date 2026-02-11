@@ -23,26 +23,24 @@ const int MOD = 1e9 + 7;
 
 
 void solve ()
-{       
-     int b, g ,min_b_lagbe,min_g_lagbe,n ; 
-       cin >> b >> g >> min_b_lagbe >> min_g_lagbe >> n ;
+{  
+      int n ,k ; cin >> n >> k ;
 
-       int sum_min_lagbe = min_g_lagbe + min_b_lagbe;
-
-       if(sum_min_lagbe > n){
-           cout << -1 << nl;
-           return ;
-       }
+      vector<int > a(n); for(int i=0;i<n;i++)cin>> a[i];
 
 
-     int total_rooms = (b+g +n-1)/n ;
-     int boys = b/min_b_lagbe ;
-     int girls = g/min_g_lagbe ;
-     int mn = min(boys,girls);
-     if(total_rooms <= mn){
-          cout << total_rooms << nl;
-     }
-    
+
+      for(int i=0;i<n;i++){
+           // will fix i as index.
+         for(int j=0;j<n;j++){
+              if(j<i){
+                  //+ai..
+              }
+              else if(j >=i){
+                  // -ai ..
+              }
+         }
+      }
 }
 
 int32_t main() {
@@ -51,7 +49,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   // cin >> t ;
 
    while (t--) {
 

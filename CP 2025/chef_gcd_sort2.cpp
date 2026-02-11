@@ -36,7 +36,7 @@ void solve ()
          if(prev > a[i]){
              if(prev > gc){
                   f = false ;
-                  break ;
+                  break;
              }
              else{
                  a[i] = gc ;
@@ -44,11 +44,14 @@ void solve ()
              }
          }
          else {
+            // note, here prev = a[i], a[i] = a[i+1]
+            //even if ai+1 is bigger then ai ,
+            // we will try to reduce ai+1 ,,with gc , for
+            // future ai+2 ..
              if(gc < a[i] && gc >= prev){
                   a[i] = gc ;
              }
          }
-         cerr << prev << nl;
         prev = a[i] ;
     }
 
