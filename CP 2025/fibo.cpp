@@ -18,15 +18,38 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 1e5+ 9;
 const int MOD = 1e9 + 7;
 
+map<int,int> dp ;
+int fibo(int i){
+
+   if(dp.count(i)) return dp[i] ;
+   if(i== 0) return 0 ;
+   if(i== 1 or i == 2) return 1 ;
+
+
+   if(i & 1){
+       int k = (i+1)/2 ;
+       int a = fibo(k-1);
+       int b = fibo(k) ;
+       dp[i] =  a*a + b*b ;      
+   }
+   else{
+       int k = i/2;
+       int a = fibo(k-1) ;
+       int b = fibo(k) ;
+       dp[i] =  (2*a*b) + b*b ;
+   }
+   return dp[i] ;
+}
 
 void solve ()
-{  
+{     
 
-   cout << "h" << nl; 
-    
+       int n ; cin >>n ;
+       //cerr << n << nl;
+       cout << fibo(n)  << nl;
 }
 
 int32_t main() {
@@ -35,7 +58,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
