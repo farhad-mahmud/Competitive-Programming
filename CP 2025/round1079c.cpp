@@ -24,9 +24,24 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-         int p ,q ; cin >> p >> q ;
+      int p,q ; cin >> p >> q ;
 
-         
+      int d = q-p ;
+
+      if(p==q){
+           cout <<"Alice" << nl;
+
+      }
+      else if(q-p <0){
+           cout << "Alice" << nl;
+      }
+      else if(p <2*d || q <3*d){
+           cout << "Alice" << nl;
+      }
+      else {
+           cout << "Bob" << nl;
+       }
+      
 }
 
 int32_t main() {
@@ -35,7 +50,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   // cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

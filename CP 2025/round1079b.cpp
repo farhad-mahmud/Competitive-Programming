@@ -21,44 +21,94 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+// 7
+// 6 4 5 7 2 3 4
+// 6 5 7 7 7 2 2 
 
 void solve ()
 {  
       int n ; cin >> n ;
-      vector<int> p(n); for(int i=0;i<n;i++)cin >> p[i];
-      vector<int > a(n); for(int i=0;i<n;i++)cin>> a[i] ;
+      vector<int> p(n+1); for(int i=1;i<=n;i++)cin >> p[i];
+      vector<int > a(n+1); for(int i=1;i<=n;i++)cin>> a[i] ;
+        
+      for(int i=1;i<=n;i++){
+           if(a[i] > n){
+                 no;
+                 return ;
+           }
+      } 
+
       map<int,int > hash ;
-      for(auto x : a){
-            hash[x]++ ;//---  Bismillahir Rahmanir Rahim ---//
+       vector<int> ind(n+1);
+      for(int i=1;i<=n;i++){
+          hash[a[i]]++;
+          ind[p[i]]= i ;
+      }
 
 
-#include <bits/stdc++.h>
-using namespace std;
+      vector<int > nw(n+1) ;
+      for(int i=1;i<=n;i++){
+           if(p[i] == a[i]){
+               hash[a[i]]-- ;
+               nw[i] = a[i] ;
+           }
+           else{
+              if(hash[p[i]]>0){ 
+                  if(ind[a[i]] > i){
+                      no ;
+                      return ;
+                  }
+                  else if(ind[a[i]] == i-1){
+                       nw[i] = a[i] ;
+                       //cerr << nw[i] << nl;
+                       hash[a[i]]-- ;
+                  }
 
-#define int  long long
+                 int freq = hash[p[i]];
+                 //cerr << freq << nl ;
+                for(int j = i+1; j <= min(n,i+freq); j++){
+                        nw[j] = p[i];
+                        // cerr << i+1 << nl;
+                        // cerr << nw[j] << nl;
+                }
 
-#define nl       "\n"
+                hash[p[i]] = 0;  
+                i = i + freq - 1;
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
+              }
+              else{
+                if(ind[a[i]]> i){
+                    int dif = ind[a[i]]- i ;
+                   
+                     for(int j = i ; j < ind[a[i]] ; j++){ 
+                          nw[j] = a[i] ;
+                          hash[a[i]]-- ;
+                    }
+                        i = ind[a[i]]-1 ;
+                   
+                }
+                else if(ind[a[i]] == i-1){
+                      nw[i] = a[i] ;
+                      hash[a[i]]-- ;
+                }
 
-#define all(x)   x.begin(),x.end()
-#define allr(x)  x.rbegin() ,x.rend()
-#define dbug(x) cerr << (#x) << " is " << (x) << nl;
-#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
+            }
 
-// constrains
+           }
+      }
 
-const int N = 1e5 + 9;
-const int MOD = 1e9 + 7;
+      // output(nw) ;
+      // output(a) ;
 
+      if(nw == a){
+         yes ;
+      }
+      else{
+          no ;
+      }
 
-void solve ()
-{  
-
-     
-      
 }
+
 int32_t main() {
    ios_base:: sync_with_stdio(0);
    cin.tie(0);
@@ -66,93 +116,6 @@ int32_t main() {
    int t = 1 ;
 
    cin >> t ;
-
-   while (t--) {
-
-      solve() ;
-
-   }
-
-
-   return 0;
-}
-
-      }
-
-      bool f = true  ;
-      int power = 0 ;
-      int wpower = 0 ;
-      for(int i=0;i<n;i++){
-           if(p[i] == a[i]){
-                hash[a[i]]--;
-           }
-           if(p[i]!= a[i]){
-              if(hash[p[i]] == 0){
-
-                  if(hash[a[i]] == 1){
-                     if(i==0){
-                        if(p[i+1] != a[i]){
-                              f = false ;
-                              break ;
-                        }
-                        else{
-                            hash[a[i]]-- ;
-                        }
-                     }else if(i==n-1){
-                         if(p[i-1] != a[i]){
-                            f = false ;
-                            break ;
-                         }else{
-                            hash[a[i]]--;
-                         }
-                        }
-                     else {
-                          if(p[i+1] != a[i] && p[i-1] != a[i]){
-                                 f = false ;
-                                 break ;
-                          }else{
-                             hash[a[i]]-- ;
-                          }
-                     }
-
-                      
-                  }
-                  else if(hash[a[i]] >1){
-                        hash[a[i]]-- ;
-                        power = hash[a[i]];
-                        wpower = a[i] ;
-
-                  }
-                     }//
-
-                 else if(hash[p[i]]>0){
-                      if(i==0){
-                         f= false ;
-                         break ;
-                      }
-                      else{
-                         if(p[i-1]!= a[i]){
-                             f = false ;
-                             break ;
-                         }
-                         else{
-                             hash[a[i]]--;
-                         }
-                      }
-                 }
-              }
-           }
-      
-
-}
-
-int32_t main() {
-   ios_base:: sync_with_stdio(0);
-   cin.tie(0);
-
-   int t = 1 ;
-
-   // cin >> t ;
 
    while (t--) {
 
