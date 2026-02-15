@@ -25,7 +25,37 @@ const int MOD = 1e9 + 7;
 void solve ()
 {  
 
-   cout << "h" << nl; 
+  if(n % 2 == 0){
+                  int mid = n / 2 ;
+
+                  for(int i=1;i<=mid;i++){
+                        if(a[i] != i){
+
+                             int j = 2*i ;
+                             if(a[j]!= i){
+                                 no ;
+                                 return ;
+                             }
+                        }
+                  }
+                     yes ;
+         }
+         else{
+                int mid = n/2 ;
+                bool f = true ;
+                for(int i=1;i<=mid;i++){
+                     if(a[i] != i){
+                           int j = 2*i ;
+
+                           if(a[j]!= i){
+                                 no ;
+                                 return ;
+                           }
+                     }
+                }
+
+                  yes ;
+         }
     
 }
 
