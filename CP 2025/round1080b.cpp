@@ -53,7 +53,6 @@ void solve ()
             return;
           }
          } else {
-
            hash[i] = true;         
        }
 
