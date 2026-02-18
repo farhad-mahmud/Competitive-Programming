@@ -25,10 +25,10 @@ void solve ()
 {  
          int n ; cin >> n ;
 
-         int dp[n+1] ;
+         int dp[n+1] ;    
 
          dp[0] = 1;
-         dp[1] = 0 ;
+         dp[1] = 0 ;  
 
          for(int i=2;i<=n;i++){
               dp[i] = ((i-1)*(dp[i-2] % MOD + dp[i-1] % MOD)) % MOD  ;

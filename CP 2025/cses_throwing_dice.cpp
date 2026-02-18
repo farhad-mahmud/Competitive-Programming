@@ -24,16 +24,26 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-             int n ; cin >> n ;
+         int n ; cin >> n ;
 
-             int m = n-1 ;
-             while(m--){
-                 int u,v ; cin >> u >> v ;
-                 g[u].push_back(v);
-                 g[v].push_back(u) ;
+         int dp[n+1];
+         dp[0] = 1;
+         dp[1] = 1 ;
+         // dp[2] = 2 ;
+         int sum = dp[0] ;
+         for(int i=1;i<=n;i++){
+              dp[i] = sum ;
+              sum+= dp[i] ;
+              // cerr << dp[i] << nl ;
+              if(i >=6){
+              cerr << sum << nl ;
+              sum = sum - dp[i-6] ;
              }
 
-             
+         }
+
+         cout << dp[n] << nl  ;
+
 }
 
 int32_t main() {
