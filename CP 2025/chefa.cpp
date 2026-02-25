@@ -24,27 +24,16 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-      int n ; cin >> n ; vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i] ;
+         string s ; cin >> s ;
 
 
-      int cnt = 0 , l = -1 , r = -1 ;
-      for(int i=0;i<n;i++){
-            if(a[i] > l && a[i] <= r){
-                  r = min(r, a[i]) ;
-                  continue ;
-            }
+         if(s[2]=='n' && s[3]== 't' && s[4] == 'a'){
+              yes;
 
-            if(a[i] == r+1){
-                 r = a[i] ;
-                 continue ;
-            }
-
-            cnt++ ;
-            l = a[i] ;
-            r = a[i] ;
-      }
-
-      cout << cnt << nl ;
+         }
+         else {
+              no ;
+         }
 }
 
 int32_t main() {
@@ -53,7 +42,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   // cin >> t ;
 
    while (t--) {
 

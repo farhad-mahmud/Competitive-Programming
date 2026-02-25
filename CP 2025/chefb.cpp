@@ -24,27 +24,15 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-      int n ; cin >> n ; vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i] ;
+         int a,b, x, y ; cin >> a >> b >> x >> y ;
 
+         int nm_tr = a/x;
 
-      int cnt = 0 , l = -1 , r = -1 ;
-      for(int i=0;i<n;i++){
-            if(a[i] > l && a[i] <= r){
-                  r = min(r, a[i]) ;
-                  continue ;
-            }
+         int rem_a = a- (nm_tr * x);
 
-            if(a[i] == r+1){
-                 r = a[i] ;
-                 continue ;
-            }
+         int t_b = b+ (nm_tr*y);
 
-            cnt++ ;
-            l = a[i] ;
-            r = a[i] ;
-      }
-
-      cout << cnt << nl ;
+         cout << rem_a + t_b << nl ;
 }
 
 int32_t main() {

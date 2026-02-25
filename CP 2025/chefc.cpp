@@ -24,27 +24,37 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-      int n ; cin >> n ; vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i] ;
+      int n ,k ; cin >> n >> k ;
 
+      vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-      int cnt = 0 , l = -1 , r = -1 ;
+      string s ; cin >> s ;
+
+      vector<int > khali;
+
       for(int i=0;i<n;i++){
-            if(a[i] > l && a[i] <= r){
-                  r = min(r, a[i]) ;
-                  continue ;
-            }
 
-            if(a[i] == r+1){
-                 r = a[i] ;
-                 continue ;
-            }
-
-            cnt++ ;
-            l = a[i] ;
-            r = a[i] ;
+           if(s[i] == '0'){
+                  khali.push_back(a[i]) ;
+           }
       }
 
-      cout << cnt << nl ;
+      if(khali.size() < k){
+             cout << -1 << nl ;
+             return ;
+      }
+
+      sort(all(khali)) ;
+
+
+      int sum = 0 ;
+      for(int i=0;i<k;i++){
+            sum+= khali[i] ;
+      }
+
+
+      cout << sum << nl ;
+
 }
 
 int32_t main() {
