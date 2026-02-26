@@ -107,7 +107,7 @@ int legendre(int n , int p) {
 //=========== spf ==================//
 
 // for prime expo info / factorize many number quickly
-
+// for prime factorization number = 1e6
 int spf[N] ;
 void sieve() {
 
@@ -136,6 +136,54 @@ vector<pair<int, int>> getFactorization(int x) {
         res.push_back({p, cnt});
     }
     return res;
+}
+
+// for prime factorization of number = 1e9///// 
+
+vector<int> primes;
+
+void sieve() {
+    vector<bool> isPrime(N, true);
+
+    isPrime[0] = isPrime[1] = false;
+
+    for (int i = 2; i * i < N; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j < N; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+
+    for (int i = 2; i < N; i++) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+        }
+    }
+}
+
+vector<int> getFactorization(int n) {
+
+    vector<int> f;
+
+    for (auto &p : primes) {
+
+        if (p * p > n) break;
+
+        if (n % p == 0) {
+            f.push_back(p);
+
+            while (n % p == 0) {
+                n /= p;
+            }
+        }
+    }
+
+    if (n > 1) {
+        f.push_back(n);  
+    }
+
+    return f;
 }
 
 

@@ -26,31 +26,7 @@ void solve ()
 {  
          int x, y; cin >> x >> y ;
 
-
-         int k = (x-2*y) ;
-
-         if(k % 3 != 0){
-              no ;
-              return ;
-         }
-
-         int s = k/3 ;
-
-         int c_min = max(0LL , -y);
-         int c_max = s /2 ;
-
-         if(c_min > c_max){
-                no ;
-               return ;
-         }
-
-
-         yes ;
-
-
-
-
-
+         
 
 }
 

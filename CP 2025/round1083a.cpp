@@ -24,18 +24,24 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-      int n , s ; cin >> n >> s ;
-      int k = s - n*5 ;
+         int n ; cin >> n ; 
+         vector<int > a(n+1); for(int i=1;i<=n;i++)cin >> a[i] ;
 
-      if(k <= 0){
-           k= 0 ;
-            cout << k*5 + (n-k)*6 << nl; 
-      }
-      else {
+         int ind = 0 ;
+         for(int i=1;i<=n;i++){
+               if(a[i]== n){
+                    ind = i ;
+                    break ;
+               }
+         }
 
-            cout << k*5 + (n-k)*6 << nl; 
-      }
+          swap(a[1], a[ind]) ;
 
+         for(int i=1;i<=n;i++){
+             cout << a[i] << ' ' ;
+         }
+
+         cout << nl;
 }
 
 int32_t main() {

@@ -24,18 +24,9 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-      int n , s ; cin >> n >> s ;
-      int k = s - n*5 ;
+       int n ; cin >> n ;
 
-      if(k <= 0){
-           k= 0 ;
-            cout << k*5 + (n-k)*6 << nl; 
-      }
-      else {
-
-            cout << k*5 + (n-k)*6 << nl; 
-      }
-
+       
 }
 
 int32_t main() {
@@ -44,7 +35,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   // cin >> t ;
 
    while (t--) {
 
