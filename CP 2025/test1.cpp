@@ -25,6 +25,42 @@ void solve ()
 {  
 
  
+                    if(mx_in <= st){
+                      for(int i=1;i<mx_in;i++){
+                           cout << a[i] << nl;
+                      }
+                        
+                        for(auto x : v){
+                             cout << x << nl;
+                        }
+                        for(int i=mx_in;i<=st;i++){
+                             cout << a[i] << nl; 
+                        }
+
+                       for(int i=en;i<=n;i++){
+                            cout << a[i] << nl; 
+                       }
+                       cout << nl ;
+
+                    }
+                    else {
+                        cout << mx_in << nl; 
+                        for(int i=1;i<=st;i++){
+                              cout << a[i] << nl; 
+                        }
+                        for(int i=en;i<mx_in;i++){
+                             cout << a[i] << nl;
+                        }
+
+                       for(auto x : v){
+                             cout << x << ' ' ;
+                        }
+
+                        for(int i=mx_in;i<=n;i++){
+                             cout << a[i] << ' ' ;
+                        }
+
+                    }
 }
 
 int32_t main() {
