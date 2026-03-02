@@ -25,42 +25,48 @@ void solve ()
 {  
 
  
-                    if(mx_in <= st){
-                      for(int i=1;i<mx_in;i++){
-                           cout << a[i] << nl;
-                      }
-                        
-                        for(auto x : v){
-                             cout << x << nl;
-                        }
-                        for(int i=mx_in;i<=st;i++){
-                             cout << a[i] << nl; 
-                        }
+      // for(int i=0;i<s.size();i++){
+      //      if(s[i] == s[i+1]){
+      //          s[i] = '*';
+      //          s[i+1] = '*' ;
+      //          i++ ;
+      //      }
+      // }
 
-                       for(int i=en;i<=n;i++){
-                            cout << a[i] << nl; 
-                       }
-                       cout << nl ;
 
-                    }
-                    else {
-                        cout << mx_in << nl; 
-                        for(int i=1;i<=st;i++){
-                              cout << a[i] << nl; 
-                        }
-                        for(int i=en;i<mx_in;i++){
-                             cout << a[i] << nl;
-                        }
+      // //cerr <<s  << nl ;
+      // string t ;
+      // for(int i=0;i<n;i++){
+      //      if(s[i] != '*'){
+      //          t+= s[i] ;
+      //      }
+      // }
 
-                       for(auto x : v){
-                             cout << x << ' ' ;
-                        }
+    // // cerr << t << nl; 
+    //   string t = s ;
 
-                        for(int i=mx_in;i<=n;i++){
-                             cout << a[i] << ' ' ;
-                        }
-
-                    }
+    //   if(t.size() % 2 == 1){ 
+    //       no ;
+    //       return ;
+    //   }
+    //   int l = 0 , r =t.size()-1 ; 
+    //   bool f = true ;
+    //   while(l < r){
+    //        if(l+1 <= r && t[l] == t[l+1]){
+    //            l+=2 ;
+    //        }
+    //        else if(t[r]== t[r-1]){
+    //             r-=2 ;
+    //        }   
+    //        else if(t[l] == t[r]){
+    //             l++ ;
+    //             r-- ;
+    //        }
+    //        else {
+    //            f = false ;
+    //            break ;
+    //        }
+    //   }
 }
 
 int32_t main() {
