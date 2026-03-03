@@ -17,45 +17,25 @@ using namespace std;
 
 // constrains
 
-const int N = 1e7 + 9;
+const int N = 1e6 + 9;
 const int MOD = 1e9 + 7;
-
+int spf[N];
 bool vis[N] ;
-vector<int> prime ;
-
 void sieve() {
 
-    for (int i = 2; i * i < N; i++) {
-        if (vis[i]) continue;
-
-        for (int j = i * i; j < N; j += i) {
-            vis[j] = true;
+    for (int i = 2; i < N; i++) {
+        spf[i] = i;
+    }
+    for (int i = 2; i < N; i++) {
+        if (spf[i] == i) {
+            for (int j = i; j < N; j += i) {
+                spf[j] = min(spf[j], i);
+            }
         }
     }
-}
-bool pf_sqr(int n){
-     if(n<0) return false ;
-     int r = sqrtl(n);
-     return r*r == n || (r+1)*(r+1) == n; 
-}
-bool istwo(int n){
-     return n > 0 && (n & (n-1))== 0;
-}
-bool semiprime(int n) {
-    int count = 0;      
-    int temp = n;
 
-    for (int i = 2; i * i <= temp; i++) {
-        while (temp % i == 0) {
-            temp /= i;
-            count++;
-            if (count > 2) return false; 
-        }
-    }
-    if (temp > 1) count++;  
-
-    return count == 2;   
 }
+
 void solve ()
 {  
             int n;  cin >> n ;
@@ -69,47 +49,48 @@ void solve ()
                  cout << "Bob" << nl;
                  return ;
             }
+            
+            bool f = false ;
             for(int i=0;i<n;i++){
-                 if(!vis[a[i]]){
-                      p.push_back(a[i]) ;
-                 }
-            }
-
-            vector<int > c= p;
-            sort(all(c));
-            //output(c) ;
-            if(c!= p){
-                 cout << "Alice" << nl;
-                 return ;
-            }   
-
-            vector<int > nw ;
-            for(int i=0;i<n;i++){
-                if(!istwo(a[i]) && !pf_sqr(a[i])){
-                      if(vis[a[i]]){
-                       nw.push_back(a[i]) ;
-                     }
-                }
-            }
-
-            //output(nw);  
-            bool f = true ;
-
-            int sz = nw.size();
-            for(int i=0;i<sz;i++){
-                  if(semiprime(nw[i])){
-                        f = false ;
-                        break ;
+                  int lst = -1 ;
+                  int cnt = 0 ;
+                  int nm = a[i];
+                  while(nm > 1){
+                      if(spf[nm]!= lst){
+                            cnt++ ;
+                      }
+                      lst = spf[nm];
+                      nm/= spf[nm];
                   }
+
+                  if(cnt > 1){
+                      f = true ;
+                      break ;
+                  }
+
+            }
+            for(int i=0;i<n;i++){
+                  a[i] = spf[a[i]];
             }
 
+            //output(a);
 
-            if(f){
-                cout << "Bob" << nl; 
-            }
-            else {
-                cout << "Alice" << nl ;
-            }
+           vector<int > k = a ;
+
+           sort(all(k));
+
+           if(k != a){
+               f = true ;
+           }
+
+           if(f){
+               cout << "Alice" << nl;
+           }
+           else {
+               cout << "Bob" << nl; 
+           }
+            
+
 }
 
 int32_t main() {

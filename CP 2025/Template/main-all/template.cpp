@@ -124,6 +124,27 @@ void sieve() {
 
 }
 
+// count the number of unique primes in a prime factorization //
+
+            int last = -1;
+             int cnt = 0;
+             int num = a[i];
+ 
+             while (num > 1)
+             {
+                 if (spf[num] != last)
+                    cnt++;
+ 
+                 last = spf[num];
+                 num /= spf[num];
+             }
+            
+             if (cnt > 1)
+             {
+                stat = true;
+                break;
+///================================///////////
+
 vector<pair<int, int>> getFactorization(int x) {
     vector<pair<int, int>> res;
     while (x > 1) {
@@ -161,6 +182,8 @@ void sieve() {
         }
     }
 }
+
+// count number of unique primes in prime factorization of a number//
 
 vector<int> getFactorization(int n) {
 
