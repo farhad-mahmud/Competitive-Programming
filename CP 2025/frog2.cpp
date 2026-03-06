@@ -24,8 +24,8 @@ int n, k , h[N],dp[N];
 const int inf = 1e9;
 
 int f(int i){
-       if(i > n) return inf ;  // base cases..
-       if(i==n) return 0 ;
+        if(i > n) return inf ;  // base cases..
+        if(i==n) return 0 ;
       int ans = 1e9 ;
      // cerr << i << nl;
 
@@ -33,14 +33,13 @@ int f(int i){
            ans = dp[i] ;
       }
       else{
+         cerr << i << nl ;
       for(int j=1;j<=k;j++){
-          //cerr << i << ' ' << j << ' '  << ans << nl;
+          cerr << "before calculation "<<  i << ' ' << j << ' '  << ans << nl;
           if(i+j> n) break ;
-         
-          
             ans = min(ans,(abs(h[i] - h[i+j]) + f(i+j))) ;
           
-          cerr << i << ' ' << j << ' '  << ans << nl;
+          cerr << "after calculation "<<  i << ' ' << j << ' '  << ans << nl;
       }
    }
 

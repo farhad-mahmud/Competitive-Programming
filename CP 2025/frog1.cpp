@@ -47,7 +47,7 @@ void solve ()
                   dp[i] = ans ;
               }
 
-             // cerr << dp[i] << nl;
+              cerr << dp[i] << nl;
          }
 
 
