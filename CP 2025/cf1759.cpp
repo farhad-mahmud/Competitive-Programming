@@ -20,11 +20,54 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int two(int n){
+    
+    int cnt = 0 ;
+    while(n % 2 ==0){
+         cnt++ ;
+         n/= 2;
+    }
+    return cnt ;
+}
 
+int five(int n){
+     int cnt  = 0 ;
+     while(n % 5 ==0){
+         cnt++ ;
+         n/=5 ;
+     }
+     return cnt ;
+}
 void solve ()
 {  
           int n , m ; cin >> n >> m ;
 
+          vector<pair<int,int >> v ;
+          //cerr << sqrtl(m) << nl; 
+          
+          int ntw = two(n);
+          int nfv = five(n);
+
+          int k = 1;
+
+          // first level the count of two and fives.. by holding one 
+          // and incrementing other till two number same..
+         while(ntw < nfv && k*2 <= m){
+               k *= 2 ;
+               ntw++ ;
+         }
+          while (nfv < ntw && k * 5 <= m) {
+               k *= 5;
+               nfv++;
+         }
+
+         while(k*10 <=m){
+              k*=10 ;
+         }
+
+         k *= (m/k);
+
+         cout << n*k << nl; 
 
 }
 
