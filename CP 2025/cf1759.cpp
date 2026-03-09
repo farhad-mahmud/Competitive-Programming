@@ -50,8 +50,6 @@ void solve ()
 
           int k = 1;
 
-          // first level the count of two and fives.. by holding one 
-          // and incrementing other till two number same..
          while(ntw < nfv && k*2 <= m){
                k *= 2 ;
                ntw++ ;
