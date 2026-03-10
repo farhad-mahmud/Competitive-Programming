@@ -26,55 +26,28 @@ void solve ()
          int n ; cin >>n ;
          vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
+         int ans = 0 ;
+         int x = 1e9 , y = 1e9 ;
 
-         map<int,int >mp ;
-
-         vector<int > order ;
-         for(int i=0;i<n-1;i++){
-            if(a[i] < a[i+1]){ 
-               if(mp.find(a[i+1]) == mp.end()){
-                  order.push_back(a[i+1]); 
-               }
-             mp[a[i+1]]++;
-            }
-         }
-
-         vector<pair <int ,int >> v ;
-         int total =0  ;
-        for(auto [e, x] : mp){
-               v.push_back({x ,e}) ;
-               total += x;
-        }
-
-        sort(allr(v));
-        //cerr<< total << nl;
-
-        int ch = 0 ;
-        int cst = 0 ;
-        for(auto [e,v] : v){
-            // cerr << e << ' ' << v << nl ;
-             ch = v ;
-             cst = e ;
-             break ;
-         } 
-
-         int f =0 ;
-         for(int i=n-1;i>0;i--){
-              if(a[i] == ch){
-                 break ;
+         int cst = 0 ;
+         for(int i=0;i<n;i++){
+              if(x > y){
+                 swap(x,y);
               }
-              else if(a[i] > a[i-1]){
-                     f = 1 ;
-                     break ;
+
+              if(a[i] <=x){ //1
+                  x = a[i];
+              }
+              else if(a[i] <= y){ // 3
+                   y = a[i] ;
+              }
+              else if( a[i] > y){ // 2
+                   x = a[i] ; 
+                   cst++ ;
               }
          }
 
-         if(!f){
-              cout << total - cst << nl;
-         }
-         else{
-              cout << total - cst -1  << nl;
-         }
+         cout << cst << nl; 
 }
 
 int32_t main() {
