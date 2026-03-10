@@ -20,91 +20,50 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-int n ; 
-vector<pair<int,int >> v;
+int n ;
+vector<pair<int,int >> v ;
 bool f(int x){
-   int cnt = 0 ;
-      if(x == 7){
-
-         //int cnt = 0;
-         int s = 0 ;
-         int from = 0 ;
-        for(auto[l,r] : v){
-             int plus = s+ x ;
-             int minus = s - x ;
-             int to = min(l,r);
-             if(from < to){ // barbe..
-                  
-                  int dis = to - from ;
-                  if(dis <= plus){
-                       cnt++;
-                       s+= dis ;
-                  }
-                  from = to ;
-             }
-             else if(to < from){  //kombe..
-                  int dis = from - to ;
-
-                  if(dis <= minus){
-                       cnt++ ;
-                       s-=dis ;
-                  }
-                  from = to ;
-             } 
-            
-        }
-
-        cerr << x <<  ' ' << cnt << nl ;
-
+      int mx_left = 0 ;
+      int mx_right = 0 ;
+     for(auto [l,r] : v){  
+          mx_left = mx_left - x ;
+          mx_right = mx_right + x ;
+          mx_left = max(mx_left,l);
+          mx_right = min(mx_right , r);
+      
+         if(mx_left > mx_right){
+              return false ;
+         }
      }
-        if(cnt == n){
-           return true ;
-        }
-        else{
-           return false ;
-        }
-    
+
+     return true ;
+
 }
 void solve ()
-{  
-        
-      cin >> n ;
-
-      for(int i=0;i<n;i++){
-           int l , r ; cin >> l >> r ;
-           v.push_back({l,r});
-      }
-
-
-      vector<int > k ;
-
-      int from = 0 ;
-      for(auto [l,r] : v){
-            //cerr << l << ' ' << r << nl; 
-            int to = min(l,r);
-            int d = abs(from - to);
-            k.push_back(d);
-            from = to;         
-      }
-
-     // output(k);
-
-      int l = *min_element(all(k));
-      int r = *max_element(all(k));
-
-      while(l<=r){
-           int mid = (l+r)/2 ;
-
-           if(f(mid)){
-               r = mid -1 ;
-           }
-           else {
-               l = mid +1 ;
-           }
-      }
+{           
+          cin >>n;
+         v.clear();
+         for(int i=0;i<n;i++){
+              int l,r; cin >> l >> r ;
+              v.push_back({l,r});
+         }
 
 
-      cout << r <<  nl; 
+         int l = -1  ,r  = 1e9 ;
+
+
+         while(r- l >1){
+              int mid = (l+r)/2 ;
+
+              if(f(mid)){
+                 r = mid ;
+              }
+              else {
+                 l = mid ;
+              }
+         }
+
+         cout << r << nl ;
 }
 
 int32_t main() {
