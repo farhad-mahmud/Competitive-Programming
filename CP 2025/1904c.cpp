@@ -30,66 +30,48 @@ void solve ()
        sort(all(a));
        //output(a);
        vector<int > dif ;
-       for(int i=0;i<n-1;i++){
-            int df = abs(a[i] - a[i+1]);
 
-            dif.push_back(df);
-       }
+         for(int i = 0; i < n; i++){
+          for(int j = i+1; j < n; j++){
+          dif.push_back(abs(a[i] - a[j]));
+         }
+         }
 
        sort(all(dif));
 
-       output(dif);
-      
-       if(dif.size() == 1){
-            cout << dif[0] << nl;
-            return ;
+       //output(dif);  
+       int min_dif = dif[0];
+
+       if(k==1){
+          cout << min(min_dif, a[0]) << nl;
+          return ;
        }
 
-       int ans1 = 0;
-       if(k > 2){
-        ans1= abs(dif[1] - dif[0]);
-      }else{
-          ans1 = dif[0];
+       //if k >=2 ,, 2 way..
+
+       int mn = a[0] ;
+       int sz = dif.size();
+      for(int i = 0; i < sz; i++){
+
+         auto it = lower_bound(all(a), dif[i]);
+
+          if(it != a.end()){
+             mn = min(mn, abs(*it - dif[i]));
+         }
+
+         if(it != a.begin()){
+           it--;
+            mn = min(mn, abs(*it - dif[i]));
+         }
+   }
+       
+       //cerr << mn << nl ;
+      if(k > 2){
+        cout << 0 << nl;
       }
-
-      for(int i=0;i<k;i++){
-           c.push_back(dif[i]);
-      }
-
-      int mn2 = 1e18 ;
-      //sort(all(c));
-      int gc = 0 ;
-      int min_dif = *min_element(all(c));
-      cerr << min_dif << nl;
-      for(int i=0;i<c.size();i++){
-
-          int df = abs(min_dif - c[i]);
-          
-          if(c[i] != min_dif){
-              gc = __gcd(gc,df );
-          }
-         
-          // if(df < mn){
-          //      mn = df ;
-          // }
-      }
-
-     
-       // int mn = 1e18 ;
-       // //int gc = 0 ;
-       // for(int i=0;i<n;i++){
-
-       //    int df = abs(min_dif - a[i]);
-          
-       //    if(df < mn){
-       //         mn = df ;
-       //    }
-
-       // }
-
-       cerr << gc << nl;
-
-       //cout << min(mn, ans1)  << nl; 
+      else{
+      cout << min(mn, min_dif) << nl ;
+     }
 
 }
 
