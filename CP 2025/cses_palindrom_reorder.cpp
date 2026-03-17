@@ -23,7 +23,42 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-          
+         string s; cin >> s ;
+
+
+         map<int,int > mp;
+
+         for(int i=0;i<s.size();i++){
+               mp[s[i]]++;
+         }
+
+         int cnt = 0 ;
+         string t ;
+         string mid ;
+         for(auto [a,f] : mp){
+               if(f % 2 != 0){
+                    for(int i=0;i<f;i++){
+                          mid+= a;
+                    }
+                    cnt++ ;
+               }
+               else{
+                   for(int i=0;i<f/2;i++){
+                       t+=a ;
+                   }
+               }
+         }
+
+         if(cnt > 1){
+              cout << "NO SOLUTION" << nl;
+          }
+          else{
+               string z =t ;
+
+               reverse(all(t));
+
+               cout << z << mid << t << nl;
+          }
 
 
 }
@@ -34,7 +69,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
