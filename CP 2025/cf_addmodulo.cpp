@@ -26,43 +26,72 @@ void solve ()
       int n ; cin >> n ;
       vector<int> a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-      vector<pair<int,int > > v ;
+      set <int > st ;
       //ends with 0 , same catagory..
+      bool f= false ;
+      bool g = false ;
+
       for(int i=0;i<n;i++){
-            if(a[i] < 10){
-                if(a[i] == 1 || a[i] == 3){
-                      a[i]+= a[i];
+           int last = a[i] % 10 ;
+           if(last == 0){
+               f = true ;
+           }
+           if(last == 5){
+              a[i]+= 5 ;
+              g = true ;
+           }
 
-                      v.push_back({0,a[i]});
+           st.insert(a[i]);
+      }
+      if(f || g){
+      if(st.size() == 1){
+           yes;
+           return ;
+      }
+      else{
+           no ;
+           return ;
+      }
+   }
 
-                }
-                else if(a[i] == 7){
-                     v.push_back({1,4});
-                }
-                else{
-                     v.push_back({0,a[i]});
-                }
+     st.clear();
+
+     // cerr <<"h" << nl;
+
+      for(int i=0;i<n;i++){
+         int nw = 0 ;
+         int num = a[i] % 10 ;
+         if(a[i] >= 10){
+              nw = a[i] - num ;
+         }
+         else{
+              nw = 0 ;
+         }
+         while( num % 10 != 2){
+            if(num <10){
+               num+= num ;
             }
             else{
-
-                 int last = a[i] % 10 ;   
-                 int pos = a[i] / 10 ;
-
-                 if(last == 1 || last == 3){
-                      last+=last ;
-                      v.push_back({pos,last});
-                 }
-                 else if(last == 7){
-                      v.push_back({pos+1,4});
-                 }
-                 else{
-                     v.push_back({pos,last});
-                 }
-
+                int nn = num % 10 ;
+                num+= nn ;
             }
+         }  
+         
+         //cerr << num << nl;
+           num+= nw ;
+          // cerr << num << nl;
+          int mod = num % 20 ;
+          //cerr << mod << nl;
+          st.insert(mod);
       }
 
 
+     if(st.size() == 1){
+         yes;
+     }
+     else{
+         no ;
+     }
 
 }
 

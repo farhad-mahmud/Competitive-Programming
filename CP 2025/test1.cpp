@@ -1,47 +1,77 @@
-//---  Bismillahir Rahmanir Rahim ---//
-
-
 #include <bits/stdc++.h>
+//#include "debug.hpp"
 using namespace std;
 
-#define int  long long
 
-#define nl       "\n"
+//#define int int64_t
+#define nl '\n'
+#define all(x) (x).begin(), (x).end()
+#define yes cout << "YES" << '\n'
+#define no cout << "NO" << '\n'
+//const long double pi = acos(-1);
 
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-#define all(x)   x.begin(),x.end()
-#define allr(x)  x.rbegin() ,x.rend()
-#define dbug(x) cerr << (#x) << " is " << (x) << nl;
-#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
+const int N = 2e5 + 7;
 
-// constrains
+vector<int> g[N];
+bool vis[N];
+int col[N];
 
-const int N = 1e5 + 9;
-const int MOD = 1e9 + 7;
+int cnt = 0;
+int cnt0 = 0, cnt1 = 0;
 
+bool bi = true;
 
-void solve ()
-{  
-          int n , m ; cin >> n >> m ;
+void dfs(int u) {
+    vis[u] = true;
 
+    if(col[u]) cnt1++;
+    else cnt0++;
 
+    for(auto v: g[u]) {
+        if(!vis[v]) {
+            col[v] = col[u] ^ 1;
+            dfs(v);
+        }
+        else {
+            if(col[u] == col[v]) bi = false;
+        }
+    }
 }
 
-int32_t main() {
-   ios_base:: sync_with_stdio(0);
-   cin.tie(0);
+void testCase(){
+    int n, m;
+    cin >> n >> m;
 
-   int t = 1 ;
+    cnt = 0;
 
-   cin >> t ;
+    memset(vis, 0, sizeof vis);
+    memset(col, -1, sizeof col);
 
-   while (t--) {
+    for(int i = 1; i <= n; i++) g[i].clear();
 
-      solve() ;
+    for(int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
 
-   }
+    for(int i = 1; i <= n; i++) {
+        if(!vis[i]) {
+            bi = true;
+            cnt0 = cnt1 = 0;
+            col[i] = 0;
+            dfs(i);
+            if(bi) cnt += max(cnt1, cnt0);
+        }
+    }
 
+    cout << cnt << nl;
+}
 
-   return 0;
+signed main(){
+    int t = 1;
+    cin >> t;
+    while(t--) testCase();
+    return 0;
 }
