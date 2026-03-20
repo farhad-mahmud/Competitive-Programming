@@ -26,34 +26,29 @@ void solve ()
        int n ; cin >> n;
        vector<int > a(n+1); for(int i=1;i<=n;i++)cin >>a[i];
 
-       int cnt = 0 ;
-      set<int > st ;
-      
-       for(int i=2;i<=n/2;i++){
-          for(int j=i;j<=n;j+=i){ 
-               if(i==2){
-                   cerr << j << ' ' << a[j] << nl;
-               }
-                  if(a[i] < a[j]){
-                      st.insert(i);
-                      st.insert(j);
-                  }
-          }
+       int dp[n+1];
+       for(int i=1;i<=n;i++){
+           dp[i] = 1 ;
        }
 
-       // for 1..
-       for(int i=2;i<=n/2;i++){
-            if(a[1] < a[i]){
-                 st.insert(1);
-                 st.insert(i);
-            }
+       for(int i=1;i<=n/2;i++){
+           for(int j = 2*i;j<=n;j+=i){
+        
+                if(a[i] < a[j]){
+                    dp[j] = max(dp[j] , dp[i] + 1);
+                }
+           }
+
+         
        }
 
-       vector<int > v(all(st));
+       int mx = 0 ;
 
+       for(int i=1;i<=n;i++){
+            mx = max(mx, dp[i]);
+       }
 
-       output(v);
-
+       cout <<  mx << nl ;
 }
 
 int32_t main() {
