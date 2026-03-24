@@ -56,10 +56,7 @@ void solve ()
                     cst+= prevcost;
                }
            }
-
-           if(i==3){
-              cerr << cst << nl;
-           }
+           
            //left side cost.
             prevmax = a[i] ;
             prevcost = up[i];
@@ -74,9 +71,7 @@ void solve ()
                   }
             }
 
-            if(i== 3){
-               cerr << cst << nl;
-            }
+          
            drain.push_back(cst);
       }
 
@@ -84,6 +79,10 @@ void solve ()
       // as drain , how many tiles i can drain ? 
       // so now the question is among these which two indices drain I should select 
       // and also if I select one, how much it effects other ? 
+      // so maybe for first we will pick the highest value of drain vector like if i select
+      // that tile. then,, highest that amount water tile can be removed
+      // then,, we just have to select another max tile remover,, position..
+      // 
       for(auto x : drain){
            cout << x << nl ;
       }

@@ -24,6 +24,30 @@ const int MOD = 1e9 + 7;
 void solve ()
 {  
           int n , m ; cin >> n >> m ;
+       vector<int> nearest_enemy(n + 1, 0);
+
+       for(int i=0;i<m;i++){
+          int a,b; cin >> a >> b ;
+          if(a > b) { 
+               swap(a,b); 
+          }
+
+          nearest_enemy[b] = max(nearest_enemy[b], a);
+
+       }
+
+       vector<int > maxleft(n+1);
+
+       maxleft[1] = 1;
+       int ans = 1 ;
+
+       for(int i=2;i<=n;i++){
+            maxleft[i] = max(maxleft[i-1] , nearest_enemy[i] + 1);
+
+            ans += i - maxleft[i] + 1 ;
+       }
+
+       cout << ans << nl; 
 
 
 }
