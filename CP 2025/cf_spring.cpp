@@ -20,13 +20,53 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 
 void solve ()
 {  
          int a,b,c, m ; cin >> a >> b >> c >> m ;
 
-         
 
+          int x = lcm(a,lcm(b,c));
+
+         // cerr << x << nl;
+          int yyy = m/ x ;
+
+          int z = lcm(a,b);
+          int k = lcm(a,c);
+          int h = lcm(b,c);
+
+          int zz = m / z;
+
+          zz-= yyy ;
+
+          int kk = m/ k;
+          kk-=yyy ;
+          int hh = m/h ;
+
+          hh-=yyy ;
+
+        
+         // cerr << zz  << ' ' << kk << ' ' << hh << nl ;
+          // alice visits..
+          int adays = m / a ;
+
+          int alice = (yyy*2) + (zz*3) + (kk*3) ;
+
+          alice += (adays - (yyy+ zz+ kk)) * 6 ;
+
+          int bob = (yyy*2) + (zz*3) + (hh*3);
+          int bdays = m/ b ;
+
+          bob += (bdays - (yyy+ zz+hh)) * 6 ;
+
+          int carol = (yyy*2) + (kk*3) + (hh*3);
+
+          int cdays = m/ c ;
+
+          carol += (cdays - (yyy + kk + hh)) * 6 ;
+
+          cout << alice << ' ' << bob << ' ' << carol << nl;
 
 }
 

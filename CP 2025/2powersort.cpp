@@ -16,10 +16,10 @@ using namespace std;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
 // constrains
-
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
-
+// BREAK THE PROBLEM
+// SOLVE THE SUB-PROBLEMS FIRST
 
 void solve ()
 {  
