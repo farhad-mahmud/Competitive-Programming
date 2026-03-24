@@ -29,28 +29,34 @@ void solve ()
 
             int cnt = 0 ;
 
-            int h = k ;
-
+            int ans = 0 ;
             for(int i=0;i<n-1;i++){
-
+              // cerr << a[i] << ' ' << 2*a[i+1] << nl;
                   if(a[i] < 2*(a[i+1])){
-                      k-- ;
+                      cnt++;
                   }
                   else{
-                      k = h ;
+                     if(cnt>=k){
+                      ans+= (cnt-k)+ 1;
+                     }
+                      cnt= 0 ;    
                   }
 
-                  if(k ==0){
-                       cnt++ ;
-                  }
-            }
+                  //cerr << a[i] << nl;
+             } 
 
-            cerr << k << nl;
-            if(k == -1){
-                 cnt++;
+         // if(k==1){
+         //    if(a[n-2] < 2*(a[n-1])){
+         //          ans++ ;
+         //    }
+         // }
+            
+            //cerr << cnt << nl;
+            if(cnt >=k){
+                 ans+= (cnt - k)+ 1;
             }
-
-            cout << cnt << nl;
+          
+          cout << ans << nl ;
 
 }
 
