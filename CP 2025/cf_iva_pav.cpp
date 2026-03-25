@@ -23,41 +23,10 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-        int x; cin >> x ;
+      int n; cin >> n; 
+      vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
-        vector<int > v ;
-
-        if(x <10){
-            cout << 0 << nl;
-            return ;
-        }
-        while(x > 9){
-             int rem = x % 10 ;
-
-             x/=10 ;
-
-             v.push_back(rem);
-        }
-        //cerr << x << nl;
-
-        sort(all(v));
-        //output(v);
-
-        int cnt = 0;
-        int sum = x;
-        for(auto i : v){
-            sum += i;
-
-            if(sum >=10){
-                 break ;
-            }
-            cnt++;
-        }
-
-       // cerr << cnt << nl;
-
-        cout << (v.size()+1) - (cnt+1) << nl;
-
+      
 }
 
 int32_t main() {
