@@ -23,20 +23,26 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-          int n , m ; cin >> n >> m ;
+          int a, b ; cin >> a >> b;
 
-           vector<int > a(n);
-           for(int i=0;i<n;i++)cin >> a[i];
+         int ans = 1e9 ;
+        for(int i= 0 ;i<=30;i++){
+              int cur_b = b + i ;
+              if(cur_b == 1) continue ;
+              int cnt = i ;  // cst of b increment
 
-           set<int > st ;
+              int tmp =a  ;
 
-           for(int i=0;i<n;i++){
-                int rem = a[i] % m ;
-                st.insert(rem);
-           }
+              while(tmp > 0){
+                   tmp/=cur_b ;
+                   cnt++;
+              }
 
-           cout << st.size() << nl; 
-         
+              ans = min (ans, cnt) ;
+
+        }
+
+        cout << ans << nl;
 }
 
 int32_t main() {

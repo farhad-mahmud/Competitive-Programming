@@ -30,7 +30,7 @@ void solve ()
          for(int i=2;i*i <=n;i++){
               if(n % i == 0){
                   a = n/ i ;
-                  cerr << i << nl ;
+                  //cerr << i << nl ;
                   break ;
               }
          }
