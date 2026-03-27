@@ -20,10 +20,53 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+vector<int> g[N];
+bool vis[N];
+int dis[N], par[N], sub[N] ; // sub = subtree ..
+
+// DFS
+
+void dfs(int u) {
+    vis[u] = true;
+    for (auto v : g[u]) {
+        if (!vis[v])
+        {
+            dfs(v);
+        }
+    }
+}
 
 void solve ()
 {  
-               
+            int n; cin >> n ;
+            vector<int > a(n+1);
+            for(int i=1;i<=n;i++){
+                  cin >> a[i];
+                  g[a[i]].push_back(i);
+                  //cout << u << ' ' << i +1 << nl;
+                 // g[i+1].push_back(u) ;
+            }
+
+            vector<int > nodes ;
+              for(int i=1;i<=n;i++){
+                  for(auto v : g[a[i]]){
+                       cout << v << ' ' ;
+                  }   
+                  cout << nl;
+            }
+
+            for(int i=1;i<=n;i++){
+                  if(!vis[i]){
+                        nodes.push_back(i);
+                        dfs(i);
+                  }       
+            }
+
+            for(int i=1;i<nodes.size() ;i++){
+ 
+                // cout << nodes[i-1] << ' ' << nodes[i] << nl; 
+            }
+
 }
 
 int32_t main() {
