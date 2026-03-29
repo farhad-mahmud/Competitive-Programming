@@ -39,7 +39,7 @@ void solve ()
            int ans = 0 ;
 
            //i
-           for(int i=0;i<m;i++){
+           for(int i=0;i<m;i++){ 
                int x = rem[i] , y = rem[(m-i) % m];
                
                //cerr << x << ' ' << y << nl;
