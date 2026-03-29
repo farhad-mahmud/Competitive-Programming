@@ -28,15 +28,41 @@ void solve ()
            vector<int > a(n);
            for(int i=0;i<n;i++)cin >> a[i];
 
-           set<int > st ;
-
+           vector<int > rem(m);
            for(int i=0;i<n;i++){
-                int rem = a[i] % m ;
-                st.insert(rem);
+                int rm = a[i] % m ;
+                rem[a[i] % m]++ ; // 
+                //cout << a[i] % m << ' ' ;
            }
 
-           cout << st.size() << nl; 
-         
+
+           int ans = 0 ;
+
+           //i
+           for(int i=0;i<m;i++){
+               int x = rem[i] , y = rem[(m-i) % m];
+               
+               //cerr << x << ' ' << y << nl;
+
+               if((x==0) and (y==0)){
+                    continue ;
+               }
+              
+               int pairs = min(x,y);
+  
+               x-= min(pairs +1 , x);
+               y-= min(pairs +1 , y);
+      
+               ans++ ;
+             
+               ans+= (x+y);
+
+               rem[i] = 0 ;
+               rem[(m-i) % m] =0 ;
+
+           }
+
+       cout << ans << nl;
 }
 
 int32_t main() {
