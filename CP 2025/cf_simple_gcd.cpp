@@ -20,6 +20,7 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
 
 void solve ()
 {  
@@ -28,33 +29,27 @@ void solve ()
 
          vector<int > b(n); for(int i=0;i<n;i++)cin >> b[i];
 
-         vector<int> gc;
-        for (int i = 0; i < n - 1; i++){
-            gc.push_back(__gcd(a[i], a[i + 1]));
+         
+         int cnt = 0;
+         if(__gcd(a[0],a[1])!= a[0]){
+              cnt++ ;
+         }
+         if(__gcd(a[n-2], a[n-1]) != a[n-1]){
+              cnt++;
          }
 
-         output(gc);
+         for(int i=1;i<n-1;i++){
+              int x = __gcd(a[i-1],a[i]);
+              int y = __gcd(a[i+1] ,a[i]);
 
-      
-        bool f = true;
-        for (int i = 1;i<gc.size();i++) {
-            if (gc[i] != gc[0]) {
-                f = false;
-                break;
-            }
-        }
+              int l = lcm(x,y);
+              if(l < a[i]){
+                cnt++ ;
+              }
+         }
 
-        if (f) {
-            int g = gc[0];
-            int cnt = 0;
-            for (int i = 0;i< n; i++){
-                if (a[i] == g) cnt++;
-            }
-            cout << n - cnt << nl; 
-            return ;
-        }
+         cout << cnt << nl;
 
-        
 
 }
 
