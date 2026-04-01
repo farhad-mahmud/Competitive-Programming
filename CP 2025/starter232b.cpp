@@ -23,29 +23,26 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-         int n; cin >> n ;
+      int n ; cin >> n ;
 
-         vector<int> a(n); for(int i=0;i<n;i++)cin >> a[i];
+      vector<int> a(n+1); for(int i=1;i<=n;i++)cin >> a[i];
 
+      map<int,int > mp;
 
-         sort(all(a));
+      // int cnt = 0 ;
 
-         int mx = a[n-1];
-         int mn = a[0];
+      for(int i=1;i<=n;i++){
+            int dif = a[i] - i ;
+            mp[dif]++ ;
+      }
+      
+      int cnt = 0 ;
+    for(auto [e,f] : mp){
+         int p = f*(f-1)/ 2 ;
 
-         int cnt = 0;
-         for(int i=0;i<n;i++){
-             cerr << i << ' ' << j << nl;
-           //cerr << (i-j) + a[i] << nl;
-           if(mp.find((i-j) + a[i]) != mp.end()){
-               cnt++ ;
-               mp[(i-j) + a[i]]-- ;
-           }
-         }
-
-         cout << cnt << nl;
-
-
+         cnt += p ;
+    }
+    cout << cnt << nl;
 
 
 }

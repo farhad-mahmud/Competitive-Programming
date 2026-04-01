@@ -17,13 +17,58 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
+int n ;  
+int a[N];
+int l , k ;
+int pre[][];
+bool f(int r){
 
+   // wehave l and r now.. 
+   int val= a[l];
+
+   for(int i=l+1;i<=r;i++){
+         val &= a[i];
+   }
+
+   return val >=k ;
+
+}
 
 void solve ()
 {  
-     
+            cin>> n;
+             for(int i=1;i<=n;i++)cin >> a[i];
+
+            int q; cin >> q ;
+
+
+            for(int i=1;i<=30;i++){
+                 for(int i=1;i<=n;i++){
+                        
+                 }   
+            }
+
+            while(q--){ 
+                    cin >> l >> k;
+                    int high = l , low= n ;
+                   while(high<=low){
+                        int mid = (high+low)/2 ;
+                        // if r++ ,, then and operation values decreases
+                        // and vice versa 
+                        if(f(mid)){
+                             low = mid + 1 ;
+
+                        }
+                        else {
+                             high = mid -1 ;
+                        }
+                   }
+
+                   cout << high <<nl; 
+            }
+
 }
 
 int32_t main() {
