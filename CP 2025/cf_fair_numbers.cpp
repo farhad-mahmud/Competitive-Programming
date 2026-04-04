@@ -26,7 +26,6 @@ void solve ()
          int n ; cin >> n ;
 
          
-
 }
 
 int32_t main() {

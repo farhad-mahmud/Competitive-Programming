@@ -21,53 +21,62 @@ const int N = 2e5 + 9;
 const int MOD = 1e9 + 7;
 int n ;  
 int a[N];
-int l , k ;
-int pre[][];
-bool f(int r){
+int pre[30][200001];
+int  f(int l, int r){
+    int ans = 0 ;
 
-   // wehave l and r now.. 
-   int val= a[l];
-
-   for(int i=l+1;i<=r;i++){
-         val &= a[i];
-   }
-
-   return val >=k ;
+    for(int i=0;i<30;i++){
+        if(pre[i][r+1] - pre[i][l] == 0){
+            ans+= (1 << i);
+        }
+    }
+   
+   return ans ;
 
 }
 
 void solve ()
 {  
             cin>> n;
-             for(int i=1;i<=n;i++)cin >> a[i];
+            for(int i=0;i<n;i++)cin >> a[i];
 
-            int q; cin >> q ;
+            
+            for(int j=0;j<30;j++){
+                  pre[j][0] = 0 ;
+              for(int i=0;i<n;i++){
+                  if((1 << j) & a[i]){ 
+                     pre[j][i+1] = pre[j][i];
+                  }
+                  else{
+                     pre[j][i+1] = pre[j][i] + 1 ;
+                  }
+               }
 
-
-            for(int i=1;i<=30;i++){
-                 for(int i=1;i<=n;i++){
-                        
-                 }   
             }
-
+            int q ; cin >> q ;
             while(q--){ 
-                    cin >> l >> k;
-                    int high = l , low= n ;
-                   while(high<=low){
-                        int mid = (high+low)/2 ;
-                        // if r++ ,, then and operation values decreases
-                        // and vice versa 
-                        if(f(mid)){
-                             low = mid + 1 ;
-
+                    int l,k ;cin >> l >> k;
+                    l--;
+                    if(a[l] < k){
+                       cout << -1 << ' ' ;
+                       continue ;
+                    }
+                    int low = l , high= n-1 ;
+                   while(low < high){
+                        int mid = (low + high + 1 )/2 ;
+                        
+                        if(f(l,mid) >= k){
+                             low = mid  ;
                         }
                         else {
                              high = mid -1 ;
                         }
                    }
 
-                   cout << high <<nl; 
+                   cout << low + 1 << ' ' ;
             }
+
+            cout << nl ;
 
 }
 

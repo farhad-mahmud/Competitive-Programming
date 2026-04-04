@@ -20,11 +20,12 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
-
 void solve ()
 {  
-        
+        int n , m ; cin >>n >> m ;
+        vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i];
 
+        
 }
 
 int32_t main() {
