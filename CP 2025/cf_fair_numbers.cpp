@@ -20,12 +20,31 @@ using namespace std;
 const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+bool ok (int n ){
+
+   int k = n;
+      while(n > 1){
+          int d = n % 10 ;
+          //cerr << d << nl;
+          if(d != 0 && k % d != 0){
+              return false ;
+          }
+          n /=10 ;
+      }
+
+    return true ;
+}
 
 void solve ()
 {  
          int n ; cin >> n ;
 
+         while(!ok(n)){
+              n++ ;
+         }
          
+
+         cout << n << nl ;
 }
 
 int32_t main() {

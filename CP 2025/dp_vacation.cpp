@@ -23,18 +23,28 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-            
-            vector<int > v ;
+          int p , q; cin >> p >> q ;
 
-            int sum = 0 ;
+          int s = q*2 + p ;
 
-            for(int i=1;i<=50;i++){
-                 sum += (5*i)+ 1 ;
-                 cerr << (5*i)+ 1 << nl; 
-            }
+          int x = 2*s + 1 ;
 
-            cout << sum << nl;
+          for(int i= 3 ; i*i <= x ;i+=2){
 
+               if(x % i == 0){
+                   int b = x/ i;
+                   int n = (i-1)/2 ;
+                   int m = (b-1)/ 2;
+                   if(n > 0 &&  m > 0){
+                      if (q <= n * m + (n / 2) + (m / 2)) {
+                            cout << n << " " << m << nl; 
+                        return;
+                      }
+                   }
+               }
+          }
+         
+          cout << -1 << nl; 
 }
 
 int32_t main() {
@@ -43,7 +53,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

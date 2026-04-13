@@ -23,17 +23,30 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-            
-            vector<int > v ;
+            int n,k ; cin >> n >> k ;
 
-            int sum = 0 ;
+            vector<int > a(n+1); for(int i=1;i<=n;i++)cin >> a[i];
 
-            for(int i=1;i<=50;i++){
-                 sum += (5*i)+ 1 ;
-                 cerr << (5*i)+ 1 << nl; 
-            }
+            vector<int > p(k+1); for(int i=1;i<=k;i++)cin >> p[i];
 
-            cout << sum << nl;
+            int pp = p[1];
+
+            int cnt1  = 0 ;
+            if(a[pp] == 1) cnt1++ ;
+           
+           for(int i=pp-1;i>=1;i--){
+               if(a[i] != a[i+1]) cnt1++ ;
+           }
+
+           int cnt2 = 0 ;
+           if(a[pp] == 1) cnt2++ ;
+
+           for(int i=pp+1;i<=n ;i++){
+              if(a[i] != a[i-1])cnt2++ ;
+           }
+
+
+           cout << max(cnt1,cnt2) << nl;
 
 }
 
@@ -43,7 +56,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

@@ -17,23 +17,32 @@ using namespace std;
 
 // constrains
 
-const int N = 1e9 + 9;
+const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
 
 void solve ()
 {  
-            
-            vector<int > v ;
+         int a[100];
 
-            int sum = 0 ;
+         vector<int > b ;
+         for(int i=1;i<=7;i++){
+               cin >> a[i];
+               b.push_back(a[i]);
+         }
 
-            for(int i=1;i<=50;i++){
-                 sum += (5*i)+ 1 ;
-                 cerr << (5*i)+ 1 << nl; 
-            }
+         sort(all(b));
 
-            cout << sum << nl;
+         int sum = 0;
+
+         int sz = b.size();
+         for(int i=0;i<sz-1;i++){
+                  b[i] = (-1*b[i]);
+
+                  sum+= b[i];
+         }
+
+         cout << sum + b[sz-1] << nl;
 
 }
 
@@ -43,7 +52,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 

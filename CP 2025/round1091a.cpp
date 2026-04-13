@@ -23,17 +23,31 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-            
-            vector<int > v ;
+               int n,k ;  cin >> n >> k ;
 
-            int sum = 0 ;
+               vector<int > a(n); for(int i=0;i<n;i++)cin >>a[i];
 
-            for(int i=1;i<=50;i++){
-                 sum += (5*i)+ 1 ;
-                 cerr << (5*i)+ 1 << nl; 
-            }
+               // without k move..
 
-            cout << sum << nl;
+               int sum = 0 ;
+               int ksum = n*k ;
+               for(int i=0;i<n;i++){
+                    sum+= a[i];
+               }
+
+               if(sum % 2 ==1){
+                    yes;
+               }
+               else {
+
+                     if(ksum % 2 == 0){
+                           yes;
+                     }
+                     else{
+                          no ;
+                     }
+               }
+
 
 }
 
@@ -43,7 +57,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 
