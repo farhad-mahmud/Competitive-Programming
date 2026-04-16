@@ -29,24 +29,98 @@ void solve ()
 
             vector<int > p(k+1); for(int i=1;i<=k;i++)cin >> p[i];
 
-            int pp = p[1];
+            // k = 1 .. 
+            
+            int m = p[1];
 
-            int cnt1  = 0 ;
-            if(a[pp] == 1) cnt1++ ;
-           
-           for(int i=pp-1;i>=1;i--){
-               if(a[i] != a[i+1]) cnt1++ ;
-           }
+            bool ff = false ;
+            for(int i=1;i<=n;i++){
+                  if(a[m] != a[i]){
+                        ff = true ;
+                  }
+            }
 
-           int cnt2 = 0 ;
-           if(a[pp] == 1) cnt2++ ;
+            if(!ff){
+                 cout << 0 << nl;
+                 return ;
+            }
 
-           for(int i=pp+1;i<=n ;i++){
-              if(a[i] != a[i-1])cnt2++ ;
-           }
+          
+            if(a[m] == 0){
+                // find 1..
+               int left = 0;
+                for(int i=1;i<=m;i++){
+                     if(a[i] == 1){
+                           left = i ;
+                           break ;
+                     }
+                }
 
+                int lcnt = 0 ;
+                for(int i=left;i<m;i++){
+                     if(a[i] != a[i+1]){
+                           lcnt++ ;
+                     }
+                }
 
-           cout << max(cnt1,cnt2) << nl;
+                
+                int right = 0;
+
+                for(int i=n;i>=m;i--){
+                      if(a[i] == 1){
+                          right = i ;
+                          break ;
+                     }
+                }
+               
+                int rcnt = 0 ;
+                for(int i=m;i<right;i++){
+                     if(a[i] != a[i+1]){
+                          rcnt++ ;
+                     }
+                }
+
+                cout << max(lcnt +1 , rcnt + 1) << nl;
+
+            }
+            else {
+
+                 // find 0..
+               int left = 0;
+                for(int i=1;i<=m;i++){
+                     if(a[i] == 0){
+                           left = i ;
+                           break ;
+                     }
+                }
+
+                int lcnt = 0 ;
+                for(int i=left;i<m;i++){
+                     if(a[i] != a[i+1]){
+                           lcnt++ ;
+                     }
+                }
+
+                
+                int right = 0;
+
+                for(int i=n;i>=m;i--){
+                      if(a[i] == 0){
+                          right = i ;
+                          break ;
+                     }
+                }
+             
+                int rcnt = 0 ;
+                for(int i=m;i<right;i++){
+                     if(a[i] != a[i+1]){
+                          rcnt++ ;
+                     }
+                }
+
+                cout << max(lcnt +1 , rcnt + 1) << nl;
+            }
+            
 
 }
 
