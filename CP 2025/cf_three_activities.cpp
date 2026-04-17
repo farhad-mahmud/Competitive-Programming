@@ -55,82 +55,19 @@ void solve ()
            int i = 0 ;
            int sum = 0;
 
-                  if(p1[i].second == p2[i].second && p2[i].second == p3[i].second){
 
-                       // if first i er 3 are same..
-                     sum += p1[i].first;
-
-                     i++ ;
-
-
-                     // 1st i er ..2nd i te..i have to choose another 2 .. 
-                     if(p1[i].second == p2[i].second && p2[i].second == p3[i].second){
-                          // 3 are same..
-                           sum+= p1[i].first;
-
-                           i++ ;
-
-                           // 1st i er .. 3rd i ..i have to choose just last one..
-
-                            sum += max({p1[i].first, p2[i].first, p3[i].first});
-
-                     }
-                     else if(p1[i].second == p2[i].second || p1[i].second == p3[i].second || p2[i].second == p3[i].second){
-
-                        //1st i er 2nd i te i have to chosse another 2,, and , just duita same.. 
-                           if(p1[i].second == p2[i].second){
-                              sum+= max(p1[i].first ,p2[i].first);
-                              sum+= p3[i].first;
-                        }
-                        else if(p1[i].second == p3[i].second ){
-                              sum += max(p1[i].first , p3[i].first);
-                              sum+=  p2[i].first; 
-                        }
-                        else{
-                              sum += max(p2[i].first ,p3[i].first);
-                              sum += p1[i].first;
-                        }
-                     }
-
-
+         for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            for(int k=0; k<3; k++) {
+                if(p1[i].second != p2[j].second && p1[i].second != p3[k].second && p2[j].second != p3[k].second) {
+                    fmax = max(fmax, p1[i].first + p2[j].first + p3[k].first);
                 }
-
-                else if(p1[i].second == p2[i].second || p1[i].second == p3[i].second || p2[i].second == p3[i].second){
-                          // 2nd i er  if 2 are same.
-                        if(p1[i].second == p2[i].second){
-                              sum+= max(p1[i].first ,p2[i].first);
-                              sum+= p3[i].first;
-                        }
-                        else if(p1[i].second == p3[i].second ){
-                              sum += max(p1[i].first , p3[i].first);
-                              sum+=  p2[i].first; 
-                        }
-                        else{
-                              sum += max(p2[i].first ,p3[i].first);
-                              sum += p1[i].first;
-                        }
-                     
-                    
-                    // 2nd i ei just duita same.. so we found 2 values.. just need one more..
-                     i++ ;
-                     //  .. one more nibo..
-
-                     sum += max({p1[i].first, p2[i].first, p3[i].first});
-
-                }           
-                else{
-
-                    // first i ei.. jodi tintai different hoy..
-
-                  sum += p1[i].first + p2[i].first + p3[i].first ;
-                }
-
-                  
-         
-
-            cout << sum << nl;
+            }
+        }
+      }
+            
            
-
+      cout << fmax <<nl;
 }
 
 int32_t main() {
