@@ -17,34 +17,20 @@ using namespace std;
 
 // constrains
 
-const int N = 1e9 + 9;
+const int N = 1e5 + 9;
 const int MOD = 1e9 + 7;
 
+int dp[N];
+// minimum steps to reach 1 .. 
+int f(int i){
+     
+
+}
 
 void solve ()
 {  
-          int p , q; cin >> p >> q ;
-
-          int s = q*2 + p ;
-
-          int x = 2*s + 1 ;
-
-          for(int i= 3 ; i*i <= x ;i+=2){
-
-               if(x % i == 0){
-                   int b = x/ i;
-                   int n = (i-1)/2 ;
-                   int m = (b-1)/ 2;
-                   if(n > 0 &&  m > 0){
-                      if (q <= n * m + (n / 2) + (m / 2)) {
-                            cout << n << " " << m << nl; 
-                        return;
-                      }
-                   }
-               }
-          }
          
-          cout << -1 << nl; 
+
 }
 
 int32_t main() {
@@ -53,7 +39,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
