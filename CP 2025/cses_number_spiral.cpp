@@ -29,7 +29,9 @@ void solve ()
 
            int k = max(y,x);
 
-           int v = (1LL*k *k )- k + 1 ;
+           int v = (1LL*k *k)- k + 1 ;
+
+           //cerr << v << nl;
 
           if(k == x && k == y){
                cout << v << nl;
@@ -41,23 +43,26 @@ void solve ()
                 if(k % 2 == 0){
                     int i = y ;
                     // even a x choto hole kombe..
-                   while(i!= x){
-                     v-- ;
-                     i--;
-                    }
+                   // while(i!= x){
+                   //   v-- ;
+                   //   i--;
+                   //  }
+                    v = v - (y - x);
 
                     cout << v << nl; 
                 }
                 else {
                   // odd a x choto hole.. barbe..
-                  //cout << "h" << nl;
+                  // cout << "h" << nl;
 
                 int i = y ;
 
-                while(i!= x){
-                     v++ ;
-                     i--;
-                }
+                // while(i!= x){
+                //      v++ ;
+                //      i--;
+                // }
+
+                v = v + (y - x);
 
                 cout << v << nl;
              }
@@ -70,11 +75,11 @@ void solve ()
                    // even e y choto hole..barbe..
                       int i = x ;
 
-                  while(i != y){
-                    v++;
-                    i--;
-                  }
-
+                  // while(i != y){
+                  //   v++;
+                  //   i--;
+                  // }
+                  v = v + (x - y);
                    cout << v << nl;
                }
                else{
@@ -82,11 +87,12 @@ void solve ()
 
                       int i = x ;
 
-               while(i != y){
-                    v++;
-                    i--;
-               }
+               // while(i != y){
+               //      v++;
+               //      i--;
+               // }
 
+               v  = v - (x - y );
                cout << v << nl;
 
                }
