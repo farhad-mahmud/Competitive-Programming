@@ -17,7 +17,7 @@ using namespace std;
 
 // constrains
 
-const int MOD = 1e9 + 7;
+const int MOD = 100000007.;
 const int N = 55 ;
 
 int n,k , a[N], c[N] , dp[N][1005];
