@@ -23,8 +23,6 @@ const int MOD = 1e9 + 7;
 
 void solve ()
 {  
-            
-          
             int x,y ; cin >> x >> y ;
 
 
@@ -36,7 +34,6 @@ void solve ()
             else {
                   no ;
             }
-
 }
 
 int32_t main() {
