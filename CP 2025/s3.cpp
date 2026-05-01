@@ -17,30 +17,35 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5 + 9;
+const int N = 1e9 + 9;
 const int MOD = 1e9 + 7;
 
-int dp[N];
-// minimum steps to reach 1 .. 
-int f(int i){
-     
-
-}
 
 void solve ()
-{           
-            vector<int > a(n) , b(n) , c(n);
-
-            int n; cin >> n ;
-
-            for(int i=0;i<n;i++){
-                 int x, y ,z ; cin >> x >> y >> z;
-                 a.push_back(x);
-                 b.push_back(y);
-                 c.push_back(z);
-            }
-
+{  
             
+          int n ; cin >> n ; 
+
+          int cnt = 0 ;
+
+          for(int i=1 ;i<1e6 ; i++){
+               string s = to_string(i);
+
+               string xs =  s + s ;
+
+               int x = stoll(xs);
+
+               if(x <=n) cnt++ ;
+
+
+               else if(s.size() * 2 > n){
+                     break ;
+               }
+
+          }
+
+          cout << cnt << nl ;
+
 }
 
 int32_t main() {
@@ -49,7 +54,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
