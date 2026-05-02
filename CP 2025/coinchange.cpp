@@ -36,7 +36,7 @@ int f(int i , int cur_val){
       if (ans != -1) return ans ;
       ans = 0 ;
 
-      ans += f(i + 1 , cur_val + v[i]) ;
+      ans = f(i + 1 , cur_val + v[i]) ;
       
       cerr << ans << ' ' << v[i] << nl;
          if(ans >= MOD){
