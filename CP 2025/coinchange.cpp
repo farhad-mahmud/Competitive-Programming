@@ -17,10 +17,10 @@ using namespace std;
 
 // constrains
 
-const int MOD = 100000007.;
-const int N = 55 ;
-
-int n,k , a[N], c[N] , dp[N][1005];
+const int MOD = 1e9+7;
+const int N = 100 ;
+const int W = 1e6 ; 
+int n,k  , v[W] , dp[N][W];
 
 int f(int i , int cur_val){
 
@@ -36,13 +36,12 @@ int f(int i , int cur_val){
       if (ans != -1) return ans ;
       ans = 0 ;
 
-      for(int cnt = 0 ;cnt <=c[i]; cnt++){
-            ans += f(i +1 , cur_val + a[i]*cnt) ;
-
+      ans += f(i + 1 , cur_val + v[i]) ;
+      
+      cerr << ans << ' ' << v[i] << nl;
          if(ans >= MOD){
            ans -= MOD ;
-        }
-     }
+       }
       return ans ;
 }
 
@@ -52,17 +51,12 @@ void solve (int cs)
             cin >>n >> k ;
 
             for(int i=1;i<=n;i++){
-                  cin >> a[i] ;
-            }
-
-            for(int i=1;i<=n;i++){
-                   cin >> c[i];
+                  cin >> v[i] ;
             }
 
             memset(dp , -1 , sizeof dp);
 
-
-            cout << "Case " << cs++ << ": " << f(1,0) << nl; 
+            cout << f(1,0 ) << nl ;
          
 }
 
@@ -72,7 +66,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    int cs = 1 ;
    while (t--) {
