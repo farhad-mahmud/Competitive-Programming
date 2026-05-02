@@ -16,43 +16,33 @@ using namespace std;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
 // constrains
+
+const int N = 1e9 + 9;
 const int MOD = 1e9 + 7;
 
-const int N = 100 ;
-const int W = 400 ;
-
-int a[W];
-int dp[N] ;
-int n ;
-int f(int i){
-
-      if(i > n ){
-           return 0 ;
-      }
-
-      int &ans = dp[i] ;
-      if(ans != -1) return ans ;
-
-      ans = 0 ;   
-
-      // rob it or skip it.. 
-
-      ans = max(f(i+1), f(i+2)+ a[i]) ;
-
-      //cerr << ans << nl ;
-
-      return ans; 
-}
 
 void solve ()
 {  
-               cin >>n ;
-               for(int i=1;i<=n;i++)cin >> a[i];
+         int n; cin >> n ;
 
-               memset(dp, -1 , sizeof dp) ;
+         vector<int > a(n); for(int i =0;i<n;i++)cin >> a[i];
 
+         int t ; cin >> t ;
 
-               cout << f(1) << nl ;
+         map<int,int >mp ;
+
+         for(int i=0;i<n;i++){
+               int target = t - a[i] ;
+
+               if(mp.find(target) != mp.end()){
+                      cout << mp[target] << ',' << i << nl; 
+                      return ;
+               }
+
+               mp[a[i]] = i ;
+
+         }
+
 }
 
 int32_t main() {
