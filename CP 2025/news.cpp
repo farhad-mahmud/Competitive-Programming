@@ -17,7 +17,7 @@ using namespace std;
 
 // constrains
 
-const int N = 1e9 + 9;
+const int N = 5e5 + 9;
 const int MOD = 1e9 + 7;
 
 vector<int> g[N];
@@ -25,6 +25,8 @@ bool vis[N];
 int sz[N] ;
 // DFS
 vector<int > curr_comp ;
+
+
 void dfs(int u) {
     vis[u] = true;
 
@@ -66,17 +68,20 @@ void solve ()
                        curr_comp.clear();
                        dfs(u);
 
-                       //int s = curr_comp.size() ;
-                       //cout << s << nl ;
+                       int size = curr_comp.size() ;
+
+                       for(auto n : curr_comp){
+                           sz[n] = size ;
+                       }
                   }
            }
 
 
-           // for(int i=1;i<=n;i++){
-           //      cout << sz[i] << ' ' ;
-           // }
+           for(int i=1;i<=n;i++){
+                cout << sz[i] << ' ' ;
+           }
 
-           // cout << nl; 
+           cout << nl; 
 
           
 }
