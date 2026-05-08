@@ -26,22 +26,7 @@ int dp[N] ;
 int n ;
 int f(int i){
 
-      if(i > n ){
-           return 0 ;
-      }
-
-      int &ans = dp[i] ;
-      if(ans != -1) return ans ;
-
-      ans = 0 ;   
-
-      // rob it or skip it.. 
-
-      ans = max(f(i+1), f(i+2)+ a[i]) ;
-
-      //cerr << ans << nl ;
-
-      return ans; 
+     
 }
 
 void solve ()
