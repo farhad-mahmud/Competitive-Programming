@@ -17,25 +17,34 @@ using namespace std;
 
 // constrains
 
-const int N = 1e9 + 9;
+const int N = 100 ;
 const int MOD = 1e9 + 7;
 
+bool is_computed[N];
+int dp[N] ;
 
+int lund(int i){
+
+  if (i == 0) return 0;
+  if (i == 1) return 1;
+  
+  if(dp[i] != -1){
+       return dp[i] ;
+  }
+
+  is_computed[i] = true ;
+
+  dp[i] = lund(i - 1) + lund(i - 2);
+
+  return dp[i] ;
+
+}
 void solve ()
 {  
-            
-          
-            int x,y ; cin >> x >> y ;
 
+         memset(dp, -1 , sizeof dp) ;
 
-            int dif = y - x ;
-
-            if(dif / x >=2 ){
-                  yes ;
-            }
-            else {
-                  no ;
-            }
+         cout << lund(80) << nl; 
 
 }
 
@@ -45,7 +54,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   cin >> t ;
+   //cin >> t ;
 
    while (t--) {
 
