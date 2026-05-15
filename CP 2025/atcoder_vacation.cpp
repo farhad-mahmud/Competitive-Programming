@@ -35,8 +35,8 @@ int f(int i, int j){
 
       int pa = 0, pb = 0 , pc = 0 ;
 
-      if(j != 0){ // prev activity was 0 ..
-            
+      if(j != 0){ // prev activity was not 0 ..
+                // so at this day we can pick activity 0 ..
             pa =  a[i] + f(i+1, 0) ;
 
       }
