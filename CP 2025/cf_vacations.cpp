@@ -18,7 +18,7 @@ using namespace std;
 // constrains
 const int MOD = 1e9 + 7;
 
-const int N = 100 ;
+const int N = 105;
 
 int a[N],b[N],c[N] ;
 int dp[N][4] ;
@@ -40,6 +40,7 @@ int f(int i, int j){
 
       if(j != 1 && a[i] != 0 && a[i]!= 2){
             ans = min( ans , f(i+1, 1)) ;
+            // take rest or contest..
       }
 
       if(j!= 2 && a[i] != 0 && a[i]!= 1){
