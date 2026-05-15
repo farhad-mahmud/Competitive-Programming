@@ -17,18 +17,38 @@ using namespace std;
 
 // constrains
 
-const int N = 100 ;
+const int N = 45 ;
 const int MOD = 1e9 + 7;
 
+int dp[N] ;
+
+int n ;
+int f(int i){
+     if(i == n+1 || i== n){
+       return 0 ;
+     }
+
+     if(dp[i] != -1){
+       return dp[i] ;
+     }
+
+     int ans = (f(i+1) + 1) + (f(i+ 2) + 1) ;
+
+
+     return dp[i] = ans ;
+
+
+}
 
 void solve ()
 {  
-      int n; cin >> n ;
+             cin >> n ;
 
-      vector<int > a(n); for(int i=0;i<n;i++)cin >> a[i] ;
+            memset(dp , -1 , sizeof dp) ;
 
 
-      
+
+            cout << f(1) << nl;
 
 }
 
