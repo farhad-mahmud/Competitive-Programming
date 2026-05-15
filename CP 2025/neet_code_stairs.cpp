@@ -23,17 +23,18 @@ const int MOD = 1e9 + 7;
 int dp[N] ;
 
 int n ;
+int cnt = 0;
 int f(int i){
-     if(i == n+1 || i== n){
-       return 0 ;
+     if(i== 1){
+         return 1 ;
      }
+
 
      if(dp[i] != -1){
        return dp[i] ;
      }
 
-     int ans = (f(i+1) + 1) + (f(i+ 2) + 1) ;
-
+     int ans = f(i-1) + f(i-2) ;
 
      return dp[i] = ans ;
 
@@ -42,13 +43,13 @@ int f(int i){
 
 void solve ()
 {  
-             cin >> n ;
+            cin >> n ;
 
             memset(dp , -1 , sizeof dp) ;
 
 
 
-            cout << f(1) << nl;
+            cout << f(n) << nl;
 
 }
 
