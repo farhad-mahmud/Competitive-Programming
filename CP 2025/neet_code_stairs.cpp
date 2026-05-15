@@ -17,26 +17,27 @@ using namespace std;
 
 // constrains
 
-const int N = 45 ;
+const int N = 102 ;
 const int MOD = 1e9 + 7;
 
 int dp[N] ;
 
 int n ;
+int a[N] ;
 int cnt = 0;
 int f(int i){
-     if(i== 1){
-         return 1 ;
-     }
+      
+    if(i == n+1 || i == n){
+       return 0 ;
+    }
 
-
-     if(dp[i] != -1){
+    if(dp[i] != -1){
        return dp[i] ;
-     }
+    }
 
-     int ans = f(i-1) + f(i-2) ;
+    int ans = min(f(i+1) + a[i] , f(i+2) + a[i]) ;
 
-     return dp[i] = ans ;
+    return dp[i] = ans ;
 
 
 }
@@ -45,11 +46,19 @@ void solve ()
 {  
             cin >> n ;
 
+            for(int i=0;i<n;i++){
+                 cin >> a[i] ;
+            }
+
             memset(dp , -1 , sizeof dp) ;
 
 
+            int ans1 = f(0) ;
 
-            cout << f(n) << nl;
+            int ans2 = f(1) ;
+
+            cout << min(ans1,ans2) << nl;
+
 
 }
 
