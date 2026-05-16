@@ -24,14 +24,13 @@ const int MOD = 1e9 + 7;
 int dp[N];
 int n ;
 int a[N];
-vector<int > p ;
 
-int sz = 0 ;
+int points[N] ;
 // int cnt = 0;
 int f(int i){
          
-      if(i == sz){
-          return 0 ;
+      if(i > 100000 ){
+           return 0 ;
       }
       
       if(dp[i] != -1){
@@ -39,9 +38,8 @@ int f(int i){
       }
       // take the current or skip it..
 
-      cerr << p[i] << ' ' << sz << nl; 
-
-      int ans = max(f(i+1) , f(i+2) + p[i]) ;
+      cerr << points[i] << nl; 
+      int ans = max(f(i+1) , f(i+2) + points[i]) ;
 
       return dp[i] = ans ;
 
@@ -53,29 +51,19 @@ void solve ()
             cin >> n ;
 
 
+            memset(points, 0 , sizeof points) ;
             for(int i=0;i<n;i++){
                  cin >> a[i] ;
+                 points[a[i]] += a[i] ;
             }
 
-            map<int,int> mp ;
+            // for(int i=0;i<n;i++){
+            //       cout << points[i] <<nl;
+            // }
 
-            for(int i=0;i<n;i++){
-                 mp[a[i]]++ ;
-            }
-
-
-            for(auto[n,f] : mp){
-                 int pp = n*f ;
-
-                 p.push_back(pp) ;
-            }
-
+         
             memset(dp,-1, sizeof dp) ;
 
-
-            int sz = p.size() ;
-            
-            output(p) ;
 
 
             cout << f(1) << nl; 
