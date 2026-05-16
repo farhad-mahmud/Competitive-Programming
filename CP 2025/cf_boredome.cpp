@@ -21,20 +21,33 @@ const int N = 1e5+ 3 ;
 const int MOD = 1e9 + 7;
 
 
-int dp[N] ;
+int dp[N];
 int n ;
 int a[N];
-
+vector<int > p ;
 // int cnt = 0;
-// int f(int i,int points){
+int f(int i){
+         
+      if(i == n+1){
+          return 0 ;
+      }
       
-   
+      if(dp[i] != -1){
+           return dp[i] ;
+      }
+      // take the current or skip it..
+      
+      int ans = max(f(i+1) , f(i+1) + p[i]) ;
 
-// }
+      return dp[i] = ans ;
+
+
+}
 
 void solve ()
 {  
             cin >> n ;
+
 
             for(int i=0;i<n;i++){
                  cin >> a[i] ;
@@ -46,8 +59,6 @@ void solve ()
                  mp[a[i]]++ ;
             }
 
-            vector<int > p ;
-
 
             for(auto[n,f] : mp){
                  int pp = n*f ;
@@ -55,10 +66,13 @@ void solve ()
                  p.push_back(pp) ;
             }
 
+            memset(dp,-1, sizeof dp) ;
+
 
             output(p) ;
 
 
+            cout << f(1) << nl; 
 }
 
 int32_t main() {
