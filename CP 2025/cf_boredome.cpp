@@ -38,7 +38,7 @@ int f(int i){
       }
       // take the current or skip it..
 
-      cerr << points[i] << nl; 
+      //cerr << points[i] << nl; 
       int ans = max(f(i+1) , f(i+2) + points[i]) ;
 
       return dp[i] = ans ;
