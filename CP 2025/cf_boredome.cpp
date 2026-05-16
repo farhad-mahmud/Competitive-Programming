@@ -25,10 +25,12 @@ int dp[N];
 int n ;
 int a[N];
 vector<int > p ;
+
+int sz = 0 ;
 // int cnt = 0;
 int f(int i){
          
-      if(i == n+1){
+      if(i == sz){
           return 0 ;
       }
       
@@ -36,8 +38,10 @@ int f(int i){
            return dp[i] ;
       }
       // take the current or skip it..
-      
-      int ans = max(f(i+1) , f(i+1) + p[i]) ;
+
+      cerr << p[i] << ' ' << sz << nl; 
+
+      int ans = max(f(i+1) , f(i+2) + p[i]) ;
 
       return dp[i] = ans ;
 
@@ -69,6 +73,8 @@ void solve ()
             memset(dp,-1, sizeof dp) ;
 
 
+            int sz = p.size() ;
+            
             output(p) ;
 
 

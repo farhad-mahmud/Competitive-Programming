@@ -52,14 +52,18 @@ void solve ()
 
     // 
 
+
      //lowerdig..
      int len = v.size() ;
       
       if(len > 1){
         int b = 0;
+      for(int j=0;j<9;j++){
+
         for (int i = 0; i < len - 1; ++i) {
             b = b * 10 + d.back();
-        }
+         }
+     }
         int dif = abs(a - b);
         ans = min(ans, dif) ;
 
