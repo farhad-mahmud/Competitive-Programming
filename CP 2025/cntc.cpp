@@ -52,18 +52,14 @@ void solve ()
 
     // 
 
-
      //lowerdig..
      int len = v.size() ;
       
       if(len > 1){
         int b = 0;
-      for(int j=0;j<9;j++){
-
         for (int i = 0; i < len - 1; ++i) {
             b = b * 10 + d.back();
-         }
-     }
+        }
         int dif = abs(a - b);
         ans = min(ans, dif) ;
 
@@ -100,9 +96,9 @@ void solve ()
         bool f = true ;
 
         for(int i=0;i<len;i++){
-            if(!f) {
-                break ;
-            }
+            // if(!f) {
+            //     break ;
+            // }
 
             for(int nm : d){
                   if(nm < v[i]){
@@ -131,12 +127,12 @@ void solve ()
             }
 
 
-            if (find(d.begin(), d.end(), v[i]) != d.end()) {
-               pre = pre * 10 + v[i] ;
-               } 
-               else {
-              f = false;
-             }
+            // if (find(d.begin(), d.end(), v[i]) != d.end()) {
+            //    pre = pre * 10 + v[i] ;
+            //    } 
+            //    else {
+            //   f = false;
+            //  }
         }
 
 
