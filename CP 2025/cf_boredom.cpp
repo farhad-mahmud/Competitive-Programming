@@ -18,26 +18,56 @@ using namespace std;
 // constrains
 const int MOD = 1e9 + 7;
 
-const int N = 100 ;
-const int W = 400 ;
+const int N = 1e5+ 3 ;
 
-int a[W];
-int dp[N] ;
-int n ;
-int f(int i){
+// int a[N];
+// int dp[N][N];
+// int n ;
+// int f(int i,int points){
 
-     
-}
+//      // nibo ki nibona..
+
+//       if(i ==  n+1 ) return 0 ;
+
+//       if(dp[i][points]!= -1){
+//            return dp[i][points] ;
+//       }
+
+//       int ans = max(f(i, )
+
+// }
 
 void solve ()
 {  
                cin >>n ;
                for(int i=1;i<=n;i++)cin >> a[i];
 
-               memset(dp, -1 , sizeof dp) ;
+               // vector<int > p(n+1);
+
+               map<int,int > mp ;
+
+               // for(int i=1;i<=n;i++){
+               //       mp[a[i]]++ ;
+               // }
+
+               
+               // for(auto [n,f] : mp){
+
+               //       int pp = f*n ;
+
+               //       p.push_back(pp) ;
+
+               // }
 
 
-               cout << f(1) << nl ;
+               // output(p) ;
+
+
+
+               // memset(dp, -1 , sizeof dp) ;
+
+
+               // cout << f(1) << nl ;
 }
 
 int32_t main() {
