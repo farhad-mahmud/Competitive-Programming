@@ -75,13 +75,21 @@ void solve ()
 
         // upper dig
         int b = 0 ;
-
-        for (int i = 0; i <= len; ++i) {
-            b = b * 10 + d.front();
+         
+        if(d.front() == 0){
+            b = d.back();
+            for(int i=0;i<len;i++){
+                 b = b*10 + d.front() ;
+            }
         }
-         int dif = abs(a - b);
-        ans = min(ans , dif) ;
+        else {
+              for(int i=0;i<=len ;i++){
+                  b = b*10 + d.front() ;
+              }
+        }
 
+        int dif = abs(a - b);
+        ans = min(ans, dif) ;
 
         int pre = 0 ;
 
