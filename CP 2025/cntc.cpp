@@ -96,9 +96,9 @@ void solve ()
         bool f = true ;
 
         for(int i=0;i<len;i++){
-            // if(!f) {
-            //     break ;
-            // }
+            if(!f) {
+                break ;
+            }
 
             for(int nm : d){
                   if(nm < v[i]){
@@ -127,12 +127,12 @@ void solve ()
             }
 
 
-            // if (find(d.begin(), d.end(), v[i]) != d.end()) {
-            //    pre = pre * 10 + v[i] ;
-            //    } 
-            //    else {
-            //   f = false;
-            //  }
+            if (find(d.begin(), d.end(), v[i]) != d.end()) {
+               pre = pre * 10 + v[i] ;
+               } 
+               else {
+              f = false;
+             }
         }
 
 
