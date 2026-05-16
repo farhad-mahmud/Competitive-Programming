@@ -17,47 +17,13 @@ using namespace std;
 
 // constrains
 
-const int N = 1e5+ 3 ;
+const int N = 100 ;
 const int MOD = 1e9 + 7;
 
 
-int dp[N] ;
-int n ;
-int a[N];
-
-// int cnt = 0;
-// int f(int i,int points){
-      
-   
-
-// }
-
 void solve ()
 {  
-            cin >> n ;
-
-            for(int i=0;i<n;i++){
-                 cin >> a[i] ;
-            }
-
-            map<int,int> mp ;
-
-            for(int i=0;i<n;i++){
-                 mp[a[i]]++ ;
-            }
-
-            vector<int > p ;
-
-
-            for(auto[n,f] : mp){
-                 int pp = n*f ;
-
-                 p.push_back(pp) ;
-            }
-
-
-            output(p) ;
-
+      cout << "h" << nl;
 
 }
 
