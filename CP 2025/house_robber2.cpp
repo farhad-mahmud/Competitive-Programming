@@ -18,16 +18,32 @@ using namespace std;
 // constrains
 const int MOD = 1e9 + 7;
 
-const int N = 1e5;
-const int W = 400 ;
+const int N = 100 ;
 
-int a[W];
+int a[N];
 int dp[N] ;
 int n ;
+bool k = false ;
 int f(int i){
 
-      if(i > n ){
-           return 0 ;
+      if(i == 1){
+            k = true ;
+      }
+      
+      if(k){
+           // we cant take last house..
+          if(i== n){
+             return 0 ;
+          }
+          if(i >n ){
+              return 0 ;
+          }
+      }
+      else{
+           // we can take last house..
+           if(i > n){
+             return 0 ;
+           }
       }
 
       int &ans = dp[i] ;
@@ -52,7 +68,15 @@ void solve ()
                memset(dp, -1 , sizeof dp) ;
 
 
-               cout << f(1) << nl ;
+              int ans1= f(1) ;
+
+              memset(dp, -1 , sizeof dp) ;
+
+              k  = false ;
+
+              int ans2 = f(2) ;
+
+            cout << max(ans1,ans2) << nl;
 }
 
 int32_t main() {
