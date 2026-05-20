@@ -24,33 +24,7 @@ const int MOD = 1e9 + 7;
 void solve ()
 {  
 
-     int n ; cin >> n ;
-
-     int c0= 0 , c1 = 0 , c2 = 0 ;
-
-     for(int i=0;i<n;i++){
-        int w; cin >> w ;
-
-        if(w==0)c0++ ;
-        else if(w==1)c1++ ;
-        else if(w==2)c2++ ;
-     }
-
-
-     int ans = c0 ;
-
-     int p = min(c1,c2) ;
-
-     ans += p ;
-     c1-= p ;
-     c2-= p ;
-
-     ans+= c1/3 ;
-     ans+= c2/3 ;
-
-     cout << ans << nl; 
-
-
+   
 }
 
 int32_t main() {
