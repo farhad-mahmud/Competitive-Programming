@@ -17,51 +17,48 @@ using namespace std;
 
 // constrains
 
-const int N = 100 ;
+const int N = 2e5+3 ;
 const int MOD = 1e9 + 7;
 
+int dp[N][2]
+int a[N] ;
+int f(i,min){
+
+      if(i== n){
+          return 0 ;
+      }
+
+      if(dp[i][min] != -1){
+           return dp[i][min] ;
+      }
+      if(min == 1){
+            ans = a[i] + f(i+1, 1) ;
+
+      }
+      else{
+            ans = a[i] + f(i+1, 0) ;
+      }
+
+
+      if(a[i] > 0){
+           if(min == 0){
+                  ans = -a[i] + f(i+1,1) ;
+            }
+            else{
+                 ans = -a[i] + f(i+1,0) ;
+            }
+      }
+}
 
 void solve ()
 {  
             int n ; cin >> n ;
 
-            vector<int > a(n) ;
-            for(int i=0;i<n;i++)cin >> a[i] ;
+            for(int i=1;i<=n;i++)cin >> a[i] ;
 
 
-            int cnt = 0 ;
-         vector<int > ans  ;
 
-
-         int sum = 0 ;
-
-         for(int i=n-1;i>=0;i--){
-               int cur = a[i] ;
-               if(cnt % 2 == 1){
-                    cur = -cur ;
-               }
-
-               //cerr << cnt << ' ' << cur <<nl; 
-               if(cur < 0){
-                    sum += abs(a[i]) ;
-                    ans.push_back(i+1);
-                    cnt++ ;
-               }
-               else{
-                     sum += a[i] ;
-               }
-         }  
-
-
-         cerr << sum << nl;
-         cout << ans.size() << nl;
-
-         for(int i=0;i<ans.size();i++){
-              cout << ans[i] << ' ' ;
-         }
-
-         cout << nl ;
-
+            cout << f(1, 0) << nl ;
 
 }
 
