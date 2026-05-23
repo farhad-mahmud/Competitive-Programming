@@ -29,8 +29,8 @@ void solve ()
             vector<int > b(n); for(int i=0;i<n;i++)cin >> b[i] ;
 
 
-            int mxa = *max_element(all(a));
-            int mxb = *max_element(all(b)) ;
+            // int mxa = *max_element(all(a));
+            // int mxb = *max_element(all(b)) ;
 
 
            int sum1 = 0 ;
@@ -39,25 +39,22 @@ void solve ()
 
             for(int i=0;i<n;i++){
 
-                sum1 += max(a[i], b[i]) ;
-
+                if(a[i] > b[i]){
+                swap(a[i], b[i]) ;
+             } 
 
             } 
 
-            vector<int > k(n) ;
+          for(int i=0;i<n;i++){
+               sum1+= b[i] ;
+          }
 
-            for(int i=0;i<n;i++){
+          //cout << sum1 << nl;
 
-                  int mn = min(a[i],b[i]);
-
-                  k.push_back(mn) ;
-            }
-
-            int mx = *max_element(all(k)) ;
+          int mxa = *max_element(all(a)) ;
 
 
-            cout << sum1 + mx << nl ;
-
+          cout << sum1 + mxa << nl;
 
 
 

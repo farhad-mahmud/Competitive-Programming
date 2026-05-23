@@ -31,6 +31,8 @@ int f(i,min){
       if(dp[i][min] != -1){
            return dp[i][min] ;
       }
+
+      int ans = 0 ;
       if(min == 1){
             ans = a[i] + f(i+1, 1) ;
 
@@ -39,15 +41,20 @@ int f(i,min){
             ans = a[i] + f(i+1, 0) ;
       }
 
-
+      int ans2 = 0 ;
       if(a[i] > 0){
+
            if(min == 0){
-                  ans = -a[i] + f(i+1,1) ;
+                  ans2 = -a[i] + f(i+1,1) ;
             }
             else{
-                 ans = -a[i] + f(i+1,0) ;
+                 ans2 = -a[i] + f(i+1,0) ;
             }
       }
+
+      return dp[i][min] = ans ;
+
+
 }
 
 void solve ()
