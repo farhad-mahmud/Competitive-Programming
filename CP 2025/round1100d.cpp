@@ -33,6 +33,8 @@ void solve ()
          vector<int > ans  ;
 
 
+         int sum = 0 ;
+
          for(int i=n-1;i>=0;i--){
                int cur = a[i] ;
                if(cnt % 2 == 1){
@@ -40,13 +42,18 @@ void solve ()
                }
 
                //cerr << cnt << ' ' << cur <<nl; 
-               if(cur >0){
+               if(cur < 0){
+                    sum += abs(a[i]) ;
                     ans.push_back(i+1);
                     cnt++ ;
+               }
+               else{
+                     sum += a[i] ;
                }
          }  
 
 
+         cerr << sum << nl;
          cout << ans.size() << nl;
 
          for(int i=0;i<ans.size();i++){
