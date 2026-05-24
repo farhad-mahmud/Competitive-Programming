@@ -17,10 +17,9 @@ using namespace std;
 
 // constrains
 
-const int N = 100 ;
-const int K = 1e6 ;
+const int N = 1e6 + 2 ;
 const int MOD = 1e9 + 7;
-const int INF = 1e18 ;
+const int INF = 1e9 ;
 
 
 
@@ -28,22 +27,24 @@ void solve ()
 {  
              int n , x; cin >> n >> x ;
 
-             int a[N] ;
+             int a[102] ;
 
              for(int i=1;i<=n;i++)cin >>a[i] ;
 
             int dp[N] ;
 
 
-            memset(dp, -1 , sizeof dp) ;
+            for (int i = 1; i <= x; i++) {
+               dp[i] = INF;
+            }
 
 
-            int ans = 1e18 ;
+             dp[0] = 0 ; // 0 coins needed to sum = 0 .
 
-            cerr << n << x << nl;
             for(int i=1;i<=x;i++){
                  for(int j =1;j<=n;j++){
                      if(i >= a[j]){ // if cur val is greater then the coin..
+                           //cerr << a[j] << nl; 
                            dp[i] = min(dp[i] , 1+ dp[i- a[j]])  ;
                      }  
                  }
