@@ -20,59 +20,42 @@ using namespace std;
 const int N = 100 ;
 const int K = 1e6 ;
 const int MOD = 1e9 + 7;
+const int INF = 1e18 ;
 
-int dp[N][K] ;
-
-int n , x; 
-
-int a[K] ;
-int c[K] ;
-int f(int i,int cur_val ){
-
-///cerr << i << nl ;
-      if(cur_val > x ) return 0; 
-      if(i == n+1){
-            if(cur_val == x)return 1 ;
-            else return 0  ;
-      }
-
-      int &ans = dp[i][cur_val];
-
-      if (ans != -1) return ans ;
-      ans = 1e18 ;
-
-      for(int cnt = 0 ;cnt <=c[i]; cnt++){
-            // ans += f(i +1 , cur_val + a[i]*cnt) ;
-            ans = min(ans , 1+f(i+1 ,cur_val + a[i]*cnt)) ;
-
-            //cerr << a[i] << ' ' << c[i] << nl;
-          
-     }
-
-
-      return ans ;
-
-
-}
 
 
 void solve ()
 {  
-             cin >> n >> x ;
+             int n , x; cin >> n >> x ;
+
+             int a[N] ;
 
              for(int i=1;i<=n;i++)cin >>a[i] ;
 
+            int dp[N] ;
 
-             for(int i=1;i<=n;i++){
-                  int v = x/ a[i] ;
-                  c[i] = v ;
 
-             }
             memset(dp, -1 , sizeof dp) ;
 
 
+            int ans = 1e18 ;
 
-             cout << f(0,0) << nl;
+            cerr << n << x << nl;
+            for(int i=1;i<=x;i++){
+                 for(int j =1;j<=n;j++){
+                     if(i >= a[j]){ // if cur val is greater then the coin..
+                           dp[i] = min(dp[i] , 1+ dp[i- a[j]])  ;
+                     }  
+                 }
+            }
+
+         
+           if(dp[x] >= INF){
+               cout << -1 << nl;
+           }
+           else{
+               cout << dp[x] <<nl;
+           }
 
 
    
