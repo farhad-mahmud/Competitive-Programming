@@ -1,46 +1,36 @@
-//---  Bismillahir Rahmanir Rahim ---//
-
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-#define int  long long
+const int N = 1e6 + 9, INF = 1e9;
+int memo[N];
+int coins[105];
+int num_coins;
 
-#define nl       "\n"
-
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-#define all(x)   x.begin(),x.end()
-#define allr(x)  x.rbegin() ,x.rend()
-#define dbug(x) cerr << (#x) << " is " << (x) << nl;
-#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
-
-// constrains
-
-const int N = 100 ;
-const int MOD = 1e9 + 7;
-
-
-void solve ()
-{  
-
-   
+int solve(int n) {
+  if (n == 0) return 0;
+  if (memo[n] != -1) return memo[n];
+  int ans = INF;
+  for (int i = 0; i < num_coins; i++) {
+    if (n >= coins[i]) {
+      ans = min(ans, 1 + solve(n - coins[i]));
+    }
+  }
+  return memo[n] = ans;
 }
 
 int32_t main() {
-   ios_base:: sync_with_stdio(0);
-   cin.tie(0);
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int target;
 
-   int t = 1 ;
+  cin >> target >> num_coins ;
 
-   cin >> t ;
-
-   while (t--) {
-
-      solve() ;
-
-   }
-
-
-   return 0;
+  for (int i = 0; i < num_coins; i++) {
+    cin >> coins[i];
+  }
+  memset(memo, -1, sizeof memo);
+  int result = solve(target);
+  if (result >= INF) cout << -1 << '\n';
+  else cout << result << '\n';
+  return 0;
 }
