@@ -21,6 +21,7 @@ const int N = 1e6+2;
 const int MOD = 1e9 + 7;
 const int INF = 1e9 ;
 
+int dp[N] ;
 void solve ()
 {     
             int n , x; cin >> n >> x ;
@@ -29,46 +30,29 @@ void solve ()
 
             for(int i=1;i<=n;i++)cin >> c[i] ;
 
-            int dp[N] ;
+           
             
             for(int i=1;i<=x;i++){
-                  dp[i] = INF ;
+                  dp[i] = 0 ;
             }
 
-            // for(int i =1 ;i<=n;i++){
-            //      dp[c[i]] = 1 ;
-            // }
-
-
-
-         
-
-            bool f1  ;
-
-            for(int i=1;i<=n;i++){
-                 if(c[i] == 1){
-                     f1 = true ;
-                     break ; 
-                 }
-               
-            }
 
             dp[0] = 1  ;
 
-            dp[1] = 0 ;
-
             for(int i=1;i<=x;i++){
 
-                for(int j =1;j<=n;j++){
+                for(int j=1;j<=n;j++){
 
                    if(i >=c[j] ){
-                    dp[i] = dp[i-c[j]] % MOD + dp[i-1] % MOD ;
+                   dp[i] =  (dp[i] + dp[i-c[j]]) % MOD ;
+                   
                     //cerr << i << ' ' << dp[i]  << ' ' << c[j] << nl; 
                    } 
 
                 }
             }
 
+             
 
              cout << dp[x]  << nl ;
 

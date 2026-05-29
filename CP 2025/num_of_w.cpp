@@ -45,6 +45,9 @@ int f(int i){
                //cerr << i << " " <<  c[j] << nl;
              if(i >=c[j] ){
                 ans =  ans % MOD  + f(i - c[j]) % MOD ;
+                if(ans >= MOD){
+                    ans -= MOD ;
+                }
                 //cerr << ans << nl;
              } 
 
