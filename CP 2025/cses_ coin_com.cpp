@@ -20,11 +20,42 @@ using namespace std;
 const int N = 100 ;
 const int MOD = 1e9 + 7;
 
+int dp[N] ;
+int c[N] ;
+int n , x ; 
+int f(int cur_val ){
 
+        if(cur_val == 0){
+          return  1 ;
+        }
+
+        if(dp[cur_val] != -1){
+            return dp[cur_val] ;
+        }
+
+        int ans = 0 ;
+
+        for(int i=1;i<=n;i++){
+              ans = f(cur_val - c[i]) ;
+              cerr << ans << nl;
+        }
+
+        return dp[cur_val] = ans ;
+
+
+
+}
 void solve ()
-{  
+{     
+             cin >> n >> x ;
 
-  
+            for(int i=1;i<=n;i++)cin >> c[i] ;
+
+            memset(dp, -1 , sizeof dp) ;
+
+
+            cout << f(n) << nl;
+
 }
 
 int32_t main() {
