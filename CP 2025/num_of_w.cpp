@@ -17,12 +17,13 @@ using namespace std;
 
 // constrains
 
-const int N = 102;
+const int N = 1e6+2;
 const int MOD = 1e9 + 7;
 
- int dp[N] ;
 
-int n ;
+int dp[N] ;
+int c[N] ;
+int n ,x ; 
 
 int f(int i){
 
@@ -38,10 +39,17 @@ int f(int i){
          }
 
          int ans = 0 ;
+      
+         for(int j =1;j<=n;j++){
 
-         for(int j=1;j<=n;j++){
-              ans += f(i - j) ;
-         }
+               //cerr << i << " " <<  c[j] << nl;
+             if(i >=c[j] ){
+                ans =  ans % MOD  + f(i - c[j]) % MOD ;
+                //cerr << ans << nl;
+             } 
+
+          }
+      
 
         
          return dp[i] = ans ;
@@ -50,11 +58,16 @@ int f(int i){
 
 void solve ()
 {     
-            cin >> n ; 
+            cin >> n >>  x ;
 
+            for(int i=1;i<=n;i++){
+                 cin >> c[i] ;
+            }
             memset(dp, -1 , sizeof dp) ;
 
-              cout << f(n) << nl;
+           // cerr << x << nl;
+
+            cout << f(x) << nl;
 
 }
 
