@@ -17,44 +17,45 @@ using namespace std;
 
 // constrains
 
-const int N = 100 ;
+const int N = 103 ;
 const int MOD = 1e9 + 7;
+const int INF = 1e9 ;
 
-int dp[N] ;
-int c[N] ;
-int n , x ; 
-int f(int cur_val ){
-
-        if(cur_val == 0){
-          return  1 ;
-        }
-
-        if(dp[cur_val] != -1){
-            return dp[cur_val] ;
-        }
-
-        int ans = 0 ;
-
-        for(int i=1;i<=n;i++){
-              ans = f(cur_val - c[i]) ;
-              cerr << ans << nl;
-        }
-
-        return dp[cur_val] = ans ;
-
-
-
-}
 void solve ()
 {     
-             cin >> n >> x ;
+            int n , x; cin >> n >> x ;
 
+            int c[N] ;
             for(int i=1;i<=n;i++)cin >> c[i] ;
 
-            memset(dp, -1 , sizeof dp) ;
+            int dp[N] ;
+            
+            for(int i=1;i<=x;i++){
+                  dp[i] = INF ;
+            }
 
 
-            cout << f(n) << nl;
+            // base case..
+            dp[0] =1  ;
+            //dp[1] = 1 ;
+
+
+            for(int i=1;i<=x;i++){
+
+                for(int j =1;j<=n;j++){
+
+                   if(i >=c[j] ){
+                    dp[i] = dp[i-c[j]] ;
+                    cerr << i << ' ' << dp[i]  << ' ' << c[j] << nl;
+                   } 
+
+                }
+            }
+
+
+            cout << dp[x] % MOD << nl ;
+
+
 
 }
 
