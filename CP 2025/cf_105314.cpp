@@ -33,6 +33,15 @@ void solve ()
          map<int,int > mp ;
         
          int ans = 0 ;
+
+         set<int > st ;
+
+         for(int i=0;i<n;i++){
+              st.insert(a[i]) ;
+         }
+
+         int sz = st.size() ;
+
  
          for(int r = 0 ;r<n ;r++){
             mp[a[r]]++ ;
@@ -42,13 +51,17 @@ void solve ()
                               // untill current element a[r] from left gets crossed out.. 
                   l++ ;
             }
- 
+            
+            if(mp.size() ==  sz){
+                     cout << sz << nl; 
+                     return ;
+            }
             ans += (r- l + 1) ;
  
          }  
  
  
-         cout << ans << nl;
+        // cout << ans << nl;
 
 
 }

@@ -1,51 +1,84 @@
+//---  Bismillahir Rahmanir Rahim ---//
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 #define int  long long
-#define nl   "\n"
 
-void solve() {  
-    int n, k; cin >> n >> k;
-    int x, a, b, c; cin >> x >> a >> b >> c;
+#define nl       "\n"
 
-    vector<int> v(n + 1);
-    v[1] = x;
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+#define all(x)   x.begin(),x.end()
+#define allr(x)  x.rbegin() ,x.rend()
+#define dbug(x) cerr << (#x) << " is " << (x) << nl;
+#define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
-    for (int i = 2; i <= n; i++) {
-        v[i] = (a * (v[i - 1]) + b) % c;
-    }
+// constrains
 
-    int cur_or = v[1];
+const int N = 100 ;
+const int MOD = 1e9 + 7;
 
-    for (int i = 2; i <= k; i++) {
-        cur_or = cur_or | v[i];
-    }  
 
-    vector<int> orr;
-    orr.push_back(cur_or);
+void solve ()
+{  
+         int n , k ; cin >> n >> k ;
 
-    for (int i = k + 1; i <= n; i++) {
-        cur_or = cur_or | v[i];
-        // Note: bitwise OR is NOT reversible. This line below will not "remove" v[i-k].
-        cur_or = cur_or | v[i - k]; 
+         int x,a,b,c ; cin >> x >> a >> b >> c ;
 
-        orr.push_back(cur_or);
-    }
+         vector<int > v(n+1);
 
-    int ans = orr[0];
-    for (int i = 1; i < orr.size(); i++) {
-        ans = ans | orr[i];
-    }
+         v[1] = x ;
 
-    cout << ans << nl;
+         for(int i=2;i<=n;i++){
+              v[i] = (a*(v[i-1]) + b ) % c ;
+
+         }
+
+         // for(int i=1;i<=n;i++){
+         //      cout << v[i] << nl; 
+         // }
+
+         int cur_sum = 0 ;
+
+         for(int i=1;i<=k;i++){
+               cur_sum += v[i] ;
+         }  
+
+         vector<int > sum ;
+         sum.push_back(cur_sum) ;
+
+         for(int i=k+1;i<=n;i++){
+              cur_sum += v[i] ;
+              cur_sum -= v[i-k] ;
+
+              sum.push_back(cur_sum) ;
+         }
+
+         int ans = sum[0];
+         for(int i=1;i<sum.size();i++){
+               ans = ans^ sum[i] ;
+         }
+
+
+         cout << ans << nl;
 }
 
 int32_t main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t = 1;
-    while (t--) {
-        solve();
-    }
-    return 0;
+   ios_base:: sync_with_stdio(0);
+   cin.tie(0);
+
+   int t = 1 ;
+
+   //cin >> t ;
+
+   while (t--) {
+
+      solve() ;
+
+   }
+
+
+   return 0;
 }
