@@ -42,13 +42,11 @@ int f(int i){
       
          for(int j =1;j<=n;j++){
 
-               //cerr << i << " " <<  c[j] << nl;
              if(i >=c[j] ){
                 ans =  ans % MOD  + f(i - c[j]) % MOD ;
                 if(ans >= MOD){
                     ans -= MOD ;
                 }
-                //cerr << ans << nl;
              } 
 
           }
