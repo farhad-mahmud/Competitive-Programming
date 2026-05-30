@@ -30,9 +30,8 @@ void solve ()
  
          int l = 0 ;
  
-         map<int,int > mp ;
+         vector<int > freq(n+1) ;
         
-         int ans = 0 ;
 
          set<int > st ;
 
@@ -40,28 +39,36 @@ void solve ()
               st.insert(a[i]) ;
          }
 
-         int sz = st.size() ;
+         int target = st.size() ;
 
- 
+         int cnt = 0 ;
+
+         int ans = 1e9 ;
          for(int r = 0 ;r<n ;r++){
-            mp[a[r]]++ ;
- 
-            while(mp[a[r]] > 1){
-                  mp[a[l]]-- ;  // remove most left element from left ..
-                              // untill current element a[r] from left gets crossed out.. 
-                  l++ ;
-            }
-            
-            if(mp.size() ==  sz){
-                     cout << sz << nl; 
-                     return ;
-            }
-            ans += (r- l + 1) ;
+
+               if(freq[a[r]] == 0){
+                    cnt++ ;
+               }
+               freq[a[r]]++ ;
+
+
+               while(cnt == target){
+
+                     ans = min(ans , r-l + 1) ;
+                     freq[a[l]]-- ;
+
+                     if(freq[a[l]] == 0){
+                           cnt-- ;
+                     }
+
+                     l++ ;
+               }
+   
  
          }  
  
  
-        // cout << ans << nl;
+         cout << ans << nl; 
 
 
 }
