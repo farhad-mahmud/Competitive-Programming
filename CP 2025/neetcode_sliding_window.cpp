@@ -28,35 +28,31 @@ void solve ()
             vector<int > a(n) ; for(int i=0;i<n;i++)cin >> a[i];
 
 
-            int l = 0; int r = n -1 ;
+            int l = 0 ;
 
-            int mn = 1e9 ;
-            int mx = -1 ;
+            int pr = 0 ;
 
-            while(l <= r){
 
-                  if(a[l] < mn){
-                       mn =  a[l] ;
-                       l++ ;
+            int right = n-1 ;
+            int ans = 0 ;
+            for(int l=n-2;l>=0;l--){
+
+                  int dif = 0 ;
+                  if(a[l] > a[right]){
+                        right = l ;
+
                   }
-                  cerr << l << ' ' << r << nl;
-                  if(a[r] > mx){
-                       mx = a[r] ;
-                       r--;
+                  else {
+                       dif = a[right] - a[l] ;
+
                   }
+
+                  ans = max(ans , dif) ;
+
             }
+            
 
-
-            cout << mx << nl;
-
-            int profit = mx - mn ;
-
-            if(profit <=0){
-                  cout << 0 << nl;
-            }
-            else {
-                 cout << profit <<nl ;
-            }
+            cout << ans << nl;
 }
 
 int32_t main() {
