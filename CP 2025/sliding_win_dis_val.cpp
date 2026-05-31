@@ -30,9 +30,15 @@ void solve ()
 
          map<int,int > mp ;
 
-         int l = 0 ;
+         int l = 0 ; 
+
+
+         int cnt = 0 ;
 
          for(int i=1;i<=k;i++){
+               if(mp[a[i]] == 0){
+                     cnt++ ;
+               }
                mp[a[i]]++ ;
 
                while(mp[a[i]] > 1){
@@ -45,20 +51,25 @@ void solve ()
 
          vector<int > ans ;
 
-         ans.push_back(mp.size()) ;
+         ans.push_back(cnt) ;
 
-          l =k ;
+         
+         l = k ;
+
 
          for(int i=k+1;i<=n;i++){
-              mp[a[i]]++ ;
 
-              while(mp[a[i]] > 1){
-                    mp[a[l]]--;
-                    l++ ;
-              }
+               mp[a[i]]++;
 
+               mp[a[l]]-- ;
+               cnt-- ;
 
-              ans.push_back(mp.size()) ;
+               if(mp[a[i]] == 1){
+                    cnt++ ;
+               }
+              
+            
+              ans.push_back(cnt) ;
          }
 
 
