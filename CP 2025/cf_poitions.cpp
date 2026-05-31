@@ -17,39 +17,46 @@ using namespace std;
 
 // constrains
 
-const int N = 2000;
+const int N = 2002;
 const int W  = 1e9 ;
 const int MOD = 1e9 + 7;
 
-int dp[N];
+int dp[N][N] ;
 int a[N] ;
 int n ;
 
-int sum = 0 ;
-int f(int i){
-      if(i == n + 1){
+
+int f(int i, int j ){
+      if(i > n ){
           return 0 ;
       }
 
-
+      if(dp[i][j] != -1){
+           return dp[i][j] ;
+      }
       // skip it..
-      int ans = f(i+1) ;
 
+      int ans  = f(i+1 , j) ;
+
+      
       // take it..
 
-      if(sum + a[i] >= 0){
-           ans = max(ans , f(i+1)+ a[i]) ;
+      if(ans + a[i] >=0 ){
+            ans = max (ans , f(i+1, j+1) + a[i]) ;
       }
 
-      cerr << ans <<nl ;
-     return dp[i] = ans ;
+      return dp[i][j] = ans ;
+
 }
 void solve ()
 {  
-       cin >> n ;
-        for(int i=1;i<=n;i++)cin >> a[i];
+        cin >> n ;
+        for(int i=0;i<n;i++)cin >> a[i];
 
-         cout << f(1) << nl;
+         // left to right
+
+         memset(dp, -1 , sizeof dp) ;
+        cout << f(0, 0) << nl;
 
 }
 
