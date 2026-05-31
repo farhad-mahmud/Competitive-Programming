@@ -22,42 +22,53 @@ const int W  = 1e9 ;
 const int MOD = 1e9 + 7;
 
 int dp[N][N] ;
-int a[N] ;
-int n ;
 
-
-int f(int i, int j ){
-      if(i > n ){
-          return 0 ;
-      }
-
-      if(dp[i][j] != -1){
-           return dp[i][j] ;
-      }
-      // skip it..
-
-      int ans  = f(i+1 , j) ;
-
-      
-      // take it..
-
-      if(ans + a[i] >=0 ){
-            ans = max (ans , f(i+1, j+1) + a[i]) ;
-      }
-
-      return dp[i][j] = ans ;
-
-}
 void solve ()
 {  
-        cin >> n ;
+        int n ; cin >> n ;
+        int a[N] ;
+        
         for(int i=0;i<n;i++)cin >> a[i];
 
-         // left to right
+        
 
-         memset(dp, -1 , sizeof dp) ;
-        cout << f(0, 0) << nl;
+        for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= n; j++) {
+            dp[i][j] = -1e18; 
+            }
+        }
 
+
+        dp[0][0] = 0 ;
+
+
+        for(int i=0;i<n;i++){
+             for(int j=0;j<=i;j++){
+
+                   if(dp[i][j] < 0) continue ;
+
+                   //skip..this el.
+                   dp[i+1][j] = max(dp[i+1][j] , dp[i][j]) ;
+
+                   // take it..
+                   if(dp[i][j] + a[i] >= 0){
+                   dp[i+1][j+1] = max(dp[i+1][j+1] , dp[i][j] + a[i]) ;
+
+                  }
+
+             }
+        }
+
+        int ans = 0 ;
+
+        for(int j= n ;j>=0 ;j--){
+            if(dp[n][j] >=0){
+                  ans = j ;
+                  break ;
+            }
+        }
+
+        cout << ans << nl;
 }
 
 int32_t main() {
