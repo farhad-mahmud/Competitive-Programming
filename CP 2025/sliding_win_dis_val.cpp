@@ -41,10 +41,6 @@ void solve ()
                }
                mp[a[i]]++ ;
 
-               while(mp[a[i]] > 1){
-                    mp[a[l]]-- ;
-                    l++ ;
-               }
          }
 
 
@@ -54,26 +50,35 @@ void solve ()
          ans.push_back(cnt) ;
 
          
-         l = k ;
+        // l = k ;
 
 
          for(int i=k+1;i<=n;i++){
 
-               mp[a[i]]++;
+               // we have to erase the leftmost elment.. 
+               mp[a[i-k]]-- ;
+               
+               // zei left element ta sorabo.. oita jodi current window te na thake
+               // tahole cur window er distinct element er count kombe..
 
-               mp[a[l]]-- ;
-               cnt-- ;
-
-               if(mp[a[i]] == 1){
-                    cnt++ ;
+               if(mp[a[i-k]] == 0){
+                     cnt-- ;
                }
-              
+               
+               if(mp[a[i]] == 0){
+                   cnt++ ;
+               }
+               mp[a[i]]++ ;
             
-              ans.push_back(cnt) ;
+              ans.push_back(cnt) ; 
          }
 
 
-         output(ans) ;
+         for (auto x : ans){ 
+            cout << x << ' ' ;
+         }
+
+         cout << nl; 
   
 }
 
