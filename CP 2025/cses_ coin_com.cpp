@@ -17,46 +17,60 @@ using namespace std;
 
 // constrains
 
-const int N = 1e6+2; 
+const int N = 1e6+2;
 const int MOD = 1e9 + 7;
-const int INF = 1e9 ;
+
 
 int dp[N] ;
+int c[N] ;
+int n ,x ; 
+
+// top to bottom approach ..
+
+int f(int i){
+
+         if(i == 0){
+             return 1 ;
+         }
+         if(i < 0){
+             return 0 ;
+         }
+
+         if(dp[i] != -1){
+             return dp[i] ;
+         }
+
+         int ans = 0 ;
+      
+         for(int j =1;j<=n;j++){
+
+             if(i >=c[j] ){
+                ans =  ans % MOD  + f(i - c[j]) % MOD ;
+                if(ans >= MOD){
+                    ans -= MOD ;
+                }
+             } 
+
+          }
+      
+
+        
+         return dp[i] = ans ;
+
+}
+
 void solve ()
 {     
-            int n , x; cin >> n >> x ;
+            cin >> n >>  x ;
 
-            int c[102] ;
-
-            for(int i=1;i<=n;i++)cin >> c[i] ;
-
-           
-            
-            for(int i=1;i<=x;i++){
-                  dp[i] = 0 ;
+            for(int i=1;i<=n;i++){
+                 cin >> c[i] ;
             }
+            memset(dp, -1 , sizeof dp) ;
 
+           // cerr << x << nl;
 
-            dp[0] = 1  ;
-
-            for(int i=1;i<=x;i++){
-
-                for(int j=1;j<=n;j++){
-
-                   if(i >=c[j] ){
-                   dp[i] =  (dp[i] + dp[i-c[j]]) % MOD ;
-                   
-                    //cerr << i << ' ' << dp[i]  << ' ' << c[j] << nl; 
-                   } 
-
-                }
-            }
-
-             
-
-             cout << dp[x]  << nl ;
-
-
+            cout << f(x) << nl;
 
 }
 
