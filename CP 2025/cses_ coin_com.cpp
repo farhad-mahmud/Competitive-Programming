@@ -22,7 +22,7 @@ const int MOD = 1e9 + 7;
 
 
 int dp[N] ;
-int c[N] ;
+int c[105] ;
 int n ,x ; 
 
 // top to bottom approach ..
