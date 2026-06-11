@@ -14,7 +14,7 @@ using namespace std;
 #define all(x)   (x.begin(),x.end()) ;
 const int  MOD = 1e9 + 7;
 
-solve ()
+void solve ()
 {
 
    int n ; cin >> n ;
