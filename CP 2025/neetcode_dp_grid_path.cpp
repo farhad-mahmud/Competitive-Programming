@@ -22,7 +22,8 @@ const int N = 100 ;
 const int MOD = 1e9 + 7;
 const int inf = 1e9 + 7 ;
 
-int dp[N][N] ;
+vector<vector<int >> dp ;
+
 int n, m ; 
 int f(int i,int j){
       
@@ -30,15 +31,15 @@ int f(int i,int j){
           return 0 ;
       }
       if(i==n && j==m){
-           return dp[i][j] ;
+           return 1 ;
       }
       if(dp[i][j] != -1){
           return dp[i][j] ;
       } 
       // go down..
-      int ans = abs(f(i+1 , j)) ;
+      int ans = f(i+1, j) ;
 
-      ans += abs(f(i , j+1)) ;
+      ans += f(i, j+1) ;
 
       cerr << ans << nl;
       return dp[i][j] = ans ;
@@ -47,9 +48,9 @@ void solve ()
 {  
         cin >> n >> m ;
 
-        memset(dp, -1, sizeof dp) ;
+       dp.assign(n+1 , vector<int> (m+1, -1));
 
-        cout << f(1, 1) << nl;
+       cout << f(1, 1) << nl;
 }
 
 int32_t main() {
