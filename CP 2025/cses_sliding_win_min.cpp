@@ -46,24 +46,38 @@ void solve ()
 
          cout << d.front() << nl ;
          // cause sorted element 
+         
+         vector<int > minn ;
+
+         minn.push_back(d.front()) ;
+
+
          for(int i=k+1;i<=n;i++){
 
                // i-k expired..
 
-               d.pop_front(i-k) ;
+               if (!d.empty() && d.front() <= i - k) {
+                    d.pop_front();
+                }
 
-               int in = d.back() ;
- 
-               if(v[in] >= v[i]){
-
-                  d.pop_back() ;
-
+               while(!d.empty() && v[d.back()] >= v[i]){
+                    d.pop_back() ; 
                }
 
                d.push_back(i) ;
 
-               cour << d.fron() << nl;
+               minn.push_back(v[d.front()]) ;
          }
+
+
+         int ans = minn[0] ;
+
+         for(int i=0;i<minn.size() ; i++){
+               ans ^= minn[i] ;
+         }
+
+
+         cout << nl; 
 
 
 
