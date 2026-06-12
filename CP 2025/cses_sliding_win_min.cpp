@@ -57,11 +57,15 @@ void solve ()
                if(v[in] >= v[i]){
 
                   d.pop_back() ;
-                  
+
                }
 
+               d.push_back(i) ;
 
+               cour << d.fron() << nl;
          }
+
+
 
 }
 

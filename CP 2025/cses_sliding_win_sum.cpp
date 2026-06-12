@@ -43,7 +43,7 @@ void solve ()
          int cur_sum = 0 ;
 
          for(int i=1;i<=k;i++){
-               cur_sum += v[i] 
+               cur_sum += v[i] ;
          }  
 
          vector<int > sum ;
