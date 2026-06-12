@@ -43,8 +43,6 @@ void solve ()
          }
 
          //sliding window..
-
-         cout << d.front() << nl ;
          // cause sorted element 
          
          vector<int > minn ;
@@ -70,6 +68,11 @@ void solve ()
          }
 
 
+         for(auto x : minn){
+               cout << x << nl ;
+
+         }
+
          int ans = minn[0] ;
 
          for(int i=0;i<minn.size() ; i++){
@@ -77,7 +80,7 @@ void solve ()
          }
 
 
-         cout << nl; 
+         cout <<ans << nl ;
 
 
 
