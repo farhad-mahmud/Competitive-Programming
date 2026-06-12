@@ -38,26 +38,15 @@ void solve ()
 
          deque <int > d ;
 
-         for(int i=1;i<=k;i++){
-              d.push_back(i) ;
-         }
-
-         //sliding window..
-         // cause sorted element 
-         
-         cerr << v[d.front()] << nl ;
          vector<int > minn ;
 
-         minn.push_back(d.front()) ;
-
-
-         for(int i=k+1;i<=n;i++){
+         for(int i=1;i<=n;i++){
 
                // i-k expired..
 
-               // if (!d.empty() && d.front() <= i - k) {
-               //      d.pop_front();
-               //  }
+               if (!d.empty() && d.front() <= i - k) {
+                    d.pop_front();
+                }
 
                while(!d.empty() && v[d.back()] >= v[i]){
                     d.pop_back() ; 
