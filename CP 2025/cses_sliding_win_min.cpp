@@ -45,6 +45,7 @@ void solve ()
          //sliding window..
          // cause sorted element 
          
+         cerr << v[d.front()] << nl ;
          vector<int > minn ;
 
          minn.push_back(d.front()) ;
@@ -54,9 +55,9 @@ void solve ()
 
                // i-k expired..
 
-               if (!d.empty() && d.front() <= i - k) {
-                    d.pop_front();
-                }
+               // if (!d.empty() && d.front() <= i - k) {
+               //      d.pop_front();
+               //  }
 
                while(!d.empty() && v[d.back()] >= v[i]){
                     d.pop_back() ; 
@@ -75,7 +76,7 @@ void solve ()
 
          int ans = minn[0] ;
 
-         for(int i=0;i<minn.size() ; i++){
+         for(int i=1;i<minn.size() ; i++){
                ans ^= minn[i] ;
          }
 
