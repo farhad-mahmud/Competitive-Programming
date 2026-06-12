@@ -36,38 +36,33 @@ void solve ()
 
          }
 
-         // for(int i=1;i<=n;i++){
-         //      cout << v[i] << nl; 
-         // }
-
-         int mn = 1e9 ;
-
-         int mn2 = 1e9 ;
+         deque <int > d ;
 
          for(int i=1;i<=k;i++){
-               mn = min(mn , v[i]) ;
-               
-         }  
+              d.push_back(i) ;
+         }
 
-         vector<int > minn ;
-         minn.push_back(mn) ;
+         //sliding window..
 
+         cout << d.front() << nl ;
+         // cause sorted element 
          for(int i=k+1;i<=n;i++){
 
-               if( )
-              cur_sum += v[i] ;
-              cur_sum -= v[i-k] ;
+               // i-k expired..
 
-              sum.push_back(cur_sum) ;
+               d.pop_front(i-k) ;
+
+               int in = d.back() ;
+ 
+               if(v[in] >= v[i]){
+
+                  d.pop_back() ;
+                  
+               }
+
+
          }
 
-         int ans = sum[0];
-         for(int i=1;i<sum.size();i++){
-               ans = ans^ sum[i] ;
-         }
-
-
-         cout << ans << nl;
 }
 
 int32_t main() {
