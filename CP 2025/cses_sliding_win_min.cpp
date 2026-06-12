@@ -54,14 +54,18 @@ void solve ()
 
                d.push_back(i) ;
 
+               if(i>=k){
+
                minn.push_back(v[d.front()]) ;
+               
+               }
          }
 
 
-         for(auto x : minn){
-               cout << x << nl ;
+         // for(auto x : minn){
+         //       cout << x << nl ;
 
-         }
+         // }
 
          int ans = minn[0] ;
 
