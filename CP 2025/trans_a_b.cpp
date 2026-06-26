@@ -10,33 +10,49 @@ using namespace std;
 #define dbug(x) cerr << (#x) << " is " << (x) << nl;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
-const int MOD = 1e9 + 7;
-map<int, int> dp;
+const int INF = 1e18;
 
 int a, b; 
-int f(int cur){
-     if(cur > b){
-        return 0 ;
-     }   
+vector<int > ans ;
 
-     cerr << cur << nl ;
-     if(cur == b){
-        return 1;
-     }
-     if(dp.count(cur)){
-         return dp[cur] ;
-     }
-     int ans = f(cur*2) ;
-     ans = ans + f(cur*10 + 1) ;
+bool f(int cur) {
+    if(cur > b) return false ;
 
-     return dp[cur] = ans ;
+    if(cur == b){
+         ans.push_back(cur) ;
+         return true ;
+    } 
+
+    ans.push_back(cur) ;
+
+    if(f(cur*2)) return true ;
+    if(f(cur*10 + 1)) return true ;
+    ans.pop_back() ;
+
+    return false  ;
 }
 
 void solve ()
 {  
         cin >> a >> b ;
-        dp.clear();
-        cout << f(a) << nl;
+        
+
+        if(f(a)){
+             cout << "YES" << nl; 
+             cout << ans.size() << nl ;
+
+             for(auto x : ans){
+                 cout << x << ' ' ;
+             }
+
+             cout << nl ;
+        }
+
+        else {
+            cout << "NO" << nl; 
+        }
+       
+
 }
 
 int32_t main() {
