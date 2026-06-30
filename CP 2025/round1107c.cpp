@@ -38,7 +38,7 @@ void solve ()
         
 
     if(f){
-        cout << 1 << nl ;
+         cout << 1 << nl ;
     }
     else if(is_sorted(all(s)) || is_sorted(allr(s))){
          cout << 2 << nl; 

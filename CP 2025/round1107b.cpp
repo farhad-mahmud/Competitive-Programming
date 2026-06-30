@@ -16,24 +16,58 @@ using namespace std;
 #define output(a) for(auto &it: a) cerr<<it<<" "; cerr<<nl;
 
 // constrains
-
-const int N = 1e6 + 5 ;
-
 const int MOD = 1e9 + 7;
 
-bool f(int n){
-      string s = to_string(n);
+vector<int > pre ;
 
-      set<char > d ;
+void build(int v, int d1, int d2) {
+    if (v >1e9) return;
+    if (v >0) pre.push_back(v);
+    
+    if (v >0 || d1 > 0) build(v*10 + d1,d1,d2);
+    if (v >0 || d2 > 0) build(v*10 + d2,d1,d2);
+}
+void precmp(){
 
-      for(char c : s){
-           d.insert(c) ;
+       for (int i = 0;i <= 9; i++) {
+        for (int j = i;j <= 9; j++) {
+            build(0, i, j);
+        }
       }
+      sort(all(pre)) ;
 
-      return d.size() <=2  ;
+      pre.erase(unique(all(pre)), pre.end()) ;
+
+}
+bool f(int n){
+    int mask = 0;
+    int cnt = 0;
+
+    while (n > 0) {
+        int d = n % 10;
+        if ((mask &(1 << d)) == 0) {
+            cnt++;
+            mask |=(1 << d);
+        }
+        if(cnt > 2) return false;
+        n/= 10;
+    }
+    return true;
 }
 void solve ()
-{  
+{     
+            int x ; cin >> x ;
+
+            for(int i =0 ;i<pre.size() ;i++){
+
+                  if(pre[i] < 2 )continue ;
+
+                 if(f(x*pre[i])){
+                     cout << pre[i] << nl ;
+                     break ;
+                 }
+            }
+
        
 }
 
@@ -43,8 +77,8 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
-
+   cin >> t ;
+   precmp() ;
    while (t--) {
 
       solve() ;
