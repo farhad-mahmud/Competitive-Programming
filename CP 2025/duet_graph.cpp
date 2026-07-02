@@ -61,6 +61,7 @@ void solve ()
             int a,b ,c ; cin >> a >> b >> c ;
 
 
+            cerr << "hi" << nl;
             for(int i = 0; i <= n; i++) {
             g[i].clear();
             vis[i] = false;
@@ -73,7 +74,6 @@ void solve ()
                  g[v].push_back(u);
 
             }
-
 
              int dis_a_b = bfs(a , b) ;
 
