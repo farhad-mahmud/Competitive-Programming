@@ -20,7 +20,7 @@ const int MOD = 1e9 + 7;
 
 const int N = 1e9 + 5 ;
 vector<int > pre ;
-
+unordered_set < int > has  ;
 void build(int v, int d1, int d2) {
     if (v >1e9) return;
     if (v >0) pre.push_back(v);
@@ -38,19 +38,15 @@ void precmp(){
       sort(all(pre)) ;
 
       pre.erase(unique(all(pre)), pre.end()) ;
+      for (int num : pre) {
+        has.insert(num);
+      }
 
 }
 
 void solve ()
 {     
             int x ; cin >> x ;
-
-            vector<bool> has(N + 1, false);
-
-           
-           for(int i=0;i<pre.size();i++){
-                    has[pre[i]] = true ;
-           }
 
 
            for(int i=0;i<pre.size();i++){
@@ -59,7 +55,7 @@ void solve ()
                        int y = pre[i]/ x ;
 
                        //cerr << pre[i] << ' ' << x <<  ' ' << y << nl ;
-                       if(has[y] && y>=2){
+                       if(has[y] && has.count(y)){
                            cout << y << nl ;
                            return ;
                        }
