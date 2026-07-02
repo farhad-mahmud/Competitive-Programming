@@ -61,7 +61,7 @@ void solve ()
             int a,b ,c ; cin >> a >> b >> c ;
 
 
-            cerr << "hi" << nl;
+          
             for(int i = 0; i <= n; i++) {
             g[i].clear();
             vis[i] = false;
@@ -80,37 +80,37 @@ void solve ()
             for(int i = 0; i <= n; i++) {
                vis[i] = false;
             }
-             int dis_a_c = bfs(a, c) ;  // alice connected..
+             int dis_a_c = bfs(a, c) ; 
 
                   for(int i = 0; i <= n; i++) {
                   vis[i] = false;
             }
 
-            int dis_b_c = bfs(b,c) ; // bob connected .
+            int dis_b_c = bfs(b,c) ; 
 
 
-             cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+             //cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
             //cerr << dis_b_c << nl;
 
-             if(dis_a_b != -1){ // alice ,bob conn
+             if(dis_a_b != -1){ // alice themselves connected..
                  cout << "Alice" << nl ;
              }
              else if(dis_a_c != -1 && dis_b_c != -1){ // alice ,bob both conn
 
                   if(dis_a_c > dis_b_c){
-                       cout << "Alice" << nl;
+                       cout << "Bob" << nl;
                   }
                   else if(dis_a_c == dis_b_c) {
                        cout << "Tie" << nl;
                   }
                   else{
-                       cout << "Bob" << nl;
+                       cout << "Alice" << nl;
                   }
 
              }
-             else if(dis_a_c == -1 && dis_b_c != -1){ // bob conn, alice not..
+             else if(dis_a_c == -1 && dis_b_c != -1){ // bob conn, alice disconn
                   if(dis_b_c == 1){
                        cout << "Tie" << nl; 
                   }
@@ -118,11 +118,14 @@ void solve ()
                       cout << "Alice" << nl ;
                   }
              }
-             else if(dis_a_c != -1 && dis_b_c == -1){ // alice conn, bob not 
+             else if(dis_a_c != -1 && dis_b_c == -1){ // alice conn, bob discon
                    cout << "Alice" << nl;
              }
              else if(a == b && b == c){
                   cout << "Tie" << nl;
+             }
+             else if(dis_a_c == -1 && dis_b_c == -1){  //alice bob both disconn
+                     cout << "Tie" << nl;
              }
 }
 
