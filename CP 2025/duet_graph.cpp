@@ -44,7 +44,7 @@ int bfs(int start,int target) {
                 dis[v] = dis[u] + 1 ;
 
                 if(v == target) return dis[v] ;
-                cerr << v << ' ' << target << nl;
+                //cerr << v << ' ' << target << nl;
                 vis[v] = true ;
                 q.push(v) ; // push child at last of the queue ;
             }
@@ -89,12 +89,41 @@ void solve ()
             int dis_b_c = bfs(b,c) ; // bob connected .
 
 
-             cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+            // cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
             //cerr << dis_b_c << nl;
 
+             if(dis_a_b != -1){ // alice ,bob conn
+                 cout << "Alice" << nl ;
+             }
+             else if(dis_a_c != -1 && dis_b_c != -1){ // alice ,bob both conn
 
+                  if(dis_a_c > dis_b_c){
+                       cout << "Alice" << nl;
+                  }
+                  else if(dis_a_c == dis_b_c) {
+                       cout << "Tie" << nl;
+                  }
+                  else{
+                       cout << "Bob" << nl;
+                  }
+
+             }
+             else if(dis_a_c == -1 && dis_b_c != -1){ // bob conn, alice not..
+                  if(dis_b_c == 1){
+                       cout << "Tie" << nl; 
+                  }
+                  else{
+                      cout << "Alice" << nl ;
+                  }
+             }
+             else if(dis_a_c != -1 && dis_b_c == -1){ // alice conn, bob not 
+                   cout << "Alice" << nl;
+             }
+             else if(a == b && b == c){
+                  cout << "Tie" << nl;
+             }
 }
 
 int32_t main() {
