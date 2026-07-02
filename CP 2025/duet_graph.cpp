@@ -25,7 +25,7 @@ vector<int> g[N];
 bool vis[N];
 int dis[N] ;
 
-void bfs(int start,int target) {
+int bfs(int start,int target) {
 
     if(start == target) return 0 ;
 
@@ -49,6 +49,8 @@ void bfs(int start,int target) {
             }
         }
     }
+
+    return -1 ;
 }
 
 
@@ -74,7 +76,7 @@ void solve ()
             cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
-         
+
 
 
 }
