@@ -58,6 +58,7 @@ void solve ()
                 if(pre[i] % x == 0 && pre[i]!= x){
                        int y = pre[i];
 
+                       cerr << pre[i] << ' ' << x <<  ' ' << y << nl ;
                        if(has[y] && y>=2){
                            cout << y << nl ;
                            return ;
