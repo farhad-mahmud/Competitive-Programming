@@ -45,10 +45,25 @@ void solve ()
 {     
             int x ; cin >> x ;
 
-            vector<bool> present(N + 1, false);
+            vector<bool> has(N + 1, false);
 
            
-            cerr << pre.size() <<  nl;
+           for(int i=0;i<pre.size();i++){
+                    has[pre[i]] = true ;
+           }
+
+
+           for(int i=0;i<pre.size();i++){
+
+                if(pre[i] % x == 0 && pre[i]!= x){
+                       int y = pre[i];
+
+                       if(has[y] && y>=2){
+                           cout << y << nl ;
+                           return ;
+                       }
+                }
+           }
        
 }
 
