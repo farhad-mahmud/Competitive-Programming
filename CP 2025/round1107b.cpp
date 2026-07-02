@@ -39,21 +39,7 @@ void precmp(){
       pre.erase(unique(all(pre)), pre.end()) ;
 
 }
-bool f(int n){
-    int mask = 0;
-    int cnt = 0;
 
-    while (n > 0) {
-        int d = n % 10;
-        if ((mask &(1 << d)) == 0) {
-            cnt++;
-            mask |=(1 << d);
-        }
-        if(cnt > 2) return false;
-        n/= 10;
-    }
-    return true;
-}
 void solve ()
 {     
             int x ; cin >> x ;
@@ -61,10 +47,12 @@ void solve ()
             for(int i =0 ;i<pre.size() ;i++){
 
                  int k = pre[i] / x  ;
-                 if(pre[i] % x == 0 && k >= 2){
-                      cout << pre[i] / x << nl ;
-                      return ;
-                 }
+                 // if(pre[i] % x == 0 && k >= 2){
+                 //      cout << pre[i] / x << nl ;
+                 //      return ;
+                 // }
+
+                 cerr << pre[i] << nl ;
             }
 
        
