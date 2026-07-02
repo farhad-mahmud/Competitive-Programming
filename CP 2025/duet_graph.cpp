@@ -27,13 +27,17 @@ int dis[N] ;
 
 int bfs(int start,int target) {
 
+   cerr << 
+   "asche ?" << nl ;
     if(start == target) return 0 ;
-
+  cerr << 
+   "asche ?" << nl ;
     queue<int > q ;
     q.push(start) ;
     vis[start] = true ;
     dis[start] = 0 ;
-
+  cerr << 
+   "asche ?" << nl ;
     while (!q.empty()) {
         int u = q.front() ;
         q.pop() ;
@@ -43,7 +47,9 @@ int bfs(int start,int target) {
             if (!vis[v]) {
 
                 dis[v] = dis[u] + 1 ;
-                 if(v == target) return dis[v] ;
+
+                if(v == target) return dis[v] ;
+                cerr << v << ' ' << target << nl;
                 vis[v] = true ;
                 q.push(v) ; // push child at last of the queue ;
             }
@@ -68,15 +74,15 @@ void solve ()
             }
 
 
-            int dis_a_b = bfs(a , b) ;
-            int dis_a_c = bfs(a, c) ;
-            int dis_b_c = bfs(b,c ) ;
+            // int dis_a_b = bfs(a , b) ;
+            // int dis_a_c = bfs(a, c) ;  // alice connected..
+            int dis_b_c = bfs(b,c) ; // bob connected .
 
 
-            cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+            // cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
-
+            cerr << dis_b_c << nl;
 
 
 }
