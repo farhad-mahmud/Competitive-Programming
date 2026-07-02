@@ -46,7 +46,7 @@ int bfs(int start,int target) {
                 if(v == target) return dis[v] ;
                 //cerr << v << ' ' << target << nl;
                 vis[v] = true ;
-                q.push(v) ; // push child at last of the queue ;
+                q.push(v) ; 
             }
         }
     }
@@ -97,7 +97,19 @@ void solve ()
             //cerr << dis_b_c << nl;
 
              if(dis_a_b != -1){ // alice themselves connected..
-                 cout << "Alice" << nl ;
+                  
+                  if(dis_a_c  ==  -1 && dis_b_c == -1){ // if they are detached from c
+                        cout << "Alice" << nl ;
+                  }
+                  else if(dis_a_c < dis_b_c){  // if they are not ..
+                        cout << "Alice" << nl;
+                  }
+                  else if(dis_a_c == dis_b_c){
+                       cout << "Tie" << nl ;
+                  }
+                  else{
+                        cout << "Bob" << nl; 
+                  }
              }
              else if(dis_a_c != -1 && dis_b_c != -1){ // alice ,bob both conn
 
