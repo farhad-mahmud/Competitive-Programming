@@ -17,18 +17,22 @@ using namespace std;
 
 // constrains
 
-const int N = 1e6 + 5 ;
+const int N = 2e5 + 5 ;
 
 const int MOD = 1e9 + 7;
 
 vector<int> g[N];
 bool vis[N];
+int dis[N] ;
 
-void bfs(int start) {
+void bfs(int start,int target) {
+
+    if(start == target) return 0 ;
 
     queue<int > q ;
     q.push(start) ;
     vis[start] = true ;
+    dis[start] = 0 ;
 
     while (!q.empty()) {
         int u = q.front() ;
@@ -38,18 +42,20 @@ void bfs(int start) {
 
             if (!vis[v]) {
 
-                q.push(v) ; // push child at last of the queue ;
-
+                dis[v] = dis[u] + 1 ;
+                 if(v == target) return dis[v] ;
                 vis[v] = true ;
+                q.push(v) ; // push child at last of the queue ;
             }
         }
     }
 }
 
+
 void solve ()
 {  
             int n, m ; cin >> n >> m ; 
-            int a,b,c; cin >> a >> b >> c ;
+            int a,b ,c ; cin >> a >> b >> c ;
 
             while(m--){
                  int u, v ; cin >> u >> v ;
@@ -59,6 +65,16 @@ void solve ()
 
             }
 
+
+            int dis_a_b = bfs(a , b) ;
+            int dis_a_c = bfs(a, c) ;
+            int dis_b_c = bfs(b,c ) ;
+
+
+            cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+
+
+         
 
 
 }
