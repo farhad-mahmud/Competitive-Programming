@@ -56,9 +56,9 @@ void solve ()
            for(int i=0;i<pre.size();i++){
 
                 if(pre[i] % x == 0 && pre[i]!= x){
-                       int y = pre[i];
+                       int y = pre[i]/ x ;
 
-                       cerr << pre[i] << ' ' << x <<  ' ' << y << nl ;
+                       //cerr << pre[i] << ' ' << x <<  ' ' << y << nl ;
                        if(has[y] && y>=2){
                            cout << y << nl ;
                            return ;
