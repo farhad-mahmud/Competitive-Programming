@@ -60,11 +60,10 @@ void solve ()
 
             for(int i =0 ;i<pre.size() ;i++){
 
-                  if(pre[i] < 2 )continue ;
-
-                 if(f(x*pre[i])){
-                     cout << pre[i] << nl ;
-                     break ;
+                 int k = pre[i] / x  ;
+                 if(pre[i] % x == 0 && k >= 2){
+                      cout << pre[i] / x << nl ;
+                      return ;
                  }
             }
 
