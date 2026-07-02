@@ -18,6 +18,7 @@ using namespace std;
 // constrains
 const int MOD = 1e9 + 7;
 
+const int N = 1e9 + 5 ;
 vector<int > pre ;
 
 void build(int v, int d1, int d2) {
@@ -44,17 +45,10 @@ void solve ()
 {     
             int x ; cin >> x ;
 
-            for(int i =0 ;i<pre.size() ;i++){
+            vector<bool> present(N + 1, false);
 
-                 int k = pre[i] / x  ;
-                 // if(pre[i] % x == 0 && k >= 2){
-                 //      cout << pre[i] / x << nl ;
-                 //      return ;
-                 // }
-
-                 cerr << pre[i] << nl ;
-            }
-
+           
+            cerr << pre.size() <<  nl;
        
 }
 
