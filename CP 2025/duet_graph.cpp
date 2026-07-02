@@ -17,7 +17,7 @@ using namespace std;
 
 // constrains
 
-const int N = 2e5 + 5 ;
+const int N = 3e5 + 5 ;
 
 const int MOD = 1e9 + 7;
 
@@ -79,11 +79,13 @@ void solve ()
 
             for(int i = 0; i <= n; i++) {
                vis[i] = false;
+               dis[i] = 0 ;
             }
              int dis_a_c = bfs(a, c) ; 
 
-                  for(int i = 0; i <= n; i++) {
+            for(int i = 0; i <= n; i++) {
                   vis[i] = false;
+                  dis[i] = 0 ;
             }
 
             int dis_b_c = bfs(b,c) ; 
@@ -120,9 +122,6 @@ void solve ()
              }
              else if(dis_a_c != -1 && dis_b_c == -1){ // alice conn, bob discon
                    cout << "Alice" << nl;
-             }
-             else if(a == b && b == c){
-                  cout << "Tie" << nl;
              }
              else if(dis_a_c == -1 && dis_b_c == -1){  //alice bob both disconn
                      cout << "Tie" << nl;
