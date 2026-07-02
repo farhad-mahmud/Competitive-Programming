@@ -89,7 +89,7 @@ void solve ()
             int dis_b_c = bfs(b,c) ; // bob connected .
 
 
-            // cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+             cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
             //cerr << dis_b_c << nl;
