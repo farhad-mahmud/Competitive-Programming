@@ -27,17 +27,12 @@ int dis[N] ;
 
 int bfs(int start,int target) {
 
-   cerr << 
-   "asche ?" << nl ;
     if(start == target) return 0 ;
-  cerr << 
-   "asche ?" << nl ;
+
     queue<int > q ;
     q.push(start) ;
     vis[start] = true ;
     dis[start] = 0 ;
-  cerr << 
-   "asche ?" << nl ;
     while (!q.empty()) {
         int u = q.front() ;
         q.pop() ;
@@ -65,24 +60,39 @@ void solve ()
             int n, m ; cin >> n >> m ; 
             int a,b ,c ; cin >> a >> b >> c ;
 
+
+            for(int i = 0; i <= n; i++) {
+            g[i].clear();
+            vis[i] = false;
+            dis[i] = 0 ;
+            }
             while(m--){
                  int u, v ; cin >> u >> v ;
-
+                 // cerr << u << v << nl; 
                  g[u].push_back(v);
                  g[v].push_back(u);
 
             }
 
 
-            // int dis_a_b = bfs(a , b) ;
-            // int dis_a_c = bfs(a, c) ;  // alice connected..
+             int dis_a_b = bfs(a , b) ;
+
+            for(int i = 0; i <= n; i++) {
+               vis[i] = false;
+            }
+             int dis_a_c = bfs(a, c) ;  // alice connected..
+
+                  for(int i = 0; i <= n; i++) {
+                  vis[i] = false;
+            }
+
             int dis_b_c = bfs(b,c) ; // bob connected .
 
 
-            // cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
+             cerr << dis_a_b << ' ' << dis_a_c << ' ' << dis_b_c << nl; 
 
 
-            cerr << dis_b_c << nl;
+            //cerr << dis_b_c << nl;
 
 
 }
@@ -93,7 +103,7 @@ int32_t main() {
 
    int t = 1 ;
 
-   //cin >> t ;
+   cin >> t ;
 
    while (t--) {
 
