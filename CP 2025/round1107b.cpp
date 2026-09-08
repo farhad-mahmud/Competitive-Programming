@@ -55,7 +55,7 @@ void solve ()
                        int y = pre[i]/ x ;
 
                        //cerr << pre[i] << ' ' << x <<  ' ' << y << nl ;
-                       if(has[y] && has.count(y)){
+                       if(y >= 2 &&  has.count(y)){
                            cout << y << nl ;
                            return ;
                        }

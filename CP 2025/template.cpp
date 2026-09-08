@@ -57,7 +57,9 @@ for (int i = 0; i < n; i++) {
 
 // ========== Number Theory Utilities ==========
 
-int lcm(int a, int b) { return (a / __gcd(a, b)) * b; }
+int lcm(int a, int b) {
+ return (a / __gcd(a, b)) * b; 
+}
 
 
 // recursive divide and conquer
@@ -72,25 +74,6 @@ int binpow(int a, int b) {
     }
     return res;
 }
-
-// ================phi======================//
-int phi(int n) {
-    int result = n;
-
-    for (int p = 2; p * p <= n; p++) {
-        if (n % p == 0) {
-            while (n % p == 0)
-                n /= p;
-            result -= result / p;
-        }
-    }
-
-    if (n > 1)  
-        result -= result / n;
-
-    return result;
-}
-
 //========== prime generation(sieve)=======//
 
 bool vis[N] ;
@@ -126,7 +109,7 @@ int legendre(int n , int p) {
 //=========== spf ==================//
 
 // for prime expo info / factorize many number quickly
-
+// for prime factorization number = 1e6
 int spf[N] ;
 void sieve() {
 
@@ -141,35 +124,104 @@ void sieve() {
         }
     }
 
+
+
 }
 
-//--------------- all factorization upto N----------//
-vector<vector<pair<int,int>>> v(N + 1);
-void all_fact() {
-    for (int i = 1; i <= N; i++) {
-        int x = i;
-        while (x > 1) {
-            int p = spf[x], cnt = 0;
-            while (x % p == 0) {
-                x /= p;
-                cnt++;
+// count the number of unique primes in a prime factorization //
+
+            int last = -1;
+             int cnt = 0;
+             int num = a[i];
+ 
+             while (num > 1)
+             {
+                 if (spf[num] != last)
+                    cnt++;
+ 
+                 last = spf[num];
+                 num /= spf[num];
+             }
+            
+             if (cnt > 1)
+             {
+                stat = true;
+                break;
+///================================///////////
+
+vector<pair<int, int>> getFactorization(int x) {
+    vector<pair<int, int>> res;
+    while (x > 1) {
+        int p = spf[x];
+        int cnt = 0;
+        while (x % p == 0) {
+            x /= p;
+            cnt++;
+        }
+        res.push_back({p, cnt});
+    }
+    return res;
+}
+
+// for prime factorization of number = 1e9///// 
+
+vector<int> primes;
+
+void sieve() {
+    vector<bool> isPrime(N, true);
+
+    isPrime[0] = isPrime[1] = false;
+
+    for (int i = 2; i * i < N; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j < N; j += i) {
+                isPrime[j] = false;
             }
-            v[i].push_back({p, cnt});
         }
     }
-    v[1].push_back({1,1});
+
+    for (int i = 2; i < N; i++) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+        }
+    }
 }
+
+// count number of unique primes in prime factorization of a number//
+
+vector<int> getFactorization(int n) {
+
+    vector<int> f;
+
+    for (auto &p : primes) {
+
+        if (p * p > n) break;
+
+        if (n % p == 0) {
+            f.push_back(p);
+
+            while (n % p == 0) {
+                n /= p;
+            }
+        }
+    }
+
+    if (n > 1) {
+        f.push_back(n);  
+    }
+
+    return f;
+}
+
+
+
 
 //----------------is_prime---------------------//
 
-bool is_prime(long long  n) {
-    if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (long long i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
-    }
+bool is_prime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; ++i)
+        if (n % i == 0) return false;
     return true;
 }
 
@@ -360,6 +412,7 @@ void dijkstra(int start, int n) {
     }
 
     dis[start] = 0;
+    
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({0, start}); // {distance, node}
 
